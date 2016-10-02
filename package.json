@@ -1,0 +1,72 @@
+{
+  "name": "video-react",
+  "version": "0.0.1",
+  "description": "Video.React is a web video player built from the ground up for an HTML5 world using React library.",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "build": "npm run lint && ./node_modules/.bin/rollup -c",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx src",
+    "lint-fix": "./node_modules/.bin/eslint --ext .js,.jsx src --fix",
+    "dev": "./node_modules/.bin/webpack-dev-server --progress --host 0.0.0.0",
+    "test": "./node_modules/.bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/video-react/video-react.git"
+  },
+  "keywords": [
+    "react",
+    "video"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/video-react/video-react/issues"
+  },
+  "homepage": "https://github.com/video-react/video-react#readme",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0-rc",
+    "react-dom": "^0.14.0 || ^15.0.0-rc"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.6.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "file-loader": "^0.9.0",
+    "github": "^3.1.1",
+    "karma": "^1.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.2.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0",
+    "mocha": "^3.1.0",
+    "prompt": "^1.0.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-hot-loader": "^3.0.0-beta.5",
+    "rollup": "^0.36.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.4",
+    "rollup-plugin-node-globals": "^1.0.9",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  }
+}
