@@ -1,0 +1,21 @@
+.video-react {
+  display: block;
+  vertical-align: top;
+  box-sizing: border-box;
+  color: @primary-foreground-color;
+  background-color: #000;
+  position: relative;
+  font-size: 10px;
+  line-height: 1;
+
+  .user-select(none);
+
+  &:-moz-full-screen {
+    position: absolute;
+  }
+
+  &:-webkit-full-screen {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

@@ -1,7 +1,7 @@
+import Player from './components/Player';
 import Video from './components/Video';
-import ControlBar from './components/ControlBar';
 
 export {
+  Player,
   Video,
-  ControlBar,
 };

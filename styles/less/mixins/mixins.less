@@ -1,0 +1,34 @@
+
+.user-select(@string) {
+    -webkit-user-select: @string;
+    -moz-user-select: @string;
+    -ms-user-select: @string;
+    -o-user-select: @string;
+    user-select: @string;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.background-color-with-alpha(@color, @alpha) {
+  background-color: @color;
+  background-color: fade(@color, @alpha);
+}
+
+.transform(@transform) {
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  -webkit-transform: @transform;
+  transform: @transform;
+}
+
+.transition(@string) {
+  -webkit-transition: @string;
+  -moz-transition: @string;
+  -o-transition: @string;
+  transition: @string;
+}
