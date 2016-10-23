@@ -75,7 +75,7 @@ var config = [{
         loader: 'url-loader?limit=10000&minetype=application/font-woff',
       },
       { test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]',
+        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
       },
     ]
   },
