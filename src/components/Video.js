@@ -329,7 +329,6 @@ export default class Video extends Component {
       <video
         className="video-react-video"
         ref={(c) => { this.video = c; }}
-        controls
         style={{
           width: '100%',
           height: '100%',
