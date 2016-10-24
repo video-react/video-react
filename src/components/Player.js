@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import BigPlayButton from './BigPlayButton';
 import Actions from '../actions';
 import Video from './Video';
+import LoadingSpinner from './LoadingSpinner';
 
 const propTypes = {
   width: PropTypes.number,
@@ -181,6 +182,9 @@ export default class Player extends Component {
           }}
           {...props}
         />
+        <LoadingSpinner
+        {...props}
+         />
         <BigPlayButton
           {...props}
         />
