@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-
+import BigPlayButton from './BigPlayButton';
 import Actions from '../actions';
 import Video from './Video';
 
@@ -179,6 +179,9 @@ export default class Player extends Component {
             this.video = c;
             this.actions.setVideo(c);
           }}
+          {...props}
+        />
+        <BigPlayButton
           {...props}
         />
       </div>
