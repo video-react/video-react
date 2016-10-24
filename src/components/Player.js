@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import BigPlayButton from './BigPlayButton';
 import Actions from '../actions';
-import Video from './Video';
+import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
+import PosterImage from './PosterImage';
+import Video from './Video';
 
 const propTypes = {
   width: PropTypes.number,
@@ -182,9 +183,12 @@ export default class Player extends Component {
           }}
           {...props}
         />
+        <PosterImage
+          {...props}
+        />
         <LoadingSpinner
-        {...props}
-         />
+          {...props}
+        />
         <BigPlayButton
           {...props}
         />
