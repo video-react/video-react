@@ -1,11 +1,16 @@
 import Player from './components/Player';
 import Video from './components/Video';
-import PosterImage from './components/PosterImage';
+import ControlBar from './components/control-bar/ControlBar';
 import BigPlayButton from './components/BigPlayButton';
+import LoadingSpinner from './components/LoadingSpinner';
+import PosterImage from './components/PosterImage';
+
 
 export {
   Player,
   Video,
-  PosterImage,
+  ControlBar,
   BigPlayButton,
+  LoadingSpinner,
+  PosterImage,
 };
