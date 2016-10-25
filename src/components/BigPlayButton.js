@@ -27,12 +27,12 @@ export default class BigPlayButton extends Component {
     }
     return (
       <button
-        className="big-play-button"
+        className="video-react-big-play-button"
         type="button"
         aria-live="polite"
         onClick={this.handleClick}
       >
-        <span className="video-react-icon-play-arrow" />
+        <span className="video-react-icon video-react-icon-play-arrow" />
       </button>
     );
   }

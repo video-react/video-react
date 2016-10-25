@@ -16,7 +16,7 @@ describe('PosterImage', () => {
     expect(wrapper.type()).toBe('div');
   });
 
-  it('should render with "poster" class', () => {
+  it('should render with "video-react-poster" class', () => {
     const wrapper = shallow(
       <PosterImage
         poster="poster.png"
@@ -25,6 +25,6 @@ describe('PosterImage', () => {
         }}
       />
     );
-    expect(wrapper.hasClass('poster')).toBe(true);
+    expect(wrapper.hasClass('video-react-poster')).toBe(true);
   });
 });

@@ -12,7 +12,7 @@ function PosterImage({ poster, player }) {
 
   return (
     <div
-      className="poster"
+      className="video-react-poster"
       tabIndex="-1"
       style={{
         backgroundImage: `url("${poster}")`,

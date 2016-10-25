@@ -18,11 +18,7 @@ export default class LoadingSpinner extends Component {
       return null;
     }
     return (
-      <div className="loading-spinner">
-        <div className="bounce1" />
-        <div className="bounce2" />
-        <div className="bounce3" />
-      </div>
+      <div className="video-react-loading-spinner" />
     );
   }
 

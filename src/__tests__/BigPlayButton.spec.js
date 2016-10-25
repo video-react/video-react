@@ -15,7 +15,7 @@ describe('BigPlayButton', () => {
     expect(wrapper.type()).toBe('button');
   });
 
-  it('should render with "big-play-button" class', () => {
+  it('should render with "video-react-big-play-button" class', () => {
     const wrapper = shallow(
       <BigPlayButton
         player={{
@@ -23,6 +23,6 @@ describe('BigPlayButton', () => {
         }}
       />
     );
-    expect(wrapper.hasClass('big-play-button')).toBe(true);
+    expect(wrapper.hasClass('video-react-big-play-button')).toBe(true);
   });
 });

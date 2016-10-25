@@ -15,7 +15,7 @@ describe('LoadingSpinner', () => {
     expect(wrapper.type()).toBe('div');
   });
 
-  it('should render with "loading-spinner" class', () => {
+  it('should render with "video-react-loading-spinner" class', () => {
     const wrapper = shallow(
       <LoadingSpinner
         player={{
@@ -23,7 +23,7 @@ describe('LoadingSpinner', () => {
           waiting: true,
         }}
       />);
-    expect(wrapper.hasClass('loading-spinner')).toBe(true);
+    expect(wrapper.hasClass('video-react-loading-spinner')).toBe(true);
   });
 
 });
