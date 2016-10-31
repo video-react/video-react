@@ -10,6 +10,10 @@ import ForwardReplayControl from './components/control-bar/ForwardReplayControl'
 import ProgressControl from './components/control-bar/ProgressControl';
 import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
 import PlayToggle from './components/control-bar/PlayToggle';
+import SeekBar from './components/control-bar/SeekBar';
+import FullscreenToggle from './components/control-bar/FullscreenToggle';
+import PlayProgressBar from './components/control-bar/PlayProgressBar';
+import LoadProgressBar from './components/control-bar/LoadProgressBar';
 import Slider from './components/Slider';
 
 
@@ -27,5 +31,9 @@ export {
   PlayToggle,
   ForwardReplayControl,
   ProgressControl,
+  SeekBar,
+  FullscreenToggle,
+  PlayProgressBar,
+  LoadProgressBar,
   Slider,
 };
