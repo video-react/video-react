@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import { blurNode } from '../../lib/dom';
 
 const propTypes = {
-  actions: PropTypes.object,
-  player: PropTypes.object,
+  actions: PropTypes.object.isRequired,
+  player: PropTypes.object.isRequired,
 };
 
 export default class PlayToggle extends Component {
@@ -15,19 +16,37 @@ export default class PlayToggle extends Component {
 
   handleClick() {
     const { actions, player } = this.props;
-    // todo
+    if (player.paused) {
+      actions.play();
+    } else {
+      actions.pause();
+    }
+    blurNode(this.button);
   }
 
   render() {
-    const { actions, player } = this.props;
+    const { player } = this.props;
+    const controlText = player.paused ? 'Play' : 'Pause';
+
     return (
-      <button onClick={this.handleClick} className={classNames({
+      <button
+        ref={
+          c => {
+            this.button = c;
+          }
+        }
+        className={classNames({
           'video-react-play-control': true,
           'video-react-control': true,
           'video-react-button': true,
           'video-react-paused': player.paused,
           'video-react-playing': !player.paused,
-        })}>
+        })}
+        onClick={this.handleClick}
+      >
+        <span className="video-react-control-text">
+          {controlText}
+        </span>
       </button>
     );
   }

@@ -1,0 +1,14 @@
+.video-react .video-react-slider {
+  outline: 0;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0.45em 0 0.45em;
+
+  .background-color-with-alpha(@secondary-background-color, @secondary-background-transparency);
+
+  &:focus {
+    text-shadow: 0em 0em 1em fade(@primary-foreground-color, 100%);
+    .box-shadow(0 0 1em @primary-foreground-color);
+  }
+}

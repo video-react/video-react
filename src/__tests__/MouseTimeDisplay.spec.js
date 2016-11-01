@@ -7,9 +7,11 @@ describe('MouseTimeDisplay', () => {
     const wrapper = shallow(
       <MouseTimeDisplay
         actions={{}}
-        player={{}}
-      />
-      );
+        duration={100}
+        mouseTime={{
+          time: 10,
+        }}
+      />);
     expect(wrapper.type()).toBe('div');
   });
 
@@ -17,7 +19,10 @@ describe('MouseTimeDisplay', () => {
     const wrapper = shallow(
       <MouseTimeDisplay
         actions={{}}
-        player={{}}
+        duration={100}
+        mouseTime={{
+          time: 10,
+        }}
       />);
     expect(wrapper.hasClass('video-react-mouse-display')).toBe(true);
   });

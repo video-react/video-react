@@ -1,15 +1,49 @@
+
+@video-react-icon-play-arrow: "\f200";
+@video-react-icon-play-circle-filled: "\f201";
+@video-react-icon-play-circle-outline: "\f202";
+@video-react-icon-pause: "\f203";
+@video-react-icon-pause-circle-filled: "\f204";
+@video-react-icon-pause-circle-outline: "\f205";
+@video-react-icon-stop: "\f206";
+@video-react-icon-fast-rewind: "\f207";
+@video-react-icon-fast-forward: "\f208";
+@video-react-icon-skip-previous: "\f209";
+@video-react-icon-skip-next: "\f20a";
+@video-react-icon-replay-5: "\f20b";
+@video-react-icon-replay-10: "\f20c";
+@video-react-icon-replay-30: "\f20d";
+@video-react-icon-forward-5: "\f20e";
+@video-react-icon-forward-10: "\f20f";
+@video-react-icon-forward-30: "\f210";
+@video-react-icon-volume-off: "\f211";
+@video-react-icon-volume-mute: "\f212";
+@video-react-icon-volume-down: "\f213";
+@video-react-icon-volume-up: "\f214";
+@video-react-icon-fullscreen: "\f215";
+@video-react-icon-fullscreen-exit: "\f216";
+@video-react-icon-closed-caption: "\f217";
+@video-react-icon-hd: "\f218";
+@video-react-icon-settings: "\f219";
+@video-react-icon-share: "\f21a";
+@video-react-icon-info: "\f21b";
+@video-react-icon-info-outline: "\f21c";
+@video-react-icon-close: "\f21d";
+@video-react-icon-circle: "\f21e";
+@video-react-icon-circle-outline: "\f21f";
+@video-react-icon-circle-inner-circle: "\f220";
+
 @font-face {
   font-family: 'video-react';
   src:  url('../fonts/video-react.eot?xzcx6z');
   src:  url('../fonts/video-react.eot?xzcx6z#iefix') format('embedded-opentype'),
     url('../fonts/video-react.ttf?xzcx6z') format('truetype'),
-    url('../fonts/video-react.woff?xzcx6z') format('woff'),
-    url('../fonts/video-react.svg?xzcx6z#video-react') format('svg');
+    url('../fonts/video-react.woff?xzcx6z') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="video-react-icon-"], [class*=" video-react-icon-"] {
+.video-react-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'video-react' !important;
   speak: none;
@@ -24,94 +58,170 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.video-react-icon-play-arrow:before {
-  content: "\f200";
+.video-react-icon-play-arrow {
+  &:before {
+    content: @video-react-icon-play-arrow;
+  }
 }
-.video-react-icon-play-circle-filled:before {
-  content: "\f201";
+.video-react-icon-play-circle-filled {
+  &:before {
+    content: @video-react-icon-play-circle-filled;
+  }
 }
-.video-react-icon-play-circle-outline:before {
-  content: "\f202";
+.video-react-icon-play-circle-outline {
+  &:before {
+    content: @video-react-icon-play-circle-outline;
+  }
 }
-.video-react-icon-pause:before {
-  content: "\f203";
+.video-react-icon-pause {
+  &:before {
+    content: @video-react-icon-pause;
+  }
 }
-.video-react-icon-pause-circle-filled:before {
-  content: "\f204";
+.video-react-icon-pause-circle-filled {
+  &:before {
+    content: @video-react-icon-pause-circle-filled;
+  }
 }
-.video-react-icon-pause-circle-outline:before {
-  content: "\f205";
+.video-react-icon-pause-circle-outline {
+  &:before {
+    content: @video-react-icon-pause-circle-outline;
+  }
 }
-.video-react-icon-stop:before {
-  content: "\f206";
+.video-react-icon-stop {
+  &:before {
+    content: @video-react-icon-stop;
+  }
 }
-.video-react-icon-fast-rewind:before {
-  content: "\f207";
+.video-react-icon-fast-rewind {
+  &:before {
+    content: @video-react-icon-fast-rewind;
+  }
 }
-.video-react-icon-fast-forward:before {
-  content: "\f208";
+.video-react-icon-fast-forward {
+  &:before {
+    content: @video-react-icon-fast-forward;
+  }
 }
-.video-react-icon-skip-previous:before {
-  content: "\f209";
+.video-react-icon-skip-previous {
+  &:before {
+    content: @video-react-icon-skip-previous;
+  }
 }
-.video-react-icon-skip-next:before {
-  content: "\f20a";
+.video-react-icon-skip-next {
+  &:before {
+    content: @video-react-icon-skip-next;
+  }
 }
-.video-react-icon-replay-5:before {
-  content: "\f20b";
+.video-react-icon-replay-5 {
+  &:before {
+    content: @video-react-icon-replay-5;
+  }
 }
-.video-react-icon-replay-10:before {
-  content: "\f20c";
+.video-react-icon-replay-10 {
+  &:before {
+    content: @video-react-icon-replay-10;
+  }
 }
-.video-react-icon-replay-30:before {
-  content: "\f20d";
+.video-react-icon-replay-30 {
+  &:before {
+    content: @video-react-icon-replay-30;
+  }
 }
-.video-react-icon-forward-5:before {
-  content: "\f20e";
+.video-react-icon-forward-5 {
+  &:before {
+    content: @video-react-icon-forward-5;
+  }
 }
-.video-react-icon-forward-10:before {
-  content: "\f20f";
+.video-react-icon-forward-10 {
+  &:before {
+    content: @video-react-icon-forward-10;
+  }
 }
-.video-react-icon-forward-30:before {
-  content: "\f210";
+.video-react-icon-forward-30 {
+  &:before {
+    content: @video-react-icon-forward-30;
+  }
 }
-.video-react-icon-volume-off:before {
-  content: "\f211";
+.video-react-icon-volume-off {
+  &:before {
+    content: @video-react-icon-volume-off;
+  }
 }
-.video-react-icon-volume-mute:before {
-  content: "\f212";
+.video-react-icon-volume-mute {
+  &:before {
+    content: @video-react-icon-volume-mute;
+  }
 }
-.video-react-icon-volume-down:before {
-  content: "\f213";
+.video-react-icon-volume-down {
+  &:before {
+    content: @video-react-icon-volume-down;
+  }
 }
-.video-react-icon-volume-up:before {
-  content: "\f214";
+.video-react-icon-volume-up {
+  &:before {
+    content: @video-react-icon-volume-up;
+  }
 }
-.video-react-icon-fullscreen:before {
-  content: "\f215";
+.video-react-icon-fullscreen {
+  &:before {
+    content: @video-react-icon-fullscreen;
+  }
 }
-.video-react-icon-fullscreen-exit:before {
-  content: "\f216";
+.video-react-icon-fullscreen-exit {
+  &:before {
+    content: @video-react-icon-fullscreen-exit;
+  }
 }
-.video-react-icon-closed-caption:before {
-  content: "\f217";
+.video-react-icon-closed-caption {
+  &:before {
+    content: @video-react-icon-closed-caption;
+  }
 }
-.video-react-icon-hd:before {
-  content: "\f218";
+.video-react-icon-hd {
+  &:before {
+    content: @video-react-icon-hd;
+  }
 }
-.video-react-icon-settings:before {
-  content: "\f219";
+.video-react-icon-settings {
+  &:before {
+    content: @video-react-icon-settings;
+  }
 }
-.video-react-icon-share:before {
-  content: "\f21a";
+.video-react-icon-share {
+  &:before {
+    content: @video-react-icon-share;
+  }
 }
-.video-react-icon-info:before {
-  content: "\f21b";
+.video-react-icon-info {
+  &:before {
+    content: @video-react-icon-info;
+  }
 }
-.video-react-icon-info-outline:before {
-  content: "\f21c";
+.video-react-icon-info-outline {
+  &:before {
+    content: @video-react-icon-info-outline;
+  }
 }
-.video-react-icon-close:before {
-  content: "\f21d";
+.video-react-icon-close {
+  &:before {
+    content: @video-react-icon-close;
+  }
 }
+.video-react-icon-circle {
+  &:before {
+    content: @video-react-icon-circle;
+  }
+}
+.video-react-icon-circle-outline {
+  &:before {
+    content: @video-react-icon-circle-outline;
+  }
+}
+.video-react-icon-circle-inner-circle {
+  &:before {
+    content: @video-react-icon-circle-inner-circle;
+  }
+}
+
 

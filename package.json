@@ -97,6 +97,7 @@
     "react-router": "^2.6.1",
     "react-scripts": "^0.7.0",
     "reactstrap": "^3.6.0",
+    "sinon": "^1.17.6",
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
