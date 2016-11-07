@@ -1,9 +1,3 @@
-import React from 'react';
+import ForwardReplayControl from './ForwardReplayControl';
 
-
-export default function ForwardControl(props) {
-  return (
-    <div className="video-react-forward-control">
-    </div>
-  );
-}
+export default new ForwardReplayControl('forward');

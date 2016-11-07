@@ -15,6 +15,18 @@ describe('BigPlayButton', () => {
     expect(wrapper.type()).toBe('button');
   });
 
+  it('should render null if video has been started', () => {
+    const wrapper = shallow(
+      <BigPlayButton
+        player={{
+          hasStarted: true,
+        }}
+      />
+    );
+    expect(wrapper.type()).toBe(null);
+  });
+
+
   it('should render with "video-react-big-play-button" class', () => {
     const wrapper = shallow(
       <BigPlayButton

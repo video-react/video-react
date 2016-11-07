@@ -21,10 +21,19 @@ export default class Actions {
     this.video.pause();
   }
 
-  toggleFullscreen(player) {
-    this.setState({
-      isFullscreen: !player.isFullscreen,
-    });
+  // seek video by time
+  seek(time) {
+    this.video.seek(time);
+  }
+
+  // jump forward x seconds
+  forward(seconds) {
+    this.video.forward(seconds);
+  }
+
+  // jump back x seconds
+  replay(seconds) {
+    this.video.replay(seconds);
   }
 
   handleFullscreenChange(isFullscreen) {

@@ -5,6 +5,7 @@ import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
 import Video from './Video';
+import ControlBar from './control-bar/ControlBar';
 
 const propTypes = {
   width: PropTypes.number,
@@ -190,6 +191,9 @@ export default class Player extends Component {
           {...props}
         />
         <BigPlayButton
+          {...props}
+        />
+        <ControlBar
           {...props}
         />
       </div>

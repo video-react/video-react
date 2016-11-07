@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { ProgressControl } from '../';
 
 describe('ProgressControl', () => {
-  it('should render with "button" tag', () => {
+  it('should render with "div" tag', () => {
     const wrapper = shallow(
       <ProgressControl
         actions={{}}
@@ -11,7 +11,7 @@ describe('ProgressControl', () => {
       />
     );
 
-    expect(wrapper.type()).toBe('button');
+    expect(wrapper.type()).toBe('div');
   });
 
   it('should render with "video-react-progress-control" class', () => {
@@ -24,5 +24,5 @@ describe('ProgressControl', () => {
     expect(wrapper.hasClass('video-react-progress-control')).toBe(true);
   });
 
- 
+
 });

@@ -1,6 +1,7 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const libraryName = 'video-react';
 
@@ -12,7 +13,8 @@ module.exports = function (env) {
       'process.env.NODE_ENV': JSON.stringify(env)
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin('video-react.css')
   ];
 
   if (env === 'production') {
@@ -32,7 +34,10 @@ module.exports = function (env) {
 
   const config = {
     devtool: 'source-map',
-    entry: [__dirname + '/src/index.js'],
+    entry: [
+      __dirname + '/src/index.js',
+      __dirname + '/styles/less/video-react.less'
+    ],
     output: {
       path: __dirname + '/dist',
       filename: outputFile,
@@ -72,6 +77,21 @@ module.exports = function (env) {
           loaders: [
             'babel-loader?cacheDirectory'
           ]
+        },
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        },
+        {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+        },
+        {
+          test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
+          loader: 'url-loader?limit=10000&minetype=application/font-woff',
+        },
+        { test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
+          loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
         },
       ]
     },
