@@ -11,8 +11,8 @@ export default function ControlBar(props) {
   return (
     <div className="video-react-control-bar">
       <PlayToggle {...props} />
-      <ForwardControl {...props} />
       <ReplayControl {...props} />
+      <ForwardControl {...props} />
       <ProgressControl {...props} />
       <FullscreenToggle {...props} />
     </div>
