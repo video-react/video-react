@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  seconds: 30,
+  seconds: 10,
 };
 
 export default (mode) => {
