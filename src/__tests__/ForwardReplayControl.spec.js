@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ForwardReplayControl } from '../';
+import ForwardReplayControl from '../components/control-bar/ForwardReplayControl';
 
 describe('ForwardReplayControl', () => {
   it('should render with "button" tag', () => {
+    const Forwardontrol = ForwardReplayControl('forward');
     const wrapper = shallow(
-      <ForwardReplayControl
+      <Forwardontrol
         actions={{}}
         player={{}}
       />
@@ -14,15 +15,16 @@ describe('ForwardReplayControl', () => {
     expect(wrapper.type()).toBe('button');
   });
 
-  it('should render with "video-react-forward-replay-control" class', () => {
+  it('should render with "video-react-control video-react-button" class', () => {
+    const Forwardontrol = ForwardReplayControl('forward');
     const wrapper = shallow(
-      <ForwardReplayControl
+      <Forwardontrol
         actions={{}}
         player={{}}
       />
     );
-    expect(wrapper.hasClass('video-react-forward-replay-control')).toBe(true);
+    expect(wrapper.hasClass('video-react-control video-react-button')).toBe(true);
   });
 
- 
+
 });
