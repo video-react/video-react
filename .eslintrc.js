@@ -56,5 +56,6 @@ module.exports = {
   },
   'ecmaFeatures': ecmaFeatures,
   rules: rules,
+  parser: 'babel-eslint',
   extensions: ['', '.js', '.jsx']
 };
