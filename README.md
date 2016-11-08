@@ -24,9 +24,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <Player poster="img/poster.png" width="640" height="480">
-
-      </Player>
+      <Player
+        source="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        poster="/assets/poster.png"
+        width={640}
+        height={480}
+      />
     );
   }
 }

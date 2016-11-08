@@ -47,6 +47,7 @@
     "url": "https://github.com/video-react/video-react/issues"
   },
   "homepage": "https://github.com/video-react/video-react#readme",
+  "tonicExampleFilename": "tonic-example.js",
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash.throttle": "^4.1.1",
