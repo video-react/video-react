@@ -59,6 +59,7 @@ describe('ForwardControl', () => {
   it('should render with "video-react-icon-forward-30" class for forward 30 seconds', () => {
     const wrapper = shallow(
       <ForwardControl
+        seconds={30}
         actions={{}}
         player={{}}
       />

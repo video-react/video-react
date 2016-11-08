@@ -61,6 +61,7 @@ describe('ReplayControl', () => {
   it('should render with "video-react-icon-replay-30" class for replay 30 seconds', () => {
     const wrapper = shallow(
       <ReplayControl
+        seconds={30}
         actions={{}}
         player={{}}
       />
