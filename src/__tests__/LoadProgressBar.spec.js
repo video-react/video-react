@@ -31,5 +31,19 @@ describe('LoadProgressBar', () => {
     );
     expect(wrapper.hasClass('video-react-load-progress')).toBe(true);
   });
+  
+  it('should render children when passed in', () => {
+    const wrapper = shallow(
+      <LoadProgressBar
+          buffered={{
+            length: 1,
+            start: function() {},
+            end: function(){}
+          }}
+          duration={1000}
+      />
+    );
+    expect(wrapper.children().length).toBeGreaterThan(0);
+  });
 
 });
