@@ -1,5 +1,5 @@
-import 'bootstrap-css';
-import 'video-react-less';
+import 'bootstrap-scss';
+import 'video-react-scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

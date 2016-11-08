@@ -24,12 +24,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Player
-        source="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-        poster="/assets/poster.png"
-        width={640}
-        height={480}
-      />
+      <Player poster="img/poster.png" width="640" height="480">
+
+      </Player>
     );
   }
 }
@@ -60,3 +57,7 @@ Watch tests:
 ```sh
 npm run test-watch
 ```
+
+## Inspiration
+
+This project is heavily inspired by [video.js](http://www.videojs.com).
