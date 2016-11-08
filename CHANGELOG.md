@@ -1,6 +1,11 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/video-react/video-react/compare/0.1.3...v0.1.4) (2016-11-08)
+Add tonic example
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2016-11-08)
-
+First release, with basic features.
 
 
 <a name="0.0.2"></a>
