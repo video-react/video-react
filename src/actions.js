@@ -31,6 +31,10 @@ export default class Actions {
     this.video.forward(seconds);
   }
 
+   changeRate(rate) {
+    this.video.playbackRate = rate;
+  }
+
   // jump back x seconds
   replay(seconds) {
     this.video.replay(seconds);

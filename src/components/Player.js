@@ -6,6 +6,7 @@ import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
 import Video from './Video';
 import ControlBar from './control-bar/ControlBar';
+import * as browser from '../lib/browser';
 
 const propTypes = {
   width: PropTypes.number,
@@ -168,6 +169,7 @@ export default class Player extends Component {
           'video-react-fullscreen': isFullscreen,
           'video-react-user-inactive': !this.state.userActivity,
           'video-react-user-active': this.state.userActivity,
+           'video-react-workinghover': !browser.IS_IOS,
         }, 'video-react')}
         style={this.renderStyle()}
         ref={(c) => {
