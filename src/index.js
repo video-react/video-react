@@ -15,6 +15,11 @@ import PlayProgressBar from './components/control-bar/PlayProgressBar';
 import LoadProgressBar from './components/control-bar/LoadProgressBar';
 import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
 
+import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
+import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
+import DurationDisplay from './components/time-controls/DurationDisplay';
+import TimeDivider from './components/time-controls/TimeDivider';
+
 export {
   Player,
   Video,
@@ -32,4 +37,8 @@ export {
   PlayProgressBar,
   LoadProgressBar,
   MouseTimeDisplay,
+  RemainingTimeDisplay,
+  CurrentTimeDisplay,
+  DurationDisplay,
+  TimeDivider,
 };

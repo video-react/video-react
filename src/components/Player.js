@@ -77,8 +77,14 @@ export default class Player extends Component {
   }
 
   setPlayerState(player) {
-    this.setState({
-      player: Object.assign({}, this.state.player, player),
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        player: {
+          ...prevState.player,
+          ...player
+        }
+      };
     });
   }
 
