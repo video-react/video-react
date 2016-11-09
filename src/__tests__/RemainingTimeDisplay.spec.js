@@ -14,4 +14,16 @@ describe('RemainingTimeDisplay', () => {
     );
     expect(wrapper.find('div.video-react-remaining-time-display').length).toBe(1);
   });
+  
+  it('should has more than 1 children', () => {
+    const wrapper = shallow(
+      <RemainingTimeDisplay
+        player = {{
+            duration: 100,
+            currentTime: 20,
+        }}        
+      />
+    );
+    expect(wrapper.children().length).toBeGreaterThan(0);
+  });
 });
