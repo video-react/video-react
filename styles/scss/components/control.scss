@@ -9,13 +9,13 @@
   padding: 0;
   height: 100%;
   width: 4em;
-  .flex(none);
+  @include flex(none);
 
   &:before {
     font-size: 1.8em;
     line-height: 1.67;
 
-    &:extend(.video-react-icon);
+    @extend .video-react-icon;
   }
 }
 
@@ -23,12 +23,12 @@
 .video-react .video-react-control:focus:before,
 .video-react .video-react-control:hover:before,
 .video-react .video-react-control:focus {
-  text-shadow: 0em 0em 1em fade(@primary-foreground-color, 100%);
+  text-shadow: 0em 0em 1em rgba($primary-foreground-color, 1);
 }
 
 // Hide control text visually, but have it available for screenreaders
 .video-react .video-react-control-text {
-  .hide-visually;
+  @include hide-visually;
 }
 
 // IE 8 + 9 Support

@@ -1,5 +1,5 @@
 @import "variables";
-@import "./mixins/mixins";
+@import "mixins";
 @import "icons";
 @import "layout";
 @import "components/button";
@@ -12,4 +12,5 @@
 @import "components/progress";
 @import "components/play-pause";
 @import "components/fullscreen";
+@import "components/time";
 

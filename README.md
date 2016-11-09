@@ -57,3 +57,7 @@ Watch tests:
 ```sh
 npm run test-watch
 ```
+
+## Inspiration
+
+This project is heavily inspired by [video.js](http://www.videojs.com).

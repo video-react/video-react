@@ -7,9 +7,11 @@
   margin: -25px 0 0 -25px;
   opacity: 0.85;
 
+  // Need to fix centered page layouts
   text-align: left;
 
-  border: 6px solid fade(@primary-background-color, @primary-background-transparency);
+  border: 6px solid rgba($primary-background-color, $primary-background-transparency);
+  // border: 6px solid rgba(43, 51, 63, 0.5);
 
   box-sizing: border-box;
   background-clip: padding-box;
@@ -66,37 +68,37 @@
 
 @keyframes video-react-spinner-fade {
   0% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   20% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   35% {
     border-top-color: white;
   }
   60% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   100% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
 }
 
 @-webkit-keyframes video-react-spinner-fade {
   0% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   20% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   35% {
     border-top-color: white;
   }
   60% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
   100% {
-    border-top-color: @secondary-background-color;
+    border-top-color: $secondary-background-color;
   }
 }
 

@@ -7,17 +7,17 @@
   right: 0;
   height: 3.0em;
 
-  .background-color-with-alpha(@primary-background-color, @primary-background-transparency);
+  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
 }
 
 // Video has started playing
 .video-react-has-started .video-react-control-bar {
-  .display-flex;
+  @include display-flex;
   visibility: visible;
   opacity: 1;
 
-  @trans: visibility 0.1s, opacity 0.1s; // Var needed because of comma
-  .transition(@trans);
+  $trans: visibility 0.1s, opacity 0.1s; // Var needed because of comma
+  @include transition($trans);
 }
 
 // Video has started playing AND user is inactive
@@ -26,8 +26,8 @@
   visibility: visible;
   opacity: 0;
 
-  @trans: visibility 1.0s, opacity 1.0s;
-  .transition(@trans);
+  $trans: visibility 1.0s, opacity 1.0s;
+  @include transition($trans);
 }
 
 .video-react-controls-disabled .video-react-control-bar,
