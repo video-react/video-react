@@ -153,20 +153,14 @@ export default class Slider extends Component {
 
   render() {
     const { vertical, label, valuenow, valuetext } = this.props;
-    const className = {
-      'video-react-slider': true,
-      'video-react-slider-vertical': vertical,
-      'video-react-slider-horizontal': !vertical,
-      'video-react-sliding': this.state.active,
-    };
-
-    if (this.props.className) {
-      className[this.props.className] = true;
-    }
 
     return (
       <div
-        className={classNames(className)}
+        className={classNames(this.props.className, {
+          'video-react-slider-vertical': vertical,
+          'video-react-slider-horizontal': !vertical,
+          'video-react-sliding': this.state.active,
+        }, 'video-react-slider')}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleMouseDown}
         onFocus={this.handleFocus}

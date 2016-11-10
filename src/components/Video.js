@@ -136,6 +136,7 @@ export default class Video extends Component {
     this.props.actions.handleCanPlay({
       videoWidth: this.videoWidth(),
       videoHeight: this.videoHeight(),
+      duration: this.video.duration,
     });
   }
 
@@ -161,7 +162,9 @@ export default class Video extends Component {
   handlePlay() {
     const { player, actions } = this.props;
     if (player.paused) {
-      actions.handlePlay();
+      actions.handlePlay({
+        duration: this.video.duration
+      });
     }
   }
 
@@ -266,6 +269,7 @@ export default class Video extends Component {
   // Fires when the browser is trying to
   // get media data, but data is not available
   handleStalled() {
+    // console.log('handleStalled', this.video.duration)
   }
 
   // Fires when the browser has loaded
@@ -325,6 +329,7 @@ export default class Video extends Component {
   }
 
   render() {
+    const { player } = this.props;
     return (
       <video
         className="video-react-video"
@@ -333,6 +338,7 @@ export default class Video extends Component {
           width: '100%',
           height: '100%',
         }}
+        muted={player.muted}
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}
         onCanPlay={this.handleCanPlay}

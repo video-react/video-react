@@ -31,13 +31,23 @@ export default class Actions {
     this.video.forward(seconds);
   }
 
-   changeRate(rate) {
-    this.video.playbackRate = rate;
-  }
-
   // jump back x seconds
   replay(seconds) {
     this.video.replay(seconds);
+  }
+
+  changeRate(rate) {
+    this.video.playbackRate = rate;
+  }
+
+  changeVolume(volume) {
+    this.video.volume = volume;
+  }
+
+  toggleMuted(muted) {
+    this.setState({
+      muted,
+    });
   }
 
   handleFullscreenChange(isFullscreen) {
@@ -54,11 +64,12 @@ export default class Actions {
     });
   }
 
-  handleCanPlay({ videoWidth, videoHeight }) {
+  handleCanPlay({ videoWidth, videoHeight, duration }) {
     this.setState({
       waiting: false,
       videoWidth,
       videoHeight,
+      duration
     });
   }
 
@@ -80,13 +91,14 @@ export default class Actions {
     });
   }
 
-  handlePlay() {
+  handlePlay({ duration }) {
     this.setState({
       ended: false,
       paused: false,
       autoPaused: false,
       waiting: false,
       hasStarted: true,
+      duration
     });
   }
 

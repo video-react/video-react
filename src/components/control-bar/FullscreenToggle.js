@@ -104,7 +104,7 @@ export default class FullscreenToggle extends Component {
         className={classNames({
           'video-react-icon-fullscreen-exit': player.isFullscreen,
           'video-react-icon-fullscreen': !player.isFullscreen,
-        }, 'video-react-fullscreen-control video-react-control video-react-button')}
+        }, 'video-react-fullscreen-control video-react-control video-react-button video-react-icon')}
         ref={
           c => {
             this.button = c;

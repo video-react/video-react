@@ -22,6 +22,7 @@ export default (mode) => {
 
     handleClick() {
       const { actions, seconds } = this.props;
+      // Depends mode to implement different actions
       if (mode === 'forward') {
         actions.forward(seconds);
       } else {
@@ -42,7 +43,7 @@ export default (mode) => {
           className={classNames({
             [`video-react-icon-${mode}-${seconds}`]: true,
             [`video-react-${mode}-control`]: true,
-          }, 'video-react-control video-react-button')}
+          }, 'video-react-control video-react-button video-react-icon')}
           onClick={this.handleClick}
         >
           <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>
