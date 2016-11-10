@@ -1,0 +1,92 @@
+.video-react {
+  .video-react-mute-control,
+  .video-react-volume-menu-button {
+    cursor: pointer;
+    @include flex(none);
+    @extend .video-react-icon;
+    @extend .video-react-icon-volume-up;
+
+    &.video-react-vol-0 {
+      @extend .video-react-icon-volume-mute;
+    }
+    &.video-react-vol-1 {
+      @extend .video-react-icon-volume-down;
+    }
+    &.video-react-vol-2 {
+      @extend .video-react-icon-volume-down;
+    }
+    &.video-react-vol-muted {
+      @extend .video-react-icon-volume-off;
+    }
+  }
+
+  .video-react-volume-control {
+    width: 5em;
+    @include flex(none);
+    @include display-flex(center);
+  }
+
+  .video-react-volume-bar {
+    margin: 1.35em 0.45em;
+
+    &.video-react-slider-horizontal {
+      width: 5em;
+      height: 0.3em;
+
+      .vjs-volume-level {
+        width: 100%;
+      }
+    }
+
+    &.video-react-slider-vertical {
+      width: 0.3em;
+      height: 5em;
+      margin: 1.35em auto;
+
+      .vjs-volume-level {
+        height: 100%;
+      }
+
+    }
+  }
+
+  .video-react-volume-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: $primary-foreground-color;
+
+    @extend .video-react-icon;
+    @extend .video-react-icon-circle;
+
+    // Volume handle
+    &:before {
+      position: absolute;
+      font-size: 0.9em; // Doing this to match the handle on play progress.
+    }
+  }
+
+
+
+  .video-react-slider-vertical .video-react-volume-level {
+    width: 0.3em;
+
+    // Volume handle
+    &:before {
+      top: -0.5em;
+      left: -0.3em;
+    }
+  }
+  .video-react-slider-horizontal .video-react-volume-level {
+    height: 0.3em;
+
+    // Volume handle
+    &:before {
+      top: -0.3em;
+      right: -0.5em;
+    }
+  }
+}
+
+
