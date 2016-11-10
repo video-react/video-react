@@ -36,7 +36,7 @@ module.exports = function (env) {
     devtool: 'source-map',
     entry: [
       __dirname + '/src/index.js',
-      __dirname + '/styles/less/video-react.less'
+      __dirname + '/src/styles/scss/video-react.scss'
     ],
     output: {
       path: __dirname + '/dist',
@@ -83,8 +83,8 @@ module.exports = function (env) {
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         },
         {
-          test: /\.less$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
         },
         {
           test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
@@ -97,7 +97,6 @@ module.exports = function (env) {
     },
     resolve: {
       alias: {
-        'video-react-less': './styles/video-react.less',
         'video-react': 'src/index'
       },
       extensions: ['', '.js', '.json'],

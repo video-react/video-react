@@ -67,8 +67,8 @@ var config = [{
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       },
       {
         test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
@@ -82,8 +82,8 @@ var config = [{
   resolve: {
     extensions: ['', '.js', '.json'],
     alias: {
-      'bootstrap-css': path.join(__dirname, 'node_modules/bootstrap/dist/css/bootstrap-flex.css'),
-      'video-react-less': path.resolve('./styles/less/video-react.less'),
+      'bootstrap-scss': path.join(__dirname, 'node_modules/bootstrap/scss/bootstrap-flex.scss'),
+      'video-react-scss': path.resolve('./src/styles/scss/video-react.scss'),
       'video-react': path.resolve('./src')
     }
   }
