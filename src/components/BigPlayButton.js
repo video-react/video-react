@@ -1,8 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
+  position: PropTypes.string,
+};
+
+const defaultProps = {
+  position: 'left',
 };
 
 export default class BigPlayButton extends Component {
@@ -21,22 +27,26 @@ export default class BigPlayButton extends Component {
   }
 
   render() {
-    const { player } = this.props;
+    const { player, position } = this.props;
     if (player.hasStarted) {
       return null;
     }
     return (
       <button
-        className="video-react-big-play-button"
+        className={classNames(
+          'video-react-big-play-button',
+          `video-react-big-play-button-${position}`
+        )}
         type="button"
         aria-live="polite"
         onClick={this.handleClick}
       >
-        <span className="video-react-icon video-react-icon-play-arrow" />
+        <span className="video-react-control-text">Play Video</span>
       </button>
     );
   }
 }
 
 BigPlayButton.propTypes = propTypes;
+BigPlayButton.defaultProps = defaultProps;
 
