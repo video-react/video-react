@@ -1,18 +1,11 @@
 .video-react .video-react-play-control {
   cursor: pointer;
   @include flex(none);
-}
+  @extend .video-react-icon;
+  @extend .video-react-icon-play-arrow;
 
-.video-react .video-react-play-control.video-react-paused {
-
-  &:before {
-    @extend .video-react-icon-play-arrow:before;
+  &.video-react-playing {
+    @extend .video-react-icon-pause;
   }
 }
 
-.video-react .video-react-play-control.video-react-playing {
-
-  &:before {
-    @extend .video-react-icon-pause:before;
-  }
-}

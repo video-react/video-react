@@ -15,16 +15,19 @@
     font-size: 1.8em;
     line-height: 1.67;
 
-    @extend .video-react-icon;
+    @extend %icon-default;
   }
+
+  // Replacement for focus outline
+  &:focus:before,
+  &:hover:before,
+  &:focus {
+    text-shadow: 0em 0em 1em rgba($primary-foreground-color, 1);
+  }
+
 }
 
-// Replacement for focus outline
-.video-react .video-react-control:focus:before,
-.video-react .video-react-control:hover:before,
-.video-react .video-react-control:focus {
-  text-shadow: 0em 0em 1em rgba($primary-foreground-color, 1);
-}
+
 
 // Hide control text visually, but have it available for screenreaders
 .video-react .video-react-control-text {

@@ -62,10 +62,10 @@
 .video-react .video-react-play-progress {
   background-color: $primary-foreground-color;
   @extend .video-react-icon;
+  @extend .video-react-icon-circle;
 
   // Progress handle
   &:before {
-    @extend .video-react-icon-circle:before;
     position: absolute;
     top: -0.333333333333333em;
     right: -0.5em;
