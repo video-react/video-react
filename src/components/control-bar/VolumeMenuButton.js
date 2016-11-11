@@ -26,8 +26,8 @@ class VolumeMenuButton extends Component {
   }
 
   handleClick() {
-    const { player, actions } = this.props;
-    actions.toggleMuted(!player.muted);
+    // const { player, actions } = this.props;
+    // actions.toggleMuted(!player.muted);
   }
 
   get volumeLevel() {

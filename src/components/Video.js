@@ -133,6 +133,7 @@ export default class Video extends Component {
   // A handler for events that
   // signal that waiting has ended
   handleCanPlay() {
+    // console.log('handleCanPlay')
     this.props.actions.handleCanPlay({
       videoWidth: this.videoWidth(),
       videoHeight: this.videoHeight(),
@@ -143,6 +144,7 @@ export default class Video extends Component {
   // A handler for events that
   // signal that waiting has ended
   handleCanPlayThrough() {
+    // console.log('handleCanPlayThrough')
     const { player, actions } = this.props;
     if (player.waiting) {
       actions.handleCanPlayThrough();
@@ -256,10 +258,12 @@ export default class Video extends Component {
   // Fires when the browser is
   // intentionally not getting media data
   handleSuspend() {
+    // console.log('handleSuspend', this.video.duration)
   }
 
   // Fires when the loading of an audio/video is aborted
   handleAbort() {
+    // console.log('handleAbort', this.video.duration)
   }
 
   // Fires when the current playlist is empty
@@ -314,7 +318,7 @@ export default class Video extends Component {
   // Fires when an error occurred
   // during the loading of an audio/video
   handleError(/* event */) {
-    // logger.exception(event, 'Video Error')
+    // console.log(event, 'Video Error')
   }
 
   handleKeypress() {
@@ -335,6 +339,7 @@ export default class Video extends Component {
         className="video-react-video"
         ref={(c) => { this.video = c; }}
         muted={player.muted}
+        preload="auto"
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}
         onCanPlay={this.handleCanPlay}
