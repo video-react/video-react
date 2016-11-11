@@ -334,10 +334,6 @@ export default class Video extends Component {
       <video
         className="video-react-video"
         ref={(c) => { this.video = c; }}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
         muted={player.muted}
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}

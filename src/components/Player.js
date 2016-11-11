@@ -17,9 +17,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  fluid: false,
-  width: 400,
-  height: 300,
+  fluid: true,
 };
 
 
@@ -80,7 +78,6 @@ export default class Player extends Component {
 
   setPlayerState(player) {
     this.setState((prevState) => {
-      console.log('prevState', prevState, player)
       return {
         ...prevState,
         player: {
@@ -119,7 +116,7 @@ export default class Player extends Component {
       aspectRatio = `${player.videoWidth}:${player.videoHeight}`;
     } else {
       // Or use a default. The video element's is 2:1, but 16:9 is more common.
-      aspectRatio = '4:3';
+      aspectRatio = '16:9';
     }
 
     // Get the ratio as a decimal we can use to calculate dimensions
