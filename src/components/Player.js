@@ -153,6 +153,27 @@ export default class Player extends Component {
     return style;
   }
 
+  defaultChildren(props) {
+    return [
+      <PosterImage
+        key="poster-image"
+        {...props}
+      />,
+      <LoadingSpinner
+        key="loading-spinner"
+        {...props}
+      />,
+      <BigPlayButton
+        key="big-play-button"
+        {...props}
+      />,
+      <ControlBar
+        key="control-bar"
+        {...props}
+      />
+    ];
+  }
+
   render() {
     const { fluid } = this.props;
     const { paused, hasStarted, waiting, seeking, isFullscreen } = this.state.player;
@@ -161,6 +182,7 @@ export default class Player extends Component {
       player: this.state.player,
       actions: this.actions,
     };
+    const children = this.defaultChildren(props);
 
     return (
       <div
@@ -192,18 +214,7 @@ export default class Player extends Component {
           }}
           {...props}
         />
-        <PosterImage
-          {...props}
-        />
-        <LoadingSpinner
-          {...props}
-        />
-        <BigPlayButton
-          {...props}
-        />
-        <ControlBar
-          {...props}
-        />
+        {children}
       </div>
     );
   }

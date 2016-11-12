@@ -335,6 +335,10 @@ export default class Video extends Component {
   render() {
     const { player, loop, poster, preload, src } = this.props;
 
+    // only keep <source /> elements
+    const children = React.Children.toArray(this.props.children)
+      .filter((c) => c.type === 'source');
+
     return (
       <video
         className="video-react-video"
@@ -367,7 +371,7 @@ export default class Video extends Component {
         onRateChange={this.handleRateChange}
         onVolumeChange={this.handleVolumeChange}
       >
-        {this.props.children}
+        {children}
       </video>
     );
   }
