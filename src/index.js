@@ -4,6 +4,8 @@ import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import PosterImage from './components/PosterImage';
 import Slider from './components/Slider';
+import Source from './components/Source';
+
 import ControlBar from './components/control-bar/ControlBar';
 import PlayToggle from './components/control-bar/PlayToggle';
 import ForwardControl from './components/control-bar/ForwardControl';
@@ -23,6 +25,7 @@ import TimeDivider from './components/time-controls/TimeDivider';
 export {
   Player,
   Video,
+  Source,
   BigPlayButton,
   LoadingSpinner,
   PosterImage,

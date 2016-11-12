@@ -12,7 +12,7 @@ const defaultProps = {
   inline: true,
 };
 
-class PopupButton extends Component {
+export default class PopupButton extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -46,6 +46,4 @@ class PopupButton extends Component {
 
 PopupButton.propTypes = propTypes;
 PopupButton.defaultProps = defaultProps;
-
-export default PopupButton;
 

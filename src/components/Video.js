@@ -4,9 +4,17 @@ import throttle from 'lodash.throttle';
 const propTypes = {
   actions: PropTypes.object.isRequired,
   player: PropTypes.object.isRequired,
+  children: React.PropTypes.element,
   starttime: PropTypes.number,
   loop: PropTypes.bool,
-  source: PropTypes.string,
+  autoplay: PropTypes.bool,
+  src: PropTypes.string,
+  poster: PropTypes.string,
+  preload: React.PropTypes.oneOf(['auto', 'metadata', 'none']),
+};
+
+const defaultProps = {
+  preload: 'auto',
 };
 
 export default class Video extends Component {
@@ -45,7 +53,6 @@ export default class Video extends Component {
     this.handleDurationChange = this.handleDurationChange.bind(this);
     this.handleProgress = throttle(this.handleProgress.bind(this), 1000);
     this.handleKeypress = this.handleKeypress.bind(this);
-    this.renderSources = this.renderSources.bind(this);
   }
 
   // set playback rate
@@ -325,21 +332,18 @@ export default class Video extends Component {
 
   }
 
-  renderSources() {
-    const { source } = this.props;
-    return (
-      <source src={source} />
-    );
-  }
-
   render() {
-    const { player } = this.props;
+    const { player, loop, poster, preload, src } = this.props;
+
     return (
       <video
         className="video-react-video"
         ref={(c) => { this.video = c; }}
         muted={player.muted}
-        preload="auto"
+        preload={preload}
+        loop={loop}
+        poster={poster}
+        src={src}
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}
         onCanPlay={this.handleCanPlay}
@@ -363,10 +367,11 @@ export default class Video extends Component {
         onRateChange={this.handleRateChange}
         onVolumeChange={this.handleVolumeChange}
       >
-        {this.renderSources()}
+        {this.props.children}
       </video>
     );
   }
 }
 
 Video.propTypes = propTypes;
+Video.defaultProps = defaultProps;

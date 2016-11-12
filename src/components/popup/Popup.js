@@ -5,7 +5,7 @@ const propTypes = {
   children: PropTypes.any,
 };
 
-class Popup extends Component {
+export default class Popup extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -35,5 +35,4 @@ class Popup extends Component {
 }
 
 Popup.propTypes = propTypes;
-export default Popup;
 

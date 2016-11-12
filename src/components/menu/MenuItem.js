@@ -5,7 +5,7 @@ const propTypes = {
   item: PropTypes.object,
 };
 
-class MenuItem extends Component {
+export default class MenuItem extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -38,5 +38,3 @@ class MenuItem extends Component {
 }
 
 MenuItem.propTypes = propTypes;
-
-export default MenuItem;

@@ -13,6 +13,7 @@ const propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   fluid: PropTypes.bool,
+  muted: PropTypes.bool,
   aspectRatio: PropTypes.string,
 };
 
@@ -40,7 +41,7 @@ export default class Player extends Component {
         autoPaused: false,
         ended: false,
         playbackRate: 1,
-        muted: false,
+        muted: props.muted || false,
         volume: 1,
         isFullscreen: false,
         readyState: 0,

@@ -11,7 +11,7 @@ const propTypes = {
   children: PropTypes.any,
 };
 
-class MenuButton extends Component {
+export default class MenuButton extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -59,4 +59,3 @@ class MenuButton extends Component {
 
 MenuButton.propTypes = propTypes;
 
-export default MenuButton;
