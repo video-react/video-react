@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { blurNode } from '../../lib/dom';
 
 const propTypes = {
-  actions: PropTypes.object.isRequired,
-  player: PropTypes.object.isRequired,
+  actions: PropTypes.object,
+  player: PropTypes.object,
   seconds: React.PropTypes.oneOf([5, 10, 30]),
 };
 

@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { formatTime } from '../../lib/utils';
 
 const propTypes = {
-  currentTime: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
+  currentTime: PropTypes.number,
+  duration: PropTypes.number,
   percentage: PropTypes.string,
 };
 

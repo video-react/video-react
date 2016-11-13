@@ -4,6 +4,7 @@ import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import PosterImage from './components/PosterImage';
 import Slider from './components/Slider';
+import Source from './components/Source';
 
 import ControlBar from './components/control-bar/ControlBar';
 import PlayToggle from './components/control-bar/PlayToggle';
@@ -15,6 +16,8 @@ import SeekBar from './components/control-bar/SeekBar';
 import PlayProgressBar from './components/control-bar/PlayProgressBar';
 import LoadProgressBar from './components/control-bar/LoadProgressBar';
 import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
+import VolumeMenuButton from './components/control-bar/VolumeMenuButton';
+import PlaybackRate from './components/control-bar/PlaybackRate';
 
 import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
@@ -24,6 +27,7 @@ import TimeDivider from './components/time-controls/TimeDivider';
 export {
   Player,
   Video,
+  Source,
   BigPlayButton,
   LoadingSpinner,
   PosterImage,
@@ -42,4 +46,6 @@ export {
   CurrentTimeDisplay,
   DurationDisplay,
   TimeDivider,
+  VolumeMenuButton,
+  PlaybackRate,
 };

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const propTypes = {
-  duration: PropTypes.number.isRequired,
+  duration: PropTypes.number,
   buffered: PropTypes.object,
 };
 

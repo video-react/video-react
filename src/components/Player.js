@@ -15,6 +15,7 @@ const propTypes = {
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   aspectRatio: PropTypes.string,
+  children: PropTypes.any,
 };
 
 const defaultProps = {
@@ -54,8 +55,9 @@ export default class Player extends Component {
     };
     this.actions = new Actions(this.setPlayerState.bind(this));
 
-    this.renderStyle = this.renderStyle.bind(this);
+    this.getStyle = this.getStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.getChildren = this.getChildren.bind(this);
   }
 
   componentDidMount() {
@@ -99,7 +101,7 @@ export default class Player extends Component {
     });
   }
 
-  renderStyle() {
+  getStyle() {
     const { fluid } = this.props;
     const { player } = this.state;
     const style = {};
@@ -153,25 +155,56 @@ export default class Player extends Component {
     return style;
   }
 
-  defaultChildren(props) {
+  getDefaultChildren(props) {
     return [
       <PosterImage
         key="poster-image"
+        order={10}
         {...props}
       />,
       <LoadingSpinner
         key="loading-spinner"
+        order={11}
         {...props}
       />,
       <BigPlayButton
         key="big-play-button"
+        order={12}
         {...props}
       />,
       <ControlBar
         key="control-bar"
+        order={13}
         {...props}
       />
     ];
+  }
+
+  getChildren(props) {
+    const propsWithoutChildren = {
+      ...props,
+      children: null
+    };
+    const children = React.Children.toArray(this.props.children);
+    const defaultChildren = this.getDefaultChildren(propsWithoutChildren);
+    return children
+      .filter((e) => e.type !== 'source')
+      .concat(
+        defaultChildren.filter(
+          (c) => !children.find((component) =>
+            component.type === c.type
+          )
+        )
+      )
+      .sort((a, b) => (a.props.order || 1) - (b.props.order - 1))
+      .map((element) => {
+        const e = React.cloneElement(
+          element,
+          propsWithoutChildren,
+          element.props.children
+        );
+        return e;
+      });
   }
 
   render() {
@@ -182,7 +215,7 @@ export default class Player extends Component {
       player: this.state.player,
       actions: this.actions,
     };
-    const children = this.defaultChildren(props);
+    const children = this.getChildren(props);
 
     return (
       <div
@@ -199,7 +232,7 @@ export default class Player extends Component {
           'video-react-user-active': this.state.userActivity,
           'video-react-workinghover': !browser.IS_IOS,
         }, 'video-react')}
-        style={this.renderStyle()}
+        style={this.getStyle()}
         ref={(c) => {
           this.actions.setPlayerElement(c);
         }}

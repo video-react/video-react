@@ -6,9 +6,9 @@ import MouseTimeDisplay from './MouseTimeDisplay';
 import { formatTime } from '../../lib/utils';
 
 const propTypes = {
-  player: PropTypes.object.isRequired,
-  mouseTime: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
+  player: PropTypes.object,
+  mouseTime: PropTypes.object,
+  actions: PropTypes.object,
 };
 
 export default class SeekBar extends Component {

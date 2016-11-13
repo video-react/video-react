@@ -4,7 +4,7 @@ import * as Dom from '../../lib/dom';
 import SeekBar from './SeekBar';
 
 const propTypes = {
-  player: PropTypes.object.isRequired,
+  player: PropTypes.object,
 };
 
 export default class ProgressControl extends Component {

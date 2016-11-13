@@ -2,9 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import throttle from 'lodash.throttle';
 
 const propTypes = {
-  actions: PropTypes.object.isRequired,
-  player: PropTypes.object.isRequired,
-  children: React.PropTypes.element,
+  actions: PropTypes.object,
+  player: PropTypes.object,
+  children: PropTypes.any,
   starttime: PropTypes.number,
   loop: PropTypes.bool,
   autoplay: PropTypes.bool,

@@ -20,8 +20,8 @@ function MouseTimeDisplay({ duration, mouseTime }) {
 }
 
 MouseTimeDisplay.propTypes = {
-  duration: PropTypes.number.isRequired,
-  mouseTime: PropTypes.object.isRequired,
+  duration: PropTypes.number,
+  mouseTime: PropTypes.object,
 };
 
 export default MouseTimeDisplay;

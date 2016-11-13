@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { formatTime } from '../../lib/utils';
 
 const propTypes = {
-  player: PropTypes.object.isRequired,
+  player: PropTypes.object,
 };
 
 function DurationDisplay({ player: { duration } }) {

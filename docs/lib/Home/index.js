@@ -2,9 +2,11 @@ import React from 'react';
 import { PrismCode } from 'react-prism';
 import { Button, Container, Row, Col, Jumbotron } from 'reactstrap';
 import { Link } from 'react-router';
-import Example from '../examples/import-basic';
+import BasicExample from '../examples/import-basic';
+import FullExample from '../examples/import-full';
 
 const importBasic = require('!!raw!../examples/import-basic');
+const importFull = require('!!raw!../examples/import-full');
 
 export default () => {
   return (
@@ -37,15 +39,28 @@ export default () => {
             <pre>
               <PrismCode className="language-bash">npm install --save video-react react react-dom</PrismCode>
             </pre>
-            <p>ES6 - import the components you need</p>
+            <h3>Basic example</h3>
+            <p>The basic player</p>
             <div className="docs-example">
-              <Example />
+              <BasicExample />
             </div>
             <pre>
               <PrismCode className="language-jsx">
                 {importBasic}
               </PrismCode>
             </pre>
+            <h3>Full example</h3>
+            <p>Customize the control bar buttons.</p>
+
+            <div className="docs-example">
+              <FullExample />
+            </div>
+            <pre>
+              <PrismCode className="language-jsx">
+                {importFull}
+              </PrismCode>
+            </pre>
+
             <h2 className="m-t-3">Development</h2>
             <hr />
             <p>Install dependencies:</p>

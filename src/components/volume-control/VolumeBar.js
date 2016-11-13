@@ -3,8 +3,8 @@ import Slider from '../Slider';
 import VolumeLevel from './VolumeLevel';
 
 const propTypes = {
-  actions: PropTypes.object.isRequired,
-  player: PropTypes.object.isRequired,
+  actions: PropTypes.object,
+  player: PropTypes.object,
 };
 
 class VolumeBar extends Component {
