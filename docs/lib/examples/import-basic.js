@@ -1,5 +1,5 @@
 import React from 'react';
-import { Player, Source } from 'video-react';
+import { Player } from 'video-react';
 
 export default (props) => {
   return (

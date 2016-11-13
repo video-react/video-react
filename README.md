@@ -17,19 +17,13 @@ Import the components you need, example:
 import React from 'react';
 import { Player } from 'video-react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Player poster="img/poster.png" width="640" height="480">
-
-      </Player>
-    );
-  }
-}
+export default (props) => {
+  return (
+    <Player poster="/assets/poster.png" >
+      <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+    </Player>
+  );
+};
 ```
 
 ## Development
