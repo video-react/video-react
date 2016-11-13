@@ -20,6 +20,9 @@ export default (props) => {
     <Player
       poster="/assets/poster.png"
     >
+      <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" />
+      <source src="http://mirrorblender.top-ix.org/movies/sintel-1024-surround.mp4" />
+      <source src="http://ftp.akl.lt/Video/Sintel/sintel-1024-surround.mp4" />
       <source
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       />
@@ -31,11 +34,11 @@ export default (props) => {
           order={1}
         />
         <ReplayControl
-          seconds={10}
+          seconds={30}
           order={2}
         />
         <ForwardControl
-          seconds={5}
+          seconds={30}
           order={3}
         />
         <VolumeMenuButton

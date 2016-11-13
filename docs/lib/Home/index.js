@@ -44,6 +44,22 @@ export default () => {
             <div className="docs-example">
               <BasicExample />
             </div>
+            <p>import css in your app or add video-react styles in your page</p>
+            <pre>
+              <PrismCode className="language-jsx">
+                import "node_modules/video-react/dist/video-react.css"; // import css
+              </PrismCode>
+            </pre>
+            <pre>
+              <PrismCode className="language-jsx">
+                @import "~video-react/styles/scss/video-react"; // or import scss
+              </PrismCode>
+            </pre>
+            <pre>
+              <PrismCode className="language-html">
+                &lt;link rel="stylesheet" href="/css/video-react.css" /&gt;
+              </PrismCode>
+            </pre>
             <pre>
               <PrismCode className="language-jsx">
                 {importBasic}
