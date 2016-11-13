@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
-import * as Dom from '../../lib/dom';
+import * as Dom from '../../utils/dom';
 import SeekBar from './SeekBar';
 
 const propTypes = {

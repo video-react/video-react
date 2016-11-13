@@ -7,7 +7,7 @@ import PosterImage from './PosterImage';
 import Video from './Video';
 import ControlBar from './control-bar/ControlBar';
 
-import * as browser from '../lib/browser';
+import * as browser from '../utils/browser';
 
 const propTypes = {
   width: PropTypes.number,

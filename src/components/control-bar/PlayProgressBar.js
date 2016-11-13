@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { formatTime } from '../../lib/utils';
+import { formatTime } from '../../utils';
 
 const propTypes = {
   currentTime: PropTypes.number,

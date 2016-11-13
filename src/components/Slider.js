@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
-import * as Dom from '../lib/dom';
+import * as Dom from '../utils/dom';
 
 const propTypes = {
   className: PropTypes.string,

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { formatTime } from '../../lib/utils';
+import { formatTime } from '../../utils';
 
 function MouseTimeDisplay({ duration, mouseTime }) {
   if (!mouseTime.time) {

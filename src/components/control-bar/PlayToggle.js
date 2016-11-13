@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import { blurNode } from '../../lib/dom';
+import { blurNode } from '../../utils/dom';
 
 const propTypes = {
   actions: PropTypes.object,

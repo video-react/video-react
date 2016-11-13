@@ -36,7 +36,7 @@ module.exports = function (env) {
     devtool: 'source-map',
     entry: [
       __dirname + '/src/index.js',
-      __dirname + '/src/styles/scss/video-react.scss'
+      __dirname + '/styles/scss/video-react.scss'
     ],
     output: {
       path: __dirname + '/dist',
@@ -94,6 +94,11 @@ module.exports = function (env) {
           loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
         },
       ]
+    },
+    sassLoader: {
+      outputStyle: 'compressed',
+      sourceMap: true,
+      sourceMapContents: true,
     },
     resolve: {
       alias: {

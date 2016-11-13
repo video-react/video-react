@@ -3,7 +3,7 @@ import Slider from '../Slider';
 import PlayProgressBar from './PlayProgressBar';
 import LoadProgressBar from './LoadProgressBar';
 import MouseTimeDisplay from './MouseTimeDisplay';
-import { formatTime } from '../../lib/utils';
+import { formatTime } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
