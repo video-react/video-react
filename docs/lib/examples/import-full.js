@@ -1,8 +1,8 @@
 import React from 'react';
-import { Player, ControlBar, PlayToggle, ReplayControl,
-  ForwardControl, VolumeMenuButton, CurrentTimeDisplay,
-  TimeDivider, DurationDisplay, ProgressControl,
-  RemainingTimeDisplay, PlaybackRate, FullscreenToggle } from 'video-react';
+import { Player, ControlBar, ReplayControl,
+  ForwardControl, CurrentTimeDisplay,
+  TimeDivider, PlaybackRate
+} from 'video-react';
 
 export default (props) => {
   return (
@@ -14,37 +14,12 @@ export default (props) => {
 
       <ControlBar>
         <ReplayControl disabled />
-        <FullscreenToggle
-          order={11.0}
-        />
-        <PlayToggle
-          order={1.0}
-        />
-        <ForwardControl
-          seconds={30}
-          order={3.0}
-        />
-        <VolumeMenuButton
-          order={4.0}
-        />
-        <CurrentTimeDisplay
-          order={5.0}
-        />
-        <TimeDivider
-          order={6.0}
-        />
-        <DurationDisplay
-          order={7.0}
-        />
-        <ProgressControl
-          order={8.0}
-        />
-        <RemainingTimeDisplay
-          order={9.0}
-        />
+        <ForwardControl seconds={30} />
+        <CurrentTimeDisplay order={4.1} />
+        <TimeDivider order={4.2} />
         <PlaybackRate
           rates={[1, 1.25, 1.5, 2]}
-          order={10.0}
+          order={7.1}
         />
       </ControlBar>
     </Player>
