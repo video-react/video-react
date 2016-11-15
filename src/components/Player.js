@@ -8,6 +8,7 @@ import Video from './Video';
 import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
+import { mergeAndSortChildren } from '../utils';
 
 const propTypes = {
   width: PropTypes.number,
@@ -159,22 +160,22 @@ export default class Player extends Component {
     return [
       <PosterImage
         key="poster-image"
-        order={10}
+        order={1.0}
         {...props}
       />,
       <LoadingSpinner
         key="loading-spinner"
-        order={11}
+        order={2.0}
         {...props}
       />,
       <BigPlayButton
         key="big-play-button"
-        order={12}
+        order={3.0}
         {...props}
       />,
       <ControlBar
         key="control-bar"
-        order={13}
+        order={4.0}
         {...props}
       />
     ];
@@ -185,26 +186,10 @@ export default class Player extends Component {
       ...props,
       children: null
     };
-    const children = React.Children.toArray(this.props.children);
+    const children = React.Children.toArray(this.props.children)
+      .filter((e) => e.type !== 'source');
     const defaultChildren = this.getDefaultChildren(propsWithoutChildren);
-    return children
-      .filter((e) => e.type !== 'source')
-      .concat(
-        defaultChildren.filter(
-          (c) => !children.find((component) =>
-            component.type === c.type
-          )
-        )
-      )
-      .sort((a, b) => (a.props.order || 1) - (b.props.order - 1))
-      .map((element) => {
-        const e = React.cloneElement(
-          element,
-          propsWithoutChildren,
-          element.props.children
-        );
-        return e;
-      });
+    return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
   }
 
   render() {

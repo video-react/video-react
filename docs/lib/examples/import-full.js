@@ -1,19 +1,8 @@
 import React from 'react';
-import {
-  Player,
-  ControlBar,
-  PlayToggle,
-  ReplayControl,
-  ForwardControl,
-  VolumeMenuButton,
-  CurrentTimeDisplay,
-  TimeDivider,
-  DurationDisplay,
-  ProgressControl,
-  RemainingTimeDisplay,
-  PlaybackRate,
-  FullscreenToggle
-} from 'video-react';
+import { Player, ControlBar, PlayToggle, ReplayControl,
+  ForwardControl, VolumeMenuButton, CurrentTimeDisplay,
+  TimeDivider, DurationDisplay, ProgressControl,
+  RemainingTimeDisplay, PlaybackRate, FullscreenToggle } from 'video-react';
 
 export default (props) => {
   return (
@@ -22,49 +11,40 @@ export default (props) => {
     >
       <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" />
       <source src="http://mirrorblender.top-ix.org/movies/sintel-1024-surround.mp4" />
-      <source src="http://ftp.akl.lt/Video/Sintel/sintel-1024-surround.mp4" />
-      <source
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      />
 
-      <ControlBar
-        order={13}
-      >
-        <PlayToggle
-          order={1}
+      <ControlBar>
+        <ReplayControl disabled />
+        <FullscreenToggle
+          order={11.0}
         />
-        <ReplayControl
-          seconds={30}
-          order={2}
+        <PlayToggle
+          order={1.0}
         />
         <ForwardControl
           seconds={30}
-          order={3}
+          order={3.0}
         />
         <VolumeMenuButton
-          order={4}
+          order={4.0}
         />
         <CurrentTimeDisplay
-          order={5}
+          order={5.0}
         />
         <TimeDivider
-          order={6}
+          order={6.0}
         />
         <DurationDisplay
-          order={7}
+          order={7.0}
         />
         <ProgressControl
-          order={8}
+          order={8.0}
         />
         <RemainingTimeDisplay
-          order={9}
+          order={9.0}
         />
         <PlaybackRate
           rates={[1, 1.25, 1.5, 2]}
-          order={10}
-        />
-        <FullscreenToggle
-          order={11}
+          order={10.0}
         />
       </ControlBar>
     </Player>

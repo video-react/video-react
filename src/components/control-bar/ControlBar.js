@@ -11,6 +11,7 @@ import DurationDisplay from '../time-controls/DurationDisplay';
 import TimeDivider from '../time-controls/TimeDivider';
 import VolumeMenuButton from './VolumeMenuButton';
 import PlaybackRate from './PlaybackRate';
+import { mergeAndSortChildren } from '../../utils';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -133,24 +134,9 @@ export default class ControlBar extends Component {
   }
 
   getChildren() {
-    let children = React.Children.toArray(this.props.children);
+    const children = React.Children.toArray(this.props.children);
     const defaultChildren = this.getDefaultChildren();
-    children = children.concat(
-      defaultChildren.filter(
-        (c) => !children.find((component) =>
-          component.type === c.type
-        )
-      )
-    );
-    return children
-      .sort((a, b) => (a.props.order || 1) - (b.props.order - 1))
-      .map((element) => {
-        const e = React.cloneElement(
-          element,
-          this.props
-        );
-        return e;
-      });
+    return mergeAndSortChildren(defaultChildren, children, this.props);
   }
 
   render() {

@@ -7,7 +7,7 @@ export default (props) => {
   return (
     <div className="wrapper">
       <Helmet
-        titleTemplate="reactstrap - %s"
+        titleTemplate="Video-React - %s"
         title="React Bootstrap 4 components"
         defaultTitle="React Bootstrap 4 components"
         meta={[
