@@ -6,11 +6,11 @@ export default () => {
   return (
     <Navbar className="header" color="faded" light>
       <Container fluid>
-         <NavbarBrand tag={Link} to="/">Video-React</NavbarBrand>
-         <Nav className="nav navbar-nav float-xs-right">
-           <NavItem>
-             <NavLink tag={Link} className="nav-link" to="/components/" activeClassName="active">Components</NavLink>
-           </NavItem>
+        <NavbarBrand tag={Link} to="/">Video-React</NavbarBrand>
+        <Nav className="nav navbar-nav float-xs-right">
+          <NavItem>
+            <NavLink tag={Link} className="nav-link" to="/components/" activeClassName="active">Components</NavLink>
+          </NavItem>
           <NavItem>
             <NavLink href="https://github.com/video-react/video-react">Github</NavLink>
           </NavItem>

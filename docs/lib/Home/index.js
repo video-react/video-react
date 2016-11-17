@@ -25,7 +25,6 @@ export default () => {
               <p>
                 <Button outline color="danger" href="https://github.com/video-react/video-react">View on Github</Button>
                 <Button color="danger" tag={Link} to="/components/">View Components</Button>
-                
               </p>
             </Col>
           </Row>

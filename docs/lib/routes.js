@@ -10,11 +10,11 @@ import BigPlayButtonPage from './Components/BigPlayButtonPage';
 const routes = (
   <Route path="/" component={UI.Layout}>
     <IndexRoute component={Home} />
-        <Route path="/components/" component={Components}>
-       <IndexRedirect to="player/" />
-       <Route path="player/" component={PlayerPage} />
-       <Route path="big-play-button/" component={BigPlayButtonPage} />
-     </Route>
+    <Route path="/components/" component={Components}>
+      <IndexRedirect to="player/" />
+      <Route path="player/" component={PlayerPage} />
+      <Route path="big-play-button/" component={BigPlayButtonPage} />
+    </Route>
     <Route path="*" component={NotFound} />
   </Route>
 );
