@@ -52,7 +52,8 @@ Watch tests:
 npm run test-watch
 ```
 
- ## Inspiration & Credits
- 
- * This project is heavily inspired by [video.js](http://www.videojs.com).
- * The document site is built with [reactstrap](https://github.com/reactstrap/reactstrap).
+## Inspiration & Credits
+
+* This project is heavily inspired by [video.js](http://www.videojs.com).
+* The document site is built with [reactstrap](https://github.com/reactstrap/reactstrap).
+
