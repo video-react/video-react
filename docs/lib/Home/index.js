@@ -18,12 +18,14 @@ export default () => {
               <p className="lead">
                 <img src="/assets/logo.png" alt="" width="150px" />
               </p>
-              <h1 className="jumbotron-heading display-4">video-react</h1>
+              <h1 className="jumbotron-heading display-4">Video-React</h1>
               <p className="lead">
                 The web video player built from the ground up for an HTML5 world using React library.
               </p>
               <p>
                 <Button outline color="danger" href="https://github.com/video-react/video-react">View on Github</Button>
+                <Button color="danger" tag={Link} to="/components/">View Components</Button>
+                
               </p>
             </Col>
           </Row>

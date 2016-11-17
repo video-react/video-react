@@ -55,3 +55,12 @@ npm run test-watch
 ## Inspiration
 
 This project is heavily inspired by [video.js](http://www.videojs.com).
+
+## Credits
+ bbcodejs: bbcode-to-react uses the parser from bbcodejs, so much of the credit is due there.
+ reactstrap: bbcode-to-react uses the webpack config and publish scripts from reactstrap.
+ 
+ ## Inspiration & Credits
+ 
+ * This project is heavily inspired by [video.js](http://www.videojs.com).
+ * The document site is built with [reactstrap](https://github.com/reactstrap/reactstrap).
