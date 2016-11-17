@@ -21,6 +21,7 @@ const propTypes = {
 
 const defaultProps = {
   fluid: true,
+   aspectRatio: 'auto'
 };
 
 
