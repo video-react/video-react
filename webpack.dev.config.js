@@ -11,6 +11,9 @@ var webpackProdConfig = require('./webpack.base.config')('production');
 
 var paths = [
   '/',
+  '/components/',
+  '/components/player/',
+  '/components/big-play-button/',
   '/404.html'
 ];
 
