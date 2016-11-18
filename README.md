@@ -11,6 +11,19 @@ Install `video-react` and __peer dependencies__ via NPM
 npm install --save video-react react react-dom
 ```
 
+import css in your app or add video-react styles in your page
+```jsx
+import "node_modules/video-react/dist/video-react.css"; // import css
+```
+or
+```scss
+@import "~video-react/styles/scss/video-react"; // or import scss
+```
+or
+```html
+<link rel="stylesheet" href="/your-css-path/video-react.css" />
+```
+
 Import the components you need, example:
 
 ```js
@@ -19,7 +32,7 @@ import { Player } from 'video-react';
 
 export default (props) => {
   return (
-    <Player poster="/assets/poster.png">
+    <Player>
       <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
     </Player>
   );
