@@ -5,6 +5,8 @@ import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
 import Video from './Video';
+import Bezel from './Bezel';
+import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
@@ -21,7 +23,7 @@ const propTypes = {
 
 const defaultProps = {
   fluid: true,
-   aspectRatio: 'auto'
+  aspectRatio: 'auto'
 };
 
 
@@ -52,6 +54,9 @@ export default class Player extends Component {
         videoWidth: 0,
         videoHeight: 0,
         hasStarted: false,
+
+        bezelCount: 0,
+        bezelStatus: null,
         error: null,
       },
     };
@@ -169,14 +174,24 @@ export default class Player extends Component {
         order={2.0}
         {...props}
       />,
+      <Bezel
+        key="bezel"
+        order={3.0}
+        {...props}
+      />,
       <BigPlayButton
         key="big-play-button"
-        order={3.0}
+        order={4.0}
         {...props}
       />,
       <ControlBar
         key="control-bar"
-        order={4.0}
+        order={5.0}
+        {...props}
+      />,
+      <Shortcut
+        key="shortcut"
+        order={99.0}
         {...props}
       />
     ];

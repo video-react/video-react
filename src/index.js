@@ -4,6 +4,8 @@ import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import PosterImage from './components/PosterImage';
 import Slider from './components/Slider';
+import Bezel from './components/Bezel';
+import Shortcut from './components/Shortcut';
 
 import ControlBar from './components/control-bar/ControlBar';
 import PlayToggle from './components/control-bar/PlayToggle';
@@ -29,6 +31,7 @@ export {
   BigPlayButton,
   LoadingSpinner,
   PosterImage,
+  Bezel,
   ControlBar,
   PlayToggle,
   ForwardControl,

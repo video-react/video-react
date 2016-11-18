@@ -3,6 +3,7 @@ export default class Actions {
 
   constructor(setState) {
     this.setState = setState;
+    this.bezelCount = 1;
   }
 
   setVideo(video) {
@@ -19,6 +20,10 @@ export default class Actions {
 
   pause() {
     this.video.pause();
+  }
+
+  togglePlay() {
+    this.video.togglePlay();
   }
 
   // seek video by time
@@ -47,6 +52,13 @@ export default class Actions {
   toggleMuted(muted) {
     this.setState({
       muted,
+    });
+  }
+
+  setBezel(status) {
+    this.setState({
+      bezelCount: this.bezelCount++,
+      bezelStatus: status,
     });
   }
 
