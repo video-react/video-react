@@ -65,6 +65,9 @@ export default class Player extends Component {
     this.getStyle = this.getStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.getChildren = this.getChildren.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.startControlsTimer = this.startControlsTimer.bind(this);
   }
 
   componentDidMount() {
@@ -102,10 +105,24 @@ export default class Player extends Component {
   handleResize() {
   }
 
-  userActive(active) {
+  handleMouseDown() {
+    this.startControlsTimer()
+  }
+
+  handleMouseMove() {
+    this.startControlsTimer()
+  }
+
+  startControlsTimer() {
     this.setState({
-      userActivity: active,
+      userActivity: true,
     });
+    clearTimeout(this.controlsHideTimer)
+    this.controlsHideTimer = setTimeout(() => {
+      this.setState({
+        userActivity: false,
+      });
+    }, 3000)
   }
 
   getStyle() {
