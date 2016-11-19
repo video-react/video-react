@@ -1,11 +1,18 @@
-<!-- The following is part of our issue template, feel free to remove this if it doesn't apply -->
 ### Issue description
 
 - version `#x.x.x`
-- components: `name`
+- browser: `name-version`
 
 ### Steps to reproduce issue
 
-- ...
+### Steps to reproduce
 
-<!-- The following codepen can be forked to help demonstrate the issue http://codepen.io/eddywashere/pen/ZOjmkm -->
+1. step1
+2. step2
+3. step3
+
+### Expected behaviour
+Tell us what should happen
+
+### Actual behaviour
+Tell us what happens instead
