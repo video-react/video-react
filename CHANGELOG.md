@@ -1,7 +1,7 @@
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/video-react/video-react/compare/0.3.1...v0.3.2) (2016-11-19)
 
-
+Fixed Issue #2: The mouse and control bar do not disappear when it's in fullscreen mode 
 
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/video-react/video-react/compare/0.2.4...v0.3.1) (2016-11-18)
