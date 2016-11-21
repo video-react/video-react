@@ -21,13 +21,15 @@
 }
 
 // Video has started playing AND user is inactive
-.video-react-has-started.video-react-user-inactive.video-react-playing .video-react-control-bar {
-  // Remain visible for screen reader and keyboard users
-  visibility: visible;
-  opacity: 0;
+.video-react-has-started.video-react-user-inactive.video-react-playing {
+  .video-react-control-bar.video-react-control-bar-auto-hide {
+    // Remain visible for screen reader and keyboard users
+    visibility: visible;
+    opacity: 0;
 
-  $trans: visibility 1.0s, opacity 1.0s;
-  @include transition($trans);
+    $trans: visibility 1.0s, opacity 1.0s;
+    @include transition($trans);
+  }
 }
 
 .video-react-controls-disabled .video-react-control-bar,

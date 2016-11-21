@@ -13,12 +13,43 @@ import * as browser from '../utils/browser';
 import { mergeAndSortChildren } from '../utils';
 
 const propTypes = {
+  children: PropTypes.any,
+
   width: PropTypes.number,
   height: PropTypes.number,
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   aspectRatio: PropTypes.string,
-  children: PropTypes.any,
+
+  startTime: PropTypes.number,
+  loop: PropTypes.bool,
+  autoPlay: PropTypes.bool,
+  src: PropTypes.string,
+  poster: PropTypes.string,
+  preload: React.PropTypes.oneOf(['auto', 'metadata', 'none']),
+
+  onLoadStart: PropTypes.func,
+  onWaiting: PropTypes.func,
+  onCanPlay: PropTypes.func,
+  onCanPlayThrough: PropTypes.func,
+  onPlaying: PropTypes.func,
+  onEnded: PropTypes.func,
+  onSeeking: PropTypes.func,
+  onSeeked: PropTypes.func,
+  onPlay: PropTypes.func,
+  onPause: PropTypes.func,
+  onProgress: PropTypes.func,
+  onDurationChange: PropTypes.func,
+  onError: PropTypes.func,
+  onSuspend: PropTypes.func,
+  onAbort: PropTypes.func,
+  onEmptied: PropTypes.func,
+  onStalled: PropTypes.func,
+  onLoadedMetadata: PropTypes.func,
+  onLoadedData: PropTypes.func,
+  onTimeUpdate: PropTypes.func,
+  onRateChange: PropTypes.func,
+  onVolumeChange: PropTypes.func,
 };
 
 const defaultProps = {
@@ -106,23 +137,23 @@ export default class Player extends Component {
   }
 
   handleMouseDown() {
-    this.startControlsTimer()
+    this.startControlsTimer();
   }
 
   handleMouseMove() {
-    this.startControlsTimer()
+    this.startControlsTimer();
   }
 
   startControlsTimer() {
     this.setState({
       userActivity: true,
     });
-    clearTimeout(this.controlsHideTimer)
+    clearTimeout(this.controlsHideTimer);
     this.controlsHideTimer = setTimeout(() => {
       this.setState({
         userActivity: false,
       });
-    }, 3000)
+    }, 3000);
   }
 
   getStyle() {

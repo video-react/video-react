@@ -33,7 +33,7 @@
       width: 5em;
       height: 0.3em;
 
-      .vjs-volume-level {
+      .video-react-volume-level {
         width: 100%;
       }
     }
@@ -43,7 +43,7 @@
       height: 5em;
       margin: 1.35em auto;
 
-      .vjs-volume-level {
+      .video-react-volume-level {
         height: 100%;
       }
 
@@ -78,6 +78,7 @@
       left: -0.3em;
     }
   }
+
   .video-react-slider-horizontal .video-react-volume-level {
     height: 0.3em;
 
@@ -87,6 +88,60 @@
       right: -0.5em;
     }
   }
+
+
+
+  // The volume menu button is like menu buttons (captions/subtitles) but works
+  // a little differently. It needs to be possible to tab to the volume slider
+  // without hitting space bar on the menu button. To do this we're not using
+  // display:none to hide the slider menu by default, and instead setting the
+  // width and height to zero.
+  .video-react-menu-button-popup.video-react-volume-menu-button .video-react-menu {
+    display: block;
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+  }
+
+  .video-react-menu-button-popup.video-react-volume-menu-button-vertical .video-react-menu {
+    left: 0.5em;
+    height: 8em;
+  }
+  .video-react-menu-button-popup.video-react-volume-menu-button-horizontal .video-react-menu {
+    left: -2em;
+  }
+
+  .video-react-menu-button-popup.video-react-volume-menu-button .video-react-menu-content {
+    height: 0;
+    width: 0;
+
+    // Avoids unnecessary scrollbars in the menu content. Primarily noticed in Chrome on Linux.
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .video-react-volume-menu-button-vertical:hover .video-react-menu-content,
+  .video-react-volume-menu-button-vertical:focus .video-react-menu-content,
+  .video-react-volume-menu-button-vertical.video-react-slider-active .video-react-menu-content,
+  .video-react-volume-menu-button-vertical .video-react-lock-showing .video-react-menu-content {
+    height: 8em;
+    width: 2.9em;
+  }
+
+  .video-react-volume-menu-button-horizontal:hover .video-react-menu-content,
+  .video-react-volume-menu-button-horizontal:focus .video-react-menu-content,
+  .video-react-volume-menu-button-horizontal .video-react-slider-active .video-react-menu-content,
+  .video-react-volume-menu-button-horizontal .video-react-lock-showing .video-react-menu-content {
+    height: 2.9em;
+    width: 8em;
+  }
+
+  .video-react-volume-menu-button.video-react-menu-button-inline .video-react-menu-content {
+    // An inline volume should never have a menu background color.
+    //  This protects it from external changes to background colors.
+    background-color: transparent !important;
+  }
+
 }
 
 

@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 
 import ProgressControl from './ProgressControl';
 import PlayToggle from './PlayToggle';
@@ -17,7 +18,15 @@ const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
   children: PropTypes.any,
+  autoHide: PropTypes.bool,
+  disableDefaultControls: PropTypes.bool,
 };
+
+
+const defaultProps = {
+  autoHide: true,
+};
+
 
 export default class ControlBar extends Component {
   constructor(props) {
@@ -135,14 +144,17 @@ export default class ControlBar extends Component {
 
   getChildren() {
     const children = React.Children.toArray(this.props.children);
-    const defaultChildren = this.getDefaultChildren();
+    const defaultChildren = this.props.disableDefaultControls ? [] : this.getDefaultChildren();
     return mergeAndSortChildren(defaultChildren, children, this.props);
   }
 
   render() {
+    const { autoHide } = this.props;
     const children = this.getChildren();
     return (
-      <div className="video-react-control-bar">
+      <div className={classNames('video-react-control-bar', {
+        'video-react-control-bar-auto-hide': autoHide
+      })}>
         {children}
       </div>
     );
@@ -150,3 +162,4 @@ export default class ControlBar extends Component {
 }
 
 ControlBar.propTypes = propTypes;
+ControlBar.defaultProps = defaultProps;

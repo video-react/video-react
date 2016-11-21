@@ -84,6 +84,7 @@ class VolumeBar extends Component {
         getPercent={this.getPercent}
         onPercentageChange={this.handlePercentageChange}
         className="video-react-volume-bar video-react-slider-bar"
+        {...this.props}
       >
         <VolumeLevel
           {...this.props}

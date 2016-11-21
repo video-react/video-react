@@ -7,12 +7,10 @@ import VolumeBar from '../volume-control/VolumeBar';
 const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
-  inline: PropTypes.bool,
   vertical: PropTypes.bool,
 };
 
 const defaultProps = {
-  inline: true,
   vertical: false,
 };
 
@@ -45,6 +43,7 @@ class VolumeMenuButton extends Component {
 
   render() {
     const { vertical, player } = this.props;
+    const inline = !vertical;
     const level = this.volumeLevel;
     return (
       <PopupButton
@@ -58,6 +57,7 @@ class VolumeMenuButton extends Component {
           'video-react-vol-3': level === 3,
         }, 'video-react-volume-menu-button')}
         onClick={this.handleClick}
+        inline={inline}
       >
         <VolumeBar {...this.props} />
       </PopupButton>

@@ -32,6 +32,7 @@ export {
   LoadingSpinner,
   PosterImage,
   Bezel,
+  Shortcut,
   ControlBar,
   PlayToggle,
   ForwardControl,
