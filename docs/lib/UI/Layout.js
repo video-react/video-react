@@ -8,8 +8,8 @@ export default (props) => {
     <div className="wrapper">
       <Helmet
         titleTemplate="Video-React - %s"
-        title="React Bootstrap 4 components"
-        defaultTitle="React Bootstrap 4 components"
+        title="React Video Component"
+        defaultTitle="React Video Component"
         meta={[
           {
             name: 'description',
