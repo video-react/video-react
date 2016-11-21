@@ -12,6 +12,9 @@ export default class BigPlayButtonPage extends React.Component {
       <div>
         <Helmet title="BigPlayButton" />
         <h3>BigPlayButton</h3>
+        <p>
+        Initial play button. Shows before the video has played. The hiding of the big play button is done via CSS and player states.
+        </p>
         <div className="docs-example">
           <BigPlayButtonExample />
         </div>

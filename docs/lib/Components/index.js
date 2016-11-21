@@ -28,7 +28,35 @@ class Components extends React.Component {
         {
           name: 'BigPlayButton',
           to: '/components/big-play-button/',
-        }
+        },
+        {
+          name: 'PosterImage',
+          to: '/components/poster-image/',
+        },
+        {
+          name: 'LoadingSpinner',
+          to: '/components/loading-spinner/'
+        },
+        {
+          name: 'ControlBar',
+          to: '/components/control-bar/'
+        },
+        {
+          name: 'PlayToggle',
+          to: '/components/play-toggle/'
+        },
+        {
+          name: 'ReplayControl',
+          to: '/components/replay-control/',
+        },
+        {
+          name: 'ForwardControl',
+          to: '/components/forward-control/',
+        },
+        {
+          name: 'VolumeMenuButton',
+          to: '/components/volume-menu-button/',
+        },
       ]
     };
   }
