@@ -14,6 +14,13 @@ var paths = [
   '/components/',
   '/components/player/',
   '/components/big-play-button/',
+  '/components/poster-image/',
+  '/components/loading-spinner/',
+  '/components/control-bar/',
+  '/components/play-toggle/',
+  '/components/forward-control/',
+  '/components/replay-control/',
+  '/components/volume-menu-button/',
   '/404.html'
 ];
 
