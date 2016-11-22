@@ -12,7 +12,6 @@ describe('Bezel', () => {
         }}     
       />
     );
-    console.log(wrapper.html());
     expect(wrapper.find('div.video-react-bezel-icon').length).toBe(1);
   });
 });

@@ -14,7 +14,6 @@ describe('LoadProgressBar', () => {
           duration={1000}
         />
     );
-    //console.log(wrapper.html());
     expect(wrapper.find('div.video-react-load-progress').length).toBe(1);
   });
 
