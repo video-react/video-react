@@ -17,6 +17,7 @@ import VolumeMenuButtonPage from './Components/VolumeMenuButtonPage';
 const routes = (
   <Route path="/" component={UI.Layout}>
     <IndexRoute component={Home} />
+    <Route path="index.html" component={Home} />
     <Route path="/components/" component={Components}>
       <IndexRedirect to="player/" />
       <Route path="player/" component={PlayerPage} />
