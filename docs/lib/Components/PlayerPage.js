@@ -37,6 +37,7 @@ export default class PlayerPage extends React.Component {
   // default: 'true'
   fluid: PropTypes.bool,
   muted: PropTypes.bool, // default: false
+  playsInline: PropTypes.bool, // [ios]Determines whether HTML5 videos play inline or use the native full-screen controller.
   aspectRatio: PropTypes.string, // default: 'auto'
   autoPlay: PropTypes.bool, // default: false
   startTime: PropTypes.number, // Seek the Video at A Specific Time On Load

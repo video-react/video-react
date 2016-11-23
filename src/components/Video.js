@@ -8,6 +8,7 @@ const propTypes = {
   startTime: PropTypes.number,
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
+  playsInline: PropTypes.bool,
   src: PropTypes.string,
   poster: PropTypes.string,
   preload: React.PropTypes.oneOf(['auto', 'metadata', 'none']),
@@ -241,21 +242,6 @@ export default class Video extends Component {
     }
   }
 
-  // Fired the first time a video is played
-  handleFirstPlay() {
-    const { player, starttime, actions } = this.props;
-
-    // If the first starttime attribute is specified
-    // then we will start at the given offset in seconds
-    if (starttime) {
-      this.seek(starttime);
-    }
-
-    if (!player.hasStarted) {
-      actions.handleFirstPlay();
-    }
-  }
-
   // Fired when the duration of
   // the media resource is first known or changed
   handleDurationChange(...args) {
@@ -454,7 +440,10 @@ export default class Video extends Component {
   }
 
   render() {
-    const { player, loop, poster, preload, src, autoPlay } = this.props;
+    const {
+      player, loop, poster,
+      preload, src, autoPlay, playsInline
+    } = this.props;
 
     // only keep <source /> elements
     const children = React.Children.toArray(this.props.children)
@@ -467,6 +456,7 @@ export default class Video extends Component {
         muted={player.muted}
         preload={preload}
         loop={loop}
+        playsInline={playsInline}
         autoPlay={autoPlay}
         poster={poster}
         src={src}
