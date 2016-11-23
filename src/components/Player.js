@@ -183,6 +183,8 @@ export default class Player extends Component {
         ref={(c) => {
           this.manager.video = this.video = c;
         }}
+        key="video"
+        order={0.0}
         {...props}
       />,
       <PosterImage
