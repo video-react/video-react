@@ -1,6 +1,8 @@
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/video-react/video-react/compare/0.3.3...v0.4.1) (2016-11-23)
 
+- Using redux to manage state
+- Add `playsInline` property
 
 
 <a name="0.3.3"></a>
