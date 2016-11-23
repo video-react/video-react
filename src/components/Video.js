@@ -78,19 +78,28 @@ export default class Video extends Component {
     this.handleKeypress = this.handleKeypress.bind(this);
   }
 
-  // set playback rate
-  // speed of video
-  set playbackRate(rate) {
-    this.video.playbackRate = rate;
-  }
 
   // get playback rate
   get playbackRate() {
     return this.video.playbackRate;
   }
 
+  // set playback rate
+  // speed of video
+  set playbackRate(rate) {
+    this.video.playbackRate = rate;
+  }
+
+  get muted() {
+    return this.video.muted;
+  }
+
   set muted(val) {
     this.video.muted = val;
+  }
+
+  get volume() {
+    return this.video.volume;
   }
 
   set volume(val) {

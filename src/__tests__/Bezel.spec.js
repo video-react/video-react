@@ -1,17 +1,16 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Bezel } from '../';
+import { Player, Bezel } from '../';
 
 describe('Bezel', () => {
-  it('should render with "div" tag', () => {
+  it('should not render bezel by default', () => {
     const wrapper = mount(
-      <Bezel
-        player={{
-          bezelCount: 10,
-          bezelStatus: 'replay-5'
-        }}     
-      />
+      <Player
+        source="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      >
+        <Bezel />
+      </Player>
     );
-    expect(wrapper.find('div.video-react-bezel-icon').length).toBe(1);
+    expect(wrapper.find('div.video-react-bezel').length).toBe(0);
   });
 });

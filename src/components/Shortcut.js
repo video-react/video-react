@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { Component, PropTypes } from 'react';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -27,40 +26,66 @@ export default class Shortcut extends Component {
       {
         keyCode: 37, // Left arrow
         handle: (player, actions) => {
-          actions.replay(5); // Go back 5 seconds
-          actions.setBezel('replay-5');
+          if (!player.hasStarted) {
+            return;
+          }
+          actions.replay(5, {
+            action: 'replay-5',
+            source: 'shortcut'
+          }); // Go back 5 seconds
         }
       },
       {
         keyCode: 74, // j
         handle: (player, actions) => {
-          actions.replay(10); // Go back 10 seconds
-          actions.setBezel('replay-10');
+          if (!player.hasStarted) {
+            return;
+          }
+          actions.replay(10, {
+            action: 'replay-10',
+            source: 'shortcut'
+          }); // Go back 10 seconds
         }
       },
       {
         keyCode: 39, // Right arrow
         handle: (player, actions) => {
-          actions.forward(5); // Go forward 5 seconds
-          actions.setBezel('forward-5');
+          if (!player.hasStarted) {
+            return;
+          }
+          actions.forward(5, {
+            action: 'forward-5',
+            source: 'shortcut'
+          }); // Go forward 5 seconds
         }
       },
       {
         keyCode: 76, // l
         handle: (player, actions) => {
-          actions.forward(10); // Go forward 10 seconds
-          actions.setBezel('forward-10');
+          if (!player.hasStarted) {
+            return;
+          }
+          actions.forward(10, {
+            action: 'forward-10',
+            source: 'shortcut'
+          }); // Go forward 10 seconds
         }
       },
       {
         keyCode: 36, // Home
         handle: (player, actions) => {
+          if (!player.hasStarted) {
+            return;
+          }
           actions.seek(0); // Go to beginning of video
         }
       },
       {
         keyCode: 35, // End
         handle: (player, actions) => {
+          if (!player.hasStarted) {
+            return;
+          }
           // Go to end of video
           actions.seek(player.duration);
         }
@@ -73,8 +98,10 @@ export default class Shortcut extends Component {
           if (v > 1) {
             v = 1;
           }
-          actions.changeVolume(v);
-          actions.setBezel('volume-up');
+          actions.changeVolume(v, {
+            action: 'volume-up',
+            source: 'shortcut'
+          });
         }
       },
       {
@@ -85,12 +112,11 @@ export default class Shortcut extends Component {
           if (v < 0) {
             v = 0;
           }
-          actions.changeVolume(v);
-          if (v > 0) {
-            actions.setBezel('volume-down');
-          } else {
-            actions.setBezel('volume-off');
-          }
+          const action = (v > 0) ? 'volume-down' : 'volume-off';
+          actions.changeVolume(v, {
+            action,
+            source: 'shortcut'
+          });
         }
       },
       {
@@ -112,8 +138,10 @@ export default class Shortcut extends Component {
           } else if (playbackRate >= 0) {
             playbackRate = 0.25;
           }
-          actions.changeRate(playbackRate);
-          actions.setBezel('fast-forward');
+          actions.changeRate(playbackRate, {
+            action: 'fast-forward',
+            source: 'shortcut'
+          });
         }
       },
       {
@@ -133,8 +161,10 @@ export default class Shortcut extends Component {
           } else if (playbackRate <= 2) {
             playbackRate = 1.5;
           }
-          actions.changeRate(playbackRate);
-          actions.setBezel('fast-rewind');
+          actions.changeRate(playbackRate, {
+            action: 'fast-rewind',
+            source: 'shortcut'
+          });
         }
       }
     ];
@@ -151,7 +181,7 @@ export default class Shortcut extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.shortcuts != this.props.shortcuts) {
+    if (prevProps.shortcuts !== this.props.shortcuts) {
       this.mergeShortcuts();
     }
   }
@@ -173,16 +203,20 @@ export default class Shortcut extends Component {
 
   togglePlay(player, actions) {
     if (player.paused) {
-      actions.play();
-      actions.setBezel('play');
+      actions.play({
+        action: 'play',
+        source: 'shortcut'
+      });
     } else {
-      actions.pause();
-      actions.setBezel('pause');
+      actions.pause({
+        action: 'pause',
+        source: 'shortcut'
+      });
     }
   }
 
   toggleFullscreen(player, actions) {
-
+    actions.toggleFullscreen(player);
   }
 
   handleKeypress(e) {
@@ -212,7 +246,6 @@ export default class Shortcut extends Component {
       shortcut.handle(player, actions);
       e.preventDefault();
     }
-
   }
 
   // this component dose not render anything
@@ -222,4 +255,5 @@ export default class Shortcut extends Component {
   }
 }
 
+Shortcut.propTypes = propTypes;
 

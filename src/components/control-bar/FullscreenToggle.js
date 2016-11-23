@@ -14,85 +14,11 @@ export default class FullscreenToggle extends Component {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
-    this.requestFullscreen = this.requestFullscreen.bind(this);
-    this.handleFullScreenChange = this.handleFullScreenChange.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('fullscreenchange', this.handleFullScreenChange);
-    document.addEventListener('webkitfullscreenchange', this.handleFullScreenChange);
-    document.addEventListener('mozfullscreenchange', this.handleFullScreenChange);
-    document.addEventListener('MSFullscreenChange', this.handleFullScreenChange);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('fullscreenchange', this.handleFullScreenChange);
-    document.removeEventListener('webkitfullscreenchange', this.handleFullScreenChange);
-    document.removeEventListener('mozfullscreenchange', this.handleFullScreenChange);
-    document.removeEventListener('MSFullscreenChange', this.handleFullScreenChange);
-  }
-
-  handleFullScreenChange() {
-    const { actions } = this.props;
-    actions.handleFullscreenChange(this.isFullscreen());
-  }
-
-  isFullscreen() {
-    return (
-      document.fullscreenElement ||
-      document.webkitFullscreenElement ||
-      document.mozFullScreenElement ||
-      document.msFullscreenElement
-    );
-  }
-
-  isFullscreenEnabled() {
-    return (
-      document.fullscreenEnabled ||
-      document.webkitFullscreenEnabled ||
-      document.mozFullScreenEnabled ||
-      document.msFullscreenEnabled
-    );
-  }
-
-  // go full-screen
-  requestFullscreen() {
-    const { actions: { playerElement } } = this.props;
-
-    if (playerElement.requestFullscreen) {
-      playerElement.requestFullscreen();
-    } else if (playerElement.webkitRequestFullscreen) {
-      playerElement.webkitRequestFullscreen();
-    } else if (playerElement.mozRequestFullScreen) {
-      playerElement.mozRequestFullScreen();
-    } else if (playerElement.msRequestFullscreen) {
-      playerElement.msRequestFullscreen();
-    }
-  }
-
-  exitFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
   }
 
   handleClick() {
     const { player, actions } = this.props;
-    if (this.isFullscreenEnabled()) {
-      if (this.isFullscreen()) {
-        this.exitFullscreen();
-      } else {
-        this.requestFullscreen();
-      }
-    } else {
-      actions.handleFullscreenChange(!player.isFullscreen);
-    }
+    actions.toggleFullscreen(player);
 
     blurNode(this.button);
   }

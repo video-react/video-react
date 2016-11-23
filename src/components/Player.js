@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import Actions from '../actions';
+
+import Manager from '../Manager';
+
 import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
@@ -11,6 +13,7 @@ import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
 import { mergeAndSortChildren } from '../utils';
+import fullscreen from '../utils/fullscreen';
 
 const propTypes = {
   children: PropTypes.any,
@@ -64,34 +67,9 @@ export default class Player extends Component {
 
     this.controlsHideTimer = null;
 
-    this.state = {
-      userActivity: true,
-      player: {
-        duration: 0,
-        currentTime: 0,
-        seekingTime: 0,
-        buffered: null,
-        waiting: true,
-        seeking: false,
-        paused: true,
-        autoPaused: false,
-        ended: false,
-        playbackRate: 1,
-        muted: props.muted || false,
-        volume: 1,
-        isFullscreen: false,
-        readyState: 0,
-        networkState: 0,
-        videoWidth: 0,
-        videoHeight: 0,
-        hasStarted: false,
-
-        bezelCount: 0,
-        bezelStatus: null,
-        error: null,
-      },
-    };
-    this.actions = new Actions(this.setPlayerState.bind(this));
+    this.manager = new Manager();
+    this.actions = this.manager.getActions();
+    this.manager.subscribeToPlayerStateChange(this.handleStateChange.bind(this));
 
     this.getStyle = this.getStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -99,41 +77,35 @@ export default class Player extends Component {
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.startControlsTimer = this.startControlsTimer.bind(this);
+    this.handleFullScreenChange = this.handleFullScreenChange.bind(this);
   }
 
   componentDidMount() {
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+
+    fullscreen.addEventListener(this.handleFullScreenChange);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.player.isFullscreen !== prevState.player.isFullscreen) {
-      this.handleResize();
-    }
+
   }
 
   componentWillUnmount() {
     // Remove event listener
     window.addEventListener('resize', this.handleResize);
+    fullscreen.removeEventListener(this.handleFullScreenChange);
     if (this.controlsHideTimer) {
       window.clearTimeout(this.controlsHideTimer);
     }
   }
 
-  setPlayerState(player) {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        player: {
-          ...prevState.player,
-          ...player
-        }
-      };
-    });
-  }
-
   // player resize
   handleResize() {
+  }
+
+  handleFullScreenChange() {
+    this.actions.handleFullscreenChange(fullscreen.isFullscreen);
   }
 
   handleMouseDown() {
@@ -145,20 +117,16 @@ export default class Player extends Component {
   }
 
   startControlsTimer() {
-    this.setState({
-      userActivity: true,
-    });
+    this.actions.activate(true);
     clearTimeout(this.controlsHideTimer);
     this.controlsHideTimer = setTimeout(() => {
-      this.setState({
-        userActivity: false,
-      });
+      this.actions.activate(false);
     }, 3000);
   }
 
   getStyle() {
     const { fluid } = this.props;
-    const { player } = this.state;
+    const { player } = this.manager.getState();
     const style = {};
     let width;
     let height;
@@ -256,13 +224,24 @@ export default class Player extends Component {
     return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
   }
 
+
+  handleStateChange(state, prevState) {
+    if (state.isFullscreen !== prevState.isFullscreen) {
+      this.handleResize();
+    }
+    this.forceUpdate(); // re-render
+  }
+
   render() {
     const { fluid } = this.props;
-    const { paused, hasStarted, waiting, seeking, isFullscreen } = this.state.player;
+    const { player } = this.manager.getState();
+    const { paused, hasStarted, waiting, seeking, isFullscreen, userActivity } = player;
     const props = {
       ...this.props,
-      player: this.state.player,
+      player,
       actions: this.actions,
+      manager: this.manager,
+      store: this.manager.store,
     };
     const children = this.getChildren(props);
 
@@ -277,13 +256,13 @@ export default class Player extends Component {
           'video-react-seeking': seeking,
           'video-react-fluid': fluid,
           'video-react-fullscreen': isFullscreen,
-          'video-react-user-inactive': !this.state.userActivity,
-          'video-react-user-active': this.state.userActivity,
+          'video-react-user-inactive': !userActivity,
+          'video-react-user-active': userActivity,
           'video-react-workinghover': !browser.IS_IOS,
         }, 'video-react')}
         style={this.getStyle()}
         ref={(c) => {
-          this.actions.setPlayerElement(c);
+          this.manager.rootElement = c;
         }}
         onTouchStart={this.handleMouseDown}
         onMouseDown={this.handleMouseDown}
@@ -291,8 +270,7 @@ export default class Player extends Component {
       >
         <Video
           ref={(c) => {
-            this.video = c;
-            this.actions.setVideo(c);
+            this.manager.video = this.video = c;
           }}
           {...props}
         />

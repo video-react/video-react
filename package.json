@@ -1,6 +1,6 @@
 {
   "name": "video-react",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
   "scripts": {
@@ -52,7 +52,8 @@
   "tonicExampleFilename": "tonic-example.js",
   "dependencies": {
     "classnames": "^2.2.3",
-    "lodash.throttle": "^4.1.1"
+    "lodash.throttle": "^4.1.1",
+    "redux": "^3.6.0"
   },
   "peerDependencies": {
     "react": "^15.0.0",
