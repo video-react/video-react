@@ -45,6 +45,7 @@ export default class Video extends Component {
   constructor(props) {
     super(props);
 
+    this.video = null; // the html5 video
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.seek = this.seek.bind(this);

@@ -69,6 +69,7 @@ export default class Player extends Component {
 
     this.controlsHideTimer = null;
 
+    this.video = null; // the Video component
     this.manager = new Manager();
     this.actions = this.manager.getActions();
     this.manager.subscribeToPlayerStateChange(this.handleStateChange.bind(this));
@@ -87,10 +88,6 @@ export default class Player extends Component {
     window.addEventListener('resize', this.handleResize);
 
     fullscreen.addEventListener(this.handleFullScreenChange);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
   }
 
   componentWillUnmount() {
@@ -182,6 +179,12 @@ export default class Player extends Component {
 
   getDefaultChildren(props) {
     return [
+      <Video
+        ref={(c) => {
+          this.manager.video = this.video = c;
+        }}
+        {...props}
+      />,
       <PosterImage
         key="poster-image"
         order={1.0}
@@ -270,12 +273,6 @@ export default class Player extends Component {
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
       >
-        <Video
-          ref={(c) => {
-            this.manager.video = this.video = c;
-          }}
-          {...props}
-        />
         {children}
       </div>
     );
