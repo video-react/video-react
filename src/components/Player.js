@@ -22,7 +22,7 @@ const propTypes = {
   height: PropTypes.number,
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
-  playsinline: PropTypes.bool,
+  playsInline: PropTypes.bool,
   aspectRatio: PropTypes.string,
 
   startTime: PropTypes.number,
@@ -58,7 +58,6 @@ const propTypes = {
 
 const defaultProps = {
   fluid: true,
-  playsInline: true,
   aspectRatio: 'auto'
 };
 
