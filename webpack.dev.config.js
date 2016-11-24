@@ -13,6 +13,7 @@ var paths = [
   '/',
   '/components/',
   '/components/player/',
+  '/components/shortcut/',
   '/components/big-play-button/',
   '/components/poster-image/',
   '/components/loading-spinner/',
