@@ -21,7 +21,7 @@ or
 ```
 or
 ```html
-<link rel="stylesheet" href="/your-css-path/video-react.css" />
+<link rel="stylesheet" href="https://video-react.github.io/assets/video-react.css" />
 ```
 
 Import the components you need, example:
