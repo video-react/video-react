@@ -162,13 +162,24 @@ export default class Shortcut extends Component {
 
   // merge the shortcuts from props
   mergeShortcuts() {
+    const gradeShortcut = (s) => {
+      let score = 0;
+      const ps = ['ctrl', 'shift', 'alt'];
+      ps.forEach((key) => {
+        if (s[key]) {
+          score++;
+        }
+      });
+      return score;
+    };
+
     const shortcuts = (this.props.shortcuts || [])
       .filter((s) => s.keyCode && s.handle && (typeof s.handle === 'function'));
 
     this.shortcuts = [
       ...shortcuts,
       ...this.defaultShortcuts,
-    ];
+    ].sort((a, b) => gradeShortcut(b) - gradeShortcut(a));
   }
 
   togglePlay(player, actions) {
@@ -189,10 +200,9 @@ export default class Shortcut extends Component {
     const { player, actions } = this.props;
 
     const keyCode = e.keyCode || e.which;
-    const ctrl = e.ctrlKey;
+    const ctrl = e.ctrlKey || e.metaKey;
     const shift = e.shiftKey;
     const alt = e.altKey;
-    const command = e.metaKey;
 
     const shortcut = this.shortcuts.find((s) => {
       if (s.keyCode != keyCode) {
@@ -201,7 +211,6 @@ export default class Shortcut extends Component {
       if ((s.ctrl !== undefined && s.ctrl !== ctrl)
         || (s.shift !== undefined && s.shift !== shift)
         || (s.alt !== undefined && s.alt !== alt)
-        || (s.command !== undefined && s.command !== command)
         ) {
         return false;
       }
