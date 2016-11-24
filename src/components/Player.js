@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import throttle from 'lodash.throttle';
 
 import Manager from '../Manager';
 
@@ -76,10 +77,11 @@ export default class Player extends Component {
     this.getStyle = this.getStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.getChildren = this.getChildren.bind(this);
-    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleMouseMove = throttle(this.handleMouseMove.bind(this), 250);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.startControlsTimer = this.startControlsTimer.bind(this);
     this.handleFullScreenChange = this.handleFullScreenChange.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -137,6 +139,10 @@ export default class Player extends Component {
 
   handleMouseMove() {
     this.startControlsTimer();
+  }
+
+  handleKeyDown(e) {
+    this.actions.handleKeyDown(e);
   }
 
   startControlsTimer() {
@@ -298,6 +304,8 @@ export default class Player extends Component {
         onTouchStart={this.handleMouseDown}
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
+        onKeyDown={this.handleKeyDown}
+        tabIndex="-1"
       >
         {children}
       </div>

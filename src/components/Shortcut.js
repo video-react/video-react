@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 
 const propTypes = {
+  manager: PropTypes.object,
   actions: PropTypes.object,
   player: PropTypes.object,
   shortcuts: PropTypes.array,
@@ -9,6 +10,8 @@ const propTypes = {
 export default class Shortcut extends Component {
   constructor(props, context) {
     super(props, context);
+
+    props.manager.subscribeToEventsStateChange(this.handleStateChange.bind(this));
 
     this.defaultShortcuts = [
       {
@@ -171,23 +174,18 @@ export default class Shortcut extends Component {
 
     this.shortcuts = [...this.defaultShortcuts];
 
-    this.handleKeypress = this.handleKeypress.bind(this);
     this.mergeShortcuts = this.mergeShortcuts.bind(this);
   }
 
   componentDidMount() {
+    const { manager } = this.props;
     this.mergeShortcuts();
-    document.addEventListener('keydown', this.handleKeypress);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.shortcuts !== this.props.shortcuts) {
       this.mergeShortcuts();
     }
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeypress);
   }
 
   // merge the shortcuts from props
@@ -230,30 +228,32 @@ export default class Shortcut extends Component {
     actions.toggleFullscreen(player);
   }
 
-  handleKeypress(e) {
+  handleStateChange(state, prevState) {
     const { player, actions } = this.props;
+    if (state.keyDown.count !== prevState.keyDown.count) {
+      const e = state.keyDown.event;
+      const keyCode = e.keyCode || e.which;
+      const ctrl = e.ctrlKey || e.metaKey;
+      const shift = e.shiftKey;
+      const alt = e.altKey;
 
-    const keyCode = e.keyCode || e.which;
-    const ctrl = e.ctrlKey || e.metaKey;
-    const shift = e.shiftKey;
-    const alt = e.altKey;
+      const shortcut = this.shortcuts.find((s) => {
+        if (s.keyCode != keyCode) {
+          return false;
+        }
+        if ((s.ctrl !== undefined && s.ctrl !== ctrl)
+          || (s.shift !== undefined && s.shift !== shift)
+          || (s.alt !== undefined && s.alt !== alt)
+          ) {
+          return false;
+        }
+        return true;
+      });
 
-    const shortcut = this.shortcuts.find((s) => {
-      if (s.keyCode != keyCode) {
-        return false;
+      if (shortcut) {
+        shortcut.handle(player, actions);
+        e.preventDefault();
       }
-      if ((s.ctrl !== undefined && s.ctrl !== ctrl)
-        || (s.shift !== undefined && s.shift !== shift)
-        || (s.alt !== undefined && s.alt !== alt)
-        ) {
-        return false;
-      }
-      return true;
-    });
-
-    if (shortcut) {
-      shortcut.handle(player, actions);
-      e.preventDefault();
     }
   }
 
