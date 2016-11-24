@@ -26,6 +26,10 @@ class Components extends React.Component {
           to: '/components/player/'
         },
         {
+          name: 'Shortcut',
+          to: '/components/shortcut/',
+        },
+        {
           name: 'BigPlayButton',
           to: '/components/big-play-button/',
         },
