@@ -61,6 +61,14 @@ module.exports = function (env) {
           commonjs: 'react-dom',
           amd: 'react-dom'
         }
+      },
+      {
+        'redux': {
+          root: 'Redux',
+          commonjs2: 'redux',
+          commonjs: 'redux',
+          amd: 'redux'
+        }
       }
     ],
     module: {

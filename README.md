@@ -8,7 +8,7 @@ Video.React is a web video player built from the ground up for an HTML5 world us
 Install `video-react` and __peer dependencies__ via NPM
 
 ```sh
-npm install --save video-react react react-dom
+npm install --save video-react react react-dom redux
 ```
 
 import css in your app or add video-react styles in your page

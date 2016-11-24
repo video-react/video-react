@@ -33,16 +33,21 @@
     "video",
     "video-react",
     "react-video",
+    "player",
     "component",
     "components",
     "react-component",
+    "react-components",
+    "react component",
+    "react components",
     "ui"
   ],
   "contributors": [
     "Junmin Liu",
     "Xincun Li",
     "Jing Sun",
-    "Xiaolei Chen"
+    "Xiaolei Chen",
+    "Xiangkun Yang"
   ],
   "license": "MIT",
   "bugs": {
@@ -52,12 +57,12 @@
   "tonicExampleFilename": "tonic-example.js",
   "dependencies": {
     "classnames": "^2.2.3",
-    "lodash.throttle": "^4.1.1",
-    "redux": "^3.6.0"
+    "lodash.throttle": "^4.1.1"
   },
   "peerDependencies": {
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "redux": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
@@ -100,6 +105,7 @@
     "react-router": "^2.6.1",
     "react-scripts": "^0.7.0",
     "reactstrap": "^3.6.0",
+    "redux": "^3.6.0",
     "sass-loader": "^4.0.2",
     "sinon": "^1.17.6",
     "static-site-generator-webpack-plugin": "^2.0.1",

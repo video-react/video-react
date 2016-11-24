@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import throttle from 'lodash.throttle';
+import { isVideoChild } from '../utils';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -116,6 +117,21 @@ export default class Video extends Component {
   // pause the video
   pause() {
     this.video.pause();
+  }
+
+  // Change the video source and re-load the video:
+  load() {
+    this.video.load();
+  }
+
+  // Add a new text track to the video
+  addTextTrack(...args) {
+    this.video.addTextTrack(...args);
+  }
+
+  // Check if your browser can play different types of video:
+  canPlayType(...args) {
+    this.video.canPlayType(...args);
   }
 
   // toggle play
@@ -446,9 +462,9 @@ export default class Video extends Component {
       preload, src, autoPlay, playsInline
     } = this.props;
 
-    // only keep <source /> elements
+    // only keep <source />, <track />, <MyComponent type="source" /> elements
     const children = React.Children.toArray(this.props.children)
-      .filter((c) => c.type === 'source');
+      .filter(isVideoChild);
 
     return (
       <video

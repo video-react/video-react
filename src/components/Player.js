@@ -12,7 +12,7 @@ import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
-import { mergeAndSortChildren } from '../utils';
+import { mergeAndSortChildren, isVideoChild } from '../utils';
 import fullscreen from '../utils/fullscreen';
 
 const propTypes = {
@@ -98,6 +98,31 @@ export default class Player extends Component {
     }
   }
 
+  // play the video
+  play() {
+    this.video.play();
+  }
+
+  // pause the video
+  pause() {
+    this.video.pause();
+  }
+
+  // Change the video source and re-load the video:
+  load() {
+    this.video.load();
+  }
+
+  // Add a new text track to the video
+  addTextTrack(...args) {
+    this.video.addTextTrack(...args);
+  }
+
+  // Check if your browser can play different types of video:
+  canPlayType(...args) {
+    this.video.canPlayType(...args);
+  }
+
   // player resize
   handleResize() {
   }
@@ -176,7 +201,7 @@ export default class Player extends Component {
     return style;
   }
 
-  getDefaultChildren(props) {
+  getDefaultChildren(props, fullProps) {
     return [
       <Video
         ref={(c) => {
@@ -184,7 +209,7 @@ export default class Player extends Component {
         }}
         key="video"
         order={0.0}
-        {...props}
+        {...fullProps}
       />,
       <PosterImage
         key="poster-image"
@@ -225,8 +250,8 @@ export default class Player extends Component {
       children: null
     };
     const children = React.Children.toArray(this.props.children)
-      .filter((e) => e.type !== 'source');
-    const defaultChildren = this.getDefaultChildren(propsWithoutChildren);
+      .filter((e) => (!isVideoChild(e)));
+    const defaultChildren = this.getDefaultChildren(propsWithoutChildren, props);
     return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
   }
 
