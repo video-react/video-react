@@ -9,6 +9,9 @@ export default () => {
         <NavbarBrand tag={Link} to="/">Video-React</NavbarBrand>
         <Nav className="nav navbar-nav float-xs-right">
           <NavItem>
+            <NavLink tag={Link} className="nav-link" to="/customize/" activeClassName="active">Customize</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink tag={Link} className="nav-link" to="/components/" activeClassName="active">Components</NavLink>
           </NavItem>
           <NavItem>

@@ -279,6 +279,7 @@ export default class Player extends Component {
       actions: this.actions,
       manager: this.manager,
       store: this.manager.store,
+      video: this.video ? this.video.video : null,
     };
     const children = this.getChildren(props);
 

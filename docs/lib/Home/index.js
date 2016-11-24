@@ -3,10 +3,8 @@ import { PrismCode } from 'react-prism';
 import { Button, Container, Row, Col, Jumbotron } from 'reactstrap';
 import { Link } from 'react-router';
 import BasicExample from '../examples/import-basic';
-import FullExample from '../examples/import-full';
 
 const importBasic = require('!!raw!../examples/import-basic');
-const importFull = require('!!raw!../examples/import-full');
 
 export default () => {
   return (
@@ -64,17 +62,6 @@ export default () => {
             <pre>
               <PrismCode className="language-jsx">
                 {importBasic}
-              </PrismCode>
-            </pre>
-            <h3>Full example</h3>
-            <p>Customize the control bar buttons.</p>
-
-            <div className="docs-example">
-              <FullExample />
-            </div>
-            <pre>
-              <PrismCode className="language-jsx">
-                {importFull}
               </PrismCode>
             </pre>
 

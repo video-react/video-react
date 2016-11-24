@@ -15,6 +15,10 @@ import ForwardControlPage from './Components/ForwardControlPage';
 import ReplayControlPage from './Components/ReplayControlPage';
 import VolumeMenuButtonPage from './Components/VolumeMenuButtonPage';
 
+import Customize from './Customize';
+import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
+import CustomizeSourcePage from './Customize/CustomizeSourcePage';
+
 const routes = (
   <Route path="/" component={UI.Layout}>
     <IndexRoute component={Home} />
@@ -31,6 +35,11 @@ const routes = (
       <Route path="forward-control/" component={ForwardControlPage} />
       <Route path="replay-control/" component={ReplayControlPage} />
       <Route path="volume-menu-button/" component={VolumeMenuButtonPage} />
+    </Route>
+    <Route path="/customize/" component={Customize}>
+      <IndexRedirect to="enable-disable-components/" />
+      <Route path="enable-disable-components/" component={EnableDisableComponentPage} />
+      <Route path="customize-source/" component={CustomizeSourcePage} />
     </Route>
     <Route path="*" component={NotFound} />
   </Route>

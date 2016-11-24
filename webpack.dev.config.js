@@ -22,6 +22,9 @@ var paths = [
   '/components/forward-control/',
   '/components/replay-control/',
   '/components/volume-menu-button/',
+  '/customize/',
+  '/customize/enable-disable-components/',
+  '/customize/customize-source/',
   '/404.html'
 ];
 

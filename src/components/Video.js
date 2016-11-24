@@ -462,9 +462,23 @@ export default class Video extends Component {
       preload, src, autoPlay, playsInline
     } = this.props;
 
+    const props = {
+      ...this.props,
+      video: this.video,
+    };
+
     // only keep <source />, <track />, <MyComponent type="source" /> elements
     const children = React.Children.toArray(this.props.children)
-      .filter(isVideoChild);
+      .filter(isVideoChild)
+      .map((c) => {
+        if (typeof c.type === 'string') {
+          return c;
+        }
+        return React.cloneElement(
+          c,
+          props
+        );
+      });
 
     return (
       <video
