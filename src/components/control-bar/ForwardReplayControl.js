@@ -44,6 +44,7 @@ export default (mode) => {
             [`video-react-icon-${mode}-${seconds}`]: true,
             [`video-react-${mode}-control`]: true,
           }, 'video-react-control video-react-button video-react-icon')}
+          tabIndex="0"
           onClick={this.handleClick}
         >
           <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>

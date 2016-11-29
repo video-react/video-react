@@ -8,6 +8,10 @@ const propTypes = {
   rates: PropTypes.array,
 };
 
+const defaultProps = {
+  rates: [0.25, 0.5, 1, 1.25, 1.5, 2],
+};
+
 class PlaybackRate extends Component {
 
   constructor(props, context) {
@@ -60,5 +64,6 @@ class PlaybackRate extends Component {
 }
 
 PlaybackRate.propTypes = propTypes;
+PlaybackRate.defaultProps = defaultProps;
 export default PlaybackRate;
 

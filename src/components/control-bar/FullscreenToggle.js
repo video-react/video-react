@@ -37,7 +37,7 @@ export default class FullscreenToggle extends Component {
           }
         }
         type="button"
-        aria-live="polite"
+        tabIndex="0"
         onClick={this.handleClick}
       >
         <span className="video-react-control-text">Non-Fullscreen</span>

@@ -23,6 +23,7 @@ export default class Menu extends Component {
       <div
         className="video-react-menu"
         role="presentation"
+        tabIndex="0"
         onClick={this.handleClick}
       >
         <ul className="video-react-menu-content">

@@ -48,6 +48,7 @@ export default class MenuButton extends Component {
           'video-react-menu-button-popup': !inline,
         }, 'video-react-control video-react-button video-react-menu-button')}
         role="presentation"
+        tabIndex="0"
         onClick={this.handleClick}
       >
         {this.props.children}

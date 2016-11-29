@@ -166,7 +166,6 @@ export default class Slider extends Component {
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
         onClick={this.handleClick}
-        tabIndex={0}
         aria-label={label || ''}
         aria-valuenow={valuenow || ''}
         aria-valuetext={valuetext || ''}
