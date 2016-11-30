@@ -117,7 +117,8 @@ export default function video(state = initialState, action) {
     case VOLUME_CHANGE:
       return {
         ...state,
-        volume: action.volume
+        volume: action.volume,
+        muted: action.muted,
       };
     case PROGRESS_CHANGE:
       return {

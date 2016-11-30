@@ -112,7 +112,26 @@ export function changeVolume(volume, operation = {
   action: 'change-volume',
   source: ''
 }) {
-  this.video.volume = volume;
+  let v = volume;
+  if (volume < 0) {
+    v = 0;
+  }
+  if (volume > 1) {
+    v = 1;
+  }
+  this.video.volume = v;
+
+  return {
+    type: OPERATE,
+    operation
+  };
+}
+
+export function mute(muted, operation = {
+  action: muted ? 'muted' : 'unmuted',
+  source: ''
+}) {
+  this.video.muted = muted;
 
   return {
     type: OPERATE,

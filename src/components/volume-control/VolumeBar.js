@@ -5,6 +5,8 @@ import VolumeLevel from './VolumeLevel';
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
 };
 
 class VolumeBar extends Component {
@@ -21,6 +23,8 @@ class VolumeBar extends Component {
     this.getPercent = this.getPercent.bind(this);
     this.stepForward = this.stepForward.bind(this);
     this.stepBack = this.stepBack.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +41,7 @@ class VolumeBar extends Component {
   checkMuted() {
     const { player, actions } = this.props;
     if (player.muted) {
-      actions.toggleMuted(false);
+      actions.mute(false);
     }
   }
 
@@ -58,6 +62,18 @@ class VolumeBar extends Component {
     const { player, actions } = this.props;
     this.checkMuted();
     actions.changeVolume(player.volume - 0.1);
+  }
+
+  handleFocus(e) {
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
+  }
+
+  handleBlur(e) {
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
+    }
   }
 
   handlePercentageChange(percentage) {
@@ -81,8 +97,14 @@ class VolumeBar extends Component {
         valuenow={volume}
         valuetext={`${volume}%`}
         onMouseMove={this.handleMouseMove}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        sliderActive={this.handleFocus}
+        sliderInactive={this.handleBlur}
         getPercent={this.getPercent}
         onPercentageChange={this.handlePercentageChange}
+        stepForward={this.stepForward}
+        stepBack={this.stepBack}
         className="video-react-volume-bar video-react-slider-bar"
         {...this.props}
       >

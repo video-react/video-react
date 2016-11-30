@@ -118,10 +118,11 @@ export function handleTimeUpdate(time) {
 }
 
 
-export function handleVolumeChange(volume) {
+export function handleVolumeChange(volume, muted) {
   return {
     type: VOLUME_CHANGE,
-    volume
+    volume,
+    muted
   };
 }
 

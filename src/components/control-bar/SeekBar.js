@@ -18,6 +18,8 @@ export default class SeekBar extends Component {
 
     this.getPercent = this.getPercent.bind(this);
     this.getNewTime = this.getNewTime.bind(this);
+    this.stepForward = this.stepForward.bind(this);
+    this.stepBack = this.stepBack.bind(this);
 
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -75,6 +77,17 @@ export default class SeekBar extends Component {
     actions.handleSeekingTime(newTime);
   }
 
+
+  stepForward() {
+    const { actions } = this.props;
+    actions.forward(5);
+  }
+
+  stepBack() {
+    const { actions } = this.props;
+    actions.replay(5);
+  }
+
   render() {
     const { player: { currentTime, seekingTime, duration, buffered }, mouseTime } = this.props;
     const time = seekingTime || currentTime;
@@ -92,6 +105,8 @@ export default class SeekBar extends Component {
         onMouseMove={this.handleMouseMove}
         onMouseUp={this.handleMouseUp}
         getPercent={this.getPercent}
+        stepForward={this.stepForward}
+        stepBack={this.stepBack}
       >
         <LoadProgressBar
           buffered={buffered}

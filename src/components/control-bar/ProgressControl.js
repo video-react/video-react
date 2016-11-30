@@ -44,7 +44,6 @@ export default class ProgressControl extends Component {
       <div
         onMouseMove={this.handleMouseMoveThrottle}
         className="video-react-progress-control video-react-control"
-        tabIndex="0"
       >
         <SeekBar
           mouseTime={this.state.mouseTime}

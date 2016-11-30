@@ -20,12 +20,30 @@ class VolumeMenuButton extends Component {
   constructor(props, context) {
     super(props, context);
 
+    this.state = {
+      active: false,
+    };
+
     this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleClick() {
-    // const { player, actions } = this.props;
-    // actions.toggleMuted(!player.muted);
+    const { player, actions } = this.props;
+    actions.mute(!player.muted);
+  }
+
+  handleFocus() {
+    this.setState({
+      active: true,
+    });
+  }
+
+  handleBlur() {
+    this.setState({
+      active: false,
+    });
   }
 
   get volumeLevel() {
@@ -55,11 +73,17 @@ class VolumeMenuButton extends Component {
           'video-react-vol-1': level === 1,
           'video-react-vol-2': level === 2,
           'video-react-vol-3': level === 3,
+          'video-react-slider-active': this.state.active,
+          'video-react-lock-showing': this.state.active,
         }, 'video-react-volume-menu-button')}
         onClick={this.handleClick}
         inline={inline}
       >
-        <VolumeBar {...this.props} />
+        <VolumeBar
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          {...this.props}
+        />
       </PopupButton>
     );
   }

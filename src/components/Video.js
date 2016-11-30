@@ -434,8 +434,9 @@ export default class Video extends Component {
   // Fires when the volume has been changed
   handleVolumeChange(...args) {
     const { player, actions, onVolumeChange } = this.props;
-    if (player.volume !== this.video.volume) {
-      actions.handleVolumeChange(this.video.volume);
+    if (player.volume !== this.video.volume
+      || player.muted !== this.video.muted) {
+      actions.handleVolumeChange(this.video.volume, this.video.muted);
     }
 
     if (onVolumeChange) {

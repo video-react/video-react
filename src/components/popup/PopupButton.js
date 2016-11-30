@@ -5,6 +5,8 @@ import Popup from './Popup';
 const propTypes = {
   inline: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   className: PropTypes.string,
 };
 
@@ -18,6 +20,8 @@ export default class PopupButton extends Component {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleClick(event) {
@@ -25,6 +29,17 @@ export default class PopupButton extends Component {
     onClick(event);
   }
 
+  handleFocus(e) {
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
+  }
+
+  handleBlur(e) {
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
+    }
+  }
 
   render() {
     const { inline } = this.props;
@@ -37,6 +52,8 @@ export default class PopupButton extends Component {
         role="button"
         tabIndex="0"
         onClick={this.handleClick}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
       >
         <Popup {...this.props} />
       </div>

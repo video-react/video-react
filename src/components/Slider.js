@@ -7,7 +7,13 @@ const propTypes = {
   className: PropTypes.string,
   onMouseDown: PropTypes.func,
   onMouseMove: PropTypes.func,
+  stepForward: PropTypes.func,
+  stepBack: PropTypes.func,
+  sliderActive: PropTypes.func,
+  sliderInactive: PropTypes.func,
   onMouseUp: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   getPercent: PropTypes.func,
   vertical: PropTypes.bool,
   children: PropTypes.node,
@@ -71,6 +77,10 @@ export default class Slider extends Component {
       distance: 0,
     });
 
+    if (this.props.sliderActive) {
+      this.props.sliderActive(event);
+    }
+
     this.handleMouseMove(event);
 
     if (onMouseDown) {
@@ -98,17 +108,27 @@ export default class Slider extends Component {
       active: false,
     });
 
+    if (this.props.sliderInactive) {
+      this.props.sliderInactive(event);
+    }
+
     if (onMouseUp) {
       onMouseUp(event);
     }
   }
 
-  handleFocus() {
+  handleFocus(e) {
     document.addEventListener('keydown', this.handleKeyPress, true);
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
   }
 
-  handleBlur() {
+  handleBlur(e) {
     document.removeEventListener('keydown', this.handleKeyPress, true);
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
+    }
   }
 
   handleClick(event) {
@@ -129,9 +149,15 @@ export default class Slider extends Component {
   }
 
   stepForward() {
+    if (this.props.stepForward) {
+      this.props.stepForward();
+    }
   }
 
   stepBack() {
+    if (this.props.stepBack) {
+      this.props.stepBack();
+    }
   }
 
   calculateDistance(event) {
@@ -161,6 +187,7 @@ export default class Slider extends Component {
           'video-react-slider-horizontal': !vertical,
           'video-react-sliding': this.state.active,
         }, 'video-react-slider')}
+        tabIndex="0"
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleMouseDown}
         onFocus={this.handleFocus}
