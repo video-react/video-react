@@ -1,8 +1,8 @@
-export const EVENT_KEYDOWN = 'video-react/EVENT_KEYDOWN';
+export const EVENT_PLAYER_KEYDOWN = 'video-react/EVENT_PLAYER_KEYDOWN';
 
-export function handleKeyDown(e) {
+export function handlePlayerKeyDown(e) {
   return {
-    type: EVENT_KEYDOWN,
+    type: EVENT_PLAYER_KEYDOWN,
     event: e,
-  }
+  };
 }

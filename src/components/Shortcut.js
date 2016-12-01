@@ -178,7 +178,6 @@ export default class Shortcut extends Component {
   }
 
   componentDidMount() {
-    const { manager } = this.props;
     this.mergeShortcuts();
   }
 
@@ -230,8 +229,8 @@ export default class Shortcut extends Component {
 
   handleStateChange(state, prevState) {
     const { player, actions } = this.props;
-    if (state.keyDown.count !== prevState.keyDown.count) {
-      const e = state.keyDown.event;
+    if (state.playerKeyDown.count !== prevState.playerKeyDown.count) {
+      const e = state.playerKeyDown.event;
       const keyCode = e.keyCode || e.which;
       const ctrl = e.ctrlKey || e.metaKey;
       const shift = e.shiftKey;

@@ -1,4 +1,4 @@
-import { OPERATE, REFRESH_OPERATION } from '../actions/player';
+import { OPERATE } from '../actions/player';
 
 const initialState = {
   count: 0,
@@ -20,11 +20,6 @@ export default function operation(state = initialState, action) {
           ...action.operation
         }
       };
-    case REFRESH_OPERATION:
-      return {
-        ...state,
-        count: state.count + 1,
-      }
     default:
       return state;
   }

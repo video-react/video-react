@@ -1,7 +1,6 @@
 import fullscreen from '../utils/fullscreen';
 
 export const OPERATE = 'video-react/OPERATE';
-export const REFRESH_OPERATION = 'video-react/REFRESH_OPERATION';
 export const FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
 export const PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
 
@@ -136,12 +135,6 @@ export function mute(muted, operation = {
   return {
     type: OPERATE,
     operation
-  };
-}
-
-export function refreshOperation() {
-  return {
-    type: REFRESH_OPERATION,
   };
 }
 

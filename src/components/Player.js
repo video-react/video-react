@@ -142,7 +142,7 @@ export default class Player extends Component {
   }
 
   handleKeyDown(e) {
-    this.actions.handleKeyDown(e);
+    this.actions.handlePlayerKeyDown(e);
   }
 
   startControlsTimer() {

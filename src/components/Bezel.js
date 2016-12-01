@@ -29,30 +29,24 @@ export default class Bezel extends Component {
       if (this.timer) { // previous animation is not finished
         clearTimeout(this.timer); // cancel it
         this.timer = null;
-        this.setState({ // hide it
-          hidden: true,
-          count: state.count,
-        });
-        setTimeout(() => {
-          // refresh the count, show it in next loop
-          actions.refreshOperation();
-        }, 10);
-      } else { // no previous animation
-        // show it
-        // update operation
-        this.setState({
-          hidden: false,
-          count: state.count,
-          operation: state.operation,
-        });
-        // hide it after 0.5s
-        this.timer = setTimeout(() => {
-          this.setState({
-            hidden: true,
-          });
-          this.timer = null;
-        }, 500);
       }
+
+      // show it
+      // update operation
+      this.setState({
+        hidden: false,
+        count: state.count,
+        operation: state.operation,
+      });
+
+      // hide it after 0.5s
+      this.timer = setTimeout(() => {
+        this.setState({
+          hidden: true,
+        });
+        this.timer = null;
+      }, 500);
+
     }
   }
 
@@ -67,7 +61,11 @@ export default class Bezel extends Component {
 
     return (
       <div
-        className="video-react-bezel"
+        className={classNames({
+          'video-react-bezel': true,
+          'video-react-bezel-animation': this.state.count % 2 === 0,
+          'video-react-bezel-animation-alt': this.state.count % 2 === 1,
+        })}
         style={style}
         role="status"
         aria-label={this.state.operation.action}

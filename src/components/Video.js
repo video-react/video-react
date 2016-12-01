@@ -468,7 +468,7 @@ export default class Video extends Component {
       video: this.video,
     };
 
-    // only keep <source />, <track />, <MyComponent type="source" /> elements
+    // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     const children = React.Children.toArray(this.props.children)
       .filter(isVideoChild)
       .map((c) => {

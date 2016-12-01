@@ -9,10 +9,20 @@
   margin-top: -26px;
   background: rgba(0,0,0,.5);
   border-radius: 26px;
-  -moz-animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
-  -webkit-animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
-  animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
-  pointer-events: none;
+
+  &.video-react-bezel-animation {
+    -moz-animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
+    -webkit-animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
+    animation: video-react-bezel-fadeout .5s linear 1 normal forwards;
+    pointer-events: none;
+  }
+
+  &.video-react-bezel-animation-alt {
+    -moz-animation: video-react-bezel-fadeout-alt .5s linear 1 normal forwards;
+    -webkit-animation: video-react-bezel-fadeout-alt .5s linear 1 normal forwards;
+    animation: video-react-bezel-fadeout-alt .5s linear 1 normal forwards;
+    pointer-events: none;
+  }
 
   .video-react-bezel-icon {
     @extend .video-react-icon;
@@ -87,6 +97,17 @@
 }
 
 @keyframes video-react-bezel-fadeout {
+  0% {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(2)
+  }
+}
+
+@keyframes video-react-bezel-fadeout-alt {
   0% {
     opacity: 1
   }
