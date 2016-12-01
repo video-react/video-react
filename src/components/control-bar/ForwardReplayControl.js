@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import { blurNode } from '../../utils/dom';
+import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -28,13 +28,13 @@ export default (mode) => {
       } else {
         actions.replay(seconds);
       }
-      blurNode(this.button);
     }
 
     render() {
       const { seconds } = this.props;
       return (
-        <button
+        <ClickableComponent
+          tagName="button"
           ref={
             c => {
               this.button = c;
@@ -44,11 +44,10 @@ export default (mode) => {
             [`video-react-icon-${mode}-${seconds}`]: true,
             [`video-react-${mode}-control`]: true,
           }, 'video-react-control video-react-button video-react-icon')}
-          tabIndex="0"
           onClick={this.handleClick}
         >
           <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>
-        </button>
+        </ClickableComponent>
       );
     }
   }

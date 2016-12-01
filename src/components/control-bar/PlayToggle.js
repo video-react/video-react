@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import { blurNode } from '../../utils/dom';
+import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -21,7 +21,6 @@ export default class PlayToggle extends Component {
     } else {
       actions.pause();
     }
-    blurNode(this.button);
   }
 
   render() {
@@ -29,7 +28,8 @@ export default class PlayToggle extends Component {
     const controlText = player.paused ? 'Play' : 'Pause';
 
     return (
-      <button
+      <ClickableComponent
+        tagName="button"
         ref={
           c => {
             this.button = c;
@@ -48,7 +48,7 @@ export default class PlayToggle extends Component {
         <span className="video-react-control-text">
           {controlText}
         </span>
-      </button>
+      </ClickableComponent>
     );
   }
 }

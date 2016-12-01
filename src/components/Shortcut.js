@@ -1,4 +1,5 @@
 import { Component, PropTypes } from 'react';
+import { hasClass } from '../utils/dom';
 
 const propTypes = {
   manager: PropTypes.object,
@@ -10,8 +11,6 @@ const propTypes = {
 export default class Shortcut extends Component {
   constructor(props, context) {
     super(props, context);
-
-    props.manager.subscribeToEventsStateChange(this.handleStateChange.bind(this));
 
     this.defaultShortcuts = [
       {
@@ -175,16 +174,22 @@ export default class Shortcut extends Component {
     this.shortcuts = [...this.defaultShortcuts];
 
     this.mergeShortcuts = this.mergeShortcuts.bind(this);
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
   componentDidMount() {
     this.mergeShortcuts();
+    document.addEventListener('keydown', this.handleKeypress);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.shortcuts !== this.props.shortcuts) {
       this.mergeShortcuts();
     }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeypress);
   }
 
   // merge the shortcuts from props
@@ -227,32 +232,41 @@ export default class Shortcut extends Component {
     actions.toggleFullscreen(player);
   }
 
-  handleStateChange(state, prevState) {
+  handleKeypress(e) {
     const { player, actions } = this.props;
-    if (state.playerKeyDown.count !== prevState.playerKeyDown.count) {
-      const e = state.playerKeyDown.event;
-      const keyCode = e.keyCode || e.which;
-      const ctrl = e.ctrlKey || e.metaKey;
-      const shift = e.shiftKey;
-      const alt = e.altKey;
+    if (!player.isActive) {
+      return;
+    }
 
-      const shortcut = this.shortcuts.find((s) => {
-        if (s.keyCode != keyCode) {
-          return false;
-        }
-        if ((s.ctrl !== undefined && s.ctrl !== ctrl)
-          || (s.shift !== undefined && s.shift !== shift)
-          || (s.alt !== undefined && s.alt !== alt)
-          ) {
-          return false;
-        }
-        return true;
-      });
+    if (document.activeElement && (
+        hasClass(document.activeElement, 'video-react-control')
+        || hasClass(document.activeElement, 'video-react-slider')
+        || hasClass(document.activeElement, 'video-react-big-play-button')
+      )) {
+      return;
+    }
 
-      if (shortcut) {
-        shortcut.handle(player, actions);
-        e.preventDefault();
+    const keyCode = e.keyCode || e.which;
+    const ctrl = e.ctrlKey || e.metaKey;
+    const shift = e.shiftKey;
+    const alt = e.altKey;
+
+    const shortcut = this.shortcuts.find((s) => {
+      if (s.keyCode != keyCode) {
+        return false;
       }
+      if ((s.ctrl !== undefined && s.ctrl !== ctrl)
+        || (s.shift !== undefined && s.shift !== shift)
+        || (s.alt !== undefined && s.alt !== alt)
+        ) {
+        return false;
+      }
+      return true;
+    });
+
+    if (shortcut) {
+      shortcut.handle(player, actions);
+      e.preventDefault();
     }
   }
 

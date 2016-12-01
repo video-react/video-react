@@ -81,3 +81,14 @@ export function blurNode(reactNode) {
     domNode.blur();
   }
 }
+
+// check if an element has a class name
+export function hasClass(elm, cls) {
+  const classes = elm.className.split(' ');
+  for (let i = 0; i < classes.length; i++) {
+    if (classes[i].toLowerCase() === cls.toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+}

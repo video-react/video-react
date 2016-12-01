@@ -6,7 +6,7 @@ import {
   TIME_UPDATE, VOLUME_CHANGE, PROGRESS_CHANGE,
   RATE_CHANGE
 } from '../actions/video';
-import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE } from '../actions/player';
+import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../actions/player';
 
 const initialState = {
   duration: 0,
@@ -27,6 +27,7 @@ const initialState = {
   videoHeight: 0,
   hasStarted: false,
   userActivity: true,
+  isActive: false,
   isFullscreen: false,
 };
 
@@ -135,10 +136,15 @@ export default function video(state = initialState, action) {
         ...state,
         isFullscreen: action.isFullscreen,
       };
-    case PLAYER_ACTIVATE:
+    case USER_ACTIVATE:
       return {
         ...state,
         userActivity: action.activity
+      };
+    case PLAYER_ACTIVATE:
+      return {
+        ...state,
+        isActive: action.activity
       };
     default:
       return state;

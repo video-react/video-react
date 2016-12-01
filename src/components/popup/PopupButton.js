@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import ClickableComponent from '../ClickableComponent';
 import Popup from './Popup';
 
 const propTypes = {
@@ -18,45 +19,25 @@ export default class PopupButton extends Component {
 
   constructor(props, context) {
     super(props, context);
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
   }
 
-  handleClick(event) {
-    const { onClick } = this.props;
-    onClick(event);
-  }
-
-  handleFocus(e) {
-    if (this.props.onFocus) {
-      this.props.onFocus(e);
-    }
-  }
-
-  handleBlur(e) {
-    if (this.props.onBlur) {
-      this.props.onBlur(e);
-    }
-  }
 
   render() {
-    const { inline } = this.props;
+    const { inline, className } = this.props;
+    const props = { ...this.props };
+    delete props.children;
+    delete props.inline;
+    delete props.className;
     return (
-      <div
-        className={classNames(this.props.className, {
+      <ClickableComponent
+        className={classNames(className, {
           'video-react-menu-button-inline': !!inline,
           'video-react-menu-button-popup': !inline,
         }, 'video-react-control video-react-button video-react-menu-button')}
-        role="button"
-        tabIndex="0"
-        onClick={this.handleClick}
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
+        {...props}
       >
         <Popup {...this.props} />
-      </div>
+      </ClickableComponent>
     );
   }
 

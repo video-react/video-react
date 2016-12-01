@@ -2,7 +2,6 @@ import createStore from 'redux/lib/createStore';
 import reducer from './reducers';
 import * as playerActions from './actions/player';
 import * as videoActions from './actions/video';
-import * as eventsActions from './actions/events';
 
 
 export default class Manager {
@@ -19,7 +18,6 @@ export default class Manager {
     const actions = {
       ...playerActions,
       ...videoActions,
-      ...eventsActions,
     };
 
     function bindActionCreator(actionCreator) {
@@ -72,11 +70,6 @@ export default class Manager {
   // subscribe to player state change
   subscribeToPlayerStateChange(listener) {
     return this.subscribeToStateChange(listener, () => this.getState().player);
-  }
-
-  // subscribe to events state change
-  subscribeToEventsStateChange(listener) {
-    return this.subscribeToStateChange(listener, () => this.getState().events);
   }
 
 }

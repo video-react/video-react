@@ -84,3 +84,4 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
     })
     .sort((a, b) => (a.props.order || defaultOrder) - (b.props.order || defaultOrder));
 }
+

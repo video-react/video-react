@@ -82,6 +82,8 @@ export default class Player extends Component {
     this.startControlsTimer = this.startControlsTimer.bind(this);
     this.handleFullScreenChange = this.handleFullScreenChange.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentDidMount() {
@@ -142,14 +144,14 @@ export default class Player extends Component {
   }
 
   handleKeyDown(e) {
-    this.actions.handlePlayerKeyDown(e);
+    this.startControlsTimer();
   }
 
   startControlsTimer() {
-    this.actions.activate(true);
+    this.actions.userActivate(true);
     clearTimeout(this.controlsHideTimer);
     this.controlsHideTimer = setTimeout(() => {
-      this.actions.activate(false);
+      this.actions.userActivate(false);
     }, 3000);
   }
 
@@ -269,6 +271,14 @@ export default class Player extends Component {
     this.forceUpdate(); // re-render
   }
 
+  handleFocus() {
+    this.actions.activate(true);
+  }
+
+  handleBlur() {
+    this.actions.activate(false);
+  }
+
   render() {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
@@ -306,6 +316,8 @@ export default class Player extends Component {
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}
         onKeyDown={this.handleKeyDown}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
         tabIndex="-1"
       >
         {children}

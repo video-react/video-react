@@ -3,6 +3,7 @@ import fullscreen from '../utils/fullscreen';
 export const OPERATE = 'video-react/OPERATE';
 export const FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
 export const PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
+export const USER_ACTIVATE = 'video-react/USER_ACTIVATE';
 
 
 export function handleFullscreenChange(isFullscreen) {
@@ -15,6 +16,13 @@ export function handleFullscreenChange(isFullscreen) {
 export function activate(activity) {
   return {
     type: PLAYER_ACTIVATE,
+    activity,
+  };
+}
+
+export function userActivate(activity) {
+  return {
+    type: USER_ACTIVATE,
     activity,
   };
 }

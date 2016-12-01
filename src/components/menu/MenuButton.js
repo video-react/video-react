@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import Menu from './Menu';
 import MenuItem from './MenuItem';
+import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   inline: PropTypes.bool,
@@ -42,7 +43,7 @@ export default class MenuButton extends Component {
     const { inline, className } = this.props;
 
     return (
-      <div
+      <ClickableComponent
         className={classNames(className, {
           'video-react-menu-button-inline': !!inline,
           'video-react-menu-button-popup': !inline,
@@ -53,7 +54,7 @@ export default class MenuButton extends Component {
       >
         {this.props.children}
         {this.renderMenu()}
-      </div>
+      </ClickableComponent>
     );
   }
 }
