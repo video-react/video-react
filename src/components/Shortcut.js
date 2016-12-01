@@ -175,11 +175,15 @@ export default class Shortcut extends Component {
 
     this.mergeShortcuts = this.mergeShortcuts.bind(this);
     this.handleKeypress = this.handleKeypress.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   componentDidMount() {
     this.mergeShortcuts();
     document.addEventListener('keydown', this.handleKeypress);
+    document.addEventListener('click', this.handleClick);
+    document.addEventListener('dblclick', this.handleDoubleClick);
   }
 
   componentDidUpdate(prevProps) {
@@ -268,6 +272,24 @@ export default class Shortcut extends Component {
       shortcut.handle(player, actions);
       e.preventDefault();
     }
+  }
+
+  handleClick(e) {
+    const { player, actions } = this.props;
+    if (!player.isActive || e.target.nodeName !== 'VIDEO') {
+      return;
+    }
+    this.togglePlay(player, actions);
+    e.preventDefault();
+  }
+
+  handleDoubleClick(e) {
+    const { player, actions } = this.props;
+    if (!player.isActive || e.target.nodeName !== 'VIDEO') {
+      return;
+    }
+    this.toggleFullscreen(player, actions);
+    e.preventDefault();
   }
 
   // this component dose not render anything
