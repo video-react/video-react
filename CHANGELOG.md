@@ -1,3 +1,12 @@
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/video-react/video-react/compare/0.4.4...v0.5.1) (2016-12-02)
+
+- New features:
+    - Support keyboard navigation
+    - Click video to play or pause
+- Fixed the conflict of scss with other's
+
+
 <a name="0.4.4"></a>
 ## [0.4.4](https://github.com/video-react/video-react/compare/0.4.3...v0.4.4) (2016-11-29)
 
