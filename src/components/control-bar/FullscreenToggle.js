@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -24,8 +23,7 @@ export default class FullscreenToggle extends Component {
   render() {
     const { player } = this.props;
     return (
-      <ClickableComponent
-        tagName="button"
+      <button
         className={classNames({
           'video-react-icon-fullscreen-exit': player.isFullscreen,
           'video-react-icon-fullscreen': !player.isFullscreen,
@@ -40,7 +38,7 @@ export default class FullscreenToggle extends Component {
         onClick={this.handleClick}
       >
         <span className="video-react-control-text">Non-Fullscreen</span>
-      </ClickableComponent>
+      </button>
     );
   }
 }

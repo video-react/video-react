@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -28,8 +27,7 @@ export default class PlayToggle extends Component {
     const controlText = player.paused ? 'Play' : 'Pause';
 
     return (
-      <ClickableComponent
-        tagName="button"
+      <button
         ref={
           c => {
             this.button = c;
@@ -48,7 +46,7 @@ export default class PlayToggle extends Component {
         <span className="video-react-control-text">
           {controlText}
         </span>
-      </ClickableComponent>
+      </button>
     );
   }
 }

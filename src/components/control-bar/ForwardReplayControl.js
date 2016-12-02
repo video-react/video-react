@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import ClickableComponent from '../ClickableComponent';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -33,8 +32,7 @@ export default (mode) => {
     render() {
       const { seconds } = this.props;
       return (
-        <ClickableComponent
-          tagName="button"
+        <button
           ref={
             c => {
               this.button = c;
@@ -47,7 +45,7 @@ export default (mode) => {
           onClick={this.handleClick}
         >
           <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>
-        </ClickableComponent>
+        </button>
       );
     }
   }
