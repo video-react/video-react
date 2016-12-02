@@ -7,7 +7,7 @@
   right: 0;
   height: 3.0em;
 
-  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
+  @include background-color-with-alpha($video-react-primary-background-color, $video-react-primary-background-transparency);
 }
 
 // Video has started playing

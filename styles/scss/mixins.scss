@@ -103,7 +103,7 @@
   padding-top: 100% * ($height/$width);
 }
 
-%fill-parent {
+%video-react-fill-parent {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,7 +111,7 @@
   height: 100%;
 }
 
-%icon-default {
-  @extend %fill-parent;
+%video-react-icon-default {
+  @extend %video-react-fill-parent;
   text-align: center;
 }

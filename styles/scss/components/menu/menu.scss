@@ -14,7 +14,7 @@
     padding: 0;
     margin: 0;
     overflow: auto;
-    font-family: $text-font-family;
+    font-family: $video-react-text-font-family;
   }
 
   li {
@@ -29,15 +29,15 @@
     &:focus,
     &:hover {
       outline: 0;
-      @include background-color-with-alpha($secondary-background-color, $secondary-background-transparency);
+      @include background-color-with-alpha($video-react-secondary-background-color, $video-react-secondary-background-transparency);
     }
 
 
     &.video-react-selected,
     &.video-react-selected:focus,
     &.video-react-selected:hover {
-      background-color: $primary-foreground-color;
-      color: $primary-background-color;
+      background-color: $video-react-primary-foreground-color;
+      color: $video-react-primary-background-color;
     }
 
     &.vjs-menu-title {

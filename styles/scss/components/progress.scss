@@ -60,7 +60,7 @@
 }
 
 .video-react .video-react-play-progress {
-  background-color: $primary-foreground-color;
+  background-color: $video-react-primary-foreground-color;
   @extend .video-react-icon;
   @extend .video-react-icon-circle;
 
@@ -103,18 +103,18 @@
 
 .video-react .video-react-load-progress {
   // For IE8 we'll lighten the color
-  background: lighten($secondary-background-color, 25%);
+  background: lighten($video-react-secondary-background-color, 25%);
   // Otherwise we'll rely on stacked opacities
-  background: rgba($secondary-background-color, $secondary-background-transparency);
+  background: rgba($video-react-secondary-background-color, $video-react-secondary-background-transparency);
 }
 
 // there are child elements of the load progress bar that represent the
 // specific time ranges that have been buffered
 .video-react .video-react-load-progress div {
   // For IE8 we'll lighten the color
-  background: lighten($secondary-background-color, 50%);
+  background: lighten($video-react-secondary-background-color, 50%);
   // Otherwise we'll rely on stacked opacities
-  background: rgba($secondary-background-color, 0.75);
+  background: rgba($video-react-secondary-background-color, 0.75);
 }
 
 .video-react.video-react-no-flex .video-react-progress-control {

@@ -5,11 +5,11 @@
   padding: 0;
   margin: 0 0.45em 0 0.45em;
 
-  @include background-color-with-alpha($secondary-background-color, $secondary-background-transparency);
+  @include background-color-with-alpha($video-react-secondary-background-color, $video-react-secondary-background-transparency);
 
   &:focus {
-    text-shadow: 0em 0em 1em rgba($primary-foreground-color, 1);
+    text-shadow: 0em 0em 1em rgba($video-react-primary-foreground-color, 1);
 
-    @include box-shadow(0 0 1em $primary-foreground-color);
+    @include box-shadow(0 0 1em $video-react-primary-foreground-color);
   }
 }

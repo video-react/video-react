@@ -2,12 +2,12 @@
   display: block;
   vertical-align: top;
   box-sizing: border-box;
-  color: $primary-foreground-color;
+  color: $video-react-primary-foreground-color;
   background-color: #000;
   position: relative;
   font-size: 10px;
   line-height: 1;
-  font-family: $text-font-family;
+  font-family: $video-react-text-font-family;
 
   @include user-select(none);
 
