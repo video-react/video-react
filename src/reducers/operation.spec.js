@@ -1,8 +1,9 @@
-import { default as reducer } from './operation';
-import * as ActionType from '../actions/player'
+import operation from './operation';
+import { OPERATE } from '../actions/player';
+import deepFreeze from 'deep-freeze';
 
 describe('reducer', () => {
-  it('returns the initail state', () => {
+  it('should return the initail state', () => {
     const expectedInitialState = {
       count: 0,
       operation: {
@@ -10,33 +11,71 @@ describe('reducer', () => {
         source: ''
       }
     };
-    expect(reducer(undefined, {})).toEqual(expectedInitialState);
+    expect(operation(undefined, {})).toEqual(expectedInitialState);
   });
 
-  it('count increases for OPERATE', () => {
-    let action = {
-      type: ActionType.OPERATE,
+  it('should increase the count by action', () => {
+    const stateBefore = {
+      count: 0,
+      operation: {
+        action: '',
+        source: ''
+      }
     };
-    let newState = reducer({count: 1}, action);
-    expect(newState).toEqual({
-      count: 2,
-      operation:{}
-    });
+    const action = {
+      type: OPERATE,
+      operation: {
+        action: '',
+        source: ''
+      }
+    };
+    const stateAfter = {
+      count: 1,
+      operation: {
+        action: '',
+        source: ''
+      }
+    };
+
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+
+    expect(operation(stateBefore, action)).toEqual(stateAfter);
   });
 
-  it('count increases for three times OPERATE', () => {
-    let action = {
-      type: ActionType.OPERATE,
+  it('should increase the count 100 by calling the action 100 times', () => {
+    const stateBefore = {
+      count: 0,
+      operation: {
+        action: '',
+        source: ''
+      }
     };
-    let threeActions = [action, action, action];
-    let newState = {};
-    let count = 1;
-    threeActions.forEach(() => {
-      newState = reducer({ count: count + 1 }, action);
-    });
-    expect(newState).toEqual({
-      count: 4,
-      operation: {}
-    });
+    const action = {
+      type: OPERATE,
+      operation: {
+        action: '',
+        source: ''
+      }
+    };
+    const stateAfter = {
+      count: 100,
+      operation: {
+        action: '',
+        source: ''
+      }
+    };
+
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+
+    let state = stateBefore;
+    for (let i = 0; i < 100; i++) {
+      // call operation
+      state = operation(state, action);
+    }
+
+    expect(state).toEqual(stateAfter);
   });
+
 });
