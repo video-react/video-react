@@ -1,6 +1,6 @@
+import deepFreeze from 'deep-freeze';
 import operation from './operation';
 import { OPERATE } from '../actions/player';
-import deepFreeze from 'deep-freeze';
 
 describe('reducer', () => {
   it('should return the initail state', () => {
@@ -71,7 +71,6 @@ describe('reducer', () => {
 
     let state = stateBefore;
     for (let i = 0; i < 100; i++) {
-      // call operation
       state = operation(state, action);
     }
 
