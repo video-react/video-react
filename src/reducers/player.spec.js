@@ -64,10 +64,36 @@ describe('player', () => {
     const stateAfter = {
       muted: true
     };
+
     deepFreeze(stateBefore);
     deepFreeze(action);
 
     expect(player(stateBefore, action)).toEqual(stateAfter);
   });
 
+  it('should handle LOAD_START action', () => {
+    let bufferTwo = {
+      length: 2
+    };
+    const stateBefore = {
+      hasStarted: false,
+      ended: false,
+      buffered: null
+    };
+    const action = {
+      type: LOAD_START,
+      buffered: bufferTwo
+    };
+    const stateAfter = {
+      hasStarted: false,
+      ended: false,
+      buffered: {
+        length: 2
+      }
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+
+  });
 });
