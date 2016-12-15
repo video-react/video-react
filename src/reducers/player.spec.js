@@ -160,10 +160,10 @@ describe('player', () => {
       waiting: false,
     };
     const action = {
-      type: WAITING,
+      type: PLAYING,
     };
     const stateAfter = {
-      waiting: true,
+      waiting: false,
     };
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -175,10 +175,10 @@ describe('player', () => {
       waiting: true,
     };
     const action = {
-      type: WAITING,
+      type: PLAYING,
     };
     const stateAfter = {
-      waiting: true,
+      waiting: false,
     };
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -211,4 +211,238 @@ describe('player', () => {
     expect(player(stateBefore, action)).toEqual(stateAfter);
   });
 
+  it('should handle PAUSE action', () => {
+    const stateBefore = {
+      paused: false,
+    };
+    const action = {
+      type: PAUSE,
+    };
+    const stateAfter = {
+      paused: true,
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle END action', () => {
+    const stateBefore = {
+      ended: false,
+    };
+    const action = {
+      type: END,
+    };
+    const stateAfter = {
+      ended: true,
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle SEEKING action', () => {
+    const stateBefore = {
+      seeking: false,
+    };
+    const action = {
+      type: SEEKING,
+    };
+    const stateAfter = {
+      seeking: true,
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle SEEKED action', () => {
+    const stateBefore = {
+      seeking: false,
+    };
+    const action = {
+      type: SEEKED,
+    };
+    const stateAfter = {
+      seeking: false,
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle SEEKING_TIME action', () => {
+    const stateBefore = {
+      seekingTime: 12,
+    };
+    const action = {
+      type: SEEKING_TIME,
+      time: 12
+    };
+    const stateAfter = {
+      seekingTime: 12
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle END_SEEKING action', () => {
+    const stateBefore = {
+      seekingTime: 1,
+      currentTime: 12
+    };
+    const action = {
+      type: END_SEEKING,
+      time: 1
+    };
+    const stateAfter = {
+      seekingTime: 0,
+      currentTime: 1
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle DURATION_CHANGE action', () => {
+    const stateBefore = {
+      duration: 0
+    };
+    const action = {
+      type: DURATION_CHANGE,
+      duration: 23
+    };
+    const stateAfter = {
+      duration: 23
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle TIME_UPDATE action', () => {
+    const stateBefore = {
+      currentTime: 49.11
+    };
+    const action = {
+      type: TIME_UPDATE,
+      time: 12.01
+    };
+    const stateAfter = {
+      currentTime: 12.01
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle VOLUME_CHANGE action', () => {
+    const stateBefore = {
+      volume: 0.99,
+      muted: true
+    };
+    const action = {
+      type: VOLUME_CHANGE,
+      volume: 0.62,
+      muted: false
+    };
+    const stateAfter = {
+      volume: 0.62,
+      muted: false
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle PROGRESS_CHANGE action', () => {
+    let bufferThree = {
+      length: 3,
+      start: function () {},
+      end: function () {}
+    };
+    const stateBefore = {
+      buffered: {
+        length: 1,
+        start: function () {},
+        end: function () {}
+      }
+    };
+    const action = {
+      type: PROGRESS_CHANGE,
+      buffered: bufferThree
+    };
+    const stateAfter = {
+      buffered: bufferThree
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    const stateResult = player(stateBefore, action);
+    expect(stateResult.buffered.length).toEqual(stateAfter.buffered.length);
+  });
+
+  it('should handle RATE_CHANGE action', () => {
+    const stateBefore = {
+      playbackRate: 1
+    };
+    const action = {
+      type: RATE_CHANGE,
+      rate: 1.1
+    };
+    const stateAfter = {
+      playbackRate: 1.1
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle FULLSCREEN_CHANGE action', () => {
+    const stateBefore = {
+      isFullscreen: false
+    };
+    const action = {
+      type: FULLSCREEN_CHANGE,
+      isFullscreen: true
+    };
+    const stateAfter = {
+      isFullscreen: true
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle USER_ACTIVATE action', () => {
+    const stateBefore = {
+      userActivity: false
+    };
+    const action = {
+      type: USER_ACTIVATE,
+      activity: true
+    };
+    const stateAfter = {
+      userActivity: true
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
+
+  it('should handle PLAYER_ACTIVATE action', () => {
+    const stateBefore = {
+      isActive: true
+    };
+    const action = {
+      type: PLAYER_ACTIVATE,
+      activity: false
+    };
+    const stateAfter = {
+      isActive: false
+    };
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+    expect(player(stateBefore, action)).toEqual(stateAfter);
+  });
 });
