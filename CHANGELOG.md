@@ -1,7 +1,10 @@
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/video-react/video-react/compare/0.5.1...v0.6.1) (2017-01-19)
 
-
+- Add more methods to control the video for the `Player` component
+- Add the `subscribeToStateChange` method to subscribe the state changes
+- Update the document
+- Add an example on how to control the player from outside.
 
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/video-react/video-react/compare/0.4.4...v0.5.1) (2016-12-02)
