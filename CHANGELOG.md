@@ -1,3 +1,8 @@
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/video-react/video-react/compare/0.6.1...v0.6.2) (2017-01-19)
+
+Fixed issue #7. muted={false} not working
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/video-react/video-react/compare/0.5.1...v0.6.1) (2017-01-19)
 
