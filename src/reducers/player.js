@@ -54,6 +54,7 @@ export default function video(state = initialState, action) {
         videoHeight: action.videoHeight,
         duration: action.duration,
         currentSrc: action.currentSrc,
+        muted: action.muted,
       };
     case WAITING:
       return {
@@ -76,6 +77,7 @@ export default function video(state = initialState, action) {
         hasStarted: true,
         duration: action.duration,
         currentSrc: action.currentSrc,
+        muted: action.muted
       };
     case PAUSE:
       return {

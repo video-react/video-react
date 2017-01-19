@@ -31,13 +31,17 @@ export function handleLoadStart(buffered) {
   };
 }
 
-export function handleCanPlay({ videoWidth, videoHeight, duration, currentSrc }) {
+export function handleCanPlay({
+  videoWidth, videoHeight, duration,
+  currentSrc, muted
+}) {
   return {
     type: CAN_PLAY,
     videoWidth,
     videoHeight,
     duration,
-    currentSrc
+    currentSrc,
+    muted
   };
 }
 
@@ -59,11 +63,12 @@ export function handlePlaying() {
   };
 }
 
-export function handlePlay({ duration, currentSrc }) {
+export function handlePlay({ duration, currentSrc, muted }) {
   return {
     type: PLAY,
     duration,
-    currentSrc
+    currentSrc,
+    muted
   };
 }
 

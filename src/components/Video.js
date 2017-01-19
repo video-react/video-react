@@ -203,7 +203,8 @@ export default class Video extends Component {
       videoWidth: this.videoWidth,
       videoHeight: this.videoHeight,
       duration: this.video.duration,
-      currentSrc: this.video.currentSrc
+      currentSrc: this.video.currentSrc,
+      muted: this.video.muted
     });
 
     if (onCanPlay) {
@@ -243,7 +244,8 @@ export default class Video extends Component {
     if (player.paused) {
       actions.handlePlay({
         currentSrc: this.video.currentSrc,
-        duration: this.video.duration
+        duration: this.video.duration,
+        muted: this.video.muted
       });
     }
 
@@ -465,7 +467,8 @@ export default class Video extends Component {
   render() {
     const {
       player, loop, poster,
-      preload, src, autoPlay, playsInline
+      preload, src, autoPlay,
+      playsInline, muted
     } = this.props;
 
     const props = {
@@ -490,7 +493,7 @@ export default class Video extends Component {
       <video
         className="video-react-video"
         ref={(c) => { this.video = c; }}
-        muted={player.muted}
+        muted={muted}
         preload={preload}
         loop={loop}
         playsInline={playsInline}
