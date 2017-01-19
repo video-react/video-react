@@ -99,7 +99,7 @@ var config = [{
   resolve: {
     extensions: ['', '.js', '.json'],
     alias: {
-      'bootstrap-scss': path.join(__dirname, 'node_modules/bootstrap/scss/bootstrap-flex.scss'),
+      'bootstrap-scss': path.join(__dirname, 'node_modules/bootstrap/scss/bootstrap.scss'),
       'video-react-scss': path.resolve('./styles/scss/video-react.scss'),
       'video-react': path.resolve('./src')
     }

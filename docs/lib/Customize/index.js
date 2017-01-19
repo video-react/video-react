@@ -34,12 +34,12 @@ class Customize extends React.Component {
   }
   render() {
     return (
-      <Container fluid className="content">
+      <Container className="content">
         <Row>
           <Col md={{ size: 3, push: 9 }}>
             <div className="docs-sidebar mb-3">
               <h5>Customize</h5>
-              <Nav>
+              <Nav className="flex-column">
                 {this.state.navItems.map((item, i) => {
                   return <CustomizeLink key={i} item={item} />;
                 })}

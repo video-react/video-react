@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 export default () => {
   return (
     <div className="footer">
-      <Container fluid>
+      <Container>
         <Row>
           <Col className="text-xs-center">
             <p className="social">

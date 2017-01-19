@@ -43,16 +43,6 @@ export default class ControlBar extends Component {
         key="play-toggle"
         order={1}
       />,
-      <ReplayControl
-        {...this.props}
-        key="replay-control"
-        order={2}
-      />,
-      <ForwardControl
-        {...this.props}
-        key="forward-control"
-        order={3}
-      />,
       <VolumeMenuButton
         {...this.props}
         key="volume-menu-button"

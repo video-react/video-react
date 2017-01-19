@@ -53,8 +53,6 @@ export default class Video extends Component {
     this.forward = this.forward.bind(this);
     this.replay = this.replay.bind(this);
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
-    this.videoWidth = this.videoWidth.bind(this);
-    this.videoHeight = this.videoHeight.bind(this);
     this.handleLoadStart = this.handleLoadStart.bind(this);
     this.handleCanPlay = this.handleCanPlay.bind(this);
     this.handleCanPlayThrough = this.handleCanPlayThrough.bind(this);
@@ -109,6 +107,16 @@ export default class Video extends Component {
     this.video.volume = val;
   }
 
+  // video width
+  get videoWidth() {
+    return this.video.videoWidth;
+  }
+
+  // video height
+  get videoHeight() {
+    return this.video.videoHeight;
+  }
+
   // play the video
   play() {
     this.video.play();
@@ -141,16 +149,6 @@ export default class Video extends Component {
     } else {
       this.pause();
     }
-  }
-
-  // video width
-  videoWidth() {
-    return this.video.videoWidth;
-  }
-
-  // video height
-  videoHeight() {
-    return this.video.videoHeight;
   }
 
   // seek video by time
@@ -197,8 +195,8 @@ export default class Video extends Component {
     const { actions, onCanPlay } = this.props;
 
     actions.handleCanPlay({
-      videoWidth: this.videoWidth(),
-      videoHeight: this.videoHeight(),
+      videoWidth: this.videoWidth,
+      videoHeight: this.videoHeight,
       duration: this.video.duration,
     });
 

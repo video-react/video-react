@@ -5,11 +5,11 @@ import * as videoActions from './actions/video';
 
 
 export default class Manager {
-  constructor(video, rootElement) {
+  constructor() {
     this.store = createStore(reducer);
 
-    this.video = video;
-    this.rootElement = rootElement;
+    this.video = null;
+    this.rootElement = null;
   }
 
   getActions() {

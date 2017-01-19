@@ -102,6 +102,49 @@ export default class Player extends Component {
     }
   }
 
+  // get playback rate
+  get playbackRate() {
+    return this.video.playbackRate;
+  }
+
+  // set playback rate
+  // speed of video
+  set playbackRate(rate) {
+    this.video.playbackRate = rate;
+  }
+
+  get muted() {
+    return this.video.muted;
+  }
+
+  set muted(val) {
+    this.video.muted = val;
+  }
+
+  get volume() {
+    return this.video.volume;
+  }
+
+  set volume(val) {
+    this.video.volume = val;
+  }
+
+  // video width
+  get videoWidth() {
+    return this.video.videoWidth;
+  }
+
+  // video height
+  get videoHeight() {
+    return this.video.videoHeight;
+  }
+
+  // get redux state
+  // { player, operation }
+  getState() {
+    return this.manager.getState();
+  }
+
   // play the video
   play() {
     this.video.play();
@@ -127,6 +170,26 @@ export default class Player extends Component {
     this.video.canPlayType(...args);
   }
 
+  // seek video by time
+  seek(time) {
+    this.video.seek(time);
+  }
+
+  // jump forward x seconds
+  forward(seconds) {
+    this.video.forward(seconds);
+  }
+
+  // jump back x seconds
+  replay(seconds) {
+    this.video.replay(seconds);
+  }
+
+  // enter or exist full screen
+  toggleFullscreen() {
+    this.video.toggleFullscreen();
+  }
+
   // player resize
   handleResize() {
   }
@@ -143,7 +206,7 @@ export default class Player extends Component {
     this.startControlsTimer();
   }
 
-  handleKeyDown(e) {
+  handleKeyDown() {
     this.startControlsTimer();
   }
 
