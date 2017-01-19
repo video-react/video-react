@@ -9,8 +9,8 @@ const importBasic = require('!!raw!../examples/import-basic');
 export default () => {
   return (
     <div>
-      <Jumbotron tag="section" className="jumbotron-header text-xs-center m-b-3">
-        <Container fluid>
+      <Jumbotron tag="section" className="jumbotron-header text-center mb-3">
+        <Container>
           <Row>
             <Col>
               <p className="lead">
@@ -36,7 +36,7 @@ export default () => {
             <h3>NPM</h3>
             <p>Install video-react and peer dependencies via NPM</p>
             <pre>
-              <PrismCode className="language-bash">npm install --save video-react react react-dom</PrismCode>
+              <PrismCode className="language-bash">npm install --save video-react react react-dom redux</PrismCode>
             </pre>
             <h3>Basic example</h3>
             <p>The basic player</p>

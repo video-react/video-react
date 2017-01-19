@@ -1,7 +1,7 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
 import { PrismCode } from 'react-prism';
-import { Table } from 'reactstrap';
+import { Table, Alert } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ShortcutExample from '../examples/Shortcut';
 const ShortcutExampleSource = require('!!raw!../examples/Shortcut');
@@ -13,16 +13,12 @@ export default class ShortcutPage extends React.Component {
         <Helmet title="Shortcut" />
         <h3>Shortcut</h3>
         <p>
-        Using keyboard shortcut to control the player.
+          Using keyboard shortcut to control the player.
         </p>
-        <div className="docs-example">
-          <ShortcutExample />
-        </div>
-        <pre>
-          <PrismCode className="language-jsx">
-            {ShortcutExampleSource}
-          </PrismCode>
-        </pre>
+
+        <Alert color="warning">
+          <strong>Warning!</strong>The shortcut can work only if the player is in active.
+        </Alert>
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
@@ -34,7 +30,6 @@ export default class ShortcutPage extends React.Component {
 }`}
           </PrismCode>
         </pre>
-
         <h4>Keyboard Shortcuts</h4>
         <Table>
           <thead>
@@ -96,17 +91,17 @@ export default class ShortcutPage extends React.Component {
               <td>Decrease speed</td>
               <td>Shift + {'<'}</td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
           </tbody>
         </Table>
-
+        <h4>Example</h4>
+        <div className="docs-example">
+          <ShortcutExample />
+        </div>
+        <pre>
+          <PrismCode className="language-jsx">
+            {ShortcutExampleSource}
+          </PrismCode>
+        </pre>
       </div>
     );
   }

@@ -137,7 +137,7 @@ export default function video(state = initialState, action) {
     case FULLSCREEN_CHANGE:
       return {
         ...state,
-        isFullscreen: action.isFullscreen,
+        isFullscreen: !!action.isFullscreen,
       };
     case USER_ACTIVATE:
       return {
