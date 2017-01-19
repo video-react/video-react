@@ -190,6 +190,11 @@ export default class Player extends Component {
     this.video.toggleFullscreen();
   }
 
+  // subscribe to player state change
+  subscribeToStateChange(listener) {
+    this.manager.subscribeToPlayerStateChange(listener);
+  }
+
   // player resize
   handleResize() {
   }

@@ -104,6 +104,12 @@ export default class Video extends Component {
   }
 
   set volume(val) {
+    if (val > 1) {
+      val = 1;
+    }
+    if (val < 0) {
+      val = 0;
+    }
     this.video.volume = val;
   }
 
@@ -183,7 +189,6 @@ export default class Video extends Component {
     if (player.paused && player.hasStarted) {
       actions.handleLoadStart(this.video.buffered);
     }
-
     if (onLoadStart) {
       onLoadStart(...args);
     }
@@ -198,6 +203,7 @@ export default class Video extends Component {
       videoWidth: this.videoWidth,
       videoHeight: this.videoHeight,
       duration: this.video.duration,
+      currentSrc: this.video.currentSrc
     });
 
     if (onCanPlay) {
@@ -236,6 +242,7 @@ export default class Video extends Component {
     const { player, actions, onPlay } = this.props;
     if (player.paused) {
       actions.handlePlay({
+        currentSrc: this.video.currentSrc,
         duration: this.video.duration
       });
     }

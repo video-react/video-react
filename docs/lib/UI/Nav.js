@@ -23,7 +23,7 @@ export default class UINav extends React.Component {
       <Navbar className="header" full color="faded" light toggleable>
         <Container>
           <NavbarToggler right onClick={this.toggleNavbar} />
-          <NavbarBrand className="mr-auto" tag={Link} to="/">reactstrap</NavbarBrand>
+          <NavbarBrand className="mr-auto" tag={Link} to="/">Video-React</NavbarBrand>
           <Collapse navbar isOpen={this.state.showNavbar}>
             <Nav navbar className="ml-sm-auto">
               <NavItem>
@@ -33,7 +33,7 @@ export default class UINav extends React.Component {
                 <NavLink tag={Link} className="nav-link" to="/components/" activeClassName="active">Components</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                <NavLink href="https://github.com/video-react/video-react">Github</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

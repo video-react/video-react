@@ -9,6 +9,7 @@ import {
 import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../actions/player';
 
 const initialState = {
+  currentSrc: null,
   duration: 0,
   currentTime: 0,
   seekingTime: 0,
@@ -52,6 +53,7 @@ export default function video(state = initialState, action) {
         videoWidth: action.videoWidth,
         videoHeight: action.videoHeight,
         duration: action.duration,
+        currentSrc: action.currentSrc,
       };
     case WAITING:
       return {
@@ -72,7 +74,8 @@ export default function video(state = initialState, action) {
         autoPaused: false,
         waiting: false,
         hasStarted: true,
-        duration: action.duration
+        duration: action.duration,
+        currentSrc: action.currentSrc,
       };
     case PAUSE:
       return {

@@ -40,7 +40,7 @@ export default class PlayerExample extends Component {
   render() {
     return (
       <div>
-        <Player ref="player" autoPlay>
+        <Player ref="player">
           <source src={this.state.playerSource} />
         </Player>
         <div className="docs-example">
