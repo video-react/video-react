@@ -28,7 +28,7 @@ export default class BigPlayButton extends Component {
 
   render() {
     const { player, position } = this.props;
-    if (player.hasStarted) {
+    if (player.hasStarted || !player.currentSrc) {
       return null;
     }
     return (

@@ -274,9 +274,19 @@ export default class Shortcut extends Component {
     }
   }
 
+  // only if player is active and player is ready
+  canBeClicked(player, e) {
+    if (!player.isActive
+      || e.target.nodeName !== 'VIDEO'
+      || player.readyState !== 4) {
+      return false;
+    }
+    return true;
+  }
+
   handleClick(e) {
     const { player, actions } = this.props;
-    if (!player.isActive || e.target.nodeName !== 'VIDEO') {
+    if (!this.canBeClicked(player, e)) {
       return;
     }
     this.togglePlay(player, actions);
@@ -285,7 +295,7 @@ export default class Shortcut extends Component {
 
   handleDoubleClick(e) {
     const { player, actions } = this.props;
-    if (!player.isActive || e.target.nodeName !== 'VIDEO') {
+    if (!this.canBeClicked(player, e)) {
       return;
     }
     this.toggleFullscreen(player, actions);

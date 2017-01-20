@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import throttle from 'lodash.throttle';
 import { isVideoChild } from '../utils';
+import { mediaProperties } from '../utils/media';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -8,6 +9,7 @@ const propTypes = {
   children: PropTypes.any,
   startTime: PropTypes.number,
   loop: PropTypes.bool,
+  muted: PropTypes.bool,
   autoPlay: PropTypes.bool,
   playsInline: PropTypes.bool,
   src: PropTypes.string,
@@ -36,6 +38,7 @@ const propTypes = {
   onTimeUpdate: PropTypes.func,
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
+  onResize: PropTypes.func,
 };
 
 const defaultProps = {
@@ -53,6 +56,7 @@ export default class Video extends Component {
     this.forward = this.forward.bind(this);
     this.replay = this.replay.bind(this);
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
+    this.getProperties = this.getProperties.bind(this);
     this.handleLoadStart = this.handleLoadStart.bind(this);
     this.handleCanPlay = this.handleCanPlay.bind(this);
     this.handleCanPlayThrough = this.handleCanPlayThrough.bind(this);
@@ -123,6 +127,18 @@ export default class Video extends Component {
     return this.video.videoHeight;
   }
 
+  // get all video properties
+  getProperties() {
+    if (!this.video) {
+      return null;
+    }
+
+    return mediaProperties.reduce((properties, key) => {
+      properties[key] = this.video[key];
+      return properties;
+    }, {});
+  }
+
   // play the video
   play() {
     this.video.play();
@@ -185,10 +201,8 @@ export default class Video extends Component {
   // Fired when the user agent
   // begins looking for media data
   handleLoadStart(...args) {
-    const { player, actions, onLoadStart } = this.props;
-    if (player.paused && player.hasStarted) {
-      actions.handleLoadStart(this.video.buffered);
-    }
+    const { actions, onLoadStart } = this.props;
+    actions.handleLoadStart(this.getProperties());
     if (onLoadStart) {
       onLoadStart(...args);
     }
@@ -199,13 +213,7 @@ export default class Video extends Component {
   handleCanPlay(...args) {
     const { actions, onCanPlay } = this.props;
 
-    actions.handleCanPlay({
-      videoWidth: this.videoWidth,
-      videoHeight: this.videoHeight,
-      duration: this.video.duration,
-      currentSrc: this.video.currentSrc,
-      muted: this.video.muted
-    });
+    actions.handleCanPlay(this.getProperties());
 
     if (onCanPlay) {
       onCanPlay(...args);
@@ -215,10 +223,8 @@ export default class Video extends Component {
   // A handler for events that
   // signal that waiting has ended
   handleCanPlayThrough(...args) {
-    const { player, actions, onCanPlayThrough } = this.props;
-    if (player.waiting) {
-      actions.handleCanPlayThrough();
-    }
+    const { actions, onCanPlayThrough } = this.props;
+    actions.handleCanPlayThrough(this.getProperties());
 
     if (onCanPlayThrough) {
       onCanPlayThrough(...args);
@@ -228,10 +234,8 @@ export default class Video extends Component {
   // A handler for events that
   // signal that waiting has ended
   handlePlaying(...args) {
-    const { player, actions, onPlaying } = this.props;
-    if (player.waiting) {
-      actions.handlePlaying();
-    }
+    const { actions, onPlaying } = this.props;
+    actions.handlePlaying(this.getProperties());
 
     if (onPlaying) {
       onPlaying(...args);
@@ -240,14 +244,8 @@ export default class Video extends Component {
 
   // Fired whenever the media has been started
   handlePlay(...args) {
-    const { player, actions, onPlay } = this.props;
-    if (player.paused) {
-      actions.handlePlay({
-        currentSrc: this.video.currentSrc,
-        duration: this.video.duration,
-        muted: this.video.muted
-      });
-    }
+    const { actions, onPlay } = this.props;
+    actions.handlePlay(this.getProperties());
 
     if (onPlay) {
       onPlay(...args);
@@ -256,10 +254,8 @@ export default class Video extends Component {
 
   // Fired whenever the media has been paused
   handlePause(...args) {
-    const { player, actions, onPause } = this.props;
-    if (!player.paused) {
-      actions.handlePause();
-    }
+    const { actions, onPause } = this.props;
+    actions.handlePause(this.getProperties());
 
     if (onPause) {
       onPause(...args);
@@ -269,10 +265,8 @@ export default class Video extends Component {
   // Fired when the duration of
   // the media resource is first known or changed
   handleDurationChange(...args) {
-    const { player, actions, onDurationChange } = this.props;
-    if (player.duration !== this.video.duration) {
-      actions.handleDurationChange(this.video.duration);
-    }
+    const { actions, onDurationChange } = this.props;
+    actions.handleDurationChange(this.getProperties());
 
     if (onDurationChange) {
       onDurationChange(...args);
@@ -284,7 +278,7 @@ export default class Video extends Component {
   handleProgress(...args) {
     const { actions, onProgress } = this.props;
     if (this.video) {
-      actions.handleProgressChange(this.video.buffered);
+      actions.handleProgressChange(this.getProperties());
     }
 
     if (onProgress) {
@@ -302,9 +296,7 @@ export default class Video extends Component {
     } else if (!player.paused) {
       this.pause();
     }
-    if (!player.ended) {
-      actions.handleEnd();
-    }
+    actions.handleEnd(this.getProperties());
 
     if (onEnded) {
       onEnded(...args);
@@ -313,10 +305,8 @@ export default class Video extends Component {
 
   // Fired whenever the media begins waiting
   handleWaiting(...args) {
-    const { player, actions, onWaiting } = this.props;
-    if (!player.waiting) {
-      actions.handleWaiting();
-    }
+    const { actions, onWaiting } = this.props;
+    actions.handleWaiting(this.getProperties());
 
     if (onWaiting) {
       onWaiting(...args);
@@ -326,10 +316,8 @@ export default class Video extends Component {
   // Fired whenever the player
   // is jumping to a new time
   handleSeeking(...args) {
-    const { player, actions, onSeeking } = this.props;
-    if (!player.seeking) {
-      actions.handleSeeking();
-    }
+    const { actions, onSeeking } = this.props;
+    actions.handleSeeking(this.getProperties());
 
     if (onSeeking) {
       onSeeking(...args);
@@ -339,10 +327,8 @@ export default class Video extends Component {
   // Fired when the player has
   // finished jumping to a new time
   handleSeeked(...args) {
-    const { player, actions, onSeeked } = this.props;
-    if (player.seeking) {
-      actions.handleSeeked();
-    }
+    const { actions, onSeeked } = this.props;
+    actions.handleSeeked(this.getProperties());
 
     if (onSeeked) {
       onSeeked(...args);
@@ -357,7 +343,8 @@ export default class Video extends Component {
   // Fires when the browser is
   // intentionally not getting media data
   handleSuspend(...args) {
-    const { onSuspend } = this.props;
+    const { actions, onSuspend } = this.props;
+    actions.handleSuspend(this.getProperties());
     if (onSuspend) {
       onSuspend(...args);
     }
@@ -365,7 +352,8 @@ export default class Video extends Component {
 
   // Fires when the loading of an audio/video is aborted
   handleAbort(...args) {
-    const { onAbort } = this.props;
+    const { actions, onAbort } = this.props;
+    actions.handleAbort(this.getProperties());
     if (onAbort) {
       onAbort(...args);
     }
@@ -373,7 +361,8 @@ export default class Video extends Component {
 
   // Fires when the current playlist is empty
   handleEmptied(...args) {
-    const { onEmptied } = this.props;
+    const { actions, onEmptied } = this.props;
+    actions.handleEmptied(this.getProperties());
     if (onEmptied) {
       onEmptied(...args);
     }
@@ -382,7 +371,9 @@ export default class Video extends Component {
   // Fires when the browser is trying to
   // get media data, but data is not available
   handleStalled(...args) {
-    const { onStalled } = this.props;
+    const { actions, onStalled } = this.props;
+    actions.handleStalled(this.getProperties());
+
     if (onStalled) {
       onStalled(...args);
     }
@@ -391,11 +382,13 @@ export default class Video extends Component {
   // Fires when the browser has loaded
   // meta data for the audio/video
   handleLoadedMetaData(...args) {
-    const { onLoadedMetadata, startTime } = this.props;
+    const { actions, onLoadedMetadata, startTime } = this.props;
 
     if (startTime && startTime > 0) {
       this.video.currentTime = startTime;
     }
+
+    actions.handleLoadedMetaData(this.getProperties());
 
     if (onLoadedMetadata) {
       onLoadedMetadata(...args);
@@ -405,7 +398,9 @@ export default class Video extends Component {
   // Fires when the browser has loaded
   // the current frame of the audio/video
   handleLoadedData(...args) {
-    const { onLoadedData } = this.props;
+    const { actions, onLoadedData } = this.props;
+    actions.handleLoadedData(this.getProperties());
+
     if (onLoadedData) {
       onLoadedData(...args);
     }
@@ -414,10 +409,8 @@ export default class Video extends Component {
   // Fires when the current
   // playback position has changed
   handleTimeUpdate(...args) {
-    const { player, actions, onTimeUpdate } = this.props;
-    if (player.currentTime !== this.video.currentTime) {
-      actions.handleTimeUpdate(this.video.currentTime);
-    }
+    const { actions, onTimeUpdate } = this.props;
+    actions.handleTimeUpdate(this.getProperties());
 
     if (onTimeUpdate) {
       onTimeUpdate(...args);
@@ -428,10 +421,8 @@ export default class Video extends Component {
    * Fires when the playing speed of the audio/video is changed
    */
   handleRateChange(...args) {
-    const { player, actions, onRateChange } = this.props;
-    if (player.playbackRate !== this.video.playbackRate) {
-      actions.handleRateChange(this.video.playbackRate);
-    }
+    const { actions, onRateChange } = this.props;
+    actions.handleRateChange(this.getProperties());
 
     if (onRateChange) {
       onRateChange(...args);
@@ -440,11 +431,8 @@ export default class Video extends Component {
 
   // Fires when the volume has been changed
   handleVolumeChange(...args) {
-    const { player, actions, onVolumeChange } = this.props;
-    if (player.volume !== this.video.volume
-      || player.muted !== this.video.muted) {
-      actions.handleVolumeChange(this.video.volume, this.video.muted);
-    }
+    const { actions, onVolumeChange } = this.props;
+    actions.handleVolumeChange(this.getProperties());
 
     if (onVolumeChange) {
       onVolumeChange(...args);
@@ -454,9 +442,18 @@ export default class Video extends Component {
   // Fires when an error occurred
   // during the loading of an audio/video
   handleError(...args) {
-    const { onError } = this.props;
+    const { actions, onError } = this.props;
+    actions.handleError(this.getProperties());
     if (onError) {
       onError(...args);
+    }
+  }
+
+  handleResize(...args) {
+    const { actions, onResize } = this.props;
+    actions.handleResize(this.getProperties());
+    if (onResize) {
+      onResize(...args);
     }
   }
 
@@ -466,8 +463,7 @@ export default class Video extends Component {
 
   render() {
     const {
-      player, loop, poster,
-      preload, src, autoPlay,
+      loop, poster, preload, src, autoPlay,
       playsInline, muted
     } = this.props;
 
@@ -480,12 +476,25 @@ export default class Video extends Component {
     const children = React.Children.toArray(this.props.children)
       .filter(isVideoChild)
       .map((c) => {
+        let cprops;
         if (typeof c.type === 'string') {
-          return c;
+          // add onError to <source />
+          if (c.type === 'source') {
+            cprops = { ...c.props };
+            const preOnError = cprops.onError;
+            cprops.onError = (...args) => {
+              if (preOnError) {
+                preOnError(...args);
+              }
+              this.handleError(...args);
+            };
+          }
+        } else {
+          cprops = props;
         }
         return React.cloneElement(
           c,
-          props
+          cprops
         );
       });
 

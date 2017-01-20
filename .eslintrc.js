@@ -23,6 +23,7 @@ var rules = {
   'arrow-body-style': 0,
   'prefer-template': 0,
   'no-underscore-dangle': 0,
+  'no-param-reassign': 0,
   'object-shorthand': 0,
   'func-names': 0,
   'no-extra-parens': ['error', 'functions'],

@@ -1,10 +1,12 @@
 import {
-  VOLUME_MUTE, LOAD_START, CAN_PLAY,
+  LOAD_START, CAN_PLAY,
   WAITING, CAN_PLAY_THROUGH, PLAYING,
   PLAY, PAUSE, END, SEEKING, SEEKED,
   SEEKING_TIME, END_SEEKING, DURATION_CHANGE,
   TIME_UPDATE, VOLUME_CHANGE, PROGRESS_CHANGE,
-  RATE_CHANGE
+  RATE_CHANGE, SUSPEND, ABORT, EMPTIED,
+  STALLED, LOADED_META_DATA, LOADED_DATA,
+  RESIZE, ERROR
 } from '../actions/video';
 import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../actions/player';
 
@@ -34,70 +36,20 @@ const initialState = {
 
 export default function video(state = initialState, action) {
   switch (action.type) {
-    case VOLUME_MUTE:
+    case USER_ACTIVATE:
       return {
         ...state,
-        muted: action.muted
+        userActivity: action.activity
       };
-    case LOAD_START:
+    case PLAYER_ACTIVATE:
       return {
         ...state,
-        hasStarted: false,
-        ended: false,
-        buffered: action.buffered,
+        isActive: action.activity
       };
-    case CAN_PLAY:
+    case FULLSCREEN_CHANGE:
       return {
         ...state,
-        waiting: false,
-        videoWidth: action.videoWidth,
-        videoHeight: action.videoHeight,
-        duration: action.duration,
-        currentSrc: action.currentSrc,
-        muted: action.muted,
-      };
-    case WAITING:
-      return {
-        ...state,
-        waiting: true
-      };
-    case CAN_PLAY_THROUGH:
-    case PLAYING:
-      return {
-        ...state,
-        waiting: false
-      };
-    case PLAY:
-      return {
-        ...state,
-        ended: false,
-        paused: false,
-        autoPaused: false,
-        waiting: false,
-        hasStarted: true,
-        duration: action.duration,
-        currentSrc: action.currentSrc,
-        muted: action.muted
-      };
-    case PAUSE:
-      return {
-        ...state,
-        paused: true
-      };
-    case END:
-      return {
-        ...state,
-        ended: true
-      };
-    case SEEKING:
-      return {
-        ...state,
-        seeking: true
-      };
-    case SEEKED:
-      return {
-        ...state,
-        seeking: false
+        isFullscreen: !!action.isFullscreen,
       };
     case SEEKING_TIME:
       return {
@@ -108,48 +60,83 @@ export default function video(state = initialState, action) {
       return {
         ...state,
         seekingTime: 0,
-        currentTime: action.time
+      };
+    case LOAD_START:
+      return {
+        ...state,
+        ...action.videoProps,
+        hasStarted: false,
+        ended: false,
+      };
+    case CAN_PLAY:
+      return {
+        ...state,
+        ...action.videoProps,
+        waiting: false,
+      };
+    case WAITING:
+      return {
+        ...state,
+        ...action.videoProps,
+        waiting: true
+      };
+    case CAN_PLAY_THROUGH:
+    case PLAYING:
+      return {
+        ...state,
+        ...action.videoProps,
+        waiting: false
+      };
+    case PLAY:
+      return {
+        ...state,
+        ...action.videoProps,
+        ended: false,
+        paused: false,
+        autoPaused: false,
+        waiting: false,
+        hasStarted: true,
+      };
+    case PAUSE:
+      return {
+        ...state,
+        ...action.videoProps,
+        paused: true
+      };
+    case END:
+      return {
+        ...state,
+        ...action.videoProps,
+        ended: true
+      };
+    case SEEKING:
+      return {
+        ...state,
+        ...action.videoProps,
+        seeking: true
+      };
+    case SEEKED:
+      return {
+        ...state,
+        ...action.videoProps,
+        seeking: false
       };
     case DURATION_CHANGE:
-      return {
-        ...state,
-        duration: action.duration
-      };
     case TIME_UPDATE:
-      return {
-        ...state,
-        currentTime: action.time
-      };
     case VOLUME_CHANGE:
-      return {
-        ...state,
-        volume: action.volume,
-        muted: action.muted,
-      };
     case PROGRESS_CHANGE:
-      return {
-        ...state,
-        buffered: action.buffered
-      };
     case RATE_CHANGE:
+    case SUSPEND:
+    case ABORT:
+    case EMPTIED:
+    case STALLED:
+    case LOADED_META_DATA:
+    case LOADED_DATA:
+    case RESIZE:
+    case ERROR:
       return {
         ...state,
-        playbackRate: action.rate
-      };
-    case FULLSCREEN_CHANGE:
-      return {
-        ...state,
-        isFullscreen: !!action.isFullscreen,
-      };
-    case USER_ACTIVATE:
-      return {
-        ...state,
-        userActivity: action.activity
-      };
-    case PLAYER_ACTIVATE:
-      return {
-        ...state,
-        isActive: action.activity
+        ...action.videoProps,
       };
     default:
       return state;

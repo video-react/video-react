@@ -17,6 +17,7 @@ export default class LoadingSpinner extends Component {
     if (!player.seeking && !player.waiting) {
       return null;
     }
+
     return (
       <div className="video-react-loading-spinner" />
     );
