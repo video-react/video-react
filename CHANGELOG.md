@@ -1,3 +1,10 @@
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/video-react/video-react/compare/0.6.2...v0.6.3) (2017-02-11)
+
+Fixed issue #8 Spinner + Play Both Apear when no source
+Merged  #9 Display LoadingSpinner.js only if the player has started
+Fixed tests
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/video-react/video-react/compare/0.6.1...v0.6.2) (2017-01-19)
 
