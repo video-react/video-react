@@ -1,31 +1,20 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 const propTypes = {
   player: PropTypes.object,
 };
 
-export default class LoadingSpinner extends Component {
-  constructor(props, context) {
-    super(props, context);
+export default function LoadingSpinner({ player }) {
+  if (
+    !player.hasStarted ||
+    (!player.seeking && !player.waiting)
+  ) {
+    return null;
   }
 
-  componentDidMount() {
-  }
-
-  render() {
-    const { player } = this.props;
-    if (!player.hasStarted) {
-      return null;
-    }
-    if (!player.seeking && !player.waiting) {
-      return null;
-    }
-
-    return (
-      <div className="video-react-loading-spinner" />
-    );
-  }
-
+  return (
+    <div className="video-react-loading-spinner" />
+  );
 }
 
 LoadingSpinner.propTypes = propTypes;
