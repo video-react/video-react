@@ -14,6 +14,9 @@ export default class LoadingSpinner extends Component {
 
   render() {
     const { player } = this.props;
+    if (!player.hasStarted) {
+      return null;
+    }
     if (!player.seeking && !player.waiting) {
       return null;
     }
