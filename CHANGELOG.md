@@ -1,3 +1,8 @@
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/video-react/video-react/compare/0.6.2...v0.6.3) (2017-02-11)
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/video-react/video-react/compare/0.6.1...v0.6.2) (2017-01-19)
 
