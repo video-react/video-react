@@ -1,7 +1,7 @@
 
 # video-react
 
-Video.React is a web video player built from the ground up for an HTML5 world using React library. [![Coverage Status](https://coveralls.io/repos/github/video-react/video-react/badge.svg?branch=master)](https://coveralls.io/github/video-react/video-react?branch=master)
+Video.React is a web video player built from the ground up for an HTML5 world using React library. 
 
 [![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react)
 
