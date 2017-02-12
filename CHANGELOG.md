@@ -1,7 +1,7 @@
 <a name="0.6.4"></a>
 ## [0.6.4](https://github.com/video-react/video-react/compare/0.6.3...v0.6.4) (2017-02-12)
 
-
+Fixed issue #11 Make sure the children of Video can get video object
 
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/video-react/video-react/compare/0.6.2...v0.6.3) (2017-02-11)
