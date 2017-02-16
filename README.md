@@ -1,7 +1,7 @@
 
 # video-react
 
-Video.React is a web video player built from the ground up for an HTML5 world using React library.
+Video.React is a web video player built from the ground up for an HTML5 world using React library. 
 
 [![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react)
 

@@ -57,6 +57,7 @@ export default class Video extends Component {
     this.replay = this.replay.bind(this);
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
     this.getProperties = this.getProperties.bind(this);
+    this.renderChildren = this.renderChildren.bind(this);
     this.handleLoadStart = this.handleLoadStart.bind(this);
     this.handleCanPlay = this.handleCanPlay.bind(this);
     this.handleCanPlayThrough = this.handleCanPlayThrough.bind(this);
@@ -83,6 +84,9 @@ export default class Video extends Component {
     this.handleKeypress = this.handleKeypress.bind(this);
   }
 
+  componentDidMount() {
+    this.forceUpdate(); // make sure the children can get the video property
+  }
 
   // get playback rate
   get playbackRate() {
@@ -461,19 +465,19 @@ export default class Video extends Component {
 
   }
 
-  render() {
-    const {
-      loop, poster, preload, src, autoPlay,
-      playsInline, muted
-    } = this.props;
-
+  renderChildren() {
     const props = {
       ...this.props,
       video: this.video,
     };
 
+    // to make sure the children can get video property
+    if (!this.video) {
+      return null;
+    }
+
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
-    const children = React.Children.toArray(this.props.children)
+    return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
       .map((c) => {
         let cprops;
@@ -497,6 +501,13 @@ export default class Video extends Component {
           cprops
         );
       });
+  }
+
+  render() {
+    const {
+      loop, poster, preload, src, autoPlay,
+      playsInline, muted
+    } = this.props;
 
     return (
       <video
@@ -532,7 +543,7 @@ export default class Video extends Component {
         onRateChange={this.handleRateChange}
         onVolumeChange={this.handleVolumeChange}
       >
-        {children}
+        {this.renderChildren()}
       </video>
     );
   }
