@@ -85,3 +85,9 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
     .sort((a, b) => (a.props.order || defaultOrder) - (b.props.order || defaultOrder));
 }
 
+/**
+ * Temporary utility for generating the warnings
+ */
+export function deprecatedWarning(oldMethodCall, newMethodCall) {
+  console.warn(`WARNING: ${oldMethodCall} will be deprecated soon! Please use ${newMethodCall} instead.`);
+}

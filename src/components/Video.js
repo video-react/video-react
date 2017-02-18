@@ -76,11 +76,11 @@ export default class Video extends Component {
     this.handleStalled = this.handleStalled.bind(this);
     this.handleLoadedMetaData = this.handleLoadedMetaData.bind(this);
     this.handleLoadedData = this.handleLoadedData.bind(this);
-    this.handleTimeUpdate = throttle(this.handleTimeUpdate.bind(this), 250);
+    this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
     this.handleRateChange = this.handleRateChange.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
     this.handleDurationChange = this.handleDurationChange.bind(this);
-    this.handleProgress = throttle(this.handleProgress.bind(this), 1000);
+    this.handleProgress = throttle(this.handleProgress.bind(this), 250);
     this.handleKeypress = this.handleKeypress.bind(this);
   }
 

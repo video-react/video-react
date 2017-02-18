@@ -11,7 +11,7 @@ import CurrentTimeDisplay from '../time-controls/CurrentTimeDisplay';
 import DurationDisplay from '../time-controls/DurationDisplay';
 import TimeDivider from '../time-controls/TimeDivider';
 import VolumeMenuButton from './VolumeMenuButton';
-import PlaybackRate from './PlaybackRate';
+import PlaybackRateMenuButton from './PlaybackRateMenuButton';
 import { mergeAndSortChildren } from '../../utils';
 
 const propTypes = {
@@ -48,20 +48,25 @@ export default class ControlBar extends Component {
         key="volume-menu-button"
         order={4}
       />,
+      <CurrentTimeDisplay
+        {...this.props}
+        key="current-time-display"
+        order={5.1}
+      />,
+      <TimeDivider
+        {...this.props}
+        key="time-divider"
+        order={5.2}
+      />,
       <DurationDisplay
         {...this.props}
         key="duration-display"
-        order={5}
+        order={5.3}
       />,
       <ProgressControl
         {...this.props}
         key="progress-control"
         order={6}
-      />,
-      <RemainingTimeDisplay
-        {...this.props}
-        key="remaining-time-display"
-        order={7}
       />,
       <FullscreenToggle
         {...this.props}
@@ -118,7 +123,7 @@ export default class ControlBar extends Component {
         key="remaining-time-display"
         order={9}
       />,
-      <PlaybackRate
+      <PlaybackRateMenuButton
         {...this.props}
         rates={[1, 1.25, 1.5, 2]}
         key="playback-rate"

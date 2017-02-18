@@ -22,6 +22,7 @@ var paths = [
   '/components/forward-control/',
   '/components/replay-control/',
   '/components/volume-menu-button/',
+  '/components/playback-rate-menu-button/',
   '/customize/',
   '/customize/enable-disable-components/',
   '/customize/customize-source/',

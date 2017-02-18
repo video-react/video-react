@@ -21,9 +21,8 @@ export default class Menu extends Component {
   render() {
     return (
       <div
-        className="video-react-menu"
+        className="video-react-menu video-react-lock-showing"
         role="presentation"
-        tabIndex="0"
         onClick={this.handleClick}
       >
         <ul className="video-react-menu-content">

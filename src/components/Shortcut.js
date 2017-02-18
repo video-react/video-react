@@ -174,14 +174,14 @@ export default class Shortcut extends Component {
     this.shortcuts = [...this.defaultShortcuts];
 
     this.mergeShortcuts = this.mergeShortcuts.bind(this);
-    this.handleKeypress = this.handleKeypress.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   componentDidMount() {
     this.mergeShortcuts();
-    document.addEventListener('keydown', this.handleKeypress);
+    document.addEventListener('keydown', this.handleKeyPress);
     document.addEventListener('click', this.handleClick);
     document.addEventListener('dblclick', this.handleDoubleClick);
   }
@@ -193,7 +193,7 @@ export default class Shortcut extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeypress);
+    document.removeEventListener('keydown', this.handleKeyPress);
   }
 
   // merge the shortcuts from props
@@ -236,14 +236,14 @@ export default class Shortcut extends Component {
     actions.toggleFullscreen(player);
   }
 
-  handleKeypress(e) {
+  handleKeyPress(e) {
     const { player, actions } = this.props;
     if (!player.isActive) {
       return;
     }
-
     if (document.activeElement && (
         hasClass(document.activeElement, 'video-react-control')
+        || hasClass(document.activeElement, 'video-react-menu-button-active')
         || hasClass(document.activeElement, 'video-react-slider')
         || hasClass(document.activeElement, 'video-react-big-play-button')
       )) {

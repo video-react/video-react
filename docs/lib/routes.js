@@ -14,6 +14,7 @@ import PlayTogglePage from './Components/PlayTogglePage';
 import ForwardControlPage from './Components/ForwardControlPage';
 import ReplayControlPage from './Components/ReplayControlPage';
 import VolumeMenuButtonPage from './Components/VolumeMenuButtonPage';
+import PlaybackRateMenuButtonPage from './Components/PlaybackRateMenuButtonPage';
 
 import Customize from './Customize';
 import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
@@ -35,6 +36,7 @@ const routes = (
       <Route path="forward-control/" component={ForwardControlPage} />
       <Route path="replay-control/" component={ReplayControlPage} />
       <Route path="volume-menu-button/" component={VolumeMenuButtonPage} />
+      <Route path="playback-rate-menu-button/" component={PlaybackRateMenuButtonPage} />
     </Route>
     <Route path="/customize/" component={Customize}>
       <IndexRedirect to="enable-disable-components/" />

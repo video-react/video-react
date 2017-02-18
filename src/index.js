@@ -18,6 +18,7 @@ import PlayProgressBar from './components/control-bar/PlayProgressBar';
 import LoadProgressBar from './components/control-bar/LoadProgressBar';
 import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
 import VolumeMenuButton from './components/control-bar/VolumeMenuButton';
+import PlaybackRateMenuButton from './components/control-bar/PlaybackRateMenuButton';
 import PlaybackRate from './components/control-bar/PlaybackRate';
 
 import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
@@ -49,5 +50,6 @@ export {
   DurationDisplay,
   TimeDivider,
   VolumeMenuButton,
-  PlaybackRate,
+  PlaybackRateMenuButton,
+  PlaybackRate
 };
