@@ -26,7 +26,4 @@ describe('MouseTimeDisplay', () => {
       />);
     expect(wrapper.hasClass('video-react-mouse-display')).toBe(true);
   });
-
 });
-
-

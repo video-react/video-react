@@ -23,6 +23,4 @@ describe('ProgressControl', () => {
     );
     expect(wrapper.hasClass('video-react-progress-control')).toBe(true);
   });
-
-
 });

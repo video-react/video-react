@@ -15,9 +15,9 @@ import React from 'react';
  */
 export function formatTime(seconds = 0, guide = seconds) {
   let s = Math.floor(seconds % 60);
-  let m = Math.floor(seconds / 60 % 60);
+  let m = Math.floor((seconds / 60) % 60);
   let h = Math.floor(seconds / 3600);
-  const gm = Math.floor(guide / 60 % 60);
+  const gm = Math.floor((guide / 60) % 60);
   const gh = Math.floor(guide / 3600);
 
   // handle invalid times
@@ -89,5 +89,21 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
  * Temporary utility for generating the warnings
  */
 export function deprecatedWarning(oldMethodCall, newMethodCall) {
+  // eslint-disable-next-line no-console
   console.warn(`WARNING: ${oldMethodCall} will be deprecated soon! Please use ${newMethodCall} instead.`);
 }
+
+export const mediaProperties = [
+  'error', 'src', 'srcObject',
+  'currentSrc', 'crossOrigin',
+  'networkState', 'preload', 'buffered',
+  'readyState', 'seeking', 'currentTime',
+  'duration', 'paused', 'defaultPlaybackRate',
+  'playbackRate', 'played', 'seekable',
+  'ended', 'autoplay', 'loop',
+  'mediaGroup', 'controller', 'controls',
+  'volume', 'muted', 'defaultMuted',
+  'audioTracks', 'videoTracks', 'textTracks',
+  'width', 'height', 'videoWidth', 'videoHeight',
+  'poster'
+];

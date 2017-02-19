@@ -11,6 +11,6 @@ export default class PlaybackRate extends Component {
   }
 
   render() {
-    return <PlaybackRateMenuButton {...this.props} />
+    return <PlaybackRateMenuButton {...this.props} />;
   }
 }

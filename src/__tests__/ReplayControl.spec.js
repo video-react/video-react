@@ -68,5 +68,4 @@ describe('ReplayControl', () => {
     );
     expect(wrapper.hasClass('video-react-icon-replay-30')).toBe(true);
   });
-
 });

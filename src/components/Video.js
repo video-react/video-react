@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import throttle from 'lodash.throttle';
-import { isVideoChild } from '../utils';
-import { mediaProperties } from '../utils/media';
+import { isVideoChild, mediaProperties } from '../utils';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -88,6 +87,18 @@ export default class Video extends Component {
     this.forceUpdate(); // make sure the children can get the video property
   }
 
+  // get all video properties
+  getProperties() {
+    if (!this.video) {
+      return null;
+    }
+
+    return mediaProperties.reduce((properties, key) => {
+      properties[key] = this.video[key];
+      return properties;
+    }, {});
+  }
+
   // get playback rate
   get playbackRate() {
     return this.video.playbackRate;
@@ -129,18 +140,6 @@ export default class Video extends Component {
   // video height
   get videoHeight() {
     return this.video.videoHeight;
-  }
-
-  // get all video properties
-  getProperties() {
-    if (!this.video) {
-      return null;
-    }
-
-    return mediaProperties.reduce((properties, key) => {
-      properties[key] = this.video[key];
-      return properties;
-    }, {});
   }
 
   // play the video

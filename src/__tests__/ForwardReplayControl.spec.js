@@ -25,6 +25,4 @@ describe('ForwardReplayControl', () => {
     );
     expect(wrapper.hasClass('video-react-control video-react-button')).toBe(true);
   });
-
-
 });

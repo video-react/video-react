@@ -28,11 +28,11 @@ export function findElPosition(el) {
 
   const clientLeft = docEl.clientLeft || body.clientLeft || 0;
   const scrollLeft = window.pageXOffset || body.scrollLeft;
-  const left = box.left + scrollLeft - clientLeft;
+  const left = (box.left + scrollLeft) - clientLeft;
 
   const clientTop = docEl.clientTop || body.clientTop || 0;
   const scrollTop = window.pageYOffset || body.scrollTop;
-  const top = box.top + scrollTop - clientTop;
+  const top = (box.top + scrollTop) - clientTop;
 
   // Android sometimes returns slightly off decimal values, so need to round
   return {

@@ -22,7 +22,7 @@ describe('PlayProgressBar', () => {
     );
     expect(wrapper.hasClass('video-react-play-progress')).toBe(true);
   });
-  
+
   it('should render children when passed in', () => {
     const wrapper = shallow(
       <PlayProgressBar

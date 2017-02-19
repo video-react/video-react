@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import operation from './operation';
-import { OPERATE } from '../actions/player';
+import operation from '../../reducers/operation';
+import { OPERATE } from '../../actions/player';
 
 
 describe('reducer', () => {

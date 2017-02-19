@@ -37,5 +37,4 @@ describe('SeekBar', () => {
     );
     expect(wrapper.hasClass('video-react-progress-holder')).toBe(true);
   });
-
 });

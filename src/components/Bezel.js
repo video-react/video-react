@@ -23,7 +23,6 @@ export default class Bezel extends Component {
   }
 
   handleStateChange(state, prevState) {
-    const { actions } = this.props;
     if (state.count !== prevState.count
       && state.operation.source === 'shortcut') {
       if (this.timer) { // previous animation is not finished
@@ -46,7 +45,6 @@ export default class Bezel extends Component {
         });
         this.timer = null;
       }, 500);
-
     }
   }
 

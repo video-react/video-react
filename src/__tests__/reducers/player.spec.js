@@ -1,15 +1,14 @@
 import deepFreeze from 'deep-freeze';
-import { default as player } from './player';
-import { VOLUME_MUTE, LOAD_START, CAN_PLAY,
-  WAITING, CAN_PLAY_THROUGH, PLAYING,
+import { default as player } from '../../reducers/player';
+import { LOAD_START, CAN_PLAY,
+  WAITING, PLAYING,
   PLAY, PAUSE, END, SEEKING, SEEKED,
   SEEKING_TIME, END_SEEKING, DURATION_CHANGE,
   TIME_UPDATE, VOLUME_CHANGE, PROGRESS_CHANGE,
   RATE_CHANGE } from '../actions/video';
-import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../actions/player';
+import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../../actions/player';
 
 describe('player', () => {
-
   it('should return the initail state', () => {
     const expectedInitialState = {
       duration: 0,

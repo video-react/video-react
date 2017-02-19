@@ -256,7 +256,7 @@ export default class Shortcut extends Component {
     const alt = e.altKey;
 
     const shortcut = this.shortcuts.find((s) => {
-      if (s.keyCode != keyCode) {
+      if (!s.keyCode || s.keyCode - keyCode !== 0) {
         return false;
       }
       if ((s.ctrl !== undefined && s.ctrl !== ctrl)

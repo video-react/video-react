@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 import { Slider } from '../';
 
@@ -41,6 +41,4 @@ describe('Slider', () => {
     );
     expect(wrapper.children().length).toBeGreaterThan(0);
   });
-
-
 });

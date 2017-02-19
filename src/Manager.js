@@ -20,9 +20,9 @@ export default class Manager {
       ...videoActions,
     };
 
-    function bindActionCreator(actionCreator) {
+    function bindActionCreator(actionCreator, ...args) {
       return function () {
-        const action = actionCreator.apply(manager, arguments);
+        const action = actionCreator.apply(manager, args);
         if (typeof action !== 'undefined') {
           dispatch(action);
         }
