@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -e
+
+BRANCH='master'
+BUILD_DIR='build/'
+REPOSITORY=`mktemp -d /tmp/video-react.XXXXXX`
+GITHUB_REPO='video-react/video-react.github.io'
+
+success() {
+  echo -e "\033[32;1m$1"
+}
+
+error() {
+  echo -e "\033[31;1m$1"
+}
+
+if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  echo "Deploying documentation"
+else
+  success "Not building master branch. Skipping deploy."
+  exit 0
+fi
+
+if [ -z "$GITHUB_TOKEN" ]; then
+  error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
+  exit 1
+fi
+
+npm run build-docs
+
+if [ ! -d $BUILD_DIR ]; then
+  error "Build directory does not exist. Stopping deploy."
+  exit 1
+fi
+
+echo "Cloning ${GITHUB_REPO} & applying changes"
+git clone --branch $BRANCH https://${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git $REPOSITORY > /dev/null 2>&1
+rsync -rt --del --exclude=".git" $BUILD_DIR $REPOSITORY
+cd $REPOSITORY
+
+if [ -z "$(git status --porcelain)" ]; then
+  success "No documentation changes to publish. Skipping deploy."
+  exit 0
+fi
+
+git config user.name "Travis-CI"
+git config user.email "video-react@github.io"
+git add --all
+git commit -m "docs(travis): publish documentation for $TRAVIS_COMMIT"
+git push origin $BRANCH > /dev/null 2>&1
+
+success "Successfully published documentation for $TRAVIS_COMMIT!"
