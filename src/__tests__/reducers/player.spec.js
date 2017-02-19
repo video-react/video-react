@@ -5,7 +5,7 @@ import { LOAD_START, CAN_PLAY,
   PLAY, PAUSE, END, SEEKING, SEEKED,
   SEEKING_TIME, END_SEEKING, DURATION_CHANGE,
   TIME_UPDATE, VOLUME_CHANGE, PROGRESS_CHANGE,
-  RATE_CHANGE } from '../actions/video';
+  RATE_CHANGE } from '../../actions/video';
 import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../../actions/player';
 
 describe('player', () => {
