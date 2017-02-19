@@ -1,0 +1,31 @@
+sudo: false
+dist: trusty
+language: node_js
+node_js:
+- 6
+cache:
+  directories:
+  - node_modules
+before_script:
+- chmod +x scripts/docs
+script:
+- npm run lint
+- npm run cover -- --runInBand
+after_script:
+- npm run report-coverage
+after_success:
+- scripts/docs
+branches:
+  only:
+  - master
+before_deploy:
+- npm run build
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: junminliu@gmail.com
+  api_key:
+    secure: O3J34dCpsRytziiDoS5fbVnj8GWGwlCmZ72WSrkOaY3ECSZiWWt6yD7+eBMDYE+7TM/zb8FVe61zHFMYnAre0SXThtp2x1nT5vNUt9S2eq/veKjcOyc77IsYqGA/dQznLJU9kTK6ZqmxA6UX5BSK2NmHe4yEKYSo+LDIHhU+7rRRIDsgpywablk9FZLzQhySuHTzSD2Y8EPWboqtBngvALz14WPeE58Q7/1wgwlqawUsTrZHA7NjEjYHevjLBq9knk6O42zeVJ/eKj27i+gBJIS/fic5Z98V4icuq8zNeq0PI9XkjXrzm8WcLfvIwp9tmPQAH1uAGlLIxi53al+aHxgrzaHRoxRX4sDgQVsiYNcLzoCHRQeMk+MrbmbH4w72tJs8FoZ5/wkVYpbXT4GQsPmq9B/21J+i81fco9id6zkSDvw7NUjr6tI9469H5o2qAOOKRc8vB+Uqh3cDetMh4IuNu9CySySpiTdEhekI0kBPOxZKOEDmSO+GNpzrbrnPx8SEnUxxnb9szMRCrwv920zL59548S/RCNqJel5R7lw6oLIA6bGR3g6gs7kaenRKubLE5bEzEhacqHKAgxS0A07mF7/D5MxngBoNt+Bw4B5k5umwxMgATfmX7VOS8jlBASOOugsuyB5XWQWcnfUbIxtbEZwhQrz+Lr00em7cbgI=
+  on:
+    tags: true
+    repo: video-react/video-react

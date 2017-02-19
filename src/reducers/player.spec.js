@@ -32,44 +32,11 @@ describe('player', () => {
       userActivity: true,
       isActive: false,
       isFullscreen: false,
+      currentSrc: null,
     };
     expect(player(undefined, {})).toEqual(expectedInitialState);
   });
 
-  it('should handle VOLUME_MUTE action with state muted', () => {
-    const stateBefore = {
-      muted: true
-    };
-    const action = {
-      type: VOLUME_MUTE,
-      muted: true
-    };
-    const stateAfter = {
-      muted: true
-    };
-    deepFreeze(stateBefore);
-    deepFreeze(action);
-
-    expect(player(stateBefore, action)).toEqual(stateAfter);
-  });
-
-  it('should handle VOLUME_MUTE action with state NOT muted', () => {
-    const stateBefore = {
-      muted: false
-    };
-    const action = {
-      type: VOLUME_MUTE,
-      muted: true
-    };
-    const stateAfter = {
-      muted: true
-    };
-
-    deepFreeze(stateBefore);
-    deepFreeze(action);
-
-    expect(player(stateBefore, action)).toEqual(stateAfter);
-  });
 
   it('should handle LOAD_START action', () => {
     let bufferTwo = {
@@ -84,7 +51,9 @@ describe('player', () => {
     };
     const action = {
       type: LOAD_START,
-      buffered: bufferTwo
+      videoProps: {
+        buffered: bufferTwo
+      }
     };
     const stateAfter = {
       hasStarted: false,
@@ -110,9 +79,11 @@ describe('player', () => {
     };
     const action = {
       type: CAN_PLAY,
-      videoWidth: 1080,
-      videoHeight: 1920,
-      duration: 52.209
+      videoProps: {
+        videoWidth: 1080,
+        videoHeight: 1920,
+        duration: 52.209
+      }
     };
     const stateAfter = {
       waiting: false,
@@ -196,7 +167,9 @@ describe('player', () => {
     };
     const action = {
       type: PLAY,
-      duration: 52.209
+      videoProps: {
+        duration: 52.209
+      }
     };
     const stateAfter = {
       ended: false,
@@ -289,16 +262,14 @@ describe('player', () => {
 
   it('should handle END_SEEKING action', () => {
     const stateBefore = {
-      seekingTime: 1,
-      currentTime: 12
+      seekingTime: 1
     };
     const action = {
       type: END_SEEKING,
       time: 1
     };
     const stateAfter = {
-      seekingTime: 0,
-      currentTime: 1
+      seekingTime: 0
     };
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -311,7 +282,9 @@ describe('player', () => {
     };
     const action = {
       type: DURATION_CHANGE,
-      duration: 23
+      videoProps: {
+        duration: 23
+      }
     };
     const stateAfter = {
       duration: 23
@@ -327,7 +300,9 @@ describe('player', () => {
     };
     const action = {
       type: TIME_UPDATE,
-      time: 12.01
+      videoProps: {
+        currentTime: 12.01
+      }
     };
     const stateAfter = {
       currentTime: 12.01
@@ -344,8 +319,10 @@ describe('player', () => {
     };
     const action = {
       type: VOLUME_CHANGE,
-      volume: 0.62,
-      muted: false
+      videoProps: {
+        volume: 0.62,
+        muted: false
+      }
     };
     const stateAfter = {
       volume: 0.62,
@@ -371,7 +348,9 @@ describe('player', () => {
     };
     const action = {
       type: PROGRESS_CHANGE,
-      buffered: bufferThree
+      videoProps: {
+        buffered: bufferThree
+      }
     };
     const stateAfter = {
       buffered: bufferThree
@@ -388,7 +367,9 @@ describe('player', () => {
     };
     const action = {
       type: RATE_CHANGE,
-      rate: 1.1
+      videoProps: {
+        playbackRate: 1.1
+      }
     };
     const stateAfter = {
       playbackRate: 1.1
