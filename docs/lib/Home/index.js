@@ -72,7 +72,7 @@ export default () => {
               <PrismCode className="language-bash">npm install</PrismCode>
             </pre>
             <p>
-            Run examples at [http://localhost:9000/](http://localhost:9000/) with webpack dev server:
+            Run examples at <a href="http://localhost:9000/" target="_blank">http://localhost:9000/</a> with webpack dev server:
             </p>
             <pre>
               <PrismCode className="language-bash">npm start</PrismCode>

@@ -20,9 +20,10 @@ export default class Manager {
       ...videoActions,
     };
 
-    function bindActionCreator(actionCreator, ...args) {
+    function bindActionCreator(actionCreator) {
       return function () {
-        const action = actionCreator.apply(manager, args);
+        // eslint-disable-next-line prefer-rest-params
+        const action = actionCreator.apply(manager, arguments);
         if (typeof action !== 'undefined') {
           dispatch(action);
         }
