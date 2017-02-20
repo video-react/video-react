@@ -61,10 +61,8 @@ Run tests & coverage report:
 npm test
 ```
 
-Watch tests:
-
 ```sh
-npm run test-watch
+npm run report-coverage
 ```
 
 ## Inspiration & Credits
