@@ -1,3 +1,11 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/video-react/video-react/compare/0.6.4...v0.7.0) (2017-02-20)
+
+* Rewrited Menu component.
+* Changed component name from `PlaybackRate` to `PlaybackRateMenuButton`.
+* Fixed full screen bug on iPhone.
+* Added travis-ci config
+
 <a name="0.6.4"></a>
 ## [0.6.4](https://github.com/video-react/video-react/compare/0.6.3...v0.6.4) (2017-02-12)
 
