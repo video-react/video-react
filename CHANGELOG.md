@@ -1,3 +1,7 @@
+<a name="0.7.2"></a>
+# [0.7.2]
+Fixed issue that the player can't handle blur event
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/video-react/video-react/compare/0.6.4...v0.7.0) (2017-02-20)
 
