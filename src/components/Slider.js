@@ -133,7 +133,7 @@ export default class Slider extends Component {
   }
 
   handleClick(event) {
-    // event.preventDefault();
+    event.preventDefault();
     // event.stopPropagation();
     if (this.props.onClick) {
       this.props.onClick(event);
