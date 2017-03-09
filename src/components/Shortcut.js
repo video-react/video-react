@@ -244,7 +244,7 @@ export default class Shortcut extends Component {
     if (document.activeElement && (
         hasClass(document.activeElement, 'video-react-control')
         || hasClass(document.activeElement, 'video-react-menu-button-active')
-        || hasClass(document.activeElement, 'video-react-slider')
+        // || hasClass(document.activeElement, 'video-react-slider')
         || hasClass(document.activeElement, 'video-react-big-play-button')
       )) {
       return;
@@ -290,7 +290,7 @@ export default class Shortcut extends Component {
       return;
     }
     this.togglePlay(player, actions);
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   handleDoubleClick(e) {
@@ -299,7 +299,7 @@ export default class Shortcut extends Component {
       return;
     }
     this.toggleFullscreen(player, actions);
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   // this component dose not render anything
