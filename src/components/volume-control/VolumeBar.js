@@ -25,6 +25,7 @@ class VolumeBar extends Component {
     this.stepBack = this.stepBack.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -84,6 +85,10 @@ class VolumeBar extends Component {
     }
   }
 
+  handleClick(event) {
+    event.stopPropagation();
+  }
+
   render() {
     const { player } = this.props;
 
@@ -99,6 +104,7 @@ class VolumeBar extends Component {
         onMouseMove={this.handleMouseMove}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
+        onClick={this.handleClick}
         sliderActive={this.handleFocus}
         sliderInactive={this.handleBlur}
         getPercent={this.getPercent}

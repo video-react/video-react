@@ -14,6 +14,7 @@ const propTypes = {
   onMouseUp: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  onClick: PropTypes.func,
   getPercent: PropTypes.func,
   vertical: PropTypes.bool,
   children: PropTypes.node,
@@ -64,8 +65,8 @@ export default class Slider extends Component {
 
   handleMouseDown(event) {
     const { onMouseDown } = this.props;
-    event.preventDefault();
-    event.stopPropagation();
+    // event.preventDefault();
+    // event.stopPropagation();
 
     document.addEventListener('mousemove', this.handleMouseMove, true);
     document.addEventListener('mouseup', this.handleMouseUp, true);
@@ -132,18 +133,21 @@ export default class Slider extends Component {
   }
 
   handleClick(event) {
-    event.preventDefault();
-    event.stopPropagation();
+    // event.preventDefault();
+    // event.stopPropagation();
+    if (this.props.onClick) {
+      this.props.onClick(event);
+    }
   }
 
   handleKeyPress(event) {
     if (event.which === 37 || event.which === 40) { // Left and Down Arrows
       event.preventDefault();
-      event.stopPropagation();
+      // event.stopPropagation();
       this.stepBack();
     } else if (event.which === 38 || event.which === 39) { // Up and Right Arrows
       event.preventDefault();
-      event.stopPropagation();
+      // event.stopPropagation();
       this.stepForward();
     }
   }

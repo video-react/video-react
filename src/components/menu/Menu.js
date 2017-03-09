@@ -14,7 +14,7 @@ export default class Menu extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    event.stopPropagation();
+    // event.stopPropagation();
   }
 
 

@@ -15,7 +15,7 @@ export default class Popup extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    event.stopPropagation();
+    // event.stopPropagation();
   }
 
   render() {
