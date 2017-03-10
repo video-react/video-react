@@ -48,6 +48,6 @@ git config user.name "Travis-CI"
 git config user.email "video-react@github.io"
 git add --all
 git commit -m "docs(travis): publish documentation for $TRAVIS_COMMIT"
-git push origin $BRANCH > /dev/null 2>&1
+git push origin $BRANCH
 
 success "Successfully published documentation for $TRAVIS_COMMIT!"
