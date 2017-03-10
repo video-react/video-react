@@ -20,10 +20,10 @@ error() {
   echo -e "\033[31;1m$1"
 }
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
-  exit 1
-fi
+# if [ -z "$GITHUB_TOKEN" ]; then
+#   error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
+#   exit 1
+# fi
 
 if [ -z "$CURRENT_BRANCH" ]; then
   error "Not in a branch. Stopping release."
@@ -61,9 +61,9 @@ if ! [ -z "$TRAVIS" ]; then
   git config user.email "video-react@github.io"
 fi
 
-git checkout -b "release-$VERSION"
 git add --all
 git commit --message "chore(release): adding $VERSION"
-git push --set-upstream origin "release-$VERSION" > /dev/null 2>&1
+git tag "v$VERSION" -a -m "Tag Generated for $VERSION"
+git push origin master && git push origin master --tags > /dev/null 2>&1
 
 success "release-$VERSION branch has been pushed"
