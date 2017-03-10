@@ -15,9 +15,6 @@ after_script:
 - npm run report-coverage
 after_success:
 - scripts/docs
-branches:
-  only:
-  - master
 before_deploy:
 - npm run build
 deploy:
