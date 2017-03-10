@@ -1,6 +1,7 @@
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/video-react/video-react/compare/0.7.2...v0.7.3) (2017-03-10)
-
+NO CHANGES
+Test travis-ci, use it to publish new release
 
 
 <a name="0.7.2"></a>

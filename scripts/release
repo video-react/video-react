@@ -66,4 +66,4 @@ git commit --message "chore(release): adding $VERSION"
 git tag "v$VERSION" -a -m "Tag Generated for $VERSION"
 git push origin master && git push origin master --tags > /dev/null 2>&1
 
-success "release-$VERSION branch has been pushed"
+success "release-$VERSION has been pushed"
