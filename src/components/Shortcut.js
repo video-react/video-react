@@ -1,5 +1,4 @@
 import { Component, PropTypes } from 'react';
-import { find } from '../utils';
 import { hasClass } from '../utils/dom';
 
 const propTypes = {
@@ -256,7 +255,7 @@ export default class Shortcut extends Component {
     const shift = e.shiftKey;
     const alt = e.altKey;
 
-    const shortcut = find(this.shortcuts, (s) => {
+    const shortcut = this.shortcuts.find((s) => {
       if (!s.keyCode || s.keyCode - keyCode !== 0) {
         return false;
       }
@@ -311,3 +310,4 @@ export default class Shortcut extends Component {
 }
 
 Shortcut.propTypes = propTypes;
+

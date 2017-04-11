@@ -1,23 +1,5 @@
 import React from 'react';
 
-// use instead of `Array.prototype.find` for support ie 11.
-export function find(list, predicate) {
-  if (!Array.isArray(list)) {
-    throw new TypeError('list must be a array');
-  }
-  if (typeof predicate !== 'function') {
-    throw new TypeError('predicate must be a function');
-  }
-  const length = list.length;
-  for (let i = 0; i < length; i++) {
-    const value = list[i];
-    if (predicate(value, i, list)) {
-      return value;
-    }
-  }
-  return undefined;
-}
-
 /**
  * @file format-time.js
  *
@@ -78,13 +60,14 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
   return children
     .filter((e) => !e.props.disabled)
     .concat(
-      find(
-        defaultChildren,
-        (c) => !find(children, (component) => component.type === c.type)
+      defaultChildren.filter(
+        (c) => !children.find((component) =>
+          component.type === c.type
+        )
       )
     )
     .map((element) => {
-      const defaultComponent = find(defaultChildren, (c) => c.type === element.type);
+      const defaultComponent = defaultChildren.find((c) => c.type === element.type);
       delete parentProps.order;
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
