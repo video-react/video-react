@@ -78,10 +78,9 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
   return children
     .filter((e) => !e.props.disabled)
     .concat(
-      defaultChildren.filter(
-        (c) => !find(children, (component) =>
-          component.type === c.type
-        )
+      find(
+        defaultChildren,
+        (c) => !find(children, (component) => component.type === c.type)
       )
     )
     .map((element) => {
