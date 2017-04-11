@@ -35,6 +35,7 @@ module.exports = function (env) {
   const config = {
     devtool: 'source-map',
     entry: [
+      'babel-polyfill',
       __dirname + '/src/index.js',
       __dirname + '/styles/scss/video-react.scss'
     ],

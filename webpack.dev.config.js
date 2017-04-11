@@ -41,7 +41,7 @@ var config = [{
     }
   },
   entry: {
-    main: './docs/lib/app'
+    main: ['babel-polyfill', './docs/lib/app']
   },
   node: {
     fs: 'empty'
