@@ -1,3 +1,8 @@
+<a name="0.7.5"></a>
+## [0.7.5](https://github.com/video-react/video-react/compare/0.7.4...v0.7.5) (2017-04-11)
+
+
+
 
 Fixed IE11 Issue by @yuheiy's help.  
 
