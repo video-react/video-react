@@ -14,7 +14,7 @@ export default function LoadingSpinner({ player, hidden }) {
   }
 
   return (
-    <div className={hidden ? "" : "video-react-loading-spinner"}/>
+    <div className={hidden ? '' : 'video-react-loading-spinner'} />
   );
 }
 
