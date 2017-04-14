@@ -1,9 +1,12 @@
+<a name="0.7.6"></a>
+## [0.7.6](https://github.com/video-react/video-react/compare/v0.7.5...v0.7.6) (2017-04-14)
+
+
+
+Calling VideoReact from outside (HTML script tag)
+
 <a name="0.7.5"></a>
 ## [0.7.5](https://github.com/video-react/video-react/compare/0.7.4...v0.7.5) (2017-04-11)
-
-
-
-
 Fixed IE11 Issue by @yuheiy's help.  
 
 <a name="0.7.3"></a>

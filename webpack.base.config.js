@@ -3,7 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const libraryName = 'video-react';
+const libraryName = 'VideoReact';
+const outputFilename = 'video-react';
 
 module.exports = function (env) {
   let outputFile;
@@ -27,9 +28,9 @@ module.exports = function (env) {
         mangle: true
       }
     ));
-    outputFile = libraryName.toLowerCase() + '.min.js';
+    outputFile = outputFilename.toLowerCase() + '.min.js';
   } else {
-    outputFile = libraryName.toLowerCase() + '.js';
+    outputFile = outputFilename.toLowerCase() + '.js';
   }
 
   const config = {
@@ -37,14 +38,13 @@ module.exports = function (env) {
     entry: [
       'babel-polyfill',
       __dirname + '/src/index.js',
-      __dirname + '/styles/scss/video-react.scss'
+      //__dirname + '/styles/scss/video-react.scss'
     ],
     output: {
       path: __dirname + '/dist',
       filename: outputFile,
       library: libraryName,
-      libraryTarget: 'umd',
-      umdNamedDefine: true
+      libraryTarget: 'umd'
     },
     externals: [
       {
