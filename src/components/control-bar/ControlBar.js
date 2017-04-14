@@ -20,13 +20,13 @@ const propTypes = {
   children: PropTypes.any,
   autoHide: PropTypes.bool,
   disableDefaultControls: PropTypes.bool,
+  hidden: PropTypes.bool,
 };
-
 
 const defaultProps = {
   autoHide: true,
+  hidden: false,
 };
-
 
 export default class ControlBar extends Component {
   constructor(props) {
@@ -72,7 +72,7 @@ export default class ControlBar extends Component {
         {...this.props}
         key="fullscreen-toggle"
         order={8}
-      />
+      />,
     ];
   }
 
@@ -133,7 +133,7 @@ export default class ControlBar extends Component {
         {...this.props}
         key="fullscreen-toggle"
         order={11}
-      />
+      />,
     ];
   }
 
@@ -144,12 +144,13 @@ export default class ControlBar extends Component {
   }
 
   render() {
-    const { autoHide } = this.props;
-    const children = this.getChildren();
+    const { autoHide, hidden } = this.props;
+    const children = hidden ? null : this.getChildren();
     return (
       <div
-        className={classNames('video-react-control-bar', {
-          'video-react-control-bar-auto-hide': autoHide
+        className={classNames({
+          'video-react-control-bar': !hidden,
+          'video-react-control-bar-auto-hide': !hidden && autoHide,
         })}
       >
         {children}
