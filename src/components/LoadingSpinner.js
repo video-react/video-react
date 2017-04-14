@@ -2,9 +2,10 @@ import React, { PropTypes } from 'react';
 
 const propTypes = {
   player: PropTypes.object,
+  hidden: PropTypes.bool,
 };
 
-export default function LoadingSpinner({ player }) {
+export default function LoadingSpinner({ player, hidden }) {
   if (
     !player.hasStarted ||
     (!player.seeking && !player.waiting)
@@ -13,7 +14,7 @@ export default function LoadingSpinner({ player }) {
   }
 
   return (
-    <div className="video-react-loading-spinner" />
+    <div className={hidden ? "" : "video-react-loading-spinner"}/>
   );
 }
 
