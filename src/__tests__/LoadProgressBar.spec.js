@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { LoadProgressBar } from '../';
+import LoadProgressBar from '../components/control-bar/LoadProgressBar';
 
 describe('LoadProgressBar', () => {
   it('should render with "div" tag', () => {

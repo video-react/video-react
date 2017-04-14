@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Player } from '../';
+import Player from '../components/Player';
 
 describe('Player', () => {
   it('should render with "div" tag', () => {

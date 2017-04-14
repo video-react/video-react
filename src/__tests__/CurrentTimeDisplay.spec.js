@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { CurrentTimeDisplay } from '../';
+import CurrentTimeDisplay from '../components/time-controls/CurrentTimeDisplay';
 
 describe('CurrentTimeDisplay', () => {
   it('should render with "div" tag', () => {

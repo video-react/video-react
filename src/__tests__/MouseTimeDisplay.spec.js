@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MouseTimeDisplay } from '../';
+import MouseTimeDisplay from '../components/control-bar/MouseTimeDisplay';
 
 describe('MouseTimeDisplay', () => {
   it('should render with "div" tag', () => {

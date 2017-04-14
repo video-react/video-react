@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Video } from '../';
+import Video from '../components/Video';
 
 describe('Video', () => {
   it('should render with "video" tag', () => {

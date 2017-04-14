@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Slider } from '../';
+import Slider from '../components/Slider';
 
 describe('Slider', () => {
   it('should render with "div" tag', () => {

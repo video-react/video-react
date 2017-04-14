@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LoadingSpinner } from '../';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 describe('LoadingSpinner', () => {
   it('should render with "div" tag', () => {

@@ -1,8 +1,12 @@
+<a name="0.7.7"></a>
+## [0.7.7](https://github.com/video-react/video-react/compare/v0.7.6...v0.7.7) (2017-04-14)
+
+
+
+Fixed Tests
+
 <a name="0.7.6"></a>
 ## [0.7.6](https://github.com/video-react/video-react/compare/v0.7.5...v0.7.6) (2017-04-14)
-
-
-
 Calling VideoReact from outside (HTML script tag)
 
 <a name="0.7.5"></a>

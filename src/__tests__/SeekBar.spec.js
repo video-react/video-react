@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { SeekBar } from '../';
+import SeekBar from '../components/control-bar/SeekBar';
 
 describe('SeekBar', () => {
   it('should render with "div" tag', () => {

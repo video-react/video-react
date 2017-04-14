@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { PosterImage } from '../';
+import PosterImage from '../components/PosterImage';
 
 describe('PosterImage', () => {
   it('should render with "div" tag', () => {

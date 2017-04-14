@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { TimeDivider } from '../';
+import TimeDivider from '../components/time-controls/TimeDivider';
 
 describe('TimeDivider', () => {
   it('should render with "div" tag', () => {

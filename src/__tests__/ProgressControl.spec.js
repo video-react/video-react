@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ProgressControl } from '../';
+import ProgressControl from '../components/control-bar/ProgressControl';
 
 describe('ProgressControl', () => {
   it('should render with "div" tag', () => {

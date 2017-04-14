@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { PlayProgressBar } from '../';
+import PlayProgressBar from '../components/control-bar/PlayProgressBar';
 
 describe('PlayProgressBar', () => {
   it('should render with "div" tag', () => {
