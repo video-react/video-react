@@ -1,4 +1,4 @@
-import '../styles/scss/video-react.scss';
+// import '../styles/scss/video-react.scss';
 
 import Player from './components/Player';
 import Video from './components/Video';

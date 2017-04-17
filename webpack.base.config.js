@@ -38,7 +38,7 @@ module.exports = function (env) {
     entry: [
       'babel-polyfill',
       __dirname + '/src/index.js',
-      //__dirname + '/styles/scss/video-react.scss'
+      __dirname + '/styles/scss/video-react.scss'
     ],
     output: {
       path: __dirname + '/dist',
