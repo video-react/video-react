@@ -1,10 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import classNames from 'classnames';
+
 import * as Dom from '../../utils/dom';
 import SeekBar from './SeekBar';
 
 const propTypes = {
   player: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default class ProgressControl extends Component {
@@ -40,10 +44,11 @@ export default class ProgressControl extends Component {
   }
 
   render() {
+    const { className } = this.props;
     return (
       <div
         onMouseMove={this.handleMouseMoveThrottle}
-        className="video-react-progress-control video-react-control"
+        className={classNames('video-react-progress-control video-react-control', className)}
       >
         <SeekBar
           mouseTime={this.state.mouseTime}

@@ -1,8 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   duration: PropTypes.number,
   buffered: PropTypes.object,
+  className: PropTypes.string,
 };
 
 // Shows load progress
@@ -52,7 +55,10 @@ export default function LoadProgressBar({ buffered, duration }) {
   return (
     <div
       style={style}
-      className="video-react-load-progress"
+      className={classNames(
+        'video-react-load-progress',
+        this.props.className
+      )}
     >
       <span className="video-react-control-text"><span>Loaded</span>: 0%</span>
       {parts}

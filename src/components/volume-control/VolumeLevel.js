@@ -1,8 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   percentage: PropTypes.string,
   vertical: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 const defaultProps = {
@@ -10,7 +13,7 @@ const defaultProps = {
   vertical: false,
 };
 
-function VolumeLevel({ percentage, vertical }) {
+function VolumeLevel({ percentage, vertical, className }) {
   const style = {};
   if (vertical) {
     style.height = percentage;
@@ -20,7 +23,7 @@ function VolumeLevel({ percentage, vertical }) {
 
   return (
     <div
-      className="video-react-volume-level"
+      className={classNames(className, 'video-react-volume-level')}
       style={style}
     >
       <span className="video-react-control-text" />

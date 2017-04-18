@@ -1,19 +1,25 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   poster: PropTypes.string,
   player: PropTypes.object,
   actions: PropTypes.object,
+  className: PropTypes.string,
 };
 
-function PosterImage({ poster, player, actions }) {
+function PosterImage({ poster, player, actions, className }) {
   if (!poster || player.hasStarted) {
     return null;
   }
 
   return (
     <div
-      className="video-react-poster"
+      className={classNames(
+        'video-react-poster',
+        className
+      )}
       style={{
         backgroundImage: `url("${poster}")`,
       }}

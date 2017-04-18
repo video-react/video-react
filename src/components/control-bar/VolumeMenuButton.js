@@ -1,5 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
+
 import PopupButton from '../popup/PopupButton';
 import VolumeBar from '../volume-control/VolumeBar';
 
@@ -8,6 +10,7 @@ const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   vertical: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 const defaultProps = {
@@ -60,12 +63,12 @@ class VolumeMenuButton extends Component {
   }
 
   render() {
-    const { vertical, player } = this.props;
+    const { vertical, player, className } = this.props;
     const inline = !vertical;
     const level = this.volumeLevel;
     return (
       <PopupButton
-        className={classNames({
+        className={classNames(className, {
           'video-react-volume-menu-button-vertical': vertical,
           'video-react-volume-menu-button-horizontal': !vertical,
           'video-react-vol-muted': player.muted,

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import * as Dom from '../utils/dom';
@@ -18,7 +19,6 @@ const propTypes = {
   getPercent: PropTypes.func,
   vertical: PropTypes.bool,
   children: PropTypes.node,
-  player: PropTypes.object,
   label: PropTypes.string,
   valuenow: PropTypes.string,
   valuetext: PropTypes.string,

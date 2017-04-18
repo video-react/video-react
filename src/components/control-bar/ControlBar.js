@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import ProgressControl from './ProgressControl';
@@ -15,11 +16,10 @@ import PlaybackRateMenuButton from './PlaybackRateMenuButton';
 import { mergeAndSortChildren } from '../../utils';
 
 const propTypes = {
-  actions: PropTypes.object,
-  player: PropTypes.object,
   children: PropTypes.any,
   autoHide: PropTypes.bool,
   disableDefaultControls: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 
@@ -144,12 +144,13 @@ export default class ControlBar extends Component {
   }
 
   render() {
-    const { autoHide } = this.props;
+    const { autoHide, className } = this.props;
     const children = this.getChildren();
     return (
       <div
         className={classNames('video-react-control-bar', {
-          'video-react-control-bar-auto-hide': autoHide
+          'video-react-control-bar-auto-hide': autoHide,
+          className
         })}
       >
         {children}

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import MenuButton from '../menu/MenuButton';
 
@@ -6,6 +7,7 @@ const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   rates: PropTypes.array,
+  className: PropTypes.string,
 };
 
 const defaultProps = {
@@ -39,9 +41,7 @@ class PlaybackRateMenuButton extends Component {
 
     return (
       <MenuButton
-        className={classNames({
-          'video-react-playback-rate': true,
-        })}
+        className={classNames('video-react-playback-rate', this.props.className)}
         onSelectItem={this.handleSelectItem}
         items={items}
         selectedIndex={selectedIndex}

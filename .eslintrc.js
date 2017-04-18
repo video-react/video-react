@@ -34,7 +34,8 @@ var rules = {
   'prefer-const': 0,
   'react/jsx-filename-extension': 0,
   'linebreak-style': 0,
-  'react/require-extension': 0
+  'react/require-extension': 0,
+  'react/require-default-props': 0,
 };
 
 module.exports = {

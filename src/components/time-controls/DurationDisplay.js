@@ -1,15 +1,19 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+
 import { formatTime } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
+  className: PropTypes.string,
 };
 
-function DurationDisplay({ player: { duration } }) {
+function DurationDisplay({ player: { duration }, className }) {
   const formattedTime = formatTime(duration);
   return (
     <div
-      className="video-react-duration video-react-time-control video-react-control"
+      className={classNames(className, 'video-react-duration video-react-time-control video-react-control')}
     >
       <div
         className="video-react-duration-display"

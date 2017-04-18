@@ -1,10 +1,13 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   player: PropTypes.object,
+  className: PropTypes.string,
 };
 
-export default function LoadingSpinner({ player }) {
+export default function LoadingSpinner({ player, className }) {
   if (
     !player.hasStarted ||
     (!player.seeking && !player.waiting)
@@ -13,7 +16,12 @@ export default function LoadingSpinner({ player }) {
   }
 
   return (
-    <div className="video-react-loading-spinner" />
+    <div
+      className={classNames(
+        'video-react-loading-spinner',
+        className
+      )}
+    />
   );
 }
 

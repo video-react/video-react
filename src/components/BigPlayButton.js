@@ -1,10 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
   position: PropTypes.string,
+  className: PropTypes.string,
 };
 
 const defaultProps = {
@@ -35,7 +37,8 @@ export default class BigPlayButton extends Component {
       <button
         className={classNames(
           'video-react-big-play-button',
-          `video-react-big-play-button-${position}`
+          `video-react-big-play-button-${position}`,
+          this.props.className
         )}
         type="button"
         aria-live="polite"

@@ -1,7 +1,10 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+
 import { formatTime } from '../../utils';
 
-function MouseTimeDisplay({ duration, mouseTime }) {
+function MouseTimeDisplay({ duration, mouseTime, className }) {
   if (!mouseTime.time) {
     return null;
   }
@@ -10,7 +13,7 @@ function MouseTimeDisplay({ duration, mouseTime }) {
 
   return (
     <div
-      className="video-react-mouse-display"
+      className={classNames('video-react-mouse-display', className)}
       style={{
         left: `${mouseTime.position}px`,
       }}
@@ -22,6 +25,7 @@ function MouseTimeDisplay({ duration, mouseTime }) {
 MouseTimeDisplay.propTypes = {
   duration: PropTypes.number,
   mouseTime: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default MouseTimeDisplay;

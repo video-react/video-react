@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 
 const propTypes = {
   manager: PropTypes.object,
-  player: PropTypes.object,
-  actions: PropTypes.object,
+  className: PropTypes.string,
 };
 
 
@@ -63,7 +63,7 @@ export default class Bezel extends Component {
           'video-react-bezel': true,
           'video-react-bezel-animation': this.state.count % 2 === 0,
           'video-react-bezel-animation-alt': this.state.count % 2 === 1,
-        })}
+        }, this.props.className)}
         style={style}
         role="status"
         aria-label={this.state.operation.action}

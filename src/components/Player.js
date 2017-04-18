@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import throttle from 'lodash.throttle';
 
@@ -25,13 +26,14 @@ const propTypes = {
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
   aspectRatio: PropTypes.string,
+  className: PropTypes.string,
 
   startTime: PropTypes.number,
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   src: PropTypes.string,
   poster: PropTypes.string,
-  preload: React.PropTypes.oneOf(['auto', 'metadata', 'none']),
+  preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
   onLoadStart: PropTypes.func,
   onWaiting: PropTypes.func,
@@ -59,7 +61,9 @@ const propTypes = {
 
 const defaultProps = {
   fluid: true,
-  aspectRatio: 'auto'
+  muted: false,
+  playsInline: false,
+  aspectRatio: 'auto',
 };
 
 
@@ -106,7 +110,8 @@ export default class Player extends Component {
     return [
       <Video
         ref={(c) => {
-          this.manager.video = this.video = c;
+          this.video = c;
+          this.manager.video = this.video;
         }}
         key="video"
         order={0.0}
@@ -151,7 +156,7 @@ export default class Player extends Component {
       children: null
     };
     const children = React.Children.toArray(this.props.children)
-      .filter((e) => (!isVideoChild(e)));
+      .filter(e => (!isVideoChild(e)));
     const defaultChildren = this.getDefaultChildren(propsWithoutChildren, props);
     return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
   }
@@ -374,7 +379,7 @@ export default class Player extends Component {
           'video-react-user-inactive': !userActivity,
           'video-react-user-active': userActivity,
           'video-react-workinghover': !browser.IS_IOS,
-        }, 'video-react')}
+        }, 'video-react', this.props.className)}
         style={this.getStyle()}
         ref={(c) => {
           this.manager.rootElement = c;

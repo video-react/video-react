@@ -1,15 +1,19 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+
 import { formatTime } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
+  className: PropTypes.string,
 };
 
-function CurrentTimeDisplay({ player: { currentTime, duration } }) {
+function CurrentTimeDisplay({ player: { currentTime, duration }, className }) {
   const formattedTime = formatTime(currentTime, duration);
   return (
     <div
-      className="video-react-current-time video-react-time-control video-react-control"
+      className={classNames('video-react-current-time video-react-time-control video-react-control', className)}
     >
       <div
         className="video-react-current-time-display"

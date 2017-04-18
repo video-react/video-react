@@ -1,4 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
 import Slider from '../Slider';
 import PlayProgressBar from './PlayProgressBar';
 import LoadProgressBar from './LoadProgressBar';
@@ -9,6 +12,7 @@ const propTypes = {
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default class SeekBar extends Component {
@@ -98,7 +102,7 @@ export default class SeekBar extends Component {
           this.slider = input;
         }}
         label="video progress bar"
-        className="video-react-progress-holder"
+        className={classNames('video-react-progress-holder', this.props.className)}
         valuenow={(this.getPercent() * 100).toFixed(2)}
         valuetext={formatTime(time, duration)}
         onMouseDown={this.handleMouseDown}

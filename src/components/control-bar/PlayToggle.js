@@ -1,9 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default class PlayToggle extends Component {
@@ -23,17 +25,17 @@ export default class PlayToggle extends Component {
   }
 
   render() {
-    const { player } = this.props;
+    const { player, className } = this.props;
     const controlText = player.paused ? 'Play' : 'Pause';
 
     return (
       <button
         ref={
-          c => {
+          (c) => {
             this.button = c;
           }
         }
-        className={classNames({
+        className={classNames(className, {
           'video-react-play-control': true,
           'video-react-control': true,
           'video-react-button': true,

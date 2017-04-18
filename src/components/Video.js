@@ -1,5 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+import classNames from 'classnames';
+
 import { isVideoChild, mediaProperties } from '../utils';
 
 const propTypes = {
@@ -13,7 +16,8 @@ const propTypes = {
   playsInline: PropTypes.bool,
   src: PropTypes.string,
   poster: PropTypes.string,
-  preload: React.PropTypes.oneOf(['auto', 'metadata', 'none']),
+  className: PropTypes.string,
+  preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
   onLoadStart: PropTypes.func,
   onWaiting: PropTypes.func,
@@ -510,7 +514,10 @@ export default class Video extends Component {
 
     return (
       <video
-        className="video-react-video"
+        className={classNames(
+          'video-react-video',
+          this.props.className
+        )}
         ref={(c) => { this.video = c; }}
         muted={muted}
         preload={preload}

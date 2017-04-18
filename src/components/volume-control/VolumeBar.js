@@ -1,10 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
 import Slider from '../Slider';
 import VolumeLevel from './VolumeLevel';
 
 const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
+  className: PropTypes.string,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
 };
@@ -90,7 +94,7 @@ class VolumeBar extends Component {
   }
 
   render() {
-    const { player } = this.props;
+    const { player, className } = this.props;
 
     const volume = (player.volume * 100).toFixed(2);
     return (
@@ -111,7 +115,7 @@ class VolumeBar extends Component {
         onPercentageChange={this.handlePercentageChange}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
-        className="video-react-volume-bar video-react-slider-bar"
+        className={classNames(className, 'video-react-volume-bar video-react-slider-bar')}
         {...this.props}
       >
         <VolumeLevel

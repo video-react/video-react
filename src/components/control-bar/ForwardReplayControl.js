@@ -1,10 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
   actions: PropTypes.object,
-  player: PropTypes.object,
-  seconds: React.PropTypes.oneOf([5, 10, 30]),
+  className: PropTypes.string,
+  seconds: PropTypes.oneOf([5, 10, 30]),
 };
 
 const defaultProps = {
@@ -30,15 +31,15 @@ export default (mode) => {
     }
 
     render() {
-      const { seconds } = this.props;
+      const { seconds, className } = this.props;
       return (
         <button
           ref={
-            c => {
+            (c) => {
               this.button = c;
             }
           }
-          className={classNames({
+          className={classNames(className, {
             [`video-react-icon-${mode}-${seconds}`]: true,
             [`video-react-${mode}-control`]: true,
           }, 'video-react-control video-react-button video-react-icon')}
