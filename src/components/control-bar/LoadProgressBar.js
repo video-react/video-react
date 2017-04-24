@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 // Shows load progress
-export default function LoadProgressBar({ buffered, duration }) {
+export default function LoadProgressBar({ buffered, duration, className }) {
   if (!buffered || !buffered.length) {
     return null;
   }
@@ -57,7 +57,7 @@ export default function LoadProgressBar({ buffered, duration }) {
       style={style}
       className={classNames(
         'video-react-load-progress',
-        this.props.className
+        className
       )}
     >
       <span className="video-react-control-text"><span>Loaded</span>: 0%</span>
