@@ -1,3 +1,12 @@
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/video-react/video-react/compare/v0.7.8...v0.8.1) (2017-04-24)
+
+
+
+- Upgrade for React 15.5
+- Add `className` property for components #22
+- Add `style` node to `pakcage.json` #29
+
 <a name="0.7.8"></a>
 ## [0.7.8](https://github.com/video-react/video-react/compare/v0.7.7...v0.7.8) (2017-04-17)
 

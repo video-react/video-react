@@ -1,6 +1,6 @@
 {
   "name": "video-react",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
   "style": "dist/video-react.css",
@@ -94,7 +94,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "history": "^3.0.0",
-    "hls.js": "^0.6.10",
+    "hls.js": "^0.7.5",
     "holderjs": "^2.9.3",
     "json-loader": "^0.5.4",
     "node-sass": "^3.11.2",

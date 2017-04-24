@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var pkg = require('./package.json');
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 var env = process.env.WEBPACK_BUILD || 'development';
 
@@ -55,7 +56,25 @@ var config = [{
     new CleanWebpackPlugin(['build']),
     new CopyWebpackPlugin([
       { from: './docs/static', to: 'assets' },
-      { from: './dist', to: 'assets' }
+      { from: './dist', to: 'assets' },
+      {
+        from: './dist/video-react.css',
+        to: `assets/video-react-${pkg.version}.css`,
+        transform: content => content.replace('video-react.css.map', `video-react-${pkg.version}.css.map`)
+      },
+      { from: './dist/video-react.css.map', to: `assets/video-react-${pkg.version}.css.map` },
+      {
+        from: './dist/video-react.js',
+        to: `assets/video-react-${pkg.version}.js`,
+        transform: content => content.replace('video-react.js.map', `video-react-${pkg.version}.js.map`)
+      },
+      { from: './dist/video-react.js.map', to: `assets/video-react-${pkg.version}.js.map` },
+      {
+        from: './dist/video-react.min.js',
+        to: `assets/video-react-${pkg.version}.min.js`,
+        transform: content => content.replace('video-react.min.js.map', `video-react-${pkg.version}.min.js.map`)
+      },
+      { from: './dist/video-react.min.js.map', to: `assets/video-react-${pkg.version}.min.js.map` },
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
@@ -115,6 +134,7 @@ if (env === 'development') {
   config[0].plugins.push(new webpack.optimize.UglifyJsPlugin(
     {
       minimize: true,
+      sourceMap: true,
       compress: {
         warnings: false
       },
