@@ -60,19 +60,19 @@ var config = [{
       {
         from: './dist/video-react.css',
         to: `assets/video-react-${pkg.version}.css`,
-        transform: content => content.replace('video-react.css.map', `video-react-${pkg.version}.css.map`)
+        transform: content => content.toString().replace('video-react.css.map', `video-react-${pkg.version}.css.map`)
       },
       { from: './dist/video-react.css.map', to: `assets/video-react-${pkg.version}.css.map` },
       {
         from: './dist/video-react.js',
         to: `assets/video-react-${pkg.version}.js`,
-        transform: content => content.replace('video-react.js.map', `video-react-${pkg.version}.js.map`)
+        transform: content => content.toString().replace('video-react.js.map', `video-react-${pkg.version}.js.map`)
       },
       { from: './dist/video-react.js.map', to: `assets/video-react-${pkg.version}.js.map` },
       {
         from: './dist/video-react.min.js',
         to: `assets/video-react-${pkg.version}.min.js`,
-        transform: content => content.replace('video-react.min.js.map', `video-react-${pkg.version}.min.js.map`)
+        transform: content => content.toString().replace('video-react.min.js.map', `video-react-${pkg.version}.min.js.map`)
       },
       { from: './dist/video-react.min.js.map', to: `assets/video-react-${pkg.version}.min.js.map` },
     ]),
