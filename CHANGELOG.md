@@ -1,3 +1,10 @@
+<a name="0.8.3"></a>
+## [0.8.3](https://github.com/video-react/video-react/compare/v0.8.2...v0.8.3) (2017-05-01)
+
+
+
+Add an example on how to add a download button component.
+
 <a name="0.8.2"></a>
 ## [0.8.2](https://github.com/video-react/video-react/compare/v0.8.1...v0.8.2) (2017-04-24)
 
@@ -9,9 +16,6 @@
 
 <a name="0.7.8"></a>
 ## [0.7.8](https://github.com/video-react/video-react/compare/v0.7.7...v0.7.8) (2017-04-17)
-
-
-
 Fixed #29
 
 <a name="0.7.7"></a>
