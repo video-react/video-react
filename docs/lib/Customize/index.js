@@ -26,6 +26,10 @@ class Customize extends React.Component {
           to: '/customize/enable-disable-components/'
         },
         {
+          name: 'Customize Component',
+          to: '/customize/customize-component/'
+        },
+        {
           name: 'Customize Video Source',
           to: '/customize/customize-source/'
         }

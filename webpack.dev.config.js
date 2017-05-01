@@ -27,6 +27,7 @@ var paths = [
   '/customize/',
   '/customize/enable-disable-components/',
   '/customize/customize-source/',
+  '/customize/customize-component/',
   '/404.html'
 ];
 

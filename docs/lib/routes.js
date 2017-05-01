@@ -18,6 +18,7 @@ import PlaybackRateMenuButtonPage from './Components/PlaybackRateMenuButtonPage'
 
 import Customize from './Customize';
 import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
+import CustomizeComponentPage from './Customize/CustomizeComponentPage';
 import CustomizeSourcePage from './Customize/CustomizeSourcePage';
 
 const routes = (
@@ -41,6 +42,7 @@ const routes = (
     <Route path="/customize/" component={Customize}>
       <IndexRedirect to="enable-disable-components/" />
       <Route path="enable-disable-components/" component={EnableDisableComponentPage} />
+      <Route path="customize-component/" component={CustomizeComponentPage} />
       <Route path="customize-source/" component={CustomizeSourcePage} />
     </Route>
     <Route path="*" component={NotFound} />
