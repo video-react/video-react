@@ -18,6 +18,7 @@ const propTypes = {
   poster: PropTypes.string,
   className: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
+  crossOrigin: PropTypes.string,
 
   onLoadStart: PropTypes.func,
   onWaiting: PropTypes.func,
@@ -509,7 +510,7 @@ export default class Video extends Component {
   render() {
     const {
       loop, poster, preload, src, autoPlay,
-      playsInline, muted
+      playsInline, muted, crossOrigin
     } = this.props;
 
     return (
@@ -518,6 +519,7 @@ export default class Video extends Component {
           'video-react-video',
           this.props.className
         )}
+        crossOrigin={crossOrigin}
         ref={(c) => { this.video = c; }}
         muted={muted}
         preload={preload}
