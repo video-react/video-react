@@ -1,6 +1,7 @@
 <a name="0.8.4"></a>
 ## [0.8.4](https://github.com/video-react/video-react/compare/v0.8.3...v0.8.4) (2017-06-06)
 
+Add crossOrigin prop to Video PR#37 by Juan D.(@juandjara)
 
 
 <a name="0.8.3"></a>
@@ -33,7 +34,7 @@ Calling VideoReact from outside (HTML script tag)
 
 <a name="0.7.5"></a>
 ## [0.7.5](https://github.com/video-react/video-react/compare/0.7.4...v0.7.5) (2017-04-11)
-Fixed IE11 Issue by @yuheiy's help.  
+Fixed IE11 Issue by @yuheiy's help.
 
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/video-react/video-react/compare/0.7.2...v0.7.3) (2017-03-10)
@@ -120,13 +121,13 @@ Fixed issue #7. muted={false} not working
 <a name="0.3.3"></a>
 ## [0.3.3](https://github.com/video-react/video-react/compare/0.3.2...v0.3.3) (2016-11-21)
 
-- Fixed VolumeMenu issue that it's vertical property did not work 
+- Fixed VolumeMenu issue that it's vertical property did not work
 - Added `autoPlay`, `startTime` properties for Player Component
 
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/video-react/video-react/compare/0.3.1...v0.3.2) (2016-11-19)
 
-Fixed Issue #2: The mouse and control bar do not disappear when it's in fullscreen mode 
+Fixed Issue #2: The mouse and control bar do not disappear when it's in fullscreen mode
 
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/video-react/video-react/compare/0.2.4...v0.3.1) (2016-11-18)
