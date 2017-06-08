@@ -2,6 +2,8 @@ class Fullscreen {
   request(elm) {
     if (elm.requestFullscreen) {
       elm.requestFullscreen();
+    } else if (elm.getElementsByTagName('video')[0].webkitEnterFullscreen) {
+      elm.getElementsByTagName('video')[0].webkitEnterFullscreen();
     } else if (elm.webkitRequestFullscreen) {
       elm.webkitRequestFullscreen();
     } else if (elm.mozRequestFullScreen) {
@@ -28,7 +30,8 @@ class Fullscreen {
       document.fullscreenElement ||
       document.webkitFullscreenElement ||
       document.mozFullScreenElement ||
-      document.msFullscreenElement
+      document.msFullscreenElement ||
+      document.getElementsByTagName('video')[0].webkitDisplayingFullscreen
     );
   }
 
@@ -37,7 +40,8 @@ class Fullscreen {
       document.fullscreenEnabled ||
       document.webkitFullscreenEnabled ||
       document.mozFullScreenEnabled ||
-      document.msFullscreenEnabled
+      document.msFullscreenEnabled ||
+      document.getElementsByTagName('video')[0].webkitSupportsFullscreen
     );
   }
 
