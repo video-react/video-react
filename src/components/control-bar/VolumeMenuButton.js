@@ -11,6 +11,7 @@ const propTypes = {
   actions: PropTypes.object,
   vertical: PropTypes.bool,
   className: PropTypes.string,
+  alwaysShowVolume: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -76,8 +77,8 @@ class VolumeMenuButton extends Component {
           'video-react-vol-1': level === 1,
           'video-react-vol-2': level === 2,
           'video-react-vol-3': level === 3,
-          'video-react-slider-active': this.state.active,
-          'video-react-lock-showing': this.state.active,
+          'video-react-slider-active': this.props.alwaysShowVolume || this.state.active,
+          'video-react-lock-showing': this.props.alwaysShowVolume || this.state.active,
         }, 'video-react-volume-menu-button')}
         onClick={this.handleClick}
         inline={inline}
