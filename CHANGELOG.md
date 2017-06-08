@@ -1,3 +1,10 @@
+<a name="0.8.5"></a>
+## [0.8.5](https://github.com/video-react/video-react/compare/v0.8.4...v0.8.5) (2017-06-08)
+
+
+
+Add option to always show volume control #38 by Alex Koppel (@arsduo)
+
 <a name="0.8.4"></a>
 ## [0.8.4](https://github.com/video-react/video-react/compare/v0.8.3...v0.8.4) (2017-06-06)
 
