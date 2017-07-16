@@ -32,16 +32,26 @@ export default class PlayerPage extends React.Component {
           </thead>
           <tbody>
             <tr>
+              <td><code>fluid</code></td>
+              <td>bool</td>
+              <td>true</td>
+              <td>
+                In <code>fluid</code> mode,
+                it’s <code>100%</code> wide all the time,
+                the height will be calculated by the video's ratio.
+              </td>
+            </tr>
+            <tr>
               <td><code>width</code></td>
               <td>number</td>
               <td>-</td>
-              <td>Video width</td>
+              <td>Video width. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
             </tr>
             <tr>
               <td><code>height</code></td>
               <td>number</td>
               <td>-</td>
-              <td>Video height</td>
+              <td>Video height. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
             </tr>
             <tr>
               <td><code>src</code></td>
@@ -74,16 +84,6 @@ export default class PlayerPage extends React.Component {
                   <li><code>auto</code>: indicates that the whole video file could be downloaded, even if the user is not expected to use it.</li>
                   <li><i>the empty string</i>: synonym of the auto value.</li>
                 </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><code>fluid</code></td>
-              <td>bool</td>
-              <td>true</td>
-              <td>
-                In <code>fluid</code> mode,
-                it’s <code>100%</code> wide all the time,
-                the height will be calculated by the video's ratio.
               </td>
             </tr>
             <tr>
