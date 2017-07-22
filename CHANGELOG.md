@@ -1,3 +1,8 @@
+<a name="0.8.6"></a>
+## [0.8.6](https://github.com/video-react/video-react/compare/v0.8.5...v0.8.6) (2017-07-22)
+
+
+
 Fixed #41 BigPlayButton Arrests Keyboard
 
 <a name="0.8.5"></a>
