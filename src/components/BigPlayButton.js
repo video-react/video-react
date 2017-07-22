@@ -30,15 +30,15 @@ export default class BigPlayButton extends Component {
 
   render() {
     const { player, position } = this.props;
-    if (player.hasStarted || !player.currentSrc) {
-      return null;
-    }
     return (
       <button
         className={classNames(
           'video-react-big-play-button',
           `video-react-big-play-button-${position}`,
-          this.props.className
+          this.props.className,
+          {
+            'big-play-button-hide': player.hasStarted || !player.currentSrc,
+          }
         )}
         type="button"
         aria-live="polite"

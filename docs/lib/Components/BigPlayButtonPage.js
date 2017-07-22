@@ -23,6 +23,12 @@ export default class BigPlayButtonPage extends React.Component {
             {BigPlayButtonExampleSource}
           </PrismCode>
         </pre>
+        <form>
+          <div className="form-group">
+            <label htmlFor="exampleTextarea">Example textarea</label>
+            <textarea className="form-control" id="exampleTextarea" rows="3" />
+          </div>
+        </form>
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
