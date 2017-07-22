@@ -16,7 +16,7 @@ describe('BigPlayButton', () => {
     expect(wrapper.type()).toBe('button');
   });
 
-  it('should render null if video has been started', () => {
+  it('should hide if video has been started', () => {
     const wrapper = shallow(
       <BigPlayButton
         player={{
@@ -25,7 +25,7 @@ describe('BigPlayButton', () => {
         }}
       />
     );
-    expect(wrapper.type()).toBe(null);
+    expect(wrapper.hasClass('big-play-button-hide')).toBe(true);
   });
 
 
