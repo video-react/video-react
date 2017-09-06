@@ -14,7 +14,7 @@ export default class CustomizeComponentPage extends React.Component {
         <Helmet title="PosterImage" />
         <h3>Customize Component</h3>
         <p>
-          There is an exmaple on how to add a download button component into <code>Video-React</code> Player.
+          There is an example on how to add a download button component into <code>Video-React</code> Player.
         </p>
         <div className="docs-example">
           <CustomizeComponentExample />
