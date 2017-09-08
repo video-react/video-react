@@ -256,7 +256,7 @@ export default class Shortcut extends Component {
     const shift = e.shiftKey;
     const alt = e.altKey;
 
-    const shortcut = this.shortcuts.find((s) => {
+    const shortcut = this.shortcuts.filter((s) => {
       if (!s.keyCode || s.keyCode - keyCode !== 0) {
         return false;
       }
@@ -267,7 +267,7 @@ export default class Shortcut extends Component {
         return false;
       }
       return true;
-    });
+    })[0];
 
     if (shortcut) {
       shortcut.handle(player, actions);
