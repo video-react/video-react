@@ -1,7 +1,13 @@
+<a name="0.8.8"></a>
+## [0.8.8](https://github.com/video-react/video-react/compare/v0.8.7...v0.8.8) (2017-09-08)
+
+
+
+Fixed #49 Video-React does not support IE
+Fixed #48 ControlBar className from property doesnt appear
+
 <a name="0.8.6"></a>
 ## [0.8.6](https://github.com/video-react/video-react/compare/v0.8.5...v0.8.6) (2017-07-22)
-
-
 
 Fixed #41 BigPlayButton Arrests Keyboard
 
