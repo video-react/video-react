@@ -1,6 +1,6 @@
 <a name="0.8.10"></a>
 ## [0.8.10](https://github.com/video-react/video-react/compare/v0.8.9...v0.8.10) (2017-11-16)
-
+Fixed #54 unable to resolve redux module
 
 
 <a name="0.8.9"></a>
