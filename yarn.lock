@@ -5694,9 +5694,9 @@ react-helmet@^3.0.1:
     object-assign "^4.0.1"
     react-side-effect "^1.1.0"
 
-react-prism@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-prism/-/react-prism-4.0.0.tgz#9a2bc384820dfa9ba8f5e08120ef62eed868fb50"
+react-prism@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-prism/-/react-prism-4.3.1.tgz#cf6ce5d77ee5d9cb91eed02801e3af7547d19214"
 
 react-router@^2.6.1:
   version "2.8.1"
@@ -5760,12 +5760,13 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-test-renderer@^15.5.4:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.1.tgz#026f4a5bb5552661fd2cc4bbcd0d4bc8a35ebf7e"
+react-test-renderer@^16.1.1:
+  version "16.1.1"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.1.1.tgz#a05184688d564be799f212449262525d1e350537"
   dependencies:
-    fbjs "^0.8.9"
-    object-assign "^4.1.0"
+    fbjs "^0.8.16"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 react-transition-group@^1.1.2, react-transition-group@^1.2.0:
   version "1.2.0"
