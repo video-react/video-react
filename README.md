@@ -67,3 +67,5 @@ npm run dev # runs dev server [http://localhost:9000/](http://localhost:9000/)
 * The document site is built with [reactstrap](https://github.com/reactstrap/reactstrap).
 * All the icons came from [Google Material Icons](https://material.io/icons/)
 * Fonts were built by [iconmon](https://icomoon.io/).
+* [react-modern-library-boilerplate](https://github.com/transitive-bullshit/react-modern-library-boilerplate)
+* [nextjs](https://github.com/zeit/next.js)
