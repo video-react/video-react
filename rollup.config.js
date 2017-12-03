@@ -20,7 +20,8 @@ export default {
   external: [
     'react',
     'react-dom',
-    'prop-types'
+    'prop-types',
+    'redux'
   ],
   plugins: [
     sass({

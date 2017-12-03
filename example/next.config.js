@@ -1,26 +1,34 @@
-const fetch = require('isomorphic-fetch')
 
 module.exports = {
-  async exportPathMap () {
-    // we fetch our list of posts, this allow us to dynamically generate the exported pages
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts?_page=1')
-    const postList = await response.json()
+  exportPathMap() {
+    const paths = [
+      '/',
+      '/components/',
+      '/components/player',
+      '/components/shortcut',
+      '/components/big-play-button',
+      '/components/poster-image',
+      '/components/loading-spinner',
+      '/components/control-bar',
+      '/components/play-toggle',
+      '/components/forward-control',
+      '/components/replay-control',
+      '/components/volume-menu-button',
+      '/components/playback-rate-menu-button',
+      '/customize/',
+      '/customize/enable-disable-components',
+      '/customize/customize-source',
+      '/customize/customize-component',
+    ];
 
-    // tranform the list of posts into a map of pages with the pathname `/post/:id`
-    const pages = postList.reduce(
-      (pages, post) =>
-        Object.assign({}, pages, {
-          [`/post/${post.id}`]: {
-            page: '/post',
-            query: { id: post.id }
-          }
+    return paths.reduce(
+      (result, path) =>
+        Object.assign({}, result, {
+          [path]: {
+            page: path,
+          },
         }),
       {},
-    )
-
-    // combine the map of post pages with the home
-    return Object.assign({}, pages, {
-      '/': { page: '/' }
-    })
-  }
-}
+    );
+  },
+};

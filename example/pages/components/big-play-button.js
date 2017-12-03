@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import { PrismCode } from 'react-prism';
-import { Button } from 'reactstrap';
 import Layout from '../../components/ComponentsLayout';
 
 import BigPlayButtonExample from '../../examples/BigPlayButton';
 
-export default class BigPlayButtonPage extends React.Component {
-  static async getInitialProps ({ query }) {
-    const response = await fetch(`http://localhost:9000/code/BigPlayButton.js`)
-    const BigPlayButtonExampleSource = await response.text()
-    return { BigPlayButtonExampleSource }
+export default class BigPlayButtonPage extends Component {
+  static async getInitialProps() {
+    const response = await fetch(`http://localhost:9000/code/BigPlayButton.js`);
+    const BigPlayButtonExampleSource = await response.text();
+    return { BigPlayButtonExampleSource };
   }
 
   render() {

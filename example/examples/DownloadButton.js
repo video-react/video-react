@@ -23,11 +23,7 @@ export default class DownloadButton extends Component {
 
     return (
       <a
-        ref={
-          (c) => {
-            this.button = c;
-          }
-        }
+        ref={c => this.button = c}
         className={classNames(className, {
           'video-react-control': true,
           'video-react-button': true,

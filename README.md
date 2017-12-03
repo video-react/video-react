@@ -2,7 +2,7 @@
 # video-react
 [![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react) [![Build Status](https://travis-ci.org/video-react/video-react.svg?branch=master)](https://travis-ci.org/video-react/video-react) [![Package Quality](http://npm.packagequality.com/shield/video-react.svg)](http://packagequality.com/#?package=video-react)
 
-Video.React is a web video player built from the ground up for an HTML5 world using React library. 
+Video.React is a web video player built from the ground up for an HTML5 world using React library.
 
 
 ## Installation
@@ -43,27 +43,23 @@ export default (props) => {
 
 ## Development
 
-Install dependencies:
-
-```sh
-npm install
-```
-
-Run examples at [http://localhost:9000/](http://localhost:9000/) with webpack dev server:
-
-```sh
-npm start
-```
-
-Run tests & coverage report:
+Run tests:
 
 ```sh
 npm test
 ```
 
-```sh
-npm run report-coverage
-```
+
+### run example to start developing your new component against
+npm link # the link commands are important for local development
+npm install # disregard any warnings about missing peer dependencies
+npm start # runs rollup with watch flag
+
+###  (in another tab)
+cd example
+npm link video-react # link video-react with `../`
+npm install
+npm run dev # runs dev server [http://localhost:9000/](http://localhost:9000/)
 
 ## Inspiration & Credits
 

@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
-    "lodash.throttle": "^4.1.1",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
@@ -46,7 +45,10 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "gh-pages": "^1.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-scripts": "^1.0.17",
+    "redux": "^3.7.2",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.1",

@@ -1,5 +1,6 @@
 - Using rollup to compile js
 - Using nextjs to build doc site
+- Fixed #60 - npm warnings with react v16
 
 <a name="0.8.10"></a>
 ## [0.8.10](https://github.com/video-react/video-react/compare/v0.8.9...v0.8.10) (2017-11-16)

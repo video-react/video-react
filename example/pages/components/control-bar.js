@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import { PrismCode } from 'react-prism';
-import { Button } from 'reactstrap';
 import Layout from '../../components/ComponentsLayout';
 import ControlBarExample from '../../examples/ControlBar';
 
-export default class ControlBarPage extends React.Component {
-  static async getInitialProps ({ query }) {
-    const response = await fetch(`http://localhost:9000/code/ControlBar.js`)
-    const ControlBarExampleSource = await response.text()
-    return { ControlBarExampleSource }
+export default class ControlBarPage extends Component {
+  static async getInitialProps() {
+    const response = await fetch(`http://localhost:9000/code/ControlBar.js`);
+    const ControlBarExampleSource = await response.text();
+    return { ControlBarExampleSource };
   }
 
   render() {

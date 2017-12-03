@@ -35,6 +35,7 @@ const initialState = {
 };
 
 export default function video(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
     case USER_ACTIVATE:
       return {

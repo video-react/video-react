@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import { PrismCode } from 'react-prism';
-import { Button } from 'reactstrap';
 import Layout from '../../components/ComponentsLayout';
 import ForwardControlExample from '../../examples/ForwardControl';
 
 export default class ForwardControlPage extends Component {
-  static async getInitialProps ({ query }) {
-    const response = await fetch(`http://localhost:9000/code/ForwardControl.js`)
-    const ForwardControlExampleSource = await response.text()
-    return { ForwardControlExampleSource }
+  static async getInitialProps() {
+    const response = await fetch(`http://localhost:9000/code/ForwardControl.js`);
+    const ForwardControlExampleSource = await response.text();
+    return { ForwardControlExampleSource };
   }
 
   render() {

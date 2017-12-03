@@ -1,11 +1,12 @@
+import 'isomorphic-fetch';
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import Link from 'next/link';
 import {
   NavbarToggler, Container,
-  Collapse, Navbar, NavbarBrand,
-  Nav, NavItem, NavLink,
-  Row, Col
+  Collapse, Navbar,
+  Nav, NavItem,
+  Row, Col,
 } from 'reactstrap';
 
 export default class extends Document {
@@ -14,13 +15,13 @@ export default class extends Document {
 
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      showNavbar: false
+      showNavbar: false,
     };
   }
   toggleNavbar(e) {
     e.preventDefault();
     this.setState({
-      showNavbar: !this.state.showNavbar
+      showNavbar: !this.state.showNavbar,
     });
   }
 
@@ -28,15 +29,15 @@ export default class extends Document {
     return (
       <html>
         <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
-          <meta charSet='utf-8' />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
           <title>Video-React - React Video Component</title>
           <meta name="description" content="Video-React is a web video player built from the ground up for an HTML5 world using React library."/>
           <link rel="icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossOrigin="anonymous" />
-          <link rel="stylesheet" href="/static/docs.css"/>
-          <link rel="stylesheet" href="/static/video-react.css"/>
-          <link rel="stylesheet" href="/static/prism.css"/>
+          <link rel="stylesheet" href="/static/docs.css" />
+          <link rel="stylesheet" href="/static/video-react.css" />
+          <link rel="stylesheet" href="/static/prism.css" />
           <script src="/static/prism.js" data-manual></script>
         </Head>
         <body>

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import throttle from 'lodash.throttle';
 
 import Manager from '../Manager';
 
@@ -14,7 +13,7 @@ import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
-import { mergeAndSortChildren, isVideoChild } from '../utils';
+import { mergeAndSortChildren, isVideoChild, throttle } from '../utils';
 import fullscreen from '../utils/fullscreen';
 
 const propTypes = {

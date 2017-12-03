@@ -3572,10 +3572,6 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash.throttle@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-
 lodash.tonumber@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash.tonumber/-/lodash.tonumber-4.0.3.tgz#0b96b31b35672793eb7f5a63ee791f1b9e9025d9"
@@ -5803,14 +5799,6 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
-
-video-react@^0.8.10:
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/video-react/-/video-react-0.8.10.tgz#3fef05332ae2162d1920b91f6bc57eef9ec8ab33"
-  dependencies:
-    classnames "^2.2.3"
-    lodash.throttle "^4.1.1"
-    prop-types "^15.5.8"
 
 vlq@^0.2.1:
   version "0.2.3"

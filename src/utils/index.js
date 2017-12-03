@@ -93,6 +93,19 @@ export function deprecatedWarning(oldMethodCall, newMethodCall) {
   console.warn(`WARNING: ${oldMethodCall} will be deprecated soon! Please use ${newMethodCall} instead.`);
 }
 
+export function throttle(callback, limit) {
+  let wait = false;
+  return () => {
+    if (!wait) {
+      callback.apply(null, arguments);
+      wait = true;
+      setTimeout(() => {
+        wait = false;
+      }, limit);
+    }
+  }
+}
+
 export const mediaProperties = [
   'error', 'src', 'srcObject',
   'currentSrc', 'crossOrigin',
