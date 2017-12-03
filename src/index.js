@@ -28,6 +28,8 @@ import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
 
+import '../styles/scss/video-react.scss';
+
 export {
   Player,
   Video,

@@ -99,7 +99,7 @@ export default class Player extends Component {
 
   componentWillUnmount() {
     // Remove event listener
-    window.removeEventListener('resize', this.handleResize);
+    window.addEventListener('resize', this.handleResize);
     fullscreen.removeEventListener(this.handleFullScreenChange);
     if (this.controlsHideTimer) {
       window.clearTimeout(this.controlsHideTimer);

@@ -14,8 +14,8 @@ describe('Slider', () => {
   });
 
   it('simulates click events', () => {
-    const e = jasmine.createSpyObj('e', ['preventDefault', 'stopPropagation']);
-    const onClick = jasmine.createSpy('onClick');
+    const e = createSpyObj('e', ['preventDefault', 'stopPropagation']);
+    const onClick = jest.fn();
     const wrapper = shallow(
       <Slider
         actions={{}}
@@ -25,7 +25,6 @@ describe('Slider', () => {
     );
 
     wrapper.find('div').simulate('click', e);
-    // wrapper.instance().onClick(e);
     expect(e.preventDefault).toHaveBeenCalled();
   });
 
