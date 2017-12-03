@@ -1,3 +1,9 @@
+## 0.9.2
+- Fixed IE11 issue
+- Fixed throttle issue
+
+## 0.9.1
+Fixed fonts path issue in css
 ## 0.9.0
 - Using rollup to compile js
 - Using nextjs to build doc site

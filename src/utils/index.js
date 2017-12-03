@@ -51,6 +51,8 @@ export function isVideoChild(c) {
   return (c.type === 'source' || c.type === 'track');
 }
 
+const find = (elements, func) => elements.filter(func)[0]
+
 // merge default children
 // sort them by `order` property
 // filter them by `disabled` property
@@ -61,13 +63,13 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
     .filter((e) => !e.props.disabled)
     .concat(
       defaultChildren.filter(
-        (c) => !children.find((component) =>
+        (c) => !find(children, (component) =>
           component.type === c.type
         )
       )
     )
     .map((element) => {
-      const defaultComponent = defaultChildren.find((c) => c.type === element.type);
+      const defaultComponent = find(defaultChildren, (c) => c.type === element.type);
       delete parentProps.order;
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {

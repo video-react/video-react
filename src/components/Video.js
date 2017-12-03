@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import throttle from 'lodash.throttle';
 import classNames from 'classnames';
 
-import { isVideoChild, mediaProperties } from '../utils';
+import { isVideoChild, mediaProperties, throttle } from '../utils';
 
 const propTypes = {
   actions: PropTypes.object,
