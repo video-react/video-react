@@ -1,6 +1,8 @@
+## 0.9.0
 - Using rollup to compile js
 - Using nextjs to build doc site
 - Fixed #60 - npm warnings with react v16
+- Merged PR #64 - fix remove event listener
 
 <a name="0.8.10"></a>
 ## [0.8.10](https://github.com/video-react/video-react/compare/v0.8.9...v0.8.10) (2017-11-16)
