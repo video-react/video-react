@@ -1,3 +1,6 @@
+## 0.9.3
+- Fixed #63: When Video Loading, LoadSpinner not visible, BigPlay is visible
+
 ## 0.9.2
 - Fixed IE11 issue
 - Fixed throttle issue
