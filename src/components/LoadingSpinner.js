@@ -9,7 +9,7 @@ const propTypes = {
 
 export default function LoadingSpinner({ player, className }) {
   if (
-    !player.hasStarted ||
+    player.error ||
     (!player.seeking && !player.waiting)
   ) {
     return null;
