@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import { isVideoChild, mediaProperties, throttle } from '../utils';
+import { isVideoChild, mediaProperties, throttle, silencePromise } from '../utils';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -148,12 +148,12 @@ export default class Video extends Component {
 
   // play the video
   play() {
-    this.video.play();
+    silencePromise(this.video.play());
   }
 
   // pause the video
   pause() {
-    this.video.pause();
+    silencePromise(this.video.pause());
   }
 
   // Change the video source and re-load the video:
