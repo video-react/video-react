@@ -1,3 +1,7 @@
+## 0.9.4
+- Fixed Promise error #68
+- Fixed Loading spinner issue
+
 ## 0.9.3
 - Fixed #63: When Video Loading, LoadSpinner not visible, BigPlay is visible
 
