@@ -16,7 +16,7 @@ const initialState = {
   currentTime: 0,
   seekingTime: 0,
   buffered: null,
-  waiting: true,
+  waiting: false,
   seeking: false,
   paused: true,
   autoPaused: false,
@@ -140,10 +140,15 @@ export default function video(state = initialState, action) {
     case LOADED_META_DATA:
     case LOADED_DATA:
     case RESIZE:
-      return {
+      const newState = {
         ...state,
         ...action.videoProps,
       };
+      if (action.videoProps.paused === false) {
+        newState.hasStarted = true;
+        newState.waiting = false;
+      }
+      return newState;
     default:
       return state;
   }

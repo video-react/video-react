@@ -148,12 +148,22 @@ export default class Video extends Component {
 
   // play the video
   play() {
-    this.video.play();
+    const promise = this.video.play();
+    if (promise !== undefined) {
+      promise
+        .catch(error => {})
+        .then(() => {});
+    }
   }
 
   // pause the video
   pause() {
-    this.video.pause();
+    const promise = this.video.pause();
+    if (promise !== undefined) {
+      promise
+        .catch(error => {})
+        .then(() => {});
+    }
   }
 
   // Change the video source and re-load the video:
