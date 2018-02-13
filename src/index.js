@@ -27,6 +27,16 @@ import RemainingTimeDisplay from './components/time-controls/RemainingTimeDispla
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
+import { video as playerReducer } from './reducers/player';
+import { operation as operationReducer } from './reducers/operation';
+import {
+  Actions as VideoActions,
+  ActionCreators as VideoActionCreators
+} from './actions/video';
+import {
+  Actions as PlayerActions,
+  ActionCreators as PlayerActionCreators
+} from './actions/player';
 
 import '../styles/scss/video-react.scss';
 
@@ -55,5 +65,11 @@ export {
   TimeDivider,
   VolumeMenuButton,
   PlaybackRateMenuButton,
-  PlaybackRate
+  PlaybackRate,
+  playerReducer,
+  operationReducer,
+  VideoActions,
+  VideoActionCreators,
+  PlayerActions,
+  PlayerActionCreators
 };

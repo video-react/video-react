@@ -11,11 +11,12 @@ import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../../actions
 describe('player', () => {
   it('should return the initail state', () => {
     const expectedInitialState = {
+      currentSrc: null,
       duration: 0,
       currentTime: 0,
       seekingTime: 0,
       buffered: null,
-      waiting: true,
+      waiting: false,
       seeking: false,
       paused: true,
       autoPaused: false,
@@ -30,8 +31,7 @@ describe('player', () => {
       hasStarted: false,
       userActivity: true,
       isActive: false,
-      isFullscreen: false,
-      currentSrc: null,
+      isFullscreen: false
     };
     expect(player(undefined, {})).toEqual(expectedInitialState);
   });

@@ -34,7 +34,7 @@ const initialState = {
   isFullscreen: false,
 };
 
-export default function video(state = initialState, action) {
+export function video(state = initialState, action) {
   switch (action.type) {
     case USER_ACTIVATE:
       return {
@@ -153,3 +153,5 @@ export default function video(state = initialState, action) {
       return state;
   }
 }
+
+export default video;
