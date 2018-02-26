@@ -1,10 +1,33 @@
 import fullscreen from '../utils/fullscreen';
+import generateActionsEnum from "../utils/generateActionEnum";
 
 export const OPERATE = 'video-react/OPERATE';
 export const FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
 export const PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
 export const USER_ACTIVATE = 'video-react/USER_ACTIVATE';
 
+export const Actions = generateActionsEnum([
+  OPERATE,
+  FULLSCREEN_CHANGE,
+  PLAYER_ACTIVATE,
+  USER_ACTIVATE
+]);
+
+export const ActionCreators = {
+  handleFullscreenChange,
+  activate,
+  userActivate,
+  play,
+  pause,
+  togglePlay,
+  seek,
+  forward,
+  replay,
+  changeRate,
+  changeVolume,
+  mute,
+  toggleFullscreen
+};
 
 export function handleFullscreenChange(isFullscreen) {
   return {
@@ -26,7 +49,6 @@ export function userActivate(activity) {
     activity,
   };
 }
-
 
 export function play(operation = {
   action: 'play',

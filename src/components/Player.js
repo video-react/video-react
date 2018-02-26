@@ -56,6 +56,8 @@ const propTypes = {
   onTimeUpdate: PropTypes.func,
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
+
+  store: PropTypes.object
 };
 
 const defaultProps = {
@@ -67,13 +69,15 @@ const defaultProps = {
 
 
 export default class Player extends Component {
-  constructor(props) {
+  constructor(props, {store}) {
     super(props);
+
+    store = store || props.store;
 
     this.controlsHideTimer = null;
 
     this.video = null; // the Video component
-    this.manager = new Manager();
+    this.manager = new Manager(store);
     this.actions = this.manager.getActions();
     this.manager.subscribeToPlayerStateChange(this.handleStateChange.bind(this));
 
@@ -304,7 +308,7 @@ export default class Player extends Component {
 
   // subscribe to player state change
   subscribeToStateChange(listener) {
-    this.manager.subscribeToPlayerStateChange(listener);
+    return this.manager.subscribeToPlayerStateChange(listener);
   }
 
   // player resize
@@ -397,5 +401,6 @@ export default class Player extends Component {
   }
 }
 
+Player.contextTypes = { store: PropTypes.object };
 Player.propTypes = propTypes;
 Player.defaultProps = defaultProps;

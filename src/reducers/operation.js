@@ -9,7 +9,7 @@ const initialState = {
 };
 
 
-export default function operation(state = initialState, action) {
+export function operation(state = initialState, action) {
   switch (action.type) {
     case OPERATE:
       return {
@@ -24,3 +24,5 @@ export default function operation(state = initialState, action) {
       return state;
   }
 }
+
+export default operation;

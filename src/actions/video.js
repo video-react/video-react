@@ -1,3 +1,5 @@
+import generateActionsEnum from "../utils/generateActionEnum";
+
 export const LOAD_START = 'video-react/LOAD_START';
 export const CAN_PLAY = 'video-react/CAN_PLAY';
 export const WAITING = 'video-react/WAITING';
@@ -23,6 +25,61 @@ export const LOADED_META_DATA = 'video-react/LOADED_META_DATA';
 export const LOADED_DATA = 'video-react/LOADED_DATA';
 export const RESIZE = 'video-react/RESIZE';
 export const ERROR = 'video-react/ERROR';
+
+export const Actions = generateActionsEnum([
+  LOAD_START,
+  CAN_PLAY,
+  WAITING,
+  CAN_PLAY_THROUGH,
+  PLAYING,
+  PLAY,
+  PAUSE,
+  END,
+  SEEKING,
+  SEEKED,
+  SEEKING_TIME,
+  END_SEEKING,
+  DURATION_CHANGE,
+  TIME_UPDATE,
+  VOLUME_CHANGE,
+  PROGRESS_CHANGE,
+  RATE_CHANGE,
+  SUSPEND,
+  ABORT,
+  EMPTIED,
+  STALLED,
+  LOADED_META_DATA,
+  LOADED_DATA,
+  RESIZE,
+  ERROR
+]);
+
+export const ActionCreators = {
+  handleLoadStart,
+  handleCanPlay,
+  handleWaiting,
+  handleCanPlayThrough,
+  handlePlaying,
+  handlePlay,
+  handlePause,
+  handleEnd,
+  handleSeeking,
+  handleDurationChange,
+  handleTimeUpdate,
+  handleVolumeChange,
+  handleProgressChange,
+  handleRateChange,
+  handleSuspend,
+  handleAbort,
+  handleEmptied,
+  handleStalled,
+  handleLoadedMetaData,
+  handleLoadedData,
+  handleResize,
+  handleError,
+  handleSeekingTime,
+  handleEndSeeking
+};
 
 export function handleLoadStart(videoProps) {
   return {
@@ -108,14 +165,12 @@ export function handleTimeUpdate(videoProps) {
   };
 }
 
-
 export function handleVolumeChange(videoProps) {
   return {
     type: VOLUME_CHANGE,
     videoProps
   };
 }
-
 
 export function handleProgressChange(videoProps) {
   return {
@@ -124,14 +179,12 @@ export function handleProgressChange(videoProps) {
   };
 }
 
-
 export function handleRateChange(videoProps) {
   return {
     type: RATE_CHANGE,
     videoProps,
   };
 }
-
 
 export function handleSuspend(videoProps) {
   return {

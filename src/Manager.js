@@ -5,8 +5,8 @@ import * as videoActions from './actions/video';
 
 
 export default class Manager {
-  constructor() {
-    this.store = createStore(reducer);
+  constructor(store) {
+    this.store = store || createStore(reducer);
 
     this.video = null;
     this.rootElement = null;
