@@ -397,7 +397,7 @@ handleStateChange(state, prevState) {
             <tr>
               <td>&nbsp;</td>
               <td><code>videoWidth</code></td>
-              <td>Returns the volume of the video</td>
+              <td>Returns the width of the video</td>
             </tr>
             <tr>
               <td>&nbsp;</td>
