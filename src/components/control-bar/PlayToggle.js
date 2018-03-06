@@ -42,6 +42,7 @@ export default class PlayToggle extends Component {
           'video-react-paused': player.paused,
           'video-react-playing': !player.paused,
         })}
+        type="button"
         tabIndex="0"
         onClick={this.handleClick}
       >
