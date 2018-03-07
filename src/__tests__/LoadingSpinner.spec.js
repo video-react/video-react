@@ -3,13 +3,12 @@ import { shallow } from 'enzyme';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 describe('LoadingSpinner', () => {
-  it('should render with "div" tag', () => {
+  it('should render with null', () => {
     const wrapper = shallow(
       <LoadingSpinner
         player={{
-          hasStarted: false,
-          seeking: true,
-          waiting: true,
+          seeking: false,
+          waiting: false,
         }}
       />
       );
