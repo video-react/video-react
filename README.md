@@ -15,7 +15,7 @@ npm install --save video-react react react-dom redux
 
 import css in your app or add video-react styles in your page
 ```jsx
-import "node_modules/video-react/dist/video-react.css"; // import css
+import "~video-react/dist/video-react.css"; // import css
 ```
 or
 ```scss
