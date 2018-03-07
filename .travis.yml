@@ -9,16 +9,14 @@ cache:
 before_script:
   - chmod +x scripts/docs
 script:
-  - npm run cover -- --runInBand
-after_script:
-  - npm run report-coverage
+  - yarn cover -- --runInBand
 after_success:
-- scripts/docs
+  - scripts/docs
 env:
   global:
     secure: CcW9FPG3APriq6oJ7/Cz/UVsFf3w8b7iU72y32FVDOu5AiLTq9qo/Aj+cBijnSqnaQ24w+NJ5F+OIC42e0D9wyKM+ry+xJ1LAQCMjhOyi30TyOQo/hZOWnNSd0ksln05OdgW9HKHe3pLF23Rfs9aMGwSnyj1AWtytwoLt3K6WmTXDULDtjP1kn35yprMtMV7XzExDb64/k82xT7V5x+MM0Hkm04yCCziQ90M705736I4wpD0J4ufz04QMuV5j/gKmCVSxNCNJxi5McVfWc9UKJ7pJcHjxmWGOuEwxypuy6wvHU9o70ttrHElFuAGqULuwZKKU9hNC7zPo1GmqeFrGAHDGqbSL5v4qtXbuUddcboLbofuc3NxaEsTx/wzEK8gV496P+JqIpHDh7sn/OMMuAE/5Ug9gfOdFyOrmQHxl4Y46ZfM2/aqnDHGydbgkylX3D0QFFAs+NBWoIn0aFZtcpMypMgf+oLRttJWwAZeIn4kp2qfBOpaRAaXT7C0Nb6Gn0rDr5bQcyOtvkF8n8ErRFMG0R765IeOY/U4RJT6nG/GU7eF83fa2jgSruSbRZtzSW/vedyjdbdsATH6yXDx/XnAu1K8C65BRkty8szkLHpv11gn1PeF2wOrEnqXFQMvTKQDjgo3oQCKL8PnR4VfinSJgUApjLN2YWu+b4yZhvc=
 before_deploy:
-  - npm run build
+  - yarn build
 deploy:
   skip_cleanup: true
   provider: npm
