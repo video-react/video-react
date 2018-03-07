@@ -7,3 +7,6 @@ export default function (state = {}, action) {
     operation: operation(state.operation, action),
   };
 }
+
+export const playerReducer = player;
+export const operationReducer = operation;
