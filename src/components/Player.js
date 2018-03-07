@@ -26,6 +26,7 @@ const propTypes = {
   playsInline: PropTypes.bool,
   aspectRatio: PropTypes.string,
   className: PropTypes.string,
+  videoId: PropTypes.string,
 
   startTime: PropTypes.number,
   loop: PropTypes.bool,

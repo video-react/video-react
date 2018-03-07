@@ -424,6 +424,12 @@ handleStateChange(state, prevState) {
               <td><code>isFullscreen</code></td>
               <td>Returns whether the player is in fullscreen.</td>
             </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><code>videoId</code></td>
+              <td>Set the id of the video element.</td>
+            </tr>
+
           </tbody>
         </Table>
         <h4>Examples</h4>

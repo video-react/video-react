@@ -519,7 +519,7 @@ export default class Video extends Component {
   render() {
     const {
       loop, poster, preload, src, autoPlay,
-      playsInline, muted, crossOrigin
+      playsInline, muted, crossOrigin, videoId
     } = this.props;
 
     return (
@@ -528,6 +528,7 @@ export default class Video extends Component {
           'video-react-video',
           this.props.className
         )}
+        id={videoId}
         crossOrigin={crossOrigin}
         ref={(c) => { this.video = c; }}
         muted={muted}
