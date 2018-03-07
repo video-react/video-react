@@ -311,4 +311,4 @@ export default class Shortcut extends Component {
 }
 
 Shortcut.propTypes = propTypes;
-
+Shortcut.displayName = 'Shortcut';

@@ -27,5 +27,6 @@ function CurrentTimeDisplay({ player: { currentTime, duration }, className }) {
 }
 
 CurrentTimeDisplay.propTypes = propTypes;
+CurrentTimeDisplay.displayName = 'CurrentTimeDisplay';
 
 export default CurrentTimeDisplay;

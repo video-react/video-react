@@ -95,4 +95,5 @@ class VolumeMenuButton extends Component {
 
 VolumeMenuButton.propTypes = propTypes;
 VolumeMenuButton.defaultProps = defaultProps;
+VolumeMenuButton.displayName = 'VolumeMenuButton';
 export default VolumeMenuButton;

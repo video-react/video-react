@@ -9,9 +9,9 @@ export default (props) => {
   // http://www.streambox.fr/playlists/x36xhzz/x36xhzz.m3u8
   return (
     <Player
-      src="http://media.w3.org/2010/05/bunny/movie.mp4"
       autoPlay
     >
+      <source src="http://media.w3.org/2010/05/bunny/movie.mp4" type="video/mp4" />
       <ControlBar autoHide={false}>
         <DownloadButton order={7} />
       </ControlBar>

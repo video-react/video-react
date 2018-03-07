@@ -196,4 +196,4 @@ export default class MenuButton extends Component {
 }
 
 MenuButton.propTypes = propTypes;
-
+MenuButton.displayName = 'MenuButton';

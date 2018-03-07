@@ -20,3 +20,4 @@ export default function TimeDivider({ separator, className }) {
 }
 
 TimeDivider.propTypes = propTypes;
+TimeDivider.displayName = 'TimeDivider';

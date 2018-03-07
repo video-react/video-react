@@ -28,5 +28,6 @@ function RemainingTimeDisplay({ player: { currentTime, duration }, className }) 
 }
 
 RemainingTimeDisplay.propTypes = propTypes;
+RemainingTimeDisplay.displayName = 'RemainingTimeDisplay';
 
 export default RemainingTimeDisplay;

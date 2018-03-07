@@ -33,4 +33,5 @@ function VolumeLevel({ percentage, vertical, className }) {
 
 VolumeLevel.propTypes = propTypes;
 VolumeLevel.defaultProps = defaultProps;
+VolumeLevel.displayName = 'VolumeLevel';
 export default VolumeLevel;

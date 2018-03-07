@@ -19,3 +19,4 @@ export default function VolumeControl({ className }) {
 }
 
 VolumeControl.propTypes = propTypes;
+VolumeControl.displayName = 'VolumeControl';

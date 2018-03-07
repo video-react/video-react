@@ -127,5 +127,6 @@ class VolumeBar extends Component {
 }
 
 VolumeBar.propTypes = propTypes;
+VolumeBar.displayName = 'VolumeBar';
 
 export default VolumeBar;

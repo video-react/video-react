@@ -7,7 +7,7 @@
     "express": "^4.15.3",
     "hls.js": "^0.8.7",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^4.2.3",
+    "next": "^5.0.1-canary.11",
     "prismjs": "^1.8.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

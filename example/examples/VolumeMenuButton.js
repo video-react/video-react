@@ -6,11 +6,11 @@ export default (props) => {
     <Player
       autoPlay
       poster="/static/poster.png"
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     >
-      <ControlBar autoHide={false} disableDefaultControls={true}>
+      <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" type="video/mp4" />
+      <ControlBar autoHide={false} disableDefaultControls>
         <VolumeMenuButton />
-        <VolumeMenuButton vertical={true} />
+        <VolumeMenuButton vertical />
       </ControlBar>
     </Player>
   );

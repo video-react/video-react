@@ -65,3 +65,4 @@ export default class ProgressControl extends Component {
 }
 
 ProgressControl.propTypes = propTypes;
+ProgressControl.displayName = 'ProgressControl';

@@ -210,4 +210,4 @@ export default class Slider extends Component {
 }
 
 Slider.propTypes = propTypes;
-
+Slider.displayName = 'Slider';

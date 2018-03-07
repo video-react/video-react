@@ -53,4 +53,4 @@ export default class BigPlayButton extends Component {
 
 BigPlayButton.propTypes = propTypes;
 BigPlayButton.defaultProps = defaultProps;
-
+BigPlayButton.displayName = 'BigPlayButton';

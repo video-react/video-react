@@ -1,4 +1,7 @@
 import ForwardReplayControl from './ForwardReplayControl';
 
 // Pass mode into parent function
-export default ForwardReplayControl('replay');
+const ReplayControl = ForwardReplayControl('replay');
+ReplayControl.displayName = 'ReplayControl';
+
+export default ReplayControl;

@@ -51,7 +51,23 @@ export function isVideoChild(c) {
   return (c.type === 'source' || c.type === 'track');
 }
 
-const find = (elements, func) => elements.filter(func)[0]
+const find = (elements, func) => elements.filter(func)[0];
+
+// check if two components are the same type
+const isTypeEqual = (component1, component2) => {
+  const type1 = component1.type;
+  const type2 = component2.type;
+
+  if (typeof type1 === 'string' || typeof type2 === 'string') {
+    return type1 === type2;
+  }
+
+  if (typeof type1 === 'function' && typeof type2 === 'function') {
+    return type1.displayName === type2.displayName;
+  }
+
+  return false;
+}
 
 // merge default children
 // sort them by `order` property
@@ -60,16 +76,14 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
   const children = React.Children.toArray(_children);
   const parentProps = { ..._parentProps };
   return children
-    .filter((e) => !e.props.disabled)
+    .filter((e) => !e.props.disabled) // filter the disabled components
     .concat(
       defaultChildren.filter(
-        (c) => !find(children, (component) =>
-          component.type === c.type
-        )
+        (c) => !find(children, (component) => isTypeEqual(component, c))
       )
     )
     .map((element) => {
-      const defaultComponent = find(defaultChildren, (c) => c.type === element.type);
+      const defaultComponent = find(defaultChildren, (c) => isTypeEqual(c, element));
       delete parentProps.order;
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {

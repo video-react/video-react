@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { play } from '../actions/player';
 
 const propTypes = {
   player: PropTypes.object,
@@ -8,13 +9,9 @@ const propTypes = {
 };
 
 export default function LoadingSpinner({ player, className }) {
-  if (
-    player.error ||
-    (!player.seeking && !player.waiting)
-  ) {
+  if (player.error) {
     return null;
   }
-
   return (
     <div
       className={classNames(
@@ -26,3 +23,4 @@ export default function LoadingSpinner({ player, className }) {
 }
 
 LoadingSpinner.propTypes = propTypes;
+LoadingSpinner.displayName = 'LoadingSpinner';

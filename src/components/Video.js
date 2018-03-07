@@ -568,3 +568,4 @@ export default class Video extends Component {
 
 Video.propTypes = propTypes;
 Video.defaultProps = defaultProps;
+Video.displayName = 'Video';

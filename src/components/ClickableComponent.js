@@ -74,4 +74,4 @@ export default class ClickableComponent extends Component {
 
 ClickableComponent.propTypes = propTypes;
 ClickableComponent.defaultProps = defaultProps;
-
+ClickableComponent.displayName = 'ClickableComponent';

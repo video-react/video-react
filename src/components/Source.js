@@ -20,3 +20,4 @@ export default function Source(props) {
 }
 
 Source.propTypes = propTypes;
+Source.displayName = 'Source';

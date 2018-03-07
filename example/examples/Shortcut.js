@@ -43,9 +43,8 @@ export default class ShortcutExample extends Component {
 
   render() {
     return (
-      <Player
-        src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
-      >
+      <Player>
+        <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" type="video/mp4" />
         <Shortcut
           shortcuts={this.newShortcuts}
         />

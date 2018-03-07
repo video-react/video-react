@@ -80,3 +80,4 @@ export default class Bezel extends Component {
 }
 
 Bezel.propTypes = propTypes;
+Bezel.displayName = 'Bezel';

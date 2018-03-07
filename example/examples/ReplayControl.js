@@ -7,8 +7,8 @@ export default (props) => {
       autoPlay
       poster="/static/poster.png"
       startTime={300}
-      src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
     >
+      <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" type="video/mp4" />
       <ControlBar autoHide={false}>
         <ReplayControl seconds={5} order={2.1} />
         <ReplayControl seconds={10} order={2.2} />

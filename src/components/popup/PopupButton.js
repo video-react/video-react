@@ -37,3 +37,4 @@ export default function PopupButton(props) {
 
 PopupButton.propTypes = propTypes;
 PopupButton.defaultProps = defaultProps;
+PopupButton.displayName = 'PopupButton';

@@ -27,3 +27,4 @@ export default function PlayProgressBar({ currentTime, duration, percentage, cla
 }
 
 PlayProgressBar.propTypes = propTypes;
+PlayProgressBar.displayName = 'PlayProgressBar';

@@ -67,3 +67,4 @@ export default function LoadProgressBar({ buffered, duration, className }) {
 }
 
 LoadProgressBar.propTypes = propTypes;
+LoadProgressBar.displayName = 'LoadProgressBar';

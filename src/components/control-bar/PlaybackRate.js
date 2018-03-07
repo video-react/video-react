@@ -14,3 +14,5 @@ export default class PlaybackRate extends Component {
     return <PlaybackRateMenuButton {...this.props} />;
   }
 }
+
+PlaybackRate.displayName = 'PlaybackRate';

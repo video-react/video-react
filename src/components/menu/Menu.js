@@ -35,4 +35,5 @@ export default class Menu extends Component {
 }
 
 Menu.propTypes = propTypes;
+Menu.displayName = 'Menu';
 

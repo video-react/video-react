@@ -46,3 +46,4 @@ export default class FullscreenToggle extends Component {
 }
 
 FullscreenToggle.propTypes = propTypes;
+FullscreenToggle.displayName = 'FullscreenToggle';

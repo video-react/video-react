@@ -125,3 +125,4 @@ export default class SeekBar extends Component {
 }
 
 SeekBar.propTypes = propTypes;
+SeekBar.displayName = 'SeekBar';

@@ -56,5 +56,6 @@ class PlaybackRateMenuButton extends Component {
 
 PlaybackRateMenuButton.propTypes = propTypes;
 PlaybackRateMenuButton.defaultProps = defaultProps;
+PlaybackRateMenuButton.displayName = 'PlaybackRateMenuButton';
 export default PlaybackRateMenuButton;
 

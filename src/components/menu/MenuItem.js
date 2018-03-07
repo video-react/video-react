@@ -40,3 +40,4 @@ export default class MenuItem extends Component {
 }
 
 MenuItem.propTypes = propTypes;
+MenuItem.displayName = 'MenuItem';

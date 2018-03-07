@@ -3,19 +3,18 @@ import { shallow } from 'enzyme';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 describe('LoadingSpinner', () => {
-  it('should render with null', () => {
+  it('should render null with error', () => {
     const wrapper = shallow(
       <LoadingSpinner
         player={{
-          seeking: false,
-          waiting: false,
+          error: true,
         }}
       />
       );
     expect(wrapper.type()).toBe(null);
   });
 
-  it('should render with "div" tag', () => {
+  it('should render "div" tag with seeking or waiting', () => {
     const wrapper = shallow(
       <LoadingSpinner
         player={{

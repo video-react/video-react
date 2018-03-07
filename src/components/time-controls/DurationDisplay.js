@@ -27,5 +27,6 @@ function DurationDisplay({ player: { duration }, className }) {
 }
 
 DurationDisplay.propTypes = propTypes;
+DurationDisplay.displayName = 'DurationDisplay';
 
 export default DurationDisplay;

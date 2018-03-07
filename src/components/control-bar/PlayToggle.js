@@ -55,3 +55,4 @@ export default class PlayToggle extends Component {
 }
 
 PlayToggle.propTypes = propTypes;
+PlayToggle.displayName = 'PlayToggle';

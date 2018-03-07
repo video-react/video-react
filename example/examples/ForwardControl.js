@@ -6,8 +6,8 @@ export default (props) => {
     <Player
       autoPlay
       poster="/static/poster.png"
-      src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
     >
+      <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" type="video/mp4" />
       <ControlBar autoHide={false}>
         <ForwardControl seconds={5} order={3.1} />
         <ForwardControl seconds={10} order={3.2} />

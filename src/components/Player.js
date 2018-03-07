@@ -358,6 +358,7 @@ export default class Player extends Component {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
     const { paused, hasStarted, waiting, seeking, isFullscreen, userActivity } = player;
+
     const props = {
       ...this.props,
       player,
@@ -404,3 +405,4 @@ export default class Player extends Component {
 Player.contextTypes = { store: PropTypes.object };
 Player.propTypes = propTypes;
 Player.defaultProps = defaultProps;
+Player.displayName = 'Player';

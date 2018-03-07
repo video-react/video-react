@@ -36,4 +36,4 @@ export default class Popup extends Component {
 }
 
 Popup.propTypes = propTypes;
-
+Popup.displayName = 'Popup';

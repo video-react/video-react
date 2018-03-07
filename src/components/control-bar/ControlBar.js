@@ -146,6 +146,7 @@ export default class ControlBar extends Component {
   render() {
     const { autoHide, className } = this.props;
     const children = this.getChildren();
+
     return (
       <div
         className={classNames('video-react-control-bar', {
@@ -160,3 +161,4 @@ export default class ControlBar extends Component {
 
 ControlBar.propTypes = propTypes;
 ControlBar.defaultProps = defaultProps;
+ControlBar.displayName = 'ControlBar';

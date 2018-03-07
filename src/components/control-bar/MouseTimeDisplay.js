@@ -27,5 +27,6 @@ MouseTimeDisplay.propTypes = {
   mouseTime: PropTypes.object,
   className: PropTypes.string,
 };
+MouseTimeDisplay.displayName = 'MouseTimeDisplay';
 
 export default MouseTimeDisplay;
