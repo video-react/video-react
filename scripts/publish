@@ -16,13 +16,13 @@ error() {
 if [ -z "$TRAVIS" ]; then
   git checkout master
   git pull
-  npm install
-  npm run build
+  yarn
+  yarn build
 fi
 
 if [ -z "$GITHUB_TOKEN" ]; then
   error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
-  exit 1
+  # exit 1
 fi
 
 if [ -z "$CURRENT_BRANCH" ]; then

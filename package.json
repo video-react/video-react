@@ -19,9 +19,11 @@
   "jsnext:main": "dist/index.es.js",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
-    "cover": "npm test -- --coverage",
+    "cover": "yarn test -- --coverage",
     "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "create-release": "yarn test && sh ./scripts/release",
+    "publish-release": "yarn test && sh ./scripts/publish"
   },
   "dependencies": {
     "classnames": "^2.2.3",
