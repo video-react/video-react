@@ -1,3 +1,8 @@
+<a name="0.10.1"></a>
+## [0.10.1](https://github.com/video-react/video-react/compare/v0.9.4...v0.10.1) (2018-03-15)
+
+
+
 ## 0.9.4
 - Fixed Promise error #68
 - Fixed Loading spinner issue

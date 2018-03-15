@@ -7,7 +7,7 @@ BUMP_TYPE=$1
 if [ -z "$TRAVIS" ]; then
   git checkout master
   git pull
-  npm install
+  yarn
 fi
 
 CURRENT_BRANCH="$(git symbolic-ref --short -q HEAD)"
@@ -50,7 +50,7 @@ echo "==> Cleaning Build directory"
 rm -rf ./dist
 
 echo "==> Creating build files"
-npm run build
+yarn build
 
 echo "==> Committing changes"
 
