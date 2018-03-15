@@ -1,7 +1,10 @@
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/video-react/video-react/compare/v0.9.4...v0.10.1) (2018-03-15)
 
-
+- Merged PR #81 by Roy Art(@rart): Allow the hosting App to provide the store for the player to use
+- Merged PR #92 by Chase Maier(@chasemaier): Add type="button" to prevent form submit
+- Merged PR #85 by Anton Kulakov(@kulakowka): Fixed typo in Player.js
+- Merged PR #64 by Mihail Smolin(@Soulfull): fix remove event listener
 
 ## 0.9.4
 - Fixed Promise error #68
