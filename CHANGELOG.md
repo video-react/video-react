@@ -6,7 +6,7 @@
 <a name="0.10.2"></a>
 ## [0.10.2](https://github.com/video-react/video-react/compare/v0.10.1...v0.10.2) (2018-03-16)
 
-
+Fixed #97: Uncaught ReferenceError: babelHelpers is not defined
 
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/video-react/video-react/compare/v0.9.4...v0.10.1) (2018-03-15)
