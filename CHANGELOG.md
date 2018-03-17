@@ -15,6 +15,7 @@ Fixed #97: Uncaught ReferenceError: babelHelpers is not defined
 - Merged PR #92 by Chase Maier(@chasemaier): Add type="button" to prevent form submit
 - Merged PR #85 by Anton Kulakov(@kulakowka): Fixed typo in Player.js
 - Merged PR #64 by Mihail Smolin(@Soulfull): fix remove event listener
+- Improvement: Ability to set element id #90
 
 ## 0.9.4
 - Fixed Promise error #68
