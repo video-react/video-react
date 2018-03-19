@@ -70,15 +70,13 @@ const defaultProps = {
 
 
 export default class Player extends Component {
-  constructor(props, {store}) {
+  constructor(props) {
     super(props);
-
-    store = store || props.store;
 
     this.controlsHideTimer = null;
 
     this.video = null; // the Video component
-    this.manager = new Manager(store);
+    this.manager = new Manager(props.store);
     this.actions = this.manager.getActions();
     this.manager.subscribeToPlayerStateChange(this.handleStateChange.bind(this));
 
