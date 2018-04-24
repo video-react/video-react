@@ -53,6 +53,6 @@ echo "Commit changes"
 git add --all
 git commit -m "docs(travis): publish documentation for $TRAVIS_COMMIT"
 echo "Push to remote"
-git push origin $BRANCH > /dev/null 2>&1
+git push origin $BRANCH
 echo "published documentation for $TRAVIS_COMMIT!"
 success "Successfully published documentation for $TRAVIS_COMMIT!"
