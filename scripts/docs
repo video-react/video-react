@@ -34,9 +34,11 @@ if [ ! -d $BUILD_DIR ]; then
   exit 1
 fi
 
-echo "Cloning ${GITHUB_REPO} & applying changes"
+echo "Cloning ${GITHUB_REPO}"
 git clone --branch $BRANCH https://${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git $REPOSITORY > /dev/null 2>&1
-rsync -rt --del --exclude=".git" $BUILD_DIR $REPOSITORY
+echo "Applying changes"
+rsync -rt --del --exclude="CNAME" --exclude=".git" $BUILD_DIR $REPOSITORY
+echo "cd ${REPOSITORY}"
 cd $REPOSITORY
 
 if [ -z "$(git status --porcelain)" ]; then
@@ -44,10 +46,13 @@ if [ -z "$(git status --porcelain)" ]; then
   exit 0
 fi
 
+echo "config git user"
 git config user.name "Travis-CI"
 git config user.email "video-react@github.io"
+echo "Commit changes"
 git add --all
 git commit -m "docs(travis): publish documentation for $TRAVIS_COMMIT"
+echo "Push to remote"
 git push origin $BRANCH > /dev/null 2>&1
 
 success "Successfully published documentation for $TRAVIS_COMMIT!"
