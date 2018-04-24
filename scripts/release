@@ -7,7 +7,7 @@ BUMP_TYPE=$1
 if [ -z "$TRAVIS" ]; then
   git checkout master
   git pull
-  yarn
+  npm install
 fi
 
 CURRENT_BRANCH="$(git symbolic-ref --short -q HEAD)"
@@ -20,10 +20,10 @@ error() {
   echo -e "\033[31;1m$1"
 }
 
-# if [ -z "$GITHUB_TOKEN" ]; then
-#   error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
-#   exit 1
-# fi
+if [ -z "$GITHUB_TOKEN" ]; then
+  error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
+  exit 1
+fi
 
 if [ -z "$CURRENT_BRANCH" ]; then
   error "Not in a branch. Stopping release."
@@ -50,20 +50,13 @@ echo "==> Cleaning Build directory"
 rm -rf ./dist
 
 echo "==> Creating build files"
-yarn build
+npm run build
 
 echo "==> Committing changes"
 
-if ! [ -z "$TRAVIS" ]; then
-  git remote rm origin
-  git remote add origin https://${GITHUB_TOKEN}@github.com/video-react/video-react.git > /dev/null 2>&1
-  git config user.name "Travis-CI"
-  git config user.email "video-react@github.io"
-fi
-
+git checkout -b "release-$VERSION"
 git add --all
 git commit --message "chore(release): adding $VERSION"
-git tag "v$VERSION" -a -m "Tag Generated for $VERSION"
-git push origin master && git push origin master --tags > /dev/null 2>&1
+git push --set-upstream origin "release-$VERSION" > /dev/null 2>&1
 
-success "release-$VERSION has been pushed"
+success "release-$VERSION branch has been pushed. Verify at https://github.com/video-react/video-react/tree/release-$VERSION"
