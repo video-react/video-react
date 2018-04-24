@@ -10,7 +10,7 @@ Video.React is a web video player built from the ground up for an HTML5 world us
 Install `video-react` and __peer dependencies__ via NPM
 
 ```sh
-npm install --save video-react react react-dom redux
+npm install --save video-react react react-dom
 ```
 
 import css in your app or add video-react styles in your page
@@ -50,16 +50,12 @@ npm test
 ```
 
 
-### run example to start developing your new component against
-npm link # the link commands are important for local development
-npm install # disregard any warnings about missing peer dependencies
-npm start # runs rollup with watch flag
+### run from local
 
-###  (in another tab)
-cd example
-npm link video-react # link video-react with `../`
-npm install
-npm run dev # runs dev server [http://localhost:9000/](http://localhost:9000/)
+```bash
+$ npm install
+$ npm start
+```
 
 ## Inspiration & Credits
 
@@ -67,5 +63,3 @@ npm run dev # runs dev server [http://localhost:9000/](http://localhost:9000/)
 * The document site is built with [reactstrap](https://github.com/reactstrap/reactstrap).
 * All the icons came from [Google Material Icons](https://material.io/icons/)
 * Fonts were built by [iconmon](https://icomoon.io/).
-* [react-modern-library-boilerplate](https://github.com/transitive-bullshit/react-modern-library-boilerplate)
-* [nextjs](https://github.com/zeit/next.js)
