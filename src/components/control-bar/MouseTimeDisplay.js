@@ -4,12 +4,12 @@ import classNames from 'classnames';
 
 import { formatTime } from '../../utils';
 
-function MouseTimeDisplay({ duration, mouseTime, className }) {
+function MouseTimeDisplay({ duration, mouseTime, className, text }) {
   if (!mouseTime.time) {
     return null;
   }
 
-  const time = formatTime(mouseTime.time, duration);
+  const time = text || formatTime(mouseTime.time, duration);
 
   return (
     <div
