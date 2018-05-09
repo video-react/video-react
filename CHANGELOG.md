@@ -1,3 +1,6 @@
+v0.10.7
+#110 Allow to render tooltip with custom text by Sergo(@rogaldh)
+
 <a name="0.10.5"></a>
 ## [0.10.5](https://github.com/video-react/video-react/compare/v0.10.4...v0.10.5) (2018-04-24)
 
