@@ -21,7 +21,7 @@ export default class Manager {
     };
 
     function bindActionCreator(actionCreator) {
-      return () => {
+      return function bindAction() {
         // eslint-disable-next-line prefer-rest-params
         const action = actionCreator.apply(manager, arguments);
         if (typeof action !== 'undefined') {
