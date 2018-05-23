@@ -21,7 +21,7 @@ export default class Manager {
     };
 
     function bindActionCreator(actionCreator) {
-      return function () {
+      return () => {
         // eslint-disable-next-line prefer-rest-params
         const action = actionCreator.apply(manager, arguments);
         if (typeof action !== 'undefined') {
@@ -31,7 +31,7 @@ export default class Manager {
     }
 
     return Object.keys(actions).filter(
-      key => typeof actions[key] === 'function'
+      key => typeof actions[key] === 'function',
     ).reduce((boundActions, key) => {
       boundActions[key] = bindActionCreator(actions[key]);
       return boundActions;
@@ -72,6 +72,5 @@ export default class Manager {
   subscribeToPlayerStateChange(listener) {
     return this.subscribeToStateChange(listener, () => this.getState().player);
   }
-
 }
 

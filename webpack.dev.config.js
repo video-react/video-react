@@ -1,16 +1,16 @@
-var path = require('path');
-var webpack = require('webpack');
-var pkg = require('./package.json');
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-var env = process.env.WEBPACK_BUILD || 'development';
+const path = require('path');
+const webpack = require('webpack');
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpackDevConfig = require('./webpack.base.config')('development');
-var webpackProdConfig = require('./webpack.base.config')('production');
+const env = process.env.WEBPACK_BUILD || 'development';
 
-var paths = [
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpackDevConfig = require('./webpack.base.config')('development');
+const webpackProdConfig = require('./webpack.base.config')('production');
+
+const paths = [
   '/',
   '/components/',
   '/components/player/',
@@ -28,10 +28,10 @@ var paths = [
   '/customize/enable-disable-components/',
   '/customize/customize-source/',
   '/customize/customize-component/',
-  '/404.html'
+  '/404.html',
 ];
 
-var config = [{
+const config = [{
   devtool: 'source-map',
   devServer: {
     contentBase: './build',
@@ -39,19 +39,19 @@ var config = [{
     host: '0.0.0.0',
     port: 9000,
     stats: {
-      chunks: false
-    }
+      chunks: false,
+    },
   },
   entry: {
-    main: ['babel-polyfill', './docs/lib/app']
+    main: ['babel-polyfill', './docs/lib/app'],
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   output: {
     filename: 'bundle.js',
     path: './build',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
@@ -59,32 +59,32 @@ var config = [{
       { from: './docs/static', to: 'assets' },
     ]),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
+      'process.env.NODE_ENV': JSON.stringify(env),
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new StaticSiteGeneratorPlugin('main', paths, {}),
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('/assets/style.css')
+    new ExtractTextPlugin('/assets/style.css'),
   ],
   module: {
     loaders: [
       {
         test: /\.json$/,
         loaders: [
-          'json-loader?cacheDirectory'
-        ]
+          'json-loader?cacheDirectory',
+        ],
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: [
-          'babel-loader?cacheDirectory'
-        ]
+          'babel-loader?cacheDirectory',
+        ],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
       },
       {
         test: /\.scss$/,
@@ -97,16 +97,16 @@ var config = [{
       { test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
         loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.json'],
     alias: {
       'bootstrap-scss': path.join(__dirname, 'node_modules/bootstrap/scss/bootstrap.scss'),
       'video-react-scss': path.resolve('./styles/scss/video-react.scss'),
-      'video-react': path.resolve('./src')
-    }
-  }
+      'video-react': path.resolve('./src'),
+    },
+  },
 }];
 
 if (env === 'development') {
@@ -118,10 +118,10 @@ if (env === 'development') {
       minimize: true,
       sourceMap: true,
       compress: {
-        warnings: false
+        warnings: false,
       },
-      mangle: true
-    }
+      mangle: true,
+    },
   ));
 }
 

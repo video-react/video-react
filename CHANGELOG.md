@@ -1,3 +1,10 @@
+<a name="0.10.8"></a>
+## [0.10.8](https://github.com/video-react/video-react/compare/0.10.7...0.10.8) (2018-05-23)
+
+
+
+#117 Don't import scss in the js code
+
 v0.10.7
 #110 Allow to render tooltip with custom text by Sergo(@rogaldh)
 

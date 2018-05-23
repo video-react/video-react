@@ -1,5 +1,3 @@
-// import '../styles/scss/video-react.scss';
-
 import Player from './components/Player';
 import Video from './components/Video';
 import BigPlayButton from './components/BigPlayButton';
@@ -31,8 +29,6 @@ import * as playerActions from './actions/player';
 import * as videoActions from './actions/video';
 import { playerReducer, operationReducer } from './reducers';
 
-import '../styles/scss/video-react.scss';
-
 export {
   Player,
   Video,
@@ -63,5 +59,5 @@ export {
   playerActions,
   videoActions,
   playerReducer,
-  operationReducer
+  operationReducer,
 };

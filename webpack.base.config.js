@@ -2,21 +2,21 @@
 
 const path = require('path');
 const webpack = require('webpack');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const libraryName = 'VideoReact';
 const outputFilename = 'video-react';
 
-module.exports = function (env) {
+module.exports = (env) => {
   let outputFile;
   const plugins = [
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env)
+      'process.env.NODE_ENV': JSON.stringify(env),
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('video-react.css')
+    new ExtractTextPlugin('video-react.css'),
   ];
 
   if (env === 'production') {
@@ -24,28 +24,28 @@ module.exports = function (env) {
       {
         minimize: true,
         compress: {
-          warnings: false
+          warnings: false,
         },
-        mangle: true
-      }
+        mangle: true,
+      },
     ));
-    outputFile = outputFilename.toLowerCase() + '.min.js';
+    outputFile = `${outputFilename.toLowerCase()}.min.js`;
   } else {
-    outputFile = outputFilename.toLowerCase() + '.js';
+    outputFile = `${outputFilename.toLowerCase()}.js`;
   }
 
   const config = {
     devtool: 'source-map',
     entry: [
       'babel-polyfill',
-      __dirname + '/src/index.js',
-      __dirname + '/styles/scss/video-react.scss'
+      `${__dirname}/src/index.js`,
+      `${__dirname}/styles/scss/video-react.scss`,
     ],
     output: {
-      path: __dirname + '/dist',
+      path: `${__dirname}/dist`,
       filename: outputFile,
       library: libraryName,
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
     },
     externals: [
       {
@@ -53,16 +53,16 @@ module.exports = function (env) {
           root: 'React',
           commonjs2: 'react',
           commonjs: 'react',
-          amd: 'react'
-        }
+          amd: 'react',
+        },
       },
       {
         'react-dom': {
           root: 'ReactDOM',
           commonjs2: 'react-dom',
           commonjs: 'react-dom',
-          amd: 'react-dom'
-        }
+          amd: 'react-dom',
+        },
       },
     ],
     module: {
@@ -70,19 +70,19 @@ module.exports = function (env) {
         {
           test: /\.(json)$/,
           loaders: [
-            'json-loader?cacheDirectory'
-          ]
+            'json-loader?cacheDirectory',
+          ],
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loaders: [
-            'babel-loader?cacheDirectory'
-          ]
+            'babel-loader?cacheDirectory',
+          ],
         },
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
         },
         {
           test: /\.scss$/,
@@ -95,7 +95,7 @@ module.exports = function (env) {
         { test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
           loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
         },
-      ]
+      ],
     },
     sassLoader: {
       outputStyle: 'compressed',
@@ -104,14 +104,14 @@ module.exports = function (env) {
     },
     resolve: {
       alias: {
-        'video-react': 'src/index'
+        'video-react': 'src/index',
       },
       extensions: ['', '.js', '.json'],
       root: [
-        path.resolve('./src')
-      ]
+        path.resolve('./src'),
+      ],
     },
-    plugins: plugins
+    plugins,
   };
 
   return config;

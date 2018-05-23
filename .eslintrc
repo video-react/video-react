@@ -3,7 +3,8 @@
   "rules": {
     "class-methods-use-this": "off",
     "node/no-unsupported-features": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "no-param-reassign": "off"
   }
 }
 
