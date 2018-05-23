@@ -20,10 +20,10 @@ error() {
   echo -e "\033[31;1m$1"
 }
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
-  exit 1
-fi
+# if [ -z "$GITHUB_TOKEN" ]; then
+#   error "Environment variable GITHUB_TOKEN does not exist. Stopping deploy."
+#   exit 1
+# fi
 
 if [ -z "$CURRENT_BRANCH" ]; then
   error "Not in a branch. Stopping release."

@@ -13,7 +13,7 @@ const dependencies = Object.keys(packageJson.dependencies);
 function baseConfig() {
   return {
     moduleName: 'video-react',
-    entry: 'src/index.js',
+    entry: 'src/video-react.js',
     plugins: [
       sass({
         output: 'dist/video-react.css',
@@ -23,7 +23,7 @@ function baseConfig() {
       }),
       nodeResolve(),
       commonjs({
-        include: 'node_modules/**'
+        include: 'node_modules/**',
       }),
       babel({
         plugins: ['external-helpers'],
@@ -102,7 +102,7 @@ umdFullConfig.targets = [
 const missingGlobals = peerDependencies.filter(dep => !(dep in umdFullConfig.globals));
 if (missingGlobals.length) {
   console.error('All peer dependencies need to be mentioned in globals, please update rollup.config.js.');
-  console.error('Missing: ' + missingGlobals.join(', '));
+  console.error(`Missing: ${missingGlobals.join(', ')}`);
   console.error('Aborting build.');
   process.exit(1);
 }
