@@ -1,7 +1,7 @@
 <a name="0.10.9"></a>
 ## [0.10.9](https://github.com/video-react/video-react/compare/0.10.8...0.10.9) (2018-05-23)
 
-
+Hotfix for 0.10.8
 
 <a name="0.10.8"></a>
 ## [0.10.8](https://github.com/video-react/video-react/compare/0.10.7...0.10.8) (2018-05-23)
