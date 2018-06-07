@@ -296,7 +296,7 @@ export default class Shortcut extends Component {
 
   handleClick(e) {
     const { player, actions, clickable } = this.props;
-    if (!this.canBeClicked(player, e) && clickable) {
+    if (!this.canBeClicked(player, e) || !clickable) {
       return;
     }
     this.togglePlay(player, actions);
@@ -305,7 +305,7 @@ export default class Shortcut extends Component {
 
   handleDoubleClick(e) {
     const { player, actions, dblclickable } = this.props;
-    if (!this.canBeClicked(player, e) && dblclickable) {
+    if (!this.canBeClicked(player, e) || !dblclickable) {
       return;
     }
     this.toggleFullscreen(player, actions);
