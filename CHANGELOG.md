@@ -1,3 +1,13 @@
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/video-react/video-react/compare/0.10.9...0.11.0) (2018-06-07)
+
+
+### Features
+
+* Add property to disable click for shortcut [#101](https://github.com/video-react/video-react/issues/101) ([e29aee8](https://github.com/video-react/video-react/commit/e29aee8)), closes [#122](https://github.com/video-react/video-react/issues/122)
+
+
+
 <a name="0.10.9"></a>
 ## [0.10.9](https://github.com/video-react/video-react/compare/0.10.8...0.10.9) (2018-05-23)
 
