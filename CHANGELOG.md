@@ -1,3 +1,13 @@
+<a name="0.11.2"></a>
+## [0.11.2](https://github.com/video-react/video-react/compare/0.11.1...0.11.2) (2018-06-07)
+
+
+### Bug Fixes
+
+* Build dist before build docs ([85a11dd](https://github.com/video-react/video-react/commit/85a11dd))
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/video-react/video-react/compare/0.11.0...0.11.1) (2018-06-07)
 
