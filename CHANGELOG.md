@@ -1,3 +1,13 @@
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/video-react/video-react/compare/0.11.0...0.11.1) (2018-06-07)
+
+
+### Bug Fixes
+
+* Fixed clickable issue ([9a9a218](https://github.com/video-react/video-react/commit/9a9a218))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/video-react/video-react/compare/0.10.9...0.11.0) (2018-06-07)
 

@@ -1,6 +1,6 @@
 {
   "name": "video-react",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
   "style": "dist/video-react.css",
@@ -13,6 +13,9 @@
     "build": "rollup -c",
     "prebuild": "cross-env BABEL_ENV=lib-dir babel src --out-dir lib --ignore src/__tests__/",
     "create-release": "npm test && sh ./scripts/release",
+    "create-major": "sh ./scripts/release major",
+    "create-minor": "sh ./scripts/release minor",
+    "create-patch": "sh ./scripts/release patch",
     "publish-release": "npm test && sh ./scripts/publish",
     "lint": "eslint src"
   },
