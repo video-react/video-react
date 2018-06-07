@@ -1,12 +1,19 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { hasClass } from '../utils/dom';
 
 const propTypes = {
+  clickable: PropTypes.bool,
+  dblclickable: PropTypes.bool,
   manager: PropTypes.object,
   actions: PropTypes.object,
   player: PropTypes.object,
   shortcuts: PropTypes.array,
+};
+
+const defaultProps = {
+  clickable: true,
+  dblclickable: true,
 };
 
 export default class Shortcut extends Component {
@@ -34,9 +41,9 @@ export default class Shortcut extends Component {
           }
           actions.replay(5, {
             action: 'replay-5',
-            source: 'shortcut'
+            source: 'shortcut',
           }); // Go back 5 seconds
-        }
+        },
       },
       {
         keyCode: 74, // j
@@ -46,9 +53,9 @@ export default class Shortcut extends Component {
           }
           actions.replay(10, {
             action: 'replay-10',
-            source: 'shortcut'
+            source: 'shortcut',
           }); // Go back 10 seconds
-        }
+        },
       },
       {
         keyCode: 39, // Right arrow
@@ -58,9 +65,9 @@ export default class Shortcut extends Component {
           }
           actions.forward(5, {
             action: 'forward-5',
-            source: 'shortcut'
+            source: 'shortcut',
           }); // Go forward 5 seconds
-        }
+        },
       },
       {
         keyCode: 76, // l
@@ -70,9 +77,9 @@ export default class Shortcut extends Component {
           }
           actions.forward(10, {
             action: 'forward-10',
-            source: 'shortcut'
+            source: 'shortcut',
           }); // Go forward 10 seconds
-        }
+        },
       },
       {
         keyCode: 36, // Home
@@ -81,7 +88,7 @@ export default class Shortcut extends Component {
             return;
           }
           actions.seek(0); // Go to beginning of video
-        }
+        },
       },
       {
         keyCode: 35, // End
@@ -91,7 +98,7 @@ export default class Shortcut extends Component {
           }
           // Go to end of video
           actions.seek(player.duration);
-        }
+        },
       },
       {
         keyCode: 38, // Up arrow
@@ -103,9 +110,9 @@ export default class Shortcut extends Component {
           }
           actions.changeVolume(v, {
             action: 'volume-up',
-            source: 'shortcut'
+            source: 'shortcut',
           });
-        }
+        },
       },
       {
         keyCode: 40, // Down arrow
@@ -118,9 +125,9 @@ export default class Shortcut extends Component {
           const action = (v > 0) ? 'volume-down' : 'volume-off';
           actions.changeVolume(v, {
             action,
-            source: 'shortcut'
+            source: 'shortcut',
           });
-        }
+        },
       },
       {
         keyCode: 190, // Shift + >
@@ -143,9 +150,9 @@ export default class Shortcut extends Component {
           }
           actions.changeRate(playbackRate, {
             action: 'fast-forward',
-            source: 'shortcut'
+            source: 'shortcut',
           });
-        }
+        },
       },
       {
         keyCode: 188, // Shift + <
@@ -166,10 +173,10 @@ export default class Shortcut extends Component {
           }
           actions.changeRate(playbackRate, {
             action: 'fast-rewind',
-            source: 'shortcut'
+            source: 'shortcut',
           });
-        }
-      }
+        },
+      },
     ];
 
     this.shortcuts = [...this.defaultShortcuts];
@@ -195,6 +202,8 @@ export default class Shortcut extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyPress);
+    document.removeEventListener('click', this.handleClick);
+    document.removeEventListener('dblclick', this.handleDoubleClick);
   }
 
   // merge the shortcuts from props
@@ -211,7 +220,7 @@ export default class Shortcut extends Component {
     };
 
     const shortcuts = (this.props.shortcuts || [])
-      .filter((s) => s.keyCode && s.handle && (typeof s.handle === 'function'));
+      .filter(s => s.keyCode && s.handle && (typeof s.handle === 'function'));
 
     this.shortcuts = [
       ...shortcuts,
@@ -223,12 +232,12 @@ export default class Shortcut extends Component {
     if (player.paused) {
       actions.play({
         action: 'play',
-        source: 'shortcut'
+        source: 'shortcut',
       });
     } else {
       actions.pause({
         action: 'pause',
-        source: 'shortcut'
+        source: 'shortcut',
       });
     }
   }
@@ -243,11 +252,11 @@ export default class Shortcut extends Component {
       return;
     }
     if (document.activeElement && (
-        hasClass(document.activeElement, 'video-react-control')
+      hasClass(document.activeElement, 'video-react-control')
         || hasClass(document.activeElement, 'video-react-menu-button-active')
         // || hasClass(document.activeElement, 'video-react-slider')
         || hasClass(document.activeElement, 'video-react-big-play-button')
-      )) {
+    )) {
       return;
     }
 
@@ -263,7 +272,7 @@ export default class Shortcut extends Component {
       if ((s.ctrl !== undefined && s.ctrl !== ctrl)
         || (s.shift !== undefined && s.shift !== shift)
         || (s.alt !== undefined && s.alt !== alt)
-        ) {
+      ) {
         return false;
       }
       return true;
@@ -286,8 +295,8 @@ export default class Shortcut extends Component {
   }
 
   handleClick(e) {
-    const { player, actions } = this.props;
-    if (!this.canBeClicked(player, e)) {
+    const { player, actions, clickable } = this.props;
+    if (!this.canBeClicked(player, e) && clickable) {
       return;
     }
     this.togglePlay(player, actions);
@@ -295,8 +304,8 @@ export default class Shortcut extends Component {
   }
 
   handleDoubleClick(e) {
-    const { player, actions } = this.props;
-    if (!this.canBeClicked(player, e)) {
+    const { player, actions, dblclickable } = this.props;
+    if (!this.canBeClicked(player, e) && dblclickable) {
       return;
     }
     this.toggleFullscreen(player, actions);
@@ -311,4 +320,5 @@ export default class Shortcut extends Component {
 }
 
 Shortcut.propTypes = propTypes;
+Shortcut.defaultProps = defaultProps;
 Shortcut.displayName = 'Shortcut';
