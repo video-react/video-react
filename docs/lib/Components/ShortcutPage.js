@@ -1,9 +1,10 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
+/* eslint react/no-multi-comp: 0, react/prop-types: 0, react/prefer-stateless-function: 0 */
 import React from 'react';
 import { PrismCode } from 'react-prism';
 import { Table, Alert } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ShortcutExample from '../examples/Shortcut';
+
 const ShortcutExampleSource = require('!!raw!../examples/Shortcut');
 
 export default class ShortcutPage extends React.Component {
@@ -22,11 +23,12 @@ export default class ShortcutPage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-{`Shortcut.propTypes = {
+            {`Shortcut.propTypes = {
 
   // Add your own shortcuts
   shortcuts: PropTypes.array,
-
+  clickable: PropTypes.bool,
+  dblclickable: PropTypes.bool,
 }`}
           </PrismCode>
         </pre>
@@ -34,12 +36,12 @@ export default class ShortcutPage extends React.Component {
         <Table>
           <thead>
             <tr>
-                <th>
-                    <font size="3">Action</font>
-                </th>
-                <th>
-                    <font size="3">Shortcut </font>
-                </th>
+              <th>
+                <font size="3">Action</font>
+              </th>
+              <th>
+                <font size="3">Shortcut </font>
+              </th>
             </tr>
           </thead>
           <tbody>

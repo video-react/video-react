@@ -1,10 +1,15 @@
 {
   "extends": "airbnb",
+  "globals": {
+    "document": true
+  },
   "rules": {
     "class-methods-use-this": "off",
     "node/no-unsupported-features": "off",
     "react/jsx-filename-extension": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/prop-types": "off",
+    "no-plusplus": "off"
   }
 }
 

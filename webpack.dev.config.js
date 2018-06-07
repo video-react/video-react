@@ -57,6 +57,7 @@ const config = [{
     new CleanWebpackPlugin(['build']),
     new CopyWebpackPlugin([
       { from: './docs/static', to: 'assets' },
+      { from: './dist', to: 'assets' },
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
