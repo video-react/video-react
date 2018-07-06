@@ -210,7 +210,14 @@ export default class Player extends Component {
     if (fluid) {
       style.paddingTop = `${ratioMultiplier * 100}%`;
     } else {
-      style.width = `${width}px`;
+      // If Width contains "auto", set "auto" in style
+      if (width = "auto") {
+         style.width = 'auto'
+      } else {
+        // If Width contains size in pixels, set this size in style
+         style.width = `${width}px`;
+      }
+
       style.height = `${height}px`;
     }
 
