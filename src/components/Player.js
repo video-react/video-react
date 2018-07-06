@@ -19,8 +19,14 @@ import fullscreen from '../utils/fullscreen';
 const propTypes = {
   children: PropTypes.any,
 
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
@@ -58,7 +64,7 @@ const propTypes = {
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
 
-  store: PropTypes.object
+  store: PropTypes.object,
 };
 
 const defaultProps = {
@@ -148,19 +154,35 @@ export default class Player extends Component {
         key="shortcut"
         order={99.0}
         {...props}
-      />
+      />,
     ];
   }
 
   getChildren(props) {
     const propsWithoutChildren = {
       ...props,
-      children: null
+      children: null,
     };
     const children = React.Children.toArray(this.props.children)
       .filter(e => (!isVideoChild(e)));
     const defaultChildren = this.getDefaultChildren(propsWithoutChildren, props);
     return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
+  }
+
+  setWidthOrHeight(style, name, value) {
+    let styleVal;
+    if (typeof value === 'string') {
+      if (value === 'auto') {
+        styleVal = 'auto';
+      } else if (value.match(/\d+%/)) {
+        styleVal = value;
+      }
+    } else if (typeof value === 'number') {
+      styleVal = `${value}px`;
+    }
+    Object.assign(style, {
+      [name]: styleVal,
+    });
   }
 
   getStyle() {
@@ -211,14 +233,8 @@ export default class Player extends Component {
       style.paddingTop = `${ratioMultiplier * 100}%`;
     } else {
       // If Width contains "auto", set "auto" in style
-      if (width = "auto") {
-         style.width = 'auto'
-      } else {
-        // If Width contains size in pixels, set this size in style
-         style.width = `${width}px`;
-      }
-
-      style.height = `${height}px`;
+      this.setWidthOrHeight(style, 'width', width);
+      this.setWidthOrHeight(style, 'height', height);
     }
 
     return style;
@@ -394,6 +410,7 @@ export default class Player extends Component {
         ref={(c) => {
           this.manager.rootElement = c;
         }}
+        role="region"
         onTouchStart={this.handleMouseDown}
         onMouseDown={this.handleMouseDown}
         onMouseMove={this.handleMouseMove}

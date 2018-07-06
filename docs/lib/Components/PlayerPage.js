@@ -45,13 +45,13 @@ export default function PlayerPage() {
             <td><code>width</code></td>
             <td>number</td>
             <td>-</td>
-            <td>Video width. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
+            <td>The height value of video, could be an number or percent or auto. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
           </tr>
           <tr>
             <td><code>height</code></td>
             <td>number</td>
             <td>-</td>
-            <td>Video height. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
+            <td>The height value of video, could be an number or percent or auto. (This attribute is effective only if you set <code>fluid</code> as <code>false</code>)</td>
           </tr>
           <tr>
             <td><code>src</code></td>
