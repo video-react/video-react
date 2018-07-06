@@ -74,7 +74,7 @@ export default class ControlBar extends Component {
         {...this.props}
         key="fullscreen-toggle"
         order={8}
-      />
+      />,
     ];
   }
 
@@ -135,7 +135,7 @@ export default class ControlBar extends Component {
         {...this.props}
         key="fullscreen-toggle"
         order={11}
-      />
+      />,
     ];
   }
 
@@ -154,7 +154,7 @@ export default class ControlBar extends Component {
       :
       <div
         className={classNames('video-react-control-bar', {
-          'video-react-control-bar-auto-hide': autoHide
+          'video-react-control-bar-auto-hide': autoHide,
         }, className)}
       >
         {children}
