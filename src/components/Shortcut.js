@@ -208,6 +208,25 @@ export default class Shortcut extends Component {
 
   // merge the shortcuts from props
   mergeShortcuts() {
+    const getShortcutKey = ({ keyCode = 0, ctrl = false, shift = false, alt = false }) => `${keyCode}:${ctrl}:${shift}:${alt}`;
+    const defaultShortcuts = this.defaultShortcuts
+      .reduce(
+        (shortcuts, shortcut) => Object.assign(shortcuts, {
+          [getShortcutKey(shortcut)]: shortcut,
+        }),
+        {}
+      );
+    const mergedShortcuts = (this.props.shortcuts || [])
+      .reduce((shortcuts, shortcut) => {
+        const { keyCode, handle } = shortcut;
+        if (keyCode && typeof handle === 'function') {
+          return Object.assign(shortcuts, {
+            [getShortcutKey(shortcut)]: shortcut,
+          });
+        }
+        return shortcuts;
+      }, defaultShortcuts);
+
     const gradeShortcut = (s) => {
       let score = 0;
       const ps = ['ctrl', 'shift', 'alt'];
@@ -219,13 +238,9 @@ export default class Shortcut extends Component {
       return score;
     };
 
-    const shortcuts = (this.props.shortcuts || [])
-      .filter(s => s.keyCode && s.handle && (typeof s.handle === 'function'));
-
-    this.shortcuts = [
-      ...shortcuts,
-      ...this.defaultShortcuts,
-    ].sort((a, b) => gradeShortcut(b) - gradeShortcut(a));
+    this.shortcuts = Object.keys(mergedShortcuts)
+      .map(key => mergedShortcuts[key])
+      .sort((a, b) => gradeShortcut(b) - gradeShortcut(a));
   }
 
   togglePlay(player, actions) {
