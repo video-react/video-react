@@ -9,7 +9,8 @@
     "react/jsx-filename-extension": "off",
     "no-param-reassign": "off",
     "react/prop-types": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "comma-dangle": "off"
   }
 }
 

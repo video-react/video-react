@@ -20,6 +20,10 @@ export default class ShortcutExample extends Component {
           actions.seek(duration * 0.1);
         },
       },
+      {
+        keyCode: 38, // Up arrow
+        handle: () => {}, // override it's default handle
+      },
       // Ctrl/Cmd + Right arrow to go forward 30 seconds
       {
         keyCode: 39, // Right arrow
