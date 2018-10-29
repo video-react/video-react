@@ -15,7 +15,6 @@ const defaultProps = {
 };
 
 class PlaybackRateMenuButton extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -51,11 +50,9 @@ class PlaybackRateMenuButton extends Component {
       </MenuButton>
     );
   }
-
 }
 
 PlaybackRateMenuButton.propTypes = propTypes;
 PlaybackRateMenuButton.defaultProps = defaultProps;
 PlaybackRateMenuButton.displayName = 'PlaybackRateMenuButton';
 export default PlaybackRateMenuButton;
-
