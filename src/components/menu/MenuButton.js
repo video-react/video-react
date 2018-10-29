@@ -15,7 +15,6 @@ const propTypes = {
 };
 
 export default class MenuButton extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -40,8 +39,11 @@ export default class MenuButton extends Component {
     this.handleIndexChange = this.handleIndexChange.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedIndex !== this.props.selectedIndex) {
+      this.activateMenuItem(this.props.selectedIndex);
+    }
+  }
 
   commitSelection(index) {
     this.setState({

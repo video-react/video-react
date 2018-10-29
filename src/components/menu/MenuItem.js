@@ -10,7 +10,6 @@ const propTypes = {
 };
 
 export default class MenuItem extends Component {
-
   constructor(props, context) {
     super(props, context);
 
