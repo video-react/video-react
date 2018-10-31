@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import omit from 'lodash.omit'
 
 const propTypes = {
   tagName: PropTypes.string.isRequired,
@@ -54,9 +55,7 @@ export default class ClickableComponent extends Component {
 
   render() {
     const Tag = this.props.tagName;
-    const props = { ...this.props };
-    delete props.tagName;
-    delete props.className;
+    const props = omit( this.props, ['tagName', 'className'] );
     return (
       <Tag
         className={classNames(this.props.className)}

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import omit from 'lodash.omit';
 import ClickableComponent from '../ClickableComponent';
 import Popup from './Popup';
 
@@ -18,10 +19,7 @@ const defaultProps = {
 
 export default function PopupButton(props) {
   const { inline, className } = props;
-  const ps = { ...props };
-  delete ps.children;
-  delete ps.inline;
-  delete ps.className;
+  const ps = omit( props, ['children', 'inline', 'className'] );
   return (
     <ClickableComponent
       className={classNames(className, {

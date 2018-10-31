@@ -61,6 +61,7 @@
   "tonicExampleFilename": "tonic-example.js",
   "dependencies": {
     "classnames": "^2.2.3",
+    "lodash.omit": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "prop-types": "^15.5.8",
     "redux": "^4.0.0"

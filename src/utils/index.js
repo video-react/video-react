@@ -1,4 +1,5 @@
 import React from 'react';
+import omit from 'lodash.omit';
 
 /**
  * @file format-time.js
@@ -84,10 +85,9 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
     )
     .map((element) => {
       const defaultComponent = find(defaultChildren, (c) => isTypeEqual(c, element));
-      delete parentProps.order;
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
-        ...parentProps, // inherit from parent component
+        ...omit(parentProps, ['order']), // inherit from parent component
         ...defaultProps, // inherit from default component
         ...element.props, // element's own props
       };
