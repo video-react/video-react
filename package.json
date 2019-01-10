@@ -6,7 +6,7 @@
   "style": "dist/video-react.css",
   "scripts": {
     "report-coverage": "coveralls < ./coverage/lcov.info",
-    "test": "cross-env BABEL_ENV=test react-scripts test --env=jsdom",
+    "test": "BABEL_ENV=test jest",
     "cover": "npm test -- --coverage",
     "start": "cross-env BABEL_ENV=webpack webpack-dev-server --config ./webpack.dev.config.js --watch",
     "build-docs": "cross-env BABEL_ENV=webpack WEBPACK_BUILD=production webpack --config ./webpack.dev.config.js --progress --colors",
@@ -48,6 +48,7 @@
   ],
   "contributors": [
     "Junmin Liu",
+    "Mengdi Chen",
     "Xincun Li",
     "Jing Sun",
     "Xiaolei Chen",
@@ -59,6 +60,9 @@
   },
   "homepage": "https://github.com/video-react/video-react#readme",
   "tonicExampleFilename": "tonic-example.js",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+  },
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash.throttle": "^4.1.1",
@@ -102,6 +106,7 @@
     "history": "^3.0.0",
     "hls.js": "^0.6.10",
     "holderjs": "^2.9.3",
+    "jest": "^23.6.0",
     "json-loader": "^0.5.4",
     "node-sass": "^4.5.3",
     "raw-loader": "^0.5.1",
@@ -110,7 +115,6 @@
     "react-helmet": "^5.0.3",
     "react-prism": "^4.3.2",
     "react-router": "^3.2.1",
-    "react-scripts": "^1.1.4",
     "react-test-renderer": "^16.3.2",
     "reactstrap": "^5.0.0",
     "rollup": "^0.43.0",
