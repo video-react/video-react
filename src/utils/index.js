@@ -74,7 +74,7 @@ const isTypeEqual = (component1, component2) => {
 // filter them by `disabled` property
 export function mergeAndSortChildren(defaultChildren, _children, _parentProps, defaultOrder = 1) {
   const children = React.Children.toArray(_children);
-  const parentProps = { ..._parentProps };
+  const { order: _, ...parentProps } = _parentProps; // ignore order from parent
   return children
     .filter((e) => !e.props.disabled) // filter the disabled components
     .concat(
@@ -84,7 +84,7 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
     )
     .map((element) => {
       const defaultComponent = find(defaultChildren, (c) => isTypeEqual(c, element));
-      delete parentProps.order;
+
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
         ...parentProps, // inherit from parent component

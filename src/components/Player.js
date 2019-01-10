@@ -114,7 +114,7 @@ export default class Player extends Component {
     }
   }
 
-  getDefaultChildren(props, fullProps) {
+  getDefaultChildren(originalChildren) {
     return [
       <Video
         ref={(c) => {
@@ -123,49 +123,45 @@ export default class Player extends Component {
         }}
         key="video"
         order={0.0}
-        {...fullProps}
-      />,
+      >
+        {originalChildren}
+      </Video>,
       <PosterImage
         key="poster-image"
         order={1.0}
-        {...props}
       />,
       <LoadingSpinner
         key="loading-spinner"
         order={2.0}
-        {...props}
       />,
       <Bezel
         key="bezel"
         order={3.0}
-        {...props}
       />,
       <BigPlayButton
         key="big-play-button"
         order={4.0}
-        {...props}
       />,
       <ControlBar
         key="control-bar"
         order={5.0}
-        {...props}
       />,
       <Shortcut
         key="shortcut"
         order={99.0}
-        {...props}
       />,
     ];
   }
 
   getChildren(props) {
-    const propsWithoutChildren = {
-      ...props,
-      children: null,
-    };
+    const {
+      className: _, // remove className
+      children: originalChildren,
+      ...propsWithoutChildren
+    } = props;
     const children = React.Children.toArray(this.props.children)
       .filter(e => (!isVideoChild(e)));
-    const defaultChildren = this.getDefaultChildren(propsWithoutChildren, props);
+    const defaultChildren = this.getDefaultChildren(originalChildren);
     return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
   }
 

@@ -41,37 +41,30 @@ export default class ControlBar extends Component {
   getDefaultChildren() {
     return [
       <PlayToggle
-        {...this.props}
         key="play-toggle"
         order={1}
       />,
       <VolumeMenuButton
-        {...this.props}
         key="volume-menu-button"
         order={4}
       />,
       <CurrentTimeDisplay
-        {...this.props}
         key="current-time-display"
         order={5.1}
       />,
       <TimeDivider
-        {...this.props}
         key="time-divider"
         order={5.2}
       />,
       <DurationDisplay
-        {...this.props}
         key="duration-display"
         order={5.3}
       />,
       <ProgressControl
-        {...this.props}
         key="progress-control"
         order={6}
       />,
       <FullscreenToggle
-        {...this.props}
         key="fullscreen-toggle"
         order={8}
       />,
@@ -81,58 +74,47 @@ export default class ControlBar extends Component {
   getFullChildren() {
     return [
       <PlayToggle
-        {...this.props}
         key="play-toggle"
         order={1}
       />,
       <ReplayControl
-        {...this.props}
         key="replay-control"
         order={2}
       />,
       <ForwardControl
-        {...this.props}
         key="forward-control"
         order={3}
       />,
       <VolumeMenuButton
-        {...this.props}
         key="volume-menu-button"
         order={4}
       />,
       <CurrentTimeDisplay
-        {...this.props}
         key="current-time-display"
         order={5}
       />,
       <TimeDivider
-        {...this.props}
         key="time-divider"
         order={6}
       />,
       <DurationDisplay
-        {...this.props}
         key="duration-display"
         order={7}
       />,
       <ProgressControl
-        {...this.props}
         key="progress-control"
         order={8}
       />,
       <RemainingTimeDisplay
-        {...this.props}
         key="remaining-time-display"
         order={9}
       />,
       <PlaybackRateMenuButton
-        {...this.props}
         rates={[1, 1.25, 1.5, 2]}
         key="playback-rate"
         order={10}
       />,
       <FullscreenToggle
-        {...this.props}
         key="fullscreen-toggle"
         order={11}
       />,
@@ -142,7 +124,8 @@ export default class ControlBar extends Component {
   getChildren() {
     const children = React.Children.toArray(this.props.children);
     const defaultChildren = this.props.disableDefaultControls ? [] : this.getDefaultChildren();
-    return mergeAndSortChildren(defaultChildren, children, this.props);
+    const { className: _, ...parentProps } = this.props; // remove className
+    return mergeAndSortChildren(defaultChildren, children, parentProps);
   }
 
   render() {
