@@ -67,23 +67,23 @@ const isTypeEqual = (component1, component2) => {
   }
 
   return false;
-}
+};
 
 // merge default children
 // sort them by `order` property
 // filter them by `disabled` property
 export function mergeAndSortChildren(defaultChildren, _children, _parentProps, defaultOrder = 1) {
   const children = React.Children.toArray(_children);
-  const { order: _, ...parentProps } = _parentProps; // ignore order from parent
+  const { order, ...parentProps } = _parentProps; // ignore order from parent
   return children
-    .filter((e) => !e.props.disabled) // filter the disabled components
+    .filter(e => !e.props.disabled) // filter the disabled components
     .concat(
       defaultChildren.filter(
-        (c) => !find(children, (component) => isTypeEqual(component, c))
+        c => !find(children, component => isTypeEqual(component, c))
       )
     )
     .map((element) => {
-      const defaultComponent = find(defaultChildren, (c) => isTypeEqual(c, element));
+      const defaultComponent = find(defaultChildren, c => isTypeEqual(c, element));
 
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
@@ -119,7 +119,7 @@ export function throttle(callback, limit) {
         wait = false;
       }, limit);
     }
-  }
+  };
 }
 
 export const mediaProperties = [

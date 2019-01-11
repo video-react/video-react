@@ -124,7 +124,7 @@ export default class ControlBar extends Component {
   getChildren() {
     const children = React.Children.toArray(this.props.children);
     const defaultChildren = this.props.disableDefaultControls ? [] : this.getDefaultChildren();
-    const { className: _, ...parentProps } = this.props; // remove className
+    const { className, ...parentProps } = this.props; // remove className
     return mergeAndSortChildren(defaultChildren, children, parentProps);
   }
 
