@@ -9,11 +9,11 @@ cache:
 before_script:
 - chmod +x scripts/docs
 script:
-- yarn cover -- --runInBand
+- npm run cover -- --runInBand
 after_success:
 - scripts/docs
 before_deploy:
-- yarn build
+- npm run build
 deploy:
   skip_cleanup: true
   provider: npm
