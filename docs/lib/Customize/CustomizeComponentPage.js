@@ -4,8 +4,8 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import CustomizeComponentExample from '../examples/CustomizeComponentExample';
-const DownloadButtonSource = require('!!raw!../examples/DownloadButton');
-const CustomizeComponentExampleSource = require('!!raw!../examples/CustomizeComponentExample');
+const DownloadButtonSource = require('!!raw-loader!../examples/DownloadButton');
+const CustomizeComponentExampleSource = require('!!raw-loader!../examples/CustomizeComponentExample');
 
 export default class CustomizeComponentPage extends React.Component {
   render() {

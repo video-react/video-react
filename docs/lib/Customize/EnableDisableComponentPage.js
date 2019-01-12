@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import EnableDisableComponentExample from '../examples/EnableDisableComponent';
-const EnableDisableComponentExampleSource = require('!!raw!../examples/EnableDisableComponent');
+const EnableDisableComponentExampleSource = require('!!raw-loader!../examples/EnableDisableComponent');
 
 export default class EnableDisableComponentPage extends React.Component {
   render() {

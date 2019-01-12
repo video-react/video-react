@@ -51,6 +51,7 @@ build
 .env
 npm-debug.log
 /lib
+/es
 dist
 build
 .next

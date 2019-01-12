@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import VolumeMenuButtonExample from '../examples/VolumeMenuButton';
-const VolumeMenuButtonExampleSource = require('!!raw!../examples/VolumeMenuButton');
+const VolumeMenuButtonExampleSource = require('!!raw-loader!../examples/VolumeMenuButton');
 
 export default class VolumeMenuButtonPage extends React.Component {
   render() {
