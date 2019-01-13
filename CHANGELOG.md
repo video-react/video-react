@@ -1,15 +1,24 @@
+<a name="0.13.2"></a>
+## [0.13.2](https://github.com/video-react/video-react/compare/0.13.1...0.13.2) (2019-01-11)
+
+
+### Bug Fixes
+
+* Fixed className propagation problem ([5a169cd](https://github.com/video-react/video-react/commit/5a169cd756bb10cd64f09f561157cb71588fbdaa)), closes [#186](https://github.com/video-react/video-react/issues/186)
+
+
 <a name="0.13.1"></a>
 ## [0.13.1](https://github.com/video-react/video-react/compare/0.13.0...0.13.1) (2018-10-29)
 
 
 
 <a name="0.13.0"></a>
-# [0.13.0](https://github.com/video-react/video-react/compare/0.12.0...0.13.0) (2018-07-07)
+## [0.13.0](https://github.com/video-react/video-react/compare/0.12.0...0.13.0) (2018-07-07)
 
 
 
 <a name="0.12.0"></a>
-# [0.12.0](https://github.com/video-react/video-react/compare/0.11.1...0.12.0) (2018-07-06)
+## [0.12.0](https://github.com/video-react/video-react/compare/0.11.1...0.12.0) (2018-07-06)
 
 
 ### Bug Fixes
