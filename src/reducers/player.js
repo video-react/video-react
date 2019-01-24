@@ -143,7 +143,7 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         ...action.videoProps,
-        ...(action.videoProps.paused ? {} : { hasStarted: true, waiting: false })
+        ...(action.videoProps.paused === false ? { hasStarted: true, waiting: false } : {})
       };
     default:
       return state;
