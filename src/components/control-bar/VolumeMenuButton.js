@@ -32,6 +32,19 @@ class VolumeMenuButton extends Component {
     this.handleBlur = this.handleBlur.bind(this);
   }
 
+  get volumeLevel() {
+    const { player: { volume, muted } } = this.props;
+    let level = 3;
+    if (volume === 0 || muted) {
+      level = 0;
+    } else if (volume < 0.33) {
+      level = 1;
+    } else if (volume < 0.67) {
+      level = 2;
+    }
+    return level;
+  }
+
   handleClick() {
     const { player, actions } = this.props;
     actions.mute(!player.muted);
@@ -47,19 +60,6 @@ class VolumeMenuButton extends Component {
     this.setState({
       active: false,
     });
-  }
-
-  get volumeLevel() {
-    const { player: { volume, muted } } = this.props;
-    let level = 3;
-    if (volume === 0 || muted) {
-      level = 0;
-    } else if (volume < 0.33) {
-      level = 1;
-    } else if (volume < 0.67) {
-      level = 2;
-    }
-    return level;
   }
 
   render() {

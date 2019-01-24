@@ -134,7 +134,7 @@ export default class Shortcut extends Component {
         shift: true,
         handle: (player, actions) => {
           // Increase speed
-          let playbackRate = player.playbackRate;
+          let { playbackRate } = player;
           if (playbackRate >= 1.5) {
             playbackRate = 2;
           } else if (playbackRate >= 1.25) {
@@ -159,7 +159,7 @@ export default class Shortcut extends Component {
         shift: true,
         handle: (player, actions) => {
           // Decrease speed
-          let playbackRate = player.playbackRate;
+          let { playbackRate } = player;
           if (playbackRate <= 0.5) {
             playbackRate = 0.25;
           } else if (playbackRate <= 1.0) {

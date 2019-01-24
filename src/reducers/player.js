@@ -34,7 +34,7 @@ const initialState = {
   isFullscreen: false,
 };
 
-export function player(state = initialState, action) {
+export default function player(state = initialState, action) {
   switch (action.type) {
     case USER_ACTIVATE:
       return {
@@ -140,18 +140,12 @@ export function player(state = initialState, action) {
     case LOADED_META_DATA:
     case LOADED_DATA:
     case RESIZE:
-      const newState = {
+      return {
         ...state,
         ...action.videoProps,
+        ...(action.videoProps.paused ? {} : { hasStarted: true, waiting: false })
       };
-      if (action.videoProps.paused === false) {
-        newState.hasStarted = true;
-        newState.waiting = false;
-      }
-      return newState;
     default:
       return state;
   }
 }
-
-export default player;

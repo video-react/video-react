@@ -14,7 +14,10 @@ describe('Slider', () => {
   });
 
   it('simulates click events', () => {
-    const e = createSpyObj('e', ['preventDefault', 'stopPropagation']);
+    const e = {
+      preventDefault: jest.fn(),
+      stopPropagation: jest.fn()
+    };
     const onClick = jest.fn();
     const wrapper = shallow(
       <Slider

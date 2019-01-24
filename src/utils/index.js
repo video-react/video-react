@@ -1,5 +1,9 @@
 import React from 'react';
 
+// NaN is the only value in javascript which is not equal to itself.
+// eslint-disable-next-line no-self-compare
+const isNaN = Number.isNaN || (value => value !== value);
+
 /**
  * @file format-time.js
  *
@@ -24,7 +28,9 @@ export function formatTime(seconds = 0, guide = seconds) {
   if (isNaN(seconds) || seconds === Infinity) {
     // '-' is false for all relational operators (e.g. <, >=) so this setting
     // will add the minimum number of fields specified by the guide
-    h = m = s = '-';
+    h = '-';
+    m = '-';
+    s = '-';
   }
 
   // Check if we need to show hours
@@ -113,6 +119,7 @@ export function throttle(callback, limit) {
   let wait = false;
   return () => {
     if (!wait) {
+      // eslint-disable-next-line prefer-rest-params
       callback(...arguments);
       wait = true;
       setTimeout(() => {

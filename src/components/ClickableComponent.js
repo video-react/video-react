@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
-  tagName: PropTypes.string.isRequired,
+  tagName: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,

@@ -29,6 +29,7 @@ export default class MenuItem extends Component {
           'video-react-menu-item': true,
           'video-react-selected': index === activateIndex,
         })}
+        role="menuitem"
         onClick={this.handleClick}
       >
         {item.label}

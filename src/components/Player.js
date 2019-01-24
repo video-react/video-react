@@ -182,7 +182,12 @@ export default class Player extends Component {
   }
 
   getStyle() {
-    const { fluid } = this.props;
+    const {
+      fluid,
+      aspectRatio: propsAspectRatio,
+      height: propsHeight,
+      width: propsWidth
+    } = this.props;
     const { player } = this.manager.getState();
     const style = {};
     let width;
@@ -190,10 +195,10 @@ export default class Player extends Component {
     let aspectRatio;
 
     // The aspect ratio is either used directly or to calculate width and height.
-    if (this.props.aspectRatio !== undefined
-      && this.props.aspectRatio !== 'auto') {
+    if (propsAspectRatio !== undefined
+      && propsAspectRatio !== 'auto') {
       // Use any aspectRatio that's been specifically set
-      aspectRatio = this.props.aspectRatio;
+      aspectRatio = propsAspectRatio;
     } else if (player.videoWidth) {
       // Otherwise try to get the aspect ratio from the video metadata
       aspectRatio = `${player.videoWidth}:${player.videoHeight}`;
@@ -206,20 +211,20 @@ export default class Player extends Component {
     const ratioParts = aspectRatio.split(':');
     const ratioMultiplier = ratioParts[1] / ratioParts[0];
 
-    if (this.props.width !== undefined) {
+    if (propsWidth !== undefined) {
       // Use any width that's been specifically set
-      width = this.props.width;
-    } else if (this.props.height !== undefined) {
+      width = propsWidth;
+    } else if (propsHeight !== undefined) {
       // Or calulate the width from the aspect ratio if a height has been set
-      width = this.props.height / ratioMultiplier;
+      width = propsHeight / ratioMultiplier;
     } else {
       // Or use the video's metadata, or use the video el's default of 300
       width = player.videoWidth || 400;
     }
 
-    if (this.props.height !== undefined) {
+    if (propsHeight !== undefined) {
       // Use any height that's been specifically set
-      height = this.props.height;
+      height = propsHeight;
     } else {
       // Otherwise calculate the height from the ratio and the width
       height = width * ratioMultiplier;

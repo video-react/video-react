@@ -66,9 +66,9 @@ export default class MenuButton extends Component {
   }
 
   handleClick() {
-    this.setState({
-      active: !this.state.active,
-    });
+    this.setState(prevState => ({
+      active: !prevState.active,
+    }));
   }
 
   handleFocus() {
@@ -181,7 +181,7 @@ export default class MenuButton extends Component {
           'video-react-menu-button-popup': !inline,
           'video-react-menu-button-active': this.state.active,
         }, 'video-react-control video-react-button video-react-menu-button')}
-        role="presentation"
+        role="button"
         tabIndex="0"
         ref={(c) => {
           this.menuButton = c;

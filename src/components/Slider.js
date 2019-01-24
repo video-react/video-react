@@ -73,8 +73,7 @@ export default class Slider extends Component {
     document.addEventListener('touchend', this.handleMouseUp, true);
 
     this.setState({
-      active: true,
-      distance: 0,
+      active: true
     });
 
     if (this.props.sliderActive) {
@@ -175,7 +174,8 @@ export default class Slider extends Component {
   renderChildren() {
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children, child => React.cloneElement(child, { progress, percentage }));
+    return React.Children.map(this.props.children,
+      child => React.cloneElement(child, { progress, percentage }));
   }
 
   render() {
@@ -191,6 +191,7 @@ export default class Slider extends Component {
           'video-react-sliding': this.state.active,
         }, 'video-react-slider')}
         tabIndex="0"
+        role="slider"
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleMouseDown}
         onFocus={this.handleFocus}

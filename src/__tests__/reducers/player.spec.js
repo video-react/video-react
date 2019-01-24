@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { default as player } from '../../reducers/player';
+import player from '../../reducers/player';
 import {
   LOAD_START, CAN_PLAY,
   WAITING, PLAYING,
