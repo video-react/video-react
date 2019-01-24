@@ -25,7 +25,6 @@ const propTypes = {
 };
 
 export default class Slider extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -55,9 +54,9 @@ export default class Slider extends Component {
     let progress = getPercent();
 
     // Protect against no duration and other division issues
-    if (typeof progress !== 'number' ||
-      progress < 0 ||
-      progress === Infinity) {
+    if (typeof progress !== 'number'
+      || progress < 0
+      || progress === Infinity) {
       progress = 0;
     }
     return progress;
@@ -176,13 +175,13 @@ export default class Slider extends Component {
   renderChildren() {
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { progress, percentage })
-    );
+    return React.Children.map(this.props.children, child => React.cloneElement(child, { progress, percentage }));
   }
 
   render() {
-    const { vertical, label, valuenow, valuetext } = this.props;
+    const {
+      vertical, label, valuenow, valuetext
+    } = this.props;
 
     return (
       <div

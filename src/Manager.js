@@ -73,4 +73,3 @@ export default class Manager {
     return this.subscribeToStateChange(listener, () => this.getState().player);
   }
 }
-

@@ -6,7 +6,6 @@ const propTypes = {
 };
 
 export default class Menu extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -36,4 +35,3 @@ export default class Menu extends Component {
 
 Menu.propTypes = propTypes;
 Menu.displayName = 'Menu';
-

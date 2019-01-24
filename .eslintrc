@@ -1,7 +1,13 @@
 {
   "extends": "airbnb",
   "globals": {
-    "document": true
+    "document": true,
+    "window": true
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true
   },
   "rules": {
     "class-methods-use-this": "off",

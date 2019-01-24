@@ -46,7 +46,9 @@ class PlaybackRateMenuButton extends Component {
         selectedIndex={selectedIndex}
       >
         <span className="video-react-control-text">Playback Rate</span>
-        <div className="video-react-playback-rate-value">{player.playbackRate.toFixed(2)}x</div>
+        <div className="video-react-playback-rate-value">
+          {`${player.playbackRate.toFixed(2)}x`}
+        </div>
       </MenuButton>
     );
   }

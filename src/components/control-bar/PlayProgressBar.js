@@ -12,7 +12,9 @@ const propTypes = {
 };
 
 // Shows play progress
-export default function PlayProgressBar({ currentTime, duration, percentage, className }) {
+export default function PlayProgressBar({
+  currentTime, duration, percentage, className
+}) {
   return (
     <div
       data-current-time={formatTime(currentTime, duration)}
@@ -21,7 +23,10 @@ export default function PlayProgressBar({ currentTime, duration, percentage, cla
         width: percentage,
       }}
     >
-      <span className="video-react-control-text"><span>Progress</span>: {percentage}</span>
+      <span className="video-react-control-text">
+        <span>Progress</span>
+        {`: ${percentage}`}
+      </span>
     </div>
   );
 }

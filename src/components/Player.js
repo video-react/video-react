@@ -375,7 +375,9 @@ export default class Player extends Component {
   render() {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
-    const { paused, hasStarted, waiting, seeking, isFullscreen, userActivity } = player;
+    const {
+      paused, hasStarted, waiting, seeking, isFullscreen, userActivity
+    } = player;
 
     const props = {
       ...this.props,

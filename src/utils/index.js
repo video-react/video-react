@@ -113,7 +113,7 @@ export function throttle(callback, limit) {
   let wait = false;
   return () => {
     if (!wait) {
-      callback.apply(null, arguments);
+      callback(...arguments);
       wait = true;
       setTimeout(() => {
         wait = false;

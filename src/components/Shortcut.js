@@ -208,7 +208,9 @@ export default class Shortcut extends Component {
 
   // merge the shortcuts from props
   mergeShortcuts() {
-    const getShortcutKey = ({ keyCode = 0, ctrl = false, shift = false, alt = false }) => `${keyCode}:${ctrl}:${shift}:${alt}`;
+    const getShortcutKey = ({
+      keyCode = 0, ctrl = false, shift = false, alt = false
+    }) => `${keyCode}:${ctrl}:${shift}:${alt}`;
     const defaultShortcuts = this.defaultShortcuts
       .reduce(
         (shortcuts, shortcut) => Object.assign(shortcuts, {

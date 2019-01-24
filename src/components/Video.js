@@ -151,7 +151,7 @@ export default class Video extends Component {
     const promise = this.video.play();
     if (promise !== undefined) {
       promise
-        .catch(error => {})
+        .catch((error) => {})
         .then(() => {});
     }
   }
@@ -161,7 +161,7 @@ export default class Video extends Component {
     const promise = this.video.pause();
     if (promise !== undefined) {
       promise
-        .catch(error => {})
+        .catch((error) => {})
         .then(() => {});
     }
   }
@@ -306,7 +306,9 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const { loop, player, actions, onEnded } = this.props;
+    const {
+      loop, player, actions, onEnded
+    } = this.props;
     if (loop) {
       this.seek(0);
       this.play();

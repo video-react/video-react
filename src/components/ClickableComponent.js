@@ -15,7 +15,6 @@ const defaultProps = {
 };
 
 export default class ClickableComponent extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -69,7 +68,6 @@ export default class ClickableComponent extends Component {
       />
     );
   }
-
 }
 
 ClickableComponent.propTypes = propTypes;

@@ -9,7 +9,7 @@ describe('Slider', () => {
         actions={{}}
         player={{}}
       />
-      );
+    );
     expect(wrapper.type()).toBe('div');
   });
 

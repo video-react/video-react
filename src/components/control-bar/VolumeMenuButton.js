@@ -20,7 +20,6 @@ const defaultProps = {
 
 
 class VolumeMenuButton extends Component {
-
   constructor(props, context) {
     super(props, context);
 
