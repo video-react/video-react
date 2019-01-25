@@ -10,7 +10,7 @@ describe('LoadingSpinner', () => {
           error: true,
         }}
       />
-      );
+    );
     expect(wrapper.type()).toBe(null);
   });
 
@@ -23,7 +23,7 @@ describe('LoadingSpinner', () => {
           waiting: true,
         }}
       />
-      );
+    );
     expect(wrapper.type()).toBe('div');
   });
 
@@ -35,7 +35,8 @@ describe('LoadingSpinner', () => {
           seeking: true,
           waiting: true,
         }}
-      />);
+      />
+    );
     expect(wrapper.hasClass('video-react-loading-spinner')).toBe(true);
   });
 });

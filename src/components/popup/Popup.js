@@ -7,7 +7,6 @@ const propTypes = {
 };
 
 export default class Popup extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -32,7 +31,6 @@ export default class Popup extends Component {
       </div>
     );
   }
-
 }
 
 Popup.propTypes = propTypes;

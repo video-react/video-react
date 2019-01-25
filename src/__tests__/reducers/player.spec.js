@@ -1,11 +1,13 @@
 import deepFreeze from 'deep-freeze';
-import { default as player } from '../../reducers/player';
-import { LOAD_START, CAN_PLAY,
+import player from '../../reducers/player';
+import {
+  LOAD_START, CAN_PLAY,
   WAITING, PLAYING,
   PLAY, PAUSE, END, SEEKING, SEEKED,
   SEEKING_TIME, END_SEEKING, DURATION_CHANGE,
   TIME_UPDATE, VOLUME_CHANGE, PROGRESS_CHANGE,
-  RATE_CHANGE } from '../../actions/video';
+  RATE_CHANGE
+} from '../../actions/video';
 import { FULLSCREEN_CHANGE, PLAYER_ACTIVATE, USER_ACTIVATE } from '../../actions/player';
 
 describe('player', () => {
@@ -38,10 +40,10 @@ describe('player', () => {
 
 
   it('should handle LOAD_START action', () => {
-    let bufferTwo = {
+    const bufferTwo = {
       length: 2,
-      start: function () {},
-      end: function () {}
+      start() {},
+      end() {}
     };
     const stateBefore = {
       hasStarted: false,
@@ -59,8 +61,8 @@ describe('player', () => {
       ended: false,
       buffered: {
         length: 2,
-        start: function () {},
-        end: function () {}
+        start() {},
+        end() {}
       }
     };
     deepFreeze(stateBefore);
@@ -333,16 +335,16 @@ describe('player', () => {
   });
 
   it('should handle PROGRESS_CHANGE action', () => {
-    let bufferThree = {
+    const bufferThree = {
       length: 3,
-      start: function () {},
-      end: function () {}
+      start() {},
+      end() {}
     };
     const stateBefore = {
       buffered: {
         length: 1,
-        start: function () {},
-        end: function () {}
+        start() {},
+        end() {}
       }
     };
     const action = {

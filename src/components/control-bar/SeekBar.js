@@ -16,7 +16,6 @@ const propTypes = {
 };
 
 export default class SeekBar extends Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -87,7 +86,11 @@ export default class SeekBar extends Component {
   }
 
   render() {
-    const { player: { currentTime, seekingTime, duration, buffered }, mouseTime } = this.props;
+    const {
+      player: {
+        currentTime, seekingTime, duration, buffered
+      }, mouseTime
+    } = this.props;
     const time = seekingTime || currentTime;
 
     return (

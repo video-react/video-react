@@ -13,7 +13,6 @@ const defaultProps = {
 
 export default (mode) => {
   class ForwardReplayControl extends Component {
-
     constructor(props, context) {
       super(props, context);
       this.handleClick = this.handleClick.bind(this);
@@ -33,8 +32,8 @@ export default (mode) => {
       const { seconds, className } = this.props;
       const classNames = ['video-react-control', 'video-react-button', 'video-react-icon'];
       classNames.push(`video-react-icon-${mode}-${seconds}`, `video-react-${mode}-control`);
-      if (this.props.className) {
-        classNames.push(this.props.className);
+      if (className) {
+        classNames.push(className);
       }
       return (
         <button
@@ -57,4 +56,3 @@ export default (mode) => {
   ForwardReplayControl.defaultProps = defaultProps;
   return ForwardReplayControl;
 };
-

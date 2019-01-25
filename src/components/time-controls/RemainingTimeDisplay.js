@@ -21,7 +21,7 @@ function RemainingTimeDisplay({ player: { currentTime, duration }, className }) 
         aria-live="off"
       >
         <span className="video-react-control-text">Remaining Time </span>
-        -{formattedTime}
+        {`-${formattedTime}`}
       </div>
     </div>
   );

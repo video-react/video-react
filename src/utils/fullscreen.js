@@ -25,19 +25,19 @@ class Fullscreen {
 
   get isFullscreen() {
     return (
-      document.fullscreenElement ||
-      document.webkitFullscreenElement ||
-      document.mozFullScreenElement ||
-      document.msFullscreenElement
+      document.fullscreenElement
+      || document.webkitFullscreenElement
+      || document.mozFullScreenElement
+      || document.msFullscreenElement
     );
   }
 
   get enabled() {
     return (
-      document.fullscreenEnabled ||
-      document.webkitFullscreenEnabled ||
-      document.mozFullScreenEnabled ||
-      document.msFullscreenEnabled
+      document.fullscreenEnabled
+      || document.webkitFullscreenEnabled
+      || document.mozFullScreenEnabled
+      || document.msFullscreenEnabled
     );
   }
 
@@ -54,7 +54,6 @@ class Fullscreen {
     document.removeEventListener('mozfullscreenchange', handler);
     document.removeEventListener('MSFullscreenChange', handler);
   }
-
 }
 
 export default new Fullscreen();

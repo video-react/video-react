@@ -9,7 +9,6 @@ const propTypes = {
 };
 
 export default class PlayToggle extends Component {
-
   constructor(props, context) {
     super(props, context);
     this.handleClick = this.handleClick.bind(this);

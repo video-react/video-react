@@ -14,7 +14,7 @@ export default function LoadProgressBar({ buffered, duration, className }) {
     return null;
   }
   let bufferedEnd = buffered.end(buffered.length - 1);
-  let style = {};
+  const style = {};
 
   if (bufferedEnd > duration) {
     bufferedEnd = duration;
@@ -60,7 +60,9 @@ export default function LoadProgressBar({ buffered, duration, className }) {
         className
       )}
     >
-      <span className="video-react-control-text"><span>Loaded</span>: 0%</span>
+      <span className="video-react-control-text">
+        Loaded: 0%
+      </span>
       {parts}
     </div>
   );
