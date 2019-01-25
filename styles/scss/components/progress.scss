@@ -50,15 +50,6 @@
   top: 0;
 }
 
-.video-react .video-react-mouse-display {
-  @extend .video-react-icon;
-
-  &:before {
-    @extend .video-react-icon-circle:before;
-    display: none;
-  }
-}
-
 .video-react .video-react-play-progress {
   background-color: $video-react-primary-foreground-color;
   @extend .video-react-icon;

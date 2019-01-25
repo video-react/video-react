@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import PlayToggleExample from '../examples/PlayToggle';
-const PlayToggleExampleSource = require('!!raw!../examples/PlayToggle');
+const PlayToggleExampleSource = require('!!raw-loader!../examples/PlayToggle');
 
 export default class PlayTogglePage extends React.Component {
   render() {

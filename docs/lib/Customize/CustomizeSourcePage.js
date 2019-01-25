@@ -4,8 +4,8 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import CustomizeSourceExample from '../examples/CustomizeSource';
-const CustomizeSourceExampleSource = require('!!raw!../examples/CustomizeSource');
-const HLSSourceSource = require('!!raw!../examples/HLSSource');
+const CustomizeSourceExampleSource = require('!!raw-loader!../examples/CustomizeSource');
+const HLSSourceSource = require('!!raw-loader!../examples/HLSSource');
 
 export default class CustomizeSourcePage extends React.Component {
   render() {

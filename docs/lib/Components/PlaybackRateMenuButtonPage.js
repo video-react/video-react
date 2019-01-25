@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import PlaybackRateMenuButtonExample from '../examples/PlaybackRateMenuButton';
-const PlaybackRateMenuButtonExampleSource = require('!!raw!../examples/PlaybackRateMenuButton');
+const PlaybackRateMenuButtonExampleSource = require('!!raw-loader!../examples/PlaybackRateMenuButton');
 
 export default class PlaybackRateMenuButtonPage extends React.Component {
   render() {

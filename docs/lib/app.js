@@ -65,7 +65,7 @@ export default (locals, callback) => {
           ${head.title.toString()}
           ${head.meta.toString()}
           <link rel=icon href=/assets/favicon.ico>
-          <link rel="stylesheet" href="/assets/style.css"/>
+          <link rel="stylesheet" href="/assets/main.css"/>
           <link rel="stylesheet" href="/assets/docs.css"/>
         </head>
         <body>
