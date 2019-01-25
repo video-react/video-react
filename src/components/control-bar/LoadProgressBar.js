@@ -61,8 +61,7 @@ export default function LoadProgressBar({ buffered, duration, className }) {
       )}
     >
       <span className="video-react-control-text">
-        <span>Loaded</span>
-: 0%
+        Loaded: 0%
       </span>
       {parts}
     </div>

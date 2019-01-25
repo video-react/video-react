@@ -24,8 +24,7 @@ export default function PlayProgressBar({
       }}
     >
       <span className="video-react-control-text">
-        <span>Progress</span>
-        {`: ${percentage}`}
+        {`Progress: ${percentage}`}
       </span>
     </div>
   );
