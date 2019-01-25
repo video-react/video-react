@@ -51,11 +51,6 @@ function baseConfig() {
 
 function baseUmdConfig(minified) {
   const config = Object.assign(baseConfig(), {
-    globals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      redux: 'Redux',
-    },
     external: peerDependencies,
   });
   config.plugins.push(replace({
