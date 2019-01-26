@@ -10,6 +10,7 @@ before_script:
 - chmod +x scripts/docs
 script:
 - npm run cover -- --runInBand
+- npm run lint
 after_success:
 - scripts/docs
 before_deploy:
