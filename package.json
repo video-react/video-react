@@ -7,7 +7,6 @@
   "scripts": {
     "test": "BABEL_ENV=test jest",
     "test:coverage": "BABEL_ENV=test jest --coverage",
-    "cover": "npm test -- --coverage",
     "start": "webpack-dev-server --watch",
     "build-docs": "cross-env WEBPACK_BUILD=production webpack --progress --colors",
     "build": "rollup -c",

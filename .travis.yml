@@ -9,7 +9,7 @@ cache:
 before_script:
 - chmod +x scripts/docs
 script:
-- npm run cover -- --runInBand
+- npm run test:coverage -- --runInBand
 - npm run lint
 after_success:
 - scripts/docs
