@@ -13,6 +13,7 @@ script:
 - npm run lint
 after_success:
 - scripts/docs
+- npx codecov --file=./coverage/lcov.info
 before_deploy:
 - npm run build
 deploy:
