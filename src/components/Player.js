@@ -355,11 +355,13 @@ export default class Player extends Component {
   }
 
   startControlsTimer() {
-    this.actions.userActivate(true);
-    clearTimeout(this.controlsHideTimer);
-    this.controlsHideTimer = setTimeout(() => {
-      this.actions.userActivate(false);
-    }, 3000);
+    window.requestAnimationFrame(() => {
+      this.actions.userActivate(true);
+      clearTimeout(this.controlsHideTimer);
+      this.controlsHideTimer = setTimeout(() => {
+        this.actions.userActivate(false);
+      }, 3000);
+    });
   }
 
   handleStateChange(state, prevState) {
