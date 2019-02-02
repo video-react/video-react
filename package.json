@@ -16,7 +16,8 @@
     "create-minor": "sh ./scripts/release minor",
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "npm test && sh ./scripts/publish",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "format": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\""
   },
   "repository": {
     "type": "git",
