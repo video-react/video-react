@@ -8,7 +8,7 @@ describe('PlayToggle', () => {
       <PlayToggle
         actions={{}}
         player={{
-          paused: false,
+          paused: false
         }}
       />
     );
@@ -21,7 +21,7 @@ describe('PlayToggle', () => {
       <PlayToggle
         actions={{}}
         player={{
-          paused: false,
+          paused: false
         }}
       />
     );
@@ -33,7 +33,7 @@ describe('PlayToggle', () => {
       <PlayToggle
         actions={{}}
         player={{
-          paused: true,
+          paused: true
         }}
       />
     );
@@ -45,7 +45,7 @@ describe('PlayToggle', () => {
       <PlayToggle
         actions={{}}
         player={{
-          paused: false,
+          paused: false
         }}
       />
     );

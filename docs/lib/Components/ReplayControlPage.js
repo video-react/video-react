@@ -13,9 +13,7 @@ export default class ReplayControlPage extends React.Component {
       <div>
         <Helmet title="ReplayControl" />
         <h3>ReplayControl</h3>
-        <p>
-        A button in control bar to go forward 5/10/30 seconds.
-        </p>
+        <p>A button in control bar to go forward 5/10/30 seconds.</p>
         <div className="docs-example">
           <ReplayControlExample />
         </div>
@@ -27,7 +25,7 @@ export default class ReplayControlPage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-                        {`ReplayControl.propTypes = {
+            {`ReplayControl.propTypes = {
 
   // How many seconds to go forward
   // default: 10

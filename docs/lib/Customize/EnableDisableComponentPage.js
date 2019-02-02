@@ -12,9 +12,7 @@ export default class EnableDisableComponentPage extends React.Component {
       <div>
         <Helmet title="Enable & disable default components" />
         <h3>Enable & Disable Default Components</h3>
-        <p>
-        The components can be enabled or disabled.
-        </p>
+        <p>The components can be enabled or disabled.</p>
         <div className="docs-example">
           <EnableDisableComponentExample />
         </div>

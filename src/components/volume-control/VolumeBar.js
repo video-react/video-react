@@ -10,7 +10,7 @@ const propTypes = {
   player: PropTypes.object,
   className: PropTypes.string,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
+  onBlur: PropTypes.func
 };
 
 class VolumeBar extends Component {
@@ -18,7 +18,7 @@ class VolumeBar extends Component {
     super(props, context);
 
     this.state = {
-      percentage: '0%',
+      percentage: '0%'
     };
 
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -32,8 +32,7 @@ class VolumeBar extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   getPercent() {
     const { player } = this.props;
@@ -84,7 +83,7 @@ class VolumeBar extends Component {
   handlePercentageChange(percentage) {
     if (percentage !== this.state.percentage) {
       this.setState({
-        percentage,
+        percentage
       });
     }
   }
@@ -99,7 +98,7 @@ class VolumeBar extends Component {
     const volume = (player.volume * 100).toFixed(2);
     return (
       <Slider
-        ref={(c) => {
+        ref={c => {
           this.slider = c;
         }}
         label="volume level"
@@ -116,11 +115,12 @@ class VolumeBar extends Component {
         stepForward={this.stepForward}
         stepBack={this.stepBack}
         {...this.props}
-        className={classNames(className, 'video-react-volume-bar video-react-slider-bar')}
+        className={classNames(
+          className,
+          'video-react-volume-bar video-react-slider-bar'
+        )}
       >
-        <VolumeLevel
-          {...this.props}
-        />
+        <VolumeLevel {...this.props} />
       </Slider>
     );
   }

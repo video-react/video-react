@@ -7,11 +7,11 @@ const propTypes = {
   onClick: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 const defaultProps = {
-  tagName: 'div',
+  tagName: 'div'
 };
 
 export default class ClickableComponent extends Component {

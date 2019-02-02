@@ -5,13 +5,16 @@ import classNames from 'classnames';
 import VolumeBar from './VolumeBar';
 
 const propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default function VolumeControl({ className, ...rest }) {
   return (
     <div
-      className={classNames(className, 'video-react-volume-control video-react-control')}
+      className={classNames(
+        className,
+        'video-react-volume-control video-react-control'
+      )}
     >
       <VolumeBar {...rest} />
     </div>

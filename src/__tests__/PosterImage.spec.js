@@ -8,7 +8,7 @@ describe('PosterImage', () => {
       <PosterImage
         poster="poster.png"
         player={{
-          hasStarted: false,
+          hasStarted: false
         }}
       />
     );
@@ -21,7 +21,7 @@ describe('PosterImage', () => {
       <PosterImage
         poster="poster.png"
         player={{
-          hasStarted: false,
+          hasStarted: false
         }}
       />
     );

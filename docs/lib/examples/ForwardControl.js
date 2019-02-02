@@ -1,7 +1,7 @@
 import React from 'react';
-import { Player, ControlBar, ForwardControl} from 'video-react';
+import { Player, ControlBar, ForwardControl } from 'video-react';
 
-export default (props) => {
+export default props => {
   return (
     <Player
       autoPlay

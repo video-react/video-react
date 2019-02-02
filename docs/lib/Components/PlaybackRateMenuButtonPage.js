@@ -12,9 +12,7 @@ export default class PlaybackRateMenuButtonPage extends React.Component {
       <div>
         <Helmet title="PlaybackRateMenuButton" />
         <h3>PlaybackRateMenuButton</h3>
-        <p>
-        The dropdown menu to control the playback rates.
-        </p>
+        <p>The dropdown menu to control the playback rates.</p>
         <div className="docs-example">
           <PlaybackRateMenuButtonExample />
         </div>
@@ -26,7 +24,7 @@ export default class PlaybackRateMenuButtonPage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-{`PlaybackRateMenuButton.propTypes = {
+            {`PlaybackRateMenuButton.propTypes = {
 
   // The direction where Volume Bar popup
   // default: [2, 1.5, 1.25, 1, 0.5, 0.25]

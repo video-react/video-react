@@ -3,7 +3,6 @@ import reducer from './reducers';
 import * as playerActions from './actions/player';
 import * as videoActions from './actions/video';
 
-
 export default class Manager {
   constructor(store) {
     this.store = store || createStore(reducer);
@@ -17,7 +16,7 @@ export default class Manager {
     const { dispatch } = this.store;
     const actions = {
       ...playerActions,
-      ...videoActions,
+      ...videoActions
     };
 
     function bindActionCreator(actionCreator) {
@@ -30,12 +29,12 @@ export default class Manager {
       };
     }
 
-    return Object.keys(actions).filter(
-      key => typeof actions[key] === 'function',
-    ).reduce((boundActions, key) => {
-      boundActions[key] = bindActionCreator(actions[key]);
-      return boundActions;
-    }, {});
+    return Object.keys(actions)
+      .filter(key => typeof actions[key] === 'function')
+      .reduce((boundActions, key) => {
+        boundActions[key] = bindActionCreator(actions[key]);
+        return boundActions;
+      }, {});
   }
 
   getState() {
@@ -65,7 +64,10 @@ export default class Manager {
 
   // subscribe to operation state change
   subscribeToOperationStateChange(listener) {
-    return this.subscribeToStateChange(listener, () => this.getState().operation);
+    return this.subscribeToStateChange(
+      listener,
+      () => this.getState().operation
+    );
   }
 
   // subscribe to player state change

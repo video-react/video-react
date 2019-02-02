@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 const propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 };
 
 export default class Menu extends Component {
@@ -17,7 +17,6 @@ export default class Menu extends Component {
     // event.stopPropagation();
   }
 
-
   render() {
     return (
       <div
@@ -25,9 +24,7 @@ export default class Menu extends Component {
         role="presentation"
         onClick={this.handleClick}
       >
-        <ul className="video-react-menu-content">
-          {this.props.children}
-        </ul>
+        <ul className="video-react-menu-content">{this.props.children}</ul>
       </div>
     );
   }

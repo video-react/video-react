@@ -37,11 +37,17 @@ const routes = (
       <Route path="forward-control/" component={ForwardControlPage} />
       <Route path="replay-control/" component={ReplayControlPage} />
       <Route path="volume-menu-button/" component={VolumeMenuButtonPage} />
-      <Route path="playback-rate-menu-button/" component={PlaybackRateMenuButtonPage} />
+      <Route
+        path="playback-rate-menu-button/"
+        component={PlaybackRateMenuButtonPage}
+      />
     </Route>
     <Route path="/customize/" component={Customize}>
       <IndexRedirect to="enable-disable-components/" />
-      <Route path="enable-disable-components/" component={EnableDisableComponentPage} />
+      <Route
+        path="enable-disable-components/"
+        component={EnableDisableComponentPage}
+      />
       <Route path="customize-component/" component={CustomizeComponentPage} />
       <Route path="customize-source/" component={CustomizeSourcePage} />
     </Route>

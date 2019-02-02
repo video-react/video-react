@@ -41,11 +41,11 @@ const propTypes = {
   onTimeUpdate: PropTypes.func,
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
-  onResize: PropTypes.func,
+  onResize: PropTypes.func
 };
 
 const defaultProps = {
-  preload: 'auto',
+  preload: 'auto'
 };
 
 export default class Video extends Component {
@@ -150,9 +150,7 @@ export default class Video extends Component {
   play() {
     const promise = this.video.play();
     if (promise !== undefined) {
-      promise
-        .catch(() => {})
-        .then(() => {});
+      promise.catch(() => {}).then(() => {});
     }
   }
 
@@ -160,9 +158,7 @@ export default class Video extends Component {
   pause() {
     const promise = this.video.pause();
     if (promise !== undefined) {
-      promise
-        .catch(() => {})
-        .then(() => {});
+      promise.catch(() => {}).then(() => {});
     }
   }
 
@@ -306,9 +302,7 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const {
-      loop, player, actions, onEnded
-    } = this.props;
+    const { loop, player, actions, onEnded } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -355,9 +349,7 @@ export default class Video extends Component {
   }
 
   // Handle Fullscreen Change
-  handleFullscreenChange() {
-  }
-
+  handleFullscreenChange() {}
 
   // Fires when the browser is
   // intentionally not getting media data
@@ -476,14 +468,12 @@ export default class Video extends Component {
     }
   }
 
-  handleKeypress() {
-
-  }
+  handleKeypress() {}
 
   renderChildren() {
     const props = {
       ...this.props,
-      video: this.video,
+      video: this.video
     };
 
     // to make sure the children can get video property
@@ -494,7 +484,7 @@ export default class Video extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map((c) => {
+      .map(c => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -511,28 +501,31 @@ export default class Video extends Component {
         } else {
           cprops = props;
         }
-        return React.cloneElement(
-          c,
-          cprops
-        );
+        return React.cloneElement(c, cprops);
       });
   }
 
   render() {
     const {
-      loop, poster, preload, src, autoPlay,
-      playsInline, muted, crossOrigin, videoId
+      loop,
+      poster,
+      preload,
+      src,
+      autoPlay,
+      playsInline,
+      muted,
+      crossOrigin,
+      videoId
     } = this.props;
 
     return (
       <video
-        className={classNames(
-          'video-react-video',
-          this.props.className
-        )}
+        className={classNames('video-react-video', this.props.className)}
         id={videoId}
         crossOrigin={crossOrigin}
-        ref={(c) => { this.video = c; }}
+        ref={c => {
+          this.video = c;
+        }}
         muted={muted}
         preload={preload}
         loop={loop}

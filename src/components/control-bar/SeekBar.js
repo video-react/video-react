@@ -12,7 +12,7 @@ const propTypes = {
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default class SeekBar extends Component {
@@ -29,11 +29,9 @@ export default class SeekBar extends Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   /**
    * Get percentage of video played
@@ -49,7 +47,9 @@ export default class SeekBar extends Component {
   }
 
   getNewTime(event) {
-    const { player: { duration } } = this.props;
+    const {
+      player: { duration }
+    } = this.props;
     const distance = this.slider.calculateDistance(event);
     const newTime = distance * duration;
 
@@ -57,8 +57,7 @@ export default class SeekBar extends Component {
     return newTime === duration ? newTime - 0.1 : newTime;
   }
 
-  handleMouseDown() {
-  }
+  handleMouseDown() {}
 
   handleMouseUp(event) {
     const { actions } = this.props;
@@ -74,7 +73,6 @@ export default class SeekBar extends Component {
     actions.handleSeekingTime(newTime);
   }
 
-
   stepForward() {
     const { actions } = this.props;
     actions.forward(5);
@@ -87,19 +85,21 @@ export default class SeekBar extends Component {
 
   render() {
     const {
-      player: {
-        currentTime, seekingTime, duration, buffered
-      }, mouseTime
+      player: { currentTime, seekingTime, duration, buffered },
+      mouseTime
     } = this.props;
     const time = seekingTime || currentTime;
 
     return (
       <Slider
-        ref={(input) => {
+        ref={input => {
           this.slider = input;
         }}
         label="video progress bar"
-        className={classNames('video-react-progress-holder', this.props.className)}
+        className={classNames(
+          'video-react-progress-holder',
+          this.props.className
+        )}
         valuenow={(this.getPercent() * 100).toFixed(2)}
         valuetext={formatTime(time, duration)}
         onMouseDown={this.handleMouseDown}
@@ -114,14 +114,8 @@ export default class SeekBar extends Component {
           currentTime={time}
           duration={duration}
         />
-        <MouseTimeDisplay
-          duration={duration}
-          mouseTime={mouseTime}
-        />
-        <PlayProgressBar
-          currentTime={time}
-          duration={duration}
-        />
+        <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />
+        <PlayProgressBar currentTime={time} duration={duration} />
       </Slider>
     );
   }

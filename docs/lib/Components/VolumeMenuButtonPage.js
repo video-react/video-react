@@ -12,9 +12,7 @@ export default class VolumeMenuButtonPage extends React.Component {
       <div>
         <Helmet title="VolumeMenuButton" />
         <h3>VolumeMenuButton</h3>
-        <p>
-        Button for volume popup.
-        </p>
+        <p>Button for volume popup.</p>
         <div className="docs-example">
           <VolumeMenuButtonExample />
         </div>
@@ -26,7 +24,7 @@ export default class VolumeMenuButtonPage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-{`VolumeMenuButton.propTypes = {
+            {`VolumeMenuButton.propTypes = {
 
   // The direction where Volume Bar popup
   // default: false

@@ -9,11 +9,11 @@ describe('SeekBar', () => {
         actions={{}}
         player={{
           duration: 200,
-          currentTime: 50,
+          currentTime: 50
         }}
         mouseTime={{
           time: 100,
-          position: 0,
+          position: 0
         }}
       />
     );
@@ -27,11 +27,11 @@ describe('SeekBar', () => {
         actions={{}}
         player={{
           duration: 200,
-          currentTime: 50,
+          currentTime: 50
         }}
         mouseTime={{
           time: 100,
-          position: 0,
+          position: 0
         }}
       />
     );

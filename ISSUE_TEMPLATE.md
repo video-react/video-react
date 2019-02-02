@@ -12,11 +12,14 @@
 3. step3
 
 ### Expected behaviour
+
 Tell us what should happen
 
 ### Actual behaviour
+
 Tell us what happens instead
 
 ### Demo
+
 You can fork from this template and add your code
 https://codesandbox.io/s/2v95wlpvjj

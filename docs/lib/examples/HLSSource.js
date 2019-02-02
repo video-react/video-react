@@ -22,7 +22,6 @@ export default class HLSSource extends Component {
     }
   }
 
-
   componentWillUnmount() {
     // destroy hls video source
     if (this.hls) {
