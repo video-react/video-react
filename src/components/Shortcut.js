@@ -8,12 +8,12 @@ const propTypes = {
   manager: PropTypes.object,
   actions: PropTypes.object,
   player: PropTypes.object,
-  shortcuts: PropTypes.array,
+  shortcuts: PropTypes.array
 };
 
 const defaultProps = {
   clickable: true,
-  dblclickable: true,
+  dblclickable: true
 };
 
 export default class Shortcut extends Component {
@@ -23,15 +23,15 @@ export default class Shortcut extends Component {
     this.defaultShortcuts = [
       {
         keyCode: 32, // spacebar
-        handle: this.togglePlay,
+        handle: this.togglePlay
       },
       {
         keyCode: 75, // k
-        handle: this.togglePlay,
+        handle: this.togglePlay
       },
       {
         keyCode: 70, // f
-        handle: this.toggleFullscreen,
+        handle: this.toggleFullscreen
       },
       {
         keyCode: 37, // Left arrow
@@ -41,9 +41,9 @@ export default class Shortcut extends Component {
           }
           actions.replay(5, {
             action: 'replay-5',
-            source: 'shortcut',
+            source: 'shortcut'
           }); // Go back 5 seconds
-        },
+        }
       },
       {
         keyCode: 74, // j
@@ -53,9 +53,9 @@ export default class Shortcut extends Component {
           }
           actions.replay(10, {
             action: 'replay-10',
-            source: 'shortcut',
+            source: 'shortcut'
           }); // Go back 10 seconds
-        },
+        }
       },
       {
         keyCode: 39, // Right arrow
@@ -65,9 +65,9 @@ export default class Shortcut extends Component {
           }
           actions.forward(5, {
             action: 'forward-5',
-            source: 'shortcut',
+            source: 'shortcut'
           }); // Go forward 5 seconds
-        },
+        }
       },
       {
         keyCode: 76, // l
@@ -77,9 +77,9 @@ export default class Shortcut extends Component {
           }
           actions.forward(10, {
             action: 'forward-10',
-            source: 'shortcut',
+            source: 'shortcut'
           }); // Go forward 10 seconds
-        },
+        }
       },
       {
         keyCode: 36, // Home
@@ -88,7 +88,7 @@ export default class Shortcut extends Component {
             return;
           }
           actions.seek(0); // Go to beginning of video
-        },
+        }
       },
       {
         keyCode: 35, // End
@@ -98,7 +98,7 @@ export default class Shortcut extends Component {
           }
           // Go to end of video
           actions.seek(player.duration);
-        },
+        }
       },
       {
         keyCode: 38, // Up arrow
@@ -110,9 +110,9 @@ export default class Shortcut extends Component {
           }
           actions.changeVolume(v, {
             action: 'volume-up',
-            source: 'shortcut',
+            source: 'shortcut'
           });
-        },
+        }
       },
       {
         keyCode: 40, // Down arrow
@@ -122,12 +122,12 @@ export default class Shortcut extends Component {
           if (v < 0) {
             v = 0;
           }
-          const action = (v > 0) ? 'volume-down' : 'volume-off';
+          const action = v > 0 ? 'volume-down' : 'volume-off';
           actions.changeVolume(v, {
             action,
-            source: 'shortcut',
+            source: 'shortcut'
           });
-        },
+        }
       },
       {
         keyCode: 190, // Shift + >
@@ -150,9 +150,9 @@ export default class Shortcut extends Component {
           }
           actions.changeRate(playbackRate, {
             action: 'fast-forward',
-            source: 'shortcut',
+            source: 'shortcut'
           });
-        },
+        }
       },
       {
         keyCode: 188, // Shift + <
@@ -173,10 +173,10 @@ export default class Shortcut extends Component {
           }
           actions.changeRate(playbackRate, {
             action: 'fast-rewind',
-            source: 'shortcut',
+            source: 'shortcut'
           });
-        },
-      },
+        }
+      }
     ];
 
     this.shortcuts = [...this.defaultShortcuts];
@@ -209,30 +209,35 @@ export default class Shortcut extends Component {
   // merge the shortcuts from props
   mergeShortcuts() {
     const getShortcutKey = ({
-      keyCode = 0, ctrl = false, shift = false, alt = false
+      keyCode = 0,
+      ctrl = false,
+      shift = false,
+      alt = false
     }) => `${keyCode}:${ctrl}:${shift}:${alt}`;
-    const defaultShortcuts = this.defaultShortcuts
-      .reduce(
-        (shortcuts, shortcut) => Object.assign(shortcuts, {
-          [getShortcutKey(shortcut)]: shortcut,
+    const defaultShortcuts = this.defaultShortcuts.reduce(
+      (shortcuts, shortcut) =>
+        Object.assign(shortcuts, {
+          [getShortcutKey(shortcut)]: shortcut
         }),
-        {}
-      );
-    const mergedShortcuts = (this.props.shortcuts || [])
-      .reduce((shortcuts, shortcut) => {
+      {}
+    );
+    const mergedShortcuts = (this.props.shortcuts || []).reduce(
+      (shortcuts, shortcut) => {
         const { keyCode, handle } = shortcut;
         if (keyCode && typeof handle === 'function') {
           return Object.assign(shortcuts, {
-            [getShortcutKey(shortcut)]: shortcut,
+            [getShortcutKey(shortcut)]: shortcut
           });
         }
         return shortcuts;
-      }, defaultShortcuts);
+      },
+      defaultShortcuts
+    );
 
-    const gradeShortcut = (s) => {
+    const gradeShortcut = s => {
       let score = 0;
       const ps = ['ctrl', 'shift', 'alt'];
-      ps.forEach((key) => {
+      ps.forEach(key => {
         if (s[key]) {
           score++;
         }
@@ -249,12 +254,12 @@ export default class Shortcut extends Component {
     if (player.paused) {
       actions.play({
         action: 'play',
-        source: 'shortcut',
+        source: 'shortcut'
       });
     } else {
       actions.pause({
         action: 'pause',
-        source: 'shortcut',
+        source: 'shortcut'
       });
     }
   }
@@ -268,12 +273,13 @@ export default class Shortcut extends Component {
     if (!player.isActive) {
       return;
     }
-    if (document.activeElement && (
-      hasClass(document.activeElement, 'video-react-control')
-        || hasClass(document.activeElement, 'video-react-menu-button-active')
+    if (
+      document.activeElement &&
+      (hasClass(document.activeElement, 'video-react-control') ||
+        hasClass(document.activeElement, 'video-react-menu-button-active') ||
         // || hasClass(document.activeElement, 'video-react-slider')
-        || hasClass(document.activeElement, 'video-react-big-play-button')
-    )) {
+        hasClass(document.activeElement, 'video-react-big-play-button'))
+    ) {
       return;
     }
 
@@ -282,13 +288,14 @@ export default class Shortcut extends Component {
     const shift = e.shiftKey;
     const alt = e.altKey;
 
-    const shortcut = this.shortcuts.filter((s) => {
+    const shortcut = this.shortcuts.filter(s => {
       if (!s.keyCode || s.keyCode - keyCode !== 0) {
         return false;
       }
-      if ((s.ctrl !== undefined && s.ctrl !== ctrl)
-        || (s.shift !== undefined && s.shift !== shift)
-        || (s.alt !== undefined && s.alt !== alt)
+      if (
+        (s.ctrl !== undefined && s.ctrl !== ctrl) ||
+        (s.shift !== undefined && s.shift !== shift) ||
+        (s.alt !== undefined && s.alt !== alt)
       ) {
         return false;
       }
@@ -303,9 +310,11 @@ export default class Shortcut extends Component {
 
   // only if player is active and player is ready
   canBeClicked(player, e) {
-    if (!player.isActive
-      || e.target.nodeName !== 'VIDEO'
-      || player.readyState !== 4) {
+    if (
+      !player.isActive ||
+      e.target.nodeName !== 'VIDEO' ||
+      player.readyState !== 4
+    ) {
       return false;
     }
     return true;

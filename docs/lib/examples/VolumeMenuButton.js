@@ -1,7 +1,7 @@
 import React from 'react';
 import { Player, ControlBar, VolumeMenuButton } from 'video-react';
 
-export default (props) => {
+export default props => {
   return (
     <Player
       autoPlay

@@ -4,9 +4,7 @@ import classNames from 'classnames';
 
 import { formatTime } from '../../utils';
 
-function MouseTimeDisplay({
-  duration, mouseTime, className, text
-}) {
+function MouseTimeDisplay({ duration, mouseTime, className, text }) {
   if (!mouseTime.time) {
     return null;
   }
@@ -17,7 +15,7 @@ function MouseTimeDisplay({
     <div
       className={classNames('video-react-mouse-display', className)}
       style={{
-        left: `${mouseTime.position}px`,
+        left: `${mouseTime.position}px`
       }}
       data-current-time={time}
     />
@@ -27,7 +25,7 @@ function MouseTimeDisplay({
 MouseTimeDisplay.propTypes = {
   duration: PropTypes.number,
   mouseTime: PropTypes.object,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 MouseTimeDisplay.displayName = 'MouseTimeDisplay';
 

@@ -12,9 +12,7 @@ export default class PlayTogglePage extends React.Component {
       <div>
         <Helmet title="PlayToggle" />
         <h3>PlayToggle</h3>
-        <p>
-        A button component to toggle between play and pause.
-        </p>
+        <p>A button component to toggle between play and pause.</p>
         <div className="docs-example">
           <PlayToggleExample />
         </div>
@@ -26,7 +24,7 @@ export default class PlayTogglePage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-{`PlayToggle.propTypes = {
+            {`PlayToggle.propTypes = {
 
 // no customizable properties,
 

@@ -15,21 +15,23 @@ export function handleFullscreenChange(isFullscreen) {
 export function activate(activity) {
   return {
     type: PLAYER_ACTIVATE,
-    activity,
+    activity
   };
 }
 
 export function userActivate(activity) {
   return {
     type: USER_ACTIVATE,
-    activity,
+    activity
   };
 }
 
-export function play(operation = {
-  action: 'play',
-  source: ''
-}) {
+export function play(
+  operation = {
+    action: 'play',
+    source: ''
+  }
+) {
   this.video.play();
 
   return {
@@ -38,10 +40,12 @@ export function play(operation = {
   };
 }
 
-export function pause(operation = {
-  action: 'pause',
-  source: ''
-}) {
+export function pause(
+  operation = {
+    action: 'pause',
+    source: ''
+  }
+) {
   this.video.pause();
 
   return {
@@ -50,10 +54,12 @@ export function pause(operation = {
   };
 }
 
-export function togglePlay(operation = {
-  action: 'toggle-play',
-  source: ''
-}) {
+export function togglePlay(
+  operation = {
+    action: 'toggle-play',
+    source: ''
+  }
+) {
   this.video.togglePlay();
 
   return {
@@ -63,10 +69,13 @@ export function togglePlay(operation = {
 }
 
 // seek video by time
-export function seek(time, operation = {
-  action: 'seek',
-  source: ''
-}) {
+export function seek(
+  time,
+  operation = {
+    action: 'seek',
+    source: ''
+  }
+) {
   this.video.seek(time);
 
   return {
@@ -76,10 +85,13 @@ export function seek(time, operation = {
 }
 
 // jump forward x seconds
-export function forward(seconds, operation = {
-  action: `forward-${seconds}`,
-  source: ''
-}) {
+export function forward(
+  seconds,
+  operation = {
+    action: `forward-${seconds}`,
+    source: ''
+  }
+) {
   this.video.forward(seconds);
 
   return {
@@ -89,10 +101,13 @@ export function forward(seconds, operation = {
 }
 
 // jump back x seconds
-export function replay(seconds, operation = {
-  action: `replay-${seconds}`,
-  source: ''
-}) {
+export function replay(
+  seconds,
+  operation = {
+    action: `replay-${seconds}`,
+    source: ''
+  }
+) {
   this.video.replay(seconds);
 
   return {
@@ -101,10 +116,13 @@ export function replay(seconds, operation = {
   };
 }
 
-export function changeRate(rate, operation = {
-  action: 'change-rate',
-  source: ''
-}) {
+export function changeRate(
+  rate,
+  operation = {
+    action: 'change-rate',
+    source: ''
+  }
+) {
   this.video.playbackRate = rate;
 
   return {
@@ -113,10 +131,13 @@ export function changeRate(rate, operation = {
   };
 }
 
-export function changeVolume(volume, operation = {
-  action: 'change-volume',
-  source: ''
-}) {
+export function changeVolume(
+  volume,
+  operation = {
+    action: 'change-volume',
+    source: ''
+  }
+) {
   let v = volume;
   if (volume < 0) {
     v = 0;
@@ -132,10 +153,13 @@ export function changeVolume(volume, operation = {
   };
 }
 
-export function mute(muted, operation = {
-  action: muted ? 'muted' : 'unmuted',
-  source: ''
-}) {
+export function mute(
+  muted,
+  operation = {
+    action: muted ? 'muted' : 'unmuted',
+    source: ''
+  }
+) {
   this.video.muted = muted;
 
   return {

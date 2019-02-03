@@ -34,14 +34,14 @@ export function formatTime(seconds = 0, guide = seconds) {
   }
 
   // Check if we need to show hours
-  h = (h > 0 || gh > 0) ? `${h}:` : '';
+  h = h > 0 || gh > 0 ? `${h}:` : '';
 
   // If hours are showing, we may need to add a leading zero.
   // Always show at least one digit of minutes.
-  m = `${(((h || gm >= 10) && m < 10) ? `0${m}` : m)}:`;
+  m = `${(h || gm >= 10) && m < 10 ? `0${m}` : m}:`;
 
   // Check if leading zero is need for seconds
-  s = (s < 10) ? `0${s}` : s;
+  s = s < 10 ? `0${s}` : s;
 
   return h + m + s;
 }
@@ -54,7 +54,7 @@ export function isVideoChild(c) {
   if (c.props && c.props.isVideoChild) {
     return true;
   }
-  return (c.type === 'source' || c.type === 'track');
+  return c.type === 'source' || c.type === 'track';
 }
 
 const find = (elements, func) => elements.filter(func)[0];
@@ -78,7 +78,12 @@ const isTypeEqual = (component1, component2) => {
 // merge default children
 // sort them by `order` property
 // filter them by `disabled` property
-export function mergeAndSortChildren(defaultChildren, _children, _parentProps, defaultOrder = 1) {
+export function mergeAndSortChildren(
+  defaultChildren,
+  _children,
+  _parentProps,
+  defaultOrder = 1
+) {
   const children = React.Children.toArray(_children);
   const { order, ...parentProps } = _parentProps; // ignore order from parent
   return children
@@ -88,23 +93,24 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
         c => !find(children, component => isTypeEqual(component, c))
       )
     )
-    .map((element) => {
-      const defaultComponent = find(defaultChildren, c => isTypeEqual(c, element));
+    .map(element => {
+      const defaultComponent = find(defaultChildren, c =>
+        isTypeEqual(c, element)
+      );
 
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
         ...parentProps, // inherit from parent component
         ...defaultProps, // inherit from default component
-        ...element.props, // element's own props
+        ...element.props // element's own props
       };
-      const e = React.cloneElement(
-        element,
-        props,
-        element.props.children
-      );
+      const e = React.cloneElement(element, props, element.props.children);
       return e;
     })
-    .sort((a, b) => (a.props.order || defaultOrder) - (b.props.order || defaultOrder));
+    .sort(
+      (a, b) =>
+        (a.props.order || defaultOrder) - (b.props.order || defaultOrder)
+    );
 }
 
 /**
@@ -112,7 +118,9 @@ export function mergeAndSortChildren(defaultChildren, _children, _parentProps, d
  */
 export function deprecatedWarning(oldMethodCall, newMethodCall) {
   // eslint-disable-next-line no-console
-  console.warn(`WARNING: ${oldMethodCall} will be deprecated soon! Please use ${newMethodCall} instead.`);
+  console.warn(
+    `WARNING: ${oldMethodCall} will be deprecated soon! Please use ${newMethodCall} instead.`
+  );
 }
 
 export function throttle(callback, limit) {
@@ -130,16 +138,38 @@ export function throttle(callback, limit) {
 }
 
 export const mediaProperties = [
-  'error', 'src', 'srcObject',
-  'currentSrc', 'crossOrigin',
-  'networkState', 'preload', 'buffered',
-  'readyState', 'seeking', 'currentTime',
-  'duration', 'paused', 'defaultPlaybackRate',
-  'playbackRate', 'played', 'seekable',
-  'ended', 'autoplay', 'loop',
-  'mediaGroup', 'controller', 'controls',
-  'volume', 'muted', 'defaultMuted',
-  'audioTracks', 'videoTracks', 'textTracks',
-  'width', 'height', 'videoWidth', 'videoHeight',
+  'error',
+  'src',
+  'srcObject',
+  'currentSrc',
+  'crossOrigin',
+  'networkState',
+  'preload',
+  'buffered',
+  'readyState',
+  'seeking',
+  'currentTime',
+  'duration',
+  'paused',
+  'defaultPlaybackRate',
+  'playbackRate',
+  'played',
+  'seekable',
+  'ended',
+  'autoplay',
+  'loop',
+  'mediaGroup',
+  'controller',
+  'controls',
+  'volume',
+  'muted',
+  'defaultMuted',
+  'audioTracks',
+  'videoTracks',
+  'textTracks',
+  'width',
+  'height',
+  'videoWidth',
+  'videoHeight',
   'poster'
 ];

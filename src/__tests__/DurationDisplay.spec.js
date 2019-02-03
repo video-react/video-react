@@ -8,7 +8,7 @@ describe('DurationDisplay', () => {
       <DurationDisplay
         player={{
           duration: 100,
-          currentTime: 20,
+          currentTime: 20
         }}
       />
     );
@@ -20,7 +20,7 @@ describe('DurationDisplay', () => {
       <DurationDisplay
         player={{
           duration: 100,
-          currentTime: 20,
+          currentTime: 20
         }}
       />
     );

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const propTypes = {
   duration: PropTypes.number,
   buffered: PropTypes.object,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 // Shows load progress
@@ -22,8 +22,8 @@ export default function LoadProgressBar({ buffered, duration, className }) {
 
   // get the percent width of a time compared to the total end
   function percentify(time, end) {
-    const percent = (time / end) || 0; // no NaN
-    return `${((percent >= 1 ? 1 : percent) * 100)}%`;
+    const percent = time / end || 0; // no NaN
+    return `${(percent >= 1 ? 1 : percent) * 100}%`;
   }
 
   // the width of the progress bar
@@ -40,7 +40,7 @@ export default function LoadProgressBar({ buffered, duration, className }) {
       <div
         style={{
           left: percentify(start, bufferedEnd),
-          width: percentify(end - start, bufferedEnd),
+          width: percentify(end - start, bufferedEnd)
         }}
         key={`part-${i}`}
       />
@@ -55,14 +55,9 @@ export default function LoadProgressBar({ buffered, duration, className }) {
   return (
     <div
       style={style}
-      className={classNames(
-        'video-react-load-progress',
-        className
-      )}
+      className={classNames('video-react-load-progress', className)}
     >
-      <span className="video-react-control-text">
-        Loaded: 0%
-      </span>
+      <span className="video-react-control-text">Loaded: 0%</span>
       {parts}
     </div>
   );

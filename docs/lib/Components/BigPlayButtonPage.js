@@ -13,7 +13,8 @@ export default class BigPlayButtonPage extends React.Component {
         <Helmet title="BigPlayButton" />
         <h3>BigPlayButton</h3>
         <p>
-        Initial play button. Shows before the video has played. The hiding of the big play button is done via CSS and player states.
+          Initial play button. Shows before the video has played. The hiding of
+          the big play button is done via CSS and player states.
         </p>
         <div className="docs-example">
           <BigPlayButtonExample />
@@ -32,7 +33,7 @@ export default class BigPlayButtonPage extends React.Component {
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
-{`BigPlayButton.propTypes = {
+            {`BigPlayButton.propTypes = {
 
   // The default position is left-top,
   // another position is 'center'

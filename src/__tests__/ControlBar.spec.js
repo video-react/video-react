@@ -8,7 +8,7 @@ describe('ControlBar', () => {
       <ControlBar
         actions={{}}
         player={{
-          hasStarted: false,
+          hasStarted: false
         }}
       />
     );
@@ -21,7 +21,7 @@ describe('ControlBar', () => {
       <ControlBar
         actions={{}}
         player={{
-          hasStarted: false,
+          hasStarted: false
         }}
       />
     );
@@ -33,7 +33,7 @@ describe('ControlBar', () => {
       <ControlBar
         actions={{}}
         player={{
-          hasStarted: false,
+          hasStarted: false
         }}
       />
     );

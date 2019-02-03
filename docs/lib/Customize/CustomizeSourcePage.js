@@ -13,18 +13,14 @@ export default class CustomizeSourcePage extends React.Component {
       <div>
         <Helmet title="CustomizeSource" />
         <h3>Customize Video Source</h3>
-        <p>
-        This is an example on how to customize a HLS video source.
-        </p>
+        <p>This is an example on how to customize a HLS video source.</p>
         <div className="docs-example">
           <CustomizeSourceExample />
         </div>
-        <p></p>
+        <p />
         <h4>HLSSource Component</h4>
         <pre>
-          <PrismCode className="language-jsx">
-            {HLSSourceSource}
-          </PrismCode>
+          <PrismCode className="language-jsx">{HLSSourceSource}</PrismCode>
         </pre>
         <h4>Customize Source Example</h4>
         <pre>

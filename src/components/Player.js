@@ -19,14 +19,8 @@ import fullscreen from '../utils/fullscreen';
 const propTypes = {
   children: PropTypes.any,
 
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
@@ -64,16 +58,15 @@ const propTypes = {
   onRateChange: PropTypes.func,
   onVolumeChange: PropTypes.func,
 
-  store: PropTypes.object,
+  store: PropTypes.object
 };
 
 const defaultProps = {
   fluid: true,
   muted: false,
   playsInline: false,
-  aspectRatio: 'auto',
+  aspectRatio: 'auto'
 };
-
 
 export default class Player extends Component {
   constructor(props) {
@@ -84,7 +77,9 @@ export default class Player extends Component {
     this.video = null; // the Video component
     this.manager = new Manager(props.store);
     this.actions = this.manager.getActions();
-    this.manager.subscribeToPlayerStateChange(this.handleStateChange.bind(this));
+    this.manager.subscribeToPlayerStateChange(
+      this.handleStateChange.bind(this)
+    );
 
     this.getStyle = this.getStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -117,7 +112,7 @@ export default class Player extends Component {
   getDefaultChildren(originalChildren) {
     return [
       <Video
-        ref={(c) => {
+        ref={c => {
           this.video = c;
           this.manager.video = this.video;
         }}
@@ -126,30 +121,12 @@ export default class Player extends Component {
       >
         {originalChildren}
       </Video>,
-      <PosterImage
-        key="poster-image"
-        order={1.0}
-      />,
-      <LoadingSpinner
-        key="loading-spinner"
-        order={2.0}
-      />,
-      <Bezel
-        key="bezel"
-        order={3.0}
-      />,
-      <BigPlayButton
-        key="big-play-button"
-        order={4.0}
-      />,
-      <ControlBar
-        key="control-bar"
-        order={5.0}
-      />,
-      <Shortcut
-        key="shortcut"
-        order={99.0}
-      />,
+      <PosterImage key="poster-image" order={1.0} />,
+      <LoadingSpinner key="loading-spinner" order={2.0} />,
+      <Bezel key="bezel" order={3.0} />,
+      <BigPlayButton key="big-play-button" order={4.0} />,
+      <ControlBar key="control-bar" order={5.0} />,
+      <Shortcut key="shortcut" order={99.0} />
     ];
   }
 
@@ -159,10 +136,15 @@ export default class Player extends Component {
       children: originalChildren,
       ...propsWithoutChildren
     } = props;
-    const children = React.Children.toArray(this.props.children)
-      .filter(e => (!isVideoChild(e)));
+    const children = React.Children.toArray(this.props.children).filter(
+      e => !isVideoChild(e)
+    );
     const defaultChildren = this.getDefaultChildren(originalChildren);
-    return mergeAndSortChildren(defaultChildren, children, propsWithoutChildren);
+    return mergeAndSortChildren(
+      defaultChildren,
+      children,
+      propsWithoutChildren
+    );
   }
 
   setWidthOrHeight(style, name, value) {
@@ -177,7 +159,7 @@ export default class Player extends Component {
       styleVal = `${value}px`;
     }
     Object.assign(style, {
-      [name]: styleVal,
+      [name]: styleVal
     });
   }
 
@@ -195,8 +177,7 @@ export default class Player extends Component {
     let aspectRatio;
 
     // The aspect ratio is either used directly or to calculate width and height.
-    if (propsAspectRatio !== undefined
-      && propsAspectRatio !== 'auto') {
+    if (propsAspectRatio !== undefined && propsAspectRatio !== 'auto') {
       // Use any aspectRatio that's been specifically set
       aspectRatio = propsAspectRatio;
     } else if (player.videoWidth) {
@@ -335,8 +316,7 @@ export default class Player extends Component {
   }
 
   // player resize
-  handleResize() {
-  }
+  handleResize() {}
 
   handleFullScreenChange() {
     this.actions.handleFullscreenChange(fullscreen.isFullscreen);
@@ -381,7 +361,12 @@ export default class Player extends Component {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
     const {
-      paused, hasStarted, waiting, seeking, isFullscreen, userActivity
+      paused,
+      hasStarted,
+      waiting,
+      seeking,
+      isFullscreen,
+      userActivity
     } = player;
 
     const props = {
@@ -390,27 +375,31 @@ export default class Player extends Component {
       actions: this.actions,
       manager: this.manager,
       store: this.manager.store,
-      video: this.video ? this.video.video : null,
+      video: this.video ? this.video.video : null
     };
     const children = this.getChildren(props);
 
     return (
       <div
-        className={classNames({
-          'video-react-controls-enabled': true,
-          'video-react-has-started': hasStarted,
-          'video-react-paused': paused,
-          'video-react-playing': !paused,
-          'video-react-waiting': waiting,
-          'video-react-seeking': seeking,
-          'video-react-fluid': fluid,
-          'video-react-fullscreen': isFullscreen,
-          'video-react-user-inactive': !userActivity,
-          'video-react-user-active': userActivity,
-          'video-react-workinghover': !browser.IS_IOS,
-        }, 'video-react', this.props.className)}
+        className={classNames(
+          {
+            'video-react-controls-enabled': true,
+            'video-react-has-started': hasStarted,
+            'video-react-paused': paused,
+            'video-react-playing': !paused,
+            'video-react-waiting': waiting,
+            'video-react-seeking': seeking,
+            'video-react-fluid': fluid,
+            'video-react-fullscreen': isFullscreen,
+            'video-react-user-inactive': !userActivity,
+            'video-react-user-active': userActivity,
+            'video-react-workinghover': !browser.IS_IOS
+          },
+          'video-react',
+          this.props.className
+        )}
         style={this.getStyle()}
-        ref={(c) => {
+        ref={c => {
           this.manager.rootElement = c;
         }}
         role="region"

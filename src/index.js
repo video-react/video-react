@@ -55,9 +55,8 @@ export {
   VolumeMenuButton,
   PlaybackRateMenuButton,
   PlaybackRate,
-
   playerActions,
   videoActions,
   playerReducer,
-  operationReducer,
+  operationReducer
 };

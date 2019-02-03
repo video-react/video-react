@@ -23,7 +23,7 @@ describe('LoadProgressBar', () => {
         buffered={{
           length: 1,
           start: () => {},
-          end: () => {},
+          end: () => {}
         }}
         duration={1000}
       />
@@ -37,7 +37,7 @@ describe('LoadProgressBar', () => {
         buffered={{
           length: 1,
           start: () => {},
-          end: () => {},
+          end: () => {}
         }}
         duration={1000}
       />

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const propTypes = {
   player: PropTypes.object,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default function LoadingSpinner({ player, className }) {
@@ -12,12 +12,7 @@ export default function LoadingSpinner({ player, className }) {
     return null;
   }
   return (
-    <div
-      className={classNames(
-        'video-react-loading-spinner',
-        className
-      )}
-    />
+    <div className={classNames('video-react-loading-spinner', className)} />
   );
 }
 

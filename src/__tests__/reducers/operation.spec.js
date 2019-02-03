@@ -2,7 +2,6 @@ import deepFreeze from 'deep-freeze';
 import operation from '../../reducers/operation';
 import { OPERATE } from '../../actions/player';
 
-
 describe('reducer', () => {
   it('should return the initail state', () => {
     const expectedInitialState = {

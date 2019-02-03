@@ -7,7 +7,7 @@ describe('LoadingSpinner', () => {
     const wrapper = shallow(
       <LoadingSpinner
         player={{
-          error: true,
+          error: true
         }}
       />
     );
@@ -20,7 +20,7 @@ describe('LoadingSpinner', () => {
         player={{
           hasStarted: true,
           seeking: true,
-          waiting: true,
+          waiting: true
         }}
       />
     );
@@ -33,7 +33,7 @@ describe('LoadingSpinner', () => {
         player={{
           hasStarted: true,
           seeking: true,
-          waiting: true,
+          waiting: true
         }}
       />
     );

@@ -8,7 +8,6 @@ const initialState = {
   }
 };
 
-
 export default function operation(state = initialState, action) {
   switch (action.type) {
     case OPERATE:

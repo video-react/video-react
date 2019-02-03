@@ -19,7 +19,7 @@ export function findElPosition(el) {
   if (!box) {
     return {
       left: 0,
-      top: 0,
+      top: 0
     };
   }
 
@@ -27,19 +27,18 @@ export function findElPosition(el) {
 
   const clientLeft = docEl.clientLeft || body.clientLeft || 0;
   const scrollLeft = window.pageXOffset || body.scrollLeft;
-  const left = (box.left + scrollLeft) - clientLeft;
+  const left = box.left + scrollLeft - clientLeft;
 
   const clientTop = docEl.clientTop || body.clientTop || 0;
   const scrollTop = window.pageYOffset || body.scrollTop;
-  const top = (box.top + scrollTop) - clientTop;
+  const top = box.top + scrollTop - clientTop;
 
   // Android sometimes returns slightly off decimal values, so need to round
   return {
     left: Math.round(left),
-    top: Math.round(top),
+    top: Math.round(top)
   };
 }
-
 
 /**
  * Get pointer position in element
@@ -67,7 +66,7 @@ export function getPointerPosition(el, event) {
     evtPageY = event.changedTouches[0].pageY;
   }
 
-  position.y = Math.max(0, Math.min(1, ((boxY - evtPageY) + boxH) / boxH));
+  position.y = Math.max(0, Math.min(1, (boxY - evtPageY + boxH) / boxH));
   position.x = Math.max(0, Math.min(1, (evtPageX - boxX) / boxW));
 
   return position;

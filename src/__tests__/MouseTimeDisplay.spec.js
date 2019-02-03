@@ -9,7 +9,7 @@ describe('MouseTimeDisplay', () => {
         actions={{}}
         duration={100}
         mouseTime={{
-          time: 10,
+          time: 10
         }}
       />
     );
@@ -22,7 +22,7 @@ describe('MouseTimeDisplay', () => {
         actions={{}}
         duration={100}
         mouseTime={{
-          time: 10,
+          time: 10
         }}
       />
     );
@@ -36,7 +36,7 @@ describe('MouseTimeDisplay', () => {
         actions={{}}
         duration={100}
         mouseTime={{
-          time: 10,
+          time: 10
         }}
         text={text}
       />

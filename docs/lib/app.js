@@ -5,13 +5,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import Helmet from 'react-helmet';
-import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router';
+import {
+  Router,
+  RouterContext,
+  match,
+  browserHistory,
+  createMemoryHistory
+} from 'react-router';
 import routes from './routes';
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
   const outlet = document.getElementById('app');
-  browserHistory.listen(function (location) {
+  browserHistory.listen(function(location) {
     // window.ga('set', 'page', location.pathname);
     // window.ga('send', 'pageview');
   });
@@ -46,15 +52,20 @@ export default (locals, callback) => {
     let url;
     if (redirectLocation && redirectLocation.pathname) {
       url = redirectLocation.pathname;
-      callback(null, `<!DOCTYPE html>
+      callback(
+        null,
+        `<!DOCTYPE html>
       <html>
       <head><link rel="canonical" href="${url}"/>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta http-equiv="refresh" content="0;url=${url}" />
       </head>
-      </html>`);
+      </html>`
+      );
     }
-    const body = ReactDOMServer.renderToString(<RouterContext {...renderProps} />);
+    const body = ReactDOMServer.renderToString(
+      <RouterContext {...renderProps} />
+    );
     const head = Helmet.rewind();
     let markup = `<!DOCTYPE html>
       <html>

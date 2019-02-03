@@ -14,7 +14,9 @@ export default class ControlBarPage extends React.Component {
         <Helmet title="ControlBar" />
         <h3>ControlBar</h3>
         <p>
-        The Html5 video's control bar is hidden, the player offers a customizable control bar to allow the user to control video playback, including volume, seeking, and pause/resume playback.
+          The Html5 video's control bar is hidden, the player offers a
+          customizable control bar to allow the user to control video playback,
+          including volume, seeking, and pause/resume playback.
         </p>
         <div className="docs-example">
           <ControlBarExample />

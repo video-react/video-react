@@ -5,12 +5,12 @@ import classNames from 'classnames';
 const propTypes = {
   percentage: PropTypes.string,
   vertical: PropTypes.bool,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 const defaultProps = {
   percentage: '100%',
-  vertical: false,
+  vertical: false
 };
 
 function VolumeLevel({ percentage, vertical, className }) {

@@ -27,7 +27,7 @@ export const ERROR = 'video-react/ERROR';
 export function handleLoadStart(videoProps) {
   return {
     type: LOAD_START,
-    videoProps,
+    videoProps
   };
 }
 
@@ -118,70 +118,70 @@ export function handleVolumeChange(videoProps) {
 export function handleProgressChange(videoProps) {
   return {
     type: PROGRESS_CHANGE,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleRateChange(videoProps) {
   return {
     type: RATE_CHANGE,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleSuspend(videoProps) {
   return {
     type: SUSPEND,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleAbort(videoProps) {
   return {
     type: ABORT,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleEmptied(videoProps) {
   return {
     type: EMPTIED,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleStalled(videoProps) {
   return {
     type: STALLED,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleLoadedMetaData(videoProps) {
   return {
     type: LOADED_META_DATA,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleLoadedData(videoProps) {
   return {
     type: LOADED_DATA,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleResize(videoProps) {
   return {
     type: RESIZE,
-    videoProps,
+    videoProps
   };
 }
 
 export function handleError(videoProps) {
   return {
     type: ERROR,
-    videoProps,
+    videoProps
   };
 }
 

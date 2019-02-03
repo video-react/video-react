@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Player } from 'video-react';
-import {
-  Button, Form, FormGroup,
-  Label, Input, Col
-} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 export default class PlayerExample extends Component {
   constructor(props, context) {
@@ -12,7 +9,7 @@ export default class PlayerExample extends Component {
     this.state = {
       playerSource: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
       inputVideoUrl: 'http://www.w3schools.com/html/mov_bbb.mp4'
-    }
+    };
 
     this.handleValueChange = this.handleValueChange.bind(this);
     this.updatePlayerInfo = this.updatePlayerInfo.bind(this);
@@ -56,7 +53,9 @@ export default class PlayerExample extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Button type="button" onClick={this.updatePlayerInfo}>Update</Button>
+              <Button type="button" onClick={this.updatePlayerInfo}>
+                Update
+              </Button>
             </FormGroup>
           </Form>
         </div>
@@ -64,4 +63,3 @@ export default class PlayerExample extends Component {
     );
   }
 }
-

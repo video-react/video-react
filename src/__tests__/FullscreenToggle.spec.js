@@ -8,7 +8,7 @@ describe('FullscreenToggle', () => {
       <FullscreenToggle
         actions={{}}
         player={{
-          isFullscreen: false,
+          isFullscreen: false
         }}
       />
     );
@@ -21,7 +21,7 @@ describe('FullscreenToggle', () => {
       <FullscreenToggle
         actions={{}}
         player={{
-          isFullscreen: false,
+          isFullscreen: false
         }}
       />
     );
@@ -33,7 +33,7 @@ describe('FullscreenToggle', () => {
       <FullscreenToggle
         actions={{}}
         player={{
-          isFullscreen: true,
+          isFullscreen: true
         }}
       />
     );
@@ -45,7 +45,7 @@ describe('FullscreenToggle', () => {
       <FullscreenToggle
         actions={{}}
         player={{
-          isFullscreen: false,
+          isFullscreen: false
         }}
       />
     );
