@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: bug report
 assignees: ''
 
 ---
@@ -31,5 +31,5 @@ If applicable, add screenshots to help explain your problem.
 Add any other context about the problem here.
 
 **Demo**
-You can fork from this template and add your code
+<!--- You can fork from this template and add your code --> 
 https://codesandbox.io/s/0xn619734p
