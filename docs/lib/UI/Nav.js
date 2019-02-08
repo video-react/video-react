@@ -20,17 +20,19 @@ export default class UINav extends React.Component {
       showNavbar: false
     };
   }
+
   toggleNavbar(e) {
     e.preventDefault();
-    this.setState({
-      showNavbar: !this.state.showNavbar
-    });
+    this.setState(state => ({
+      showNavbar: !state.showNavbar
+    }));
   }
+
   render() {
     return (
-      <Navbar className="header" full color="faded" light toggleable>
+      <Navbar className="header" color="faded" light expand="md">
         <Container>
-          <NavbarToggler right onClick={this.toggleNavbar} />
+          <NavbarToggler onClick={this.toggleNavbar} />
           <NavbarBrand className="mr-auto" tag={Link} to="/">
             Video-React
           </NavbarBrand>
