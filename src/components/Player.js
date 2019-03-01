@@ -65,6 +65,7 @@ const defaultProps = {
   fluid: true,
   muted: false,
   playsInline: false,
+  preload: 'auto',
   aspectRatio: 'auto'
 };
 
