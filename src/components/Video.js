@@ -44,10 +44,6 @@ const propTypes = {
   onResize: PropTypes.func
 };
 
-const defaultProps = {
-  preload: 'auto'
-};
-
 export default class Video extends Component {
   constructor(props) {
     super(props);
@@ -563,5 +559,4 @@ export default class Video extends Component {
 }
 
 Video.propTypes = propTypes;
-Video.defaultProps = defaultProps;
 Video.displayName = 'Video';
