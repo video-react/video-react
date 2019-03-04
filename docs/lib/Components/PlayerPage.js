@@ -177,17 +177,6 @@ export default function PlayerPage() {
             <td>-</td>
             <td>Seek the Video at A Specific Time On Load</td>
           </tr>
-          <tr>
-            <td>
-              <code>controlBarActiveTime</code>
-            </td>
-            <td>number</td>
-            <td>3000</td>
-            <td>
-              The time in ms that the control bar stays visible when user is no
-              longer active (no mouse moves, clicks, key presss, etc.)
-            </td>
-          </tr>
         </tbody>
       </Table>
       <h4>Properties</h4>

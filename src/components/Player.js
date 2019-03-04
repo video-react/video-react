@@ -34,7 +34,6 @@ const propTypes = {
   src: PropTypes.string,
   poster: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
-  controlBarActiveTime: PropTypes.number,
 
   onLoadStart: PropTypes.func,
   onWaiting: PropTypes.func,
@@ -66,8 +65,7 @@ const defaultProps = {
   fluid: true,
   muted: false,
   playsInline: false,
-  aspectRatio: 'auto',
-  controlBarActiveTime: 3000
+  aspectRatio: 'auto'
 };
 
 export default class Player extends Component {
@@ -337,7 +335,18 @@ export default class Player extends Component {
   }
 
   startControlsTimer() {
-    const { controlBarActiveTime } = this.props;
+    let controlBarActiveTime = 3000;
+    React.Children.forEach(this.props.children, element => {
+      if (!React.isValidElement(element) || element.type !== ControlBar) {
+        return;
+      }
+
+      const { autoHideTime } = element.props;
+      if (typeof autoHideTime === 'number') {
+        controlBarActiveTime = autoHideTime;
+      }
+    });
+
     this.actions.userActivate(true);
     clearTimeout(this.controlsHideTimer);
     this.controlsHideTimer = setTimeout(() => {
