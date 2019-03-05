@@ -22,6 +22,7 @@
     "react/destructuring-assignment": "off",
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "literal",
     "react/no-find-dom-node": "off",
     "react/no-unused-prop-types": "off",
     "react/require-default-props": "off",

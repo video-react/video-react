@@ -336,11 +336,23 @@ export default class Player extends Component {
   }
 
   startControlsTimer() {
+    let controlBarActiveTime = 3000;
+    React.Children.forEach(this.props.children, element => {
+      if (!React.isValidElement(element) || element.type !== ControlBar) {
+        return;
+      }
+
+      const { autoHideTime } = element.props;
+      if (typeof autoHideTime === 'number') {
+        controlBarActiveTime = autoHideTime;
+      }
+    });
+
     this.actions.userActivate(true);
     clearTimeout(this.controlsHideTimer);
     this.controlsHideTimer = setTimeout(() => {
       this.actions.userActivate(false);
-    }, 3000);
+    }, controlBarActiveTime);
   }
 
   handleStateChange(state, prevState) {

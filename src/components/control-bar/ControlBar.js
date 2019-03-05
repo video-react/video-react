@@ -18,6 +18,7 @@ import { mergeAndSortChildren } from '../../utils';
 const propTypes = {
   children: PropTypes.any,
   autoHide: PropTypes.bool,
+  autoHideTime: PropTypes.number, // used in Player
   disableDefaultControls: PropTypes.bool,
   disableCompletely: PropTypes.bool,
   className: PropTypes.string

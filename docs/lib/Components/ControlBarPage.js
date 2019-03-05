@@ -32,10 +32,16 @@ export default class ControlBarPage extends React.Component {
             {`ControlBar.propTypes = {
 
   // Hide the control bar automatically after the player is inactive
-  // default: 'true'
+  // default: true
   autoHide: PropTypes.bool,
+  // The waiting time for auto hide after player is inactive (in milliseconds)
+  // default: 3000
+  autoHideTime: PropType.number,
+  // Do not render default controls, only use custom ones provided as children of <ControlBar>
+  // default: false
+  disableDefaultControls: PropTypes.bool,
   // Do not render the control bar if set it to true
-  // default: 'false'
+  // default: false
   disableCompletely: PropTypes.bool,
 
 }`}

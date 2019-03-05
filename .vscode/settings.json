@@ -1,5 +1,4 @@
 {
-  "eslint.autoFixOnSave": true,
   "prettier.eslintIntegration": true,
   "javascript.validate.enable": false,
   "editor.rulers": [
