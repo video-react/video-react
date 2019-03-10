@@ -2,6 +2,10 @@
 ## [0.13.4](https://github.com/video-react/video-react/compare/0.13.3...0.13.4) (2019-03-10)
 
 
+### Bug Fixes
+
+* Missing commonjs support ([#235](https://github.com/video-react/video-react/issues/235))
+
 
 <a name="0.13.3"></a>
 ## [0.13.3](https://github.com/video-react/video-react/compare/0.13.2...0.13.3) (2019-03-02)
@@ -9,7 +13,7 @@
 
 ### Bug Fixes
 
-* assets path ([#221](https://github.com/video-react/video-react/issues/221)) ([64ac208](https://github.com/video-react/video-react/commit/64ac208))
+* fix `preload` prop in `Player`  ([#230](https://github.com/video-react/video-react/issues/230))
 
 
 
