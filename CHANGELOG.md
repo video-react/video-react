@@ -1,3 +1,13 @@
+<a name="0.13.5"></a>
+## [0.13.5](https://github.com/video-react/video-react/compare/0.13.4...0.13.5) (2019-03-13)
+
+
+### Bug Fixes
+
+* add missing '@babel/runtime' dependencies ([7ff1036](https://github.com/video-react/video-react/commit/7ff1036))
+
+
+
 <a name="0.13.4"></a>
 ## [0.13.4](https://github.com/video-react/video-react/compare/0.13.3...0.13.4) (2019-03-10)
 
