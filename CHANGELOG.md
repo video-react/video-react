@@ -1,3 +1,14 @@
+<a name="0.13.6"></a>
+## [0.13.6](https://github.com/video-react/video-react/compare/0.13.5...0.13.6) (2019-03-18)
+
+
+### Bug Fixes
+
+* removed a dubious player state setting that caused LoadSpinner invisible problem ([363a659](https://github.com/video-react/video-react/commit/363a659))
+* **Slider:** remove event listeners when component will unmount ([17baf50](https://github.com/video-react/video-react/commit/17baf50))
+
+
+
 <a name="0.13.5"></a>
 ## [0.13.5](https://github.com/video-react/video-react/compare/0.13.4...0.13.5) (2019-03-13)
 
