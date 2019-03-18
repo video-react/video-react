@@ -163,10 +163,7 @@ export default function player(state = initialState, action) {
     case RESIZE:
       return {
         ...state,
-        ...action.videoProps,
-        ...(action.videoProps.paused === false
-          ? { hasStarted: true, waiting: false }
-          : {})
+        ...action.videoProps
       };
     default:
       return state;
