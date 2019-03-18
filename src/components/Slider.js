@@ -46,6 +46,14 @@ export default class Slider extends Component {
     };
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousemove', this.handleMouseMove, true);
+    document.removeEventListener('mouseup', this.handleMouseUp, true);
+    document.removeEventListener('touchmove', this.handleMouseMove, true);
+    document.removeEventListener('touchend', this.handleMouseUp, true);
+    document.removeEventListener('keydown', this.handleKeyPress, true);
+  }
+
   getProgress() {
     const { getPercent } = this.props;
     if (!getPercent) {
