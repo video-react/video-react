@@ -64,23 +64,9 @@ $ npm install
 $ npm start
 ```
 
-## Releasing
+## Contribution
 
-### Create Release Branch
-
-To create a release branch and changelog, run the following command, optionally with a semantic release type (major, minor, patch) (if not provided, it will default to semver (it's best to let it default)):
-
-```
-./scripts/release <release-type>
-```
-
-Verify changelog in branch. Create a PR if everything looks good. Merge when tests are green.
-
-### Tagging and Publishing
-
-Once the release branch is merged, checkout master and run:
-
-./scripts/publish
+Interested in making contribution to this project? Want to report a bug? Please read the [contribution guide](./CONTRIBUTION.md).
 
 ## Inspiration & Credits
 
