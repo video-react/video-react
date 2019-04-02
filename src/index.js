@@ -25,6 +25,9 @@ import RemainingTimeDisplay from './components/time-controls/RemainingTimeDispla
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
+
+import MenuButton from './components/menu/MenuButton';
+
 import * as playerActions from './actions/player';
 import * as videoActions from './actions/video';
 import { playerReducer, operationReducer } from './reducers';
@@ -55,6 +58,7 @@ export {
   VolumeMenuButton,
   PlaybackRateMenuButton,
   PlaybackRate,
+  MenuButton,
   playerActions,
   videoActions,
   playerReducer,
