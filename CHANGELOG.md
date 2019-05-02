@@ -1,3 +1,18 @@
+<a name="0.13.7"></a>
+## [0.13.7](https://github.com/video-react/video-react/compare/0.13.6...0.13.7) (2019-05-02)
+
+
+### Bug Fixes
+
+* add tabindex to video tag to make it focusable in latest Chrome ([#262](https://github.com/video-react/video-react/issues/262)) ([01291c7](https://github.com/video-react/video-react/commit/01291c7))
+
+
+### Features
+
+* expose MenuButton ([ed835a2](https://github.com/video-react/video-react/commit/ed835a2))
+
+
+
 <a name="0.13.6"></a>
 ## [0.13.6](https://github.com/video-react/video-react/compare/0.13.5...0.13.6) (2019-03-18)
 
