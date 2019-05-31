@@ -8,17 +8,12 @@ export default props => {
     // Please use this url if you test it from local:
     // http://dash.edgesuite.net/akamai/bbb_30fps/bbb_30fps.mpd
 
-    const handleDashPlayer = (dash) => {
-        // Use methods form dash.js to customise dashSource
-        dash.setFastSwitchEnabled(true);
-    };
 
     return (
       <Player>
         <DashSource
           isPlaying
           src="http://dash.edgesuite.net/akamai/bbb_30fps/bbb_30fps.mpd"
-          handleDashPlayer={handleDashPlayer}
         />
       </Player>
     );

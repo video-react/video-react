@@ -31,7 +31,7 @@ export default class DashSource extends Component {
 
   load() {
     const {
-      src, video, isPlaying, handleDashPlayer,
+      src, video, isPlaying,
     } = this.props;
     // load dash video source base on dash.js
     if (checkDash(src)) {
@@ -40,9 +40,6 @@ export default class DashSource extends Component {
       });
       this.dash.initialize(video, src, isPlaying);
       this.dash.getDebug().setLogToBrowserConsole(false);
-      this.dash.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, () => {
-        handleDashPlayer(this.dash);
-      });
     }
   }
 
