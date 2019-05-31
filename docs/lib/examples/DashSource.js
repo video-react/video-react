@@ -31,18 +31,17 @@ export default class DashSource extends Component {
 
   load() {
     const {
-      src, video, playing, handleDashPlayer,
+      src, video, isPlaying, handleDashPlayer,
     } = this.props;
     // load dash video source base on dash.js
     if (checkDash(src)) {
       this.setState({
         type: 'application/x-mpegURL',
       });
-      this.dash.initialize(video, src, playing);
+      this.dash.initialize(video, src, isPlaying);
       this.dash.getDebug().setLogToBrowserConsole(false);
       this.dash.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, () => {
         handleDashPlayer(this.dash);
-        this.dash.setFastSwitchEnabled(true);
       });
     }
   }

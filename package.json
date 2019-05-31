@@ -102,6 +102,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^2.0.0",
     "css-loader": "^2.1.0",
+    "dashjs": "^2.9.3",
     "deep-freeze": "0.0.1",
     "ejs": "^2.6.1",
     "enzyme": "^3.8.0",
@@ -146,7 +147,6 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14",
-    "dashjs": "^2.9.3"
+    "webpack-dev-server": "^3.1.14"
   }
 }
