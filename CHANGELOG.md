@@ -1,3 +1,13 @@
+<a name="0.13.8"></a>
+## [0.13.8](https://github.com/video-react/video-react/compare/0.13.7...0.13.8) (2019-06-12)
+
+
+### Bug Fixes
+
+* re-focus to root element when switching fullscreen ([#276](https://github.com/video-react/video-react/issues/276)) ([3e38a7f](https://github.com/video-react/video-react/commit/3e38a7f))
+
+
+
 <a name="0.13.7"></a>
 ## [0.13.7](https://github.com/video-react/video-react/compare/0.13.6...0.13.7) (2019-05-02)
 
