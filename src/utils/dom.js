@@ -80,6 +80,14 @@ export function blurNode(reactNode) {
   }
 }
 
+// focus an element
+export function focusNode(reactNode) {
+  const domNode = findDOMNode(reactNode);
+  if (domNode && domNode.focus) {
+    domNode.focus();
+  }
+}
+
 // check if an element has a class name
 export function hasClass(elm, cls) {
   const classes = elm.className.split(' ');
