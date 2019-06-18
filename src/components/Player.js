@@ -320,8 +320,10 @@ export default class Player extends Component {
   // player resize
   handleResize() {}
 
-  handleFullScreenChange() {
-    this.actions.handleFullscreenChange(fullscreen.isFullscreen);
+  handleFullScreenChange(event) {
+    if (event.target === this.manager.rootElement) {
+      this.actions.handleFullscreenChange(fullscreen.isFullscreen);
+    }
   }
 
   handleMouseDown() {
