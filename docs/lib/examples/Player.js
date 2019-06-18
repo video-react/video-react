@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Player } from 'video-react';
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default class PlayerExample extends Component {
   constructor(props, context) {
@@ -16,28 +16,34 @@ export default class PlayerExample extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.playerSource != prevState.playerSource) {
-      this.refs.player.load();
+    if (this.state.playerSource !== prevState.playerSource) {
+      this.player.load();
     }
   }
 
   handleValueChange(e) {
-    var value = e.target.value;
+    const { value } = e.target;
     this.setState({
-      [e.target.id]: value
+      inputVideoUrl: value
     });
   }
 
   updatePlayerInfo() {
+    const { inputVideoUrl } = this.state;
     this.setState({
-      playerSource: this.state.inputVideoUrl
+      playerSource: inputVideoUrl
     });
   }
 
   render() {
     return (
       <div>
-        <Player ref="player" videoId="video-1">
+        <Player
+          ref={player => {
+            this.player = player;
+          }}
+          videoId="video-1"
+        >
           <source src={this.state.playerSource} />
         </Player>
         <div className="docs-example">
@@ -45,7 +51,6 @@ export default class PlayerExample extends Component {
             <FormGroup>
               <Label for="inputVideoUrl">Video Url</Label>
               <Input
-                ref="inputVideoUrl"
                 name="inputVideoUrl"
                 id="inputVideoUrl"
                 value={this.state.inputVideoUrl}
