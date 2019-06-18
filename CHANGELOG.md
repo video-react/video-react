@@ -1,3 +1,8 @@
+<a name="0.13.9"></a>
+## [0.13.9](https://github.com/video-react/video-react/compare/0.13.8...0.13.9) (2019-06-18)
+
+
+
 <a name="0.13.8"></a>
 ## [0.13.8](https://github.com/video-react/video-react/compare/0.13.7...0.13.8) (2019-06-12)
 
