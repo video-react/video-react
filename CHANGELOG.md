@@ -1,3 +1,10 @@
+<a name="0.13.9"></a>
+## [0.13.9](https://github.com/video-react/video-react/compare/0.13.8...0.13.9) (2019-06-18)
+
+* fullscreen events are no longer shared across players ([#285](https://github.com/video-react/video-react/issues/285)) ([986d844](https://github.com/video-react/video-react/commit/986d844))
+
+
+
 <a name="0.13.8"></a>
 ## [0.13.8](https://github.com/video-react/video-react/compare/0.13.7...0.13.8) (2019-06-12)
 
