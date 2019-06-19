@@ -154,7 +154,7 @@ export default class Video extends Component {
         textTrack => textTrack.mode === 'showing'
       );
       if (activeTextTrack !== player.activeTextTrack) {
-        actions.activeTextTrack(activeTextTrack);
+        actions.activateTextTrack(activeTextTrack);
       }
     }
   }
@@ -315,7 +315,9 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const { loop, player, actions, onEnded } = this.props;
+    const {
+      loop, player, actions, onEnded
+    } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -497,7 +499,7 @@ export default class Video extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map(c => {
+      .map((c) => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -536,7 +538,7 @@ export default class Video extends Component {
         className={classNames('video-react-video', this.props.className)}
         id={videoId}
         crossOrigin={crossOrigin}
-        ref={c => {
+        ref={(c) => {
           this.video = c;
         }}
         muted={muted}

@@ -215,10 +215,9 @@ export default class Shortcut extends Component {
       alt = false
     }) => `${keyCode}:${ctrl}:${shift}:${alt}`;
     const defaultShortcuts = this.defaultShortcuts.reduce(
-      (shortcuts, shortcut) =>
-        Object.assign(shortcuts, {
-          [getShortcutKey(shortcut)]: shortcut
-        }),
+      (shortcuts, shortcut) => Object.assign(shortcuts, {
+        [getShortcutKey(shortcut)]: shortcut
+      }),
       {}
     );
     const mergedShortcuts = (this.props.shortcuts || []).reduce(
@@ -234,10 +233,10 @@ export default class Shortcut extends Component {
       defaultShortcuts
     );
 
-    const gradeShortcut = s => {
+    const gradeShortcut = (s) => {
       let score = 0;
       const ps = ['ctrl', 'shift', 'alt'];
-      ps.forEach(key => {
+      ps.forEach((key) => {
         if (s[key]) {
           score++;
         }
@@ -274,11 +273,11 @@ export default class Shortcut extends Component {
       return;
     }
     if (
-      document.activeElement &&
-      (hasClass(document.activeElement, 'video-react-control') ||
-        hasClass(document.activeElement, 'video-react-menu-button-active') ||
+      document.activeElement
+      && (hasClass(document.activeElement, 'video-react-control')
+        || hasClass(document.activeElement, 'video-react-menu-button-active')
         // || hasClass(document.activeElement, 'video-react-slider')
-        hasClass(document.activeElement, 'video-react-big-play-button'))
+        || hasClass(document.activeElement, 'video-react-big-play-button'))
     ) {
       return;
     }
@@ -288,14 +287,14 @@ export default class Shortcut extends Component {
     const shift = e.shiftKey;
     const alt = e.altKey;
 
-    const shortcut = this.shortcuts.filter(s => {
+    const shortcut = this.shortcuts.filter((s) => {
       if (!s.keyCode || s.keyCode - keyCode !== 0) {
         return false;
       }
       if (
-        (s.ctrl !== undefined && s.ctrl !== ctrl) ||
-        (s.shift !== undefined && s.shift !== shift) ||
-        (s.alt !== undefined && s.alt !== alt)
+        (s.ctrl !== undefined && s.ctrl !== ctrl)
+        || (s.shift !== undefined && s.shift !== shift)
+        || (s.alt !== undefined && s.alt !== alt)
       ) {
         return false;
       }
@@ -311,9 +310,9 @@ export default class Shortcut extends Component {
   // only if player is active and player is ready
   canBeClicked(player, e) {
     if (
-      !player.isActive ||
-      e.target.nodeName !== 'VIDEO' ||
-      player.readyState !== 4
+      !player.isActive
+      || e.target.nodeName !== 'VIDEO'
+      || player.readyState !== 4
     ) {
       return false;
     }

@@ -6,6 +6,7 @@
   "style": "dist/video-react.css",
   "scripts": {
     "test": "BABEL_ENV=test jest",
+    "test:watch": "BABEL_ENV=test jest --watch",
     "test:coverage": "BABEL_ENV=test jest --coverage",
     "start": "webpack-dev-server --watch",
     "build-docs": "cross-env WEBPACK_BUILD=production webpack --progress --colors",
@@ -16,20 +17,14 @@
     "create-minor": "sh ./scripts/release minor",
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "npm test && sh ./scripts/publish",
-    "lint": "eslint src",
-    "format": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\""
+    "lint": "eslint src"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "**/*.{js,css,md}": [
-      "npm run format",
-      "git add"
-    ]
-  },
+  "lint-staged": "npm run lint",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/video-react/video-react.git"
@@ -108,11 +103,9 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-standard": "^2.0.0",
     "file-loader": "^3.0.1",
     "history": "^3.0.0",
     "hls.js": "^0.6.10",
@@ -123,7 +116,6 @@
     "lint-staged": "^8.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
     "raw-loader": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

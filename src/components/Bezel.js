@@ -24,8 +24,8 @@ export default class Bezel extends Component {
 
   handleStateChange(state, prevState) {
     if (
-      state.count !== prevState.count &&
-      state.operation.source === 'shortcut'
+      state.count !== prevState.count
+      && state.operation.source === 'shortcut'
     ) {
       if (this.timer) {
         // previous animation is not finished
@@ -58,8 +58,8 @@ export default class Bezel extends Component {
     }
     const style = this.state.hidden
       ? {
-          display: 'none'
-        }
+        display: 'none'
+      }
       : null;
 
     return (

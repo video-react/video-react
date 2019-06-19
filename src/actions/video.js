@@ -200,7 +200,7 @@ export function handleEndSeeking(time) {
   };
 }
 
-export function activeTextTrack(textTrack) {
+export function activateTextTrack(textTrack) {
   return {
     type: ACTIVATE_TEXT_TRACK,
     textTrack

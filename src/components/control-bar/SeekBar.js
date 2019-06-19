@@ -85,14 +85,16 @@ export default class SeekBar extends Component {
 
   render() {
     const {
-      player: { currentTime, seekingTime, duration, buffered },
+      player: {
+        currentTime, seekingTime, duration, buffered
+      },
       mouseTime
     } = this.props;
     const time = seekingTime || currentTime;
 
     return (
       <Slider
-        ref={input => {
+        ref={(input) => {
           this.slider = input;
         }}
         label="video progress bar"

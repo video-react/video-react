@@ -29,7 +29,7 @@ export default class PlayToggle extends Component {
 
     return (
       <button
-        ref={c => {
+        ref={(c) => {
           this.button = c;
         }}
         className={classNames(className, {

@@ -32,7 +32,7 @@ export default class FullscreenToggle extends Component {
           },
           'video-react-fullscreen-control video-react-control video-react-button video-react-icon'
         )}
-        ref={c => {
+        ref={(c) => {
           this.button = c;
         }}
         type="button"

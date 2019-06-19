@@ -4,7 +4,9 @@ import classNames from 'classnames';
 
 import { formatTime } from '../../utils';
 
-function MouseTimeDisplay({ duration, mouseTime, className, text }) {
+function MouseTimeDisplay({
+  duration, mouseTime, className, text
+}) {
   if (!mouseTime.time) {
     return null;
   }

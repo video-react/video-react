@@ -47,7 +47,7 @@ class ClosedCaptionButton extends Component {
       value: null
     });
 
-    tracks.forEach(textTrack => {
+    tracks.forEach((textTrack) => {
       // ignore invalid text track kind
       if (kinds.length && !kinds.includes(textTrack.kind)) {
         return;
@@ -73,8 +73,8 @@ class ClosedCaptionButton extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.selectedIndex ||
-      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
+      textTrackItems.selectedIndex !== this.state.selectedIndex
+      || !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
     ) {
       this.setState(textTrackItems);
     }
@@ -87,9 +87,9 @@ class ClosedCaptionButton extends Component {
 
     for (let i = 0; i < items1.length; i++) {
       if (
-        !items2[i] ||
-        items1[i].label !== items2[i].label ||
-        items1[i].value !== items2[i].value
+        !items2[i]
+        || items1[i].label !== items2[i].label
+        || items1[i].value !== items2[i].value
       ) {
         return false;
       }
@@ -99,14 +99,16 @@ class ClosedCaptionButton extends Component {
   }
 
   handleSelectItem(index) {
-    const { player } = this.props;
+    const { player, actions } = this.props;
     const { textTracks } = player;
 
-    // For the 'subtitles-off' button, the first condition will never match so all will subtitles be turned off
+    // For the 'subtitles-off' button, the first condition will never match
+    // so all will subtitles be turned off
     Array.from(textTracks).forEach((textTrack, i) => {
       if (index === i + 1) {
         // the 0 index is `Off`
         textTrack.mode = 'showing';
+        actions.activateTextTrack(textTrack);
       } else {
         textTrack.mode = 'hidden';
       }
