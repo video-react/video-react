@@ -1,0 +1,6 @@
+.video-react .video-react-closed-caption {
+  cursor: pointer;
+  @include flex(none);
+  @extend .video-react-icon;
+  @extend .video-react-icon-closed-caption;
+}

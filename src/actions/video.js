@@ -23,6 +23,7 @@ export const LOADED_META_DATA = 'video-react/LOADED_META_DATA';
 export const LOADED_DATA = 'video-react/LOADED_DATA';
 export const RESIZE = 'video-react/RESIZE';
 export const ERROR = 'video-react/ERROR';
+export const ACTIVATE_TEXT_TRACK = 'video-react/ACTIVATE_TEXT_TRACK';
 
 export function handleLoadStart(videoProps) {
   return {
@@ -196,5 +197,12 @@ export function handleEndSeeking(time) {
   return {
     type: END_SEEKING,
     time
+  };
+}
+
+export function activeTextTrack(textTrack) {
+  return {
+    type: ACTIVATE_TEXT_TRACK,
+    textTrack
   };
 }

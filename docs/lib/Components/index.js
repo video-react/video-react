@@ -59,6 +59,10 @@ class Components extends React.Component {
         {
           name: 'PlaybackRateMenuButton',
           to: '/components/playback-rate-menu-button/'
+        },
+        {
+          name: 'ClosedCaptionButton',
+          to: '/components/captioned-video'
         }
       ]
     };

@@ -30,6 +30,7 @@ const paths = [
   '/components/replay-control/',
   '/components/volume-menu-button/',
   '/components/playback-rate-menu-button/',
+  '/components/captioned-video',
   '/customize/',
   '/customize/enable-disable-components/',
   '/customize/customize-source/',

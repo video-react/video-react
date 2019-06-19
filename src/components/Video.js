@@ -81,10 +81,15 @@ export default class Video extends Component {
     this.handleDurationChange = this.handleDurationChange.bind(this);
     this.handleProgress = throttle(this.handleProgress.bind(this), 250);
     this.handleKeypress = this.handleKeypress.bind(this);
+    this.handleTextTrackChange = this.handleTextTrackChange.bind(this);
   }
 
   componentDidMount() {
     this.forceUpdate(); // make sure the children can get the video property
+    if (this.video && this.video.textTracks) {
+      this.video.textTracks.onaddtrack = this.handleTextTrackChange;
+      this.video.textTracks.onremovetrack = this.handleTextTrackChange;
+    }
   }
 
   // get all video properties
@@ -140,6 +145,18 @@ export default class Video extends Component {
   // video height
   get videoHeight() {
     return this.video.videoHeight;
+  }
+
+  handleTextTrackChange() {
+    const { actions, player } = this.props;
+    if (this.video && this.video.textTracks) {
+      const activeTextTrack = Array.from(this.video.textTracks).find(
+        textTrack => textTrack.mode === 'showing'
+      );
+      if (activeTextTrack !== player.activeTextTrack) {
+        actions.activeTextTrack(activeTextTrack);
+      }
+    }
   }
 
   // play the video

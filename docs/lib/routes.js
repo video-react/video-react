@@ -15,6 +15,7 @@ import ForwardControlPage from './Components/ForwardControlPage';
 import ReplayControlPage from './Components/ReplayControlPage';
 import VolumeMenuButtonPage from './Components/VolumeMenuButtonPage';
 import PlaybackRateMenuButtonPage from './Components/PlaybackRateMenuButtonPage';
+import CaptionedVideoPage from './Components/CaptionedVideoPage';
 
 import Customize from './Customize';
 import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
@@ -41,6 +42,7 @@ const routes = (
         path="playback-rate-menu-button/"
         component={PlaybackRateMenuButtonPage}
       />
+      <Route path="captioned-video" component={CaptionedVideoPage} />
     </Route>
     <Route path="/customize/" component={Customize}>
       <IndexRedirect to="enable-disable-components/" />
