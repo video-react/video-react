@@ -7,10 +7,14 @@ const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   className: PropTypes.string,
+  offMenuText: PropTypes.string,
+  showOffMenu: PropTypes.bool,
   kinds: PropTypes.array
 };
 
 const defaultProps = {
+  offMenuText: 'Off',
+  showOffMenu: true,
   kinds: ['captions', 'subtitles'] // `kind`s of TextTrack to look for to associate it with this menu.
 };
 
@@ -30,7 +34,9 @@ class ClosedCaptionButton extends Component {
   }
 
   getTextTrackItems() {
-    const { kinds, player } = this.props;
+    const {
+      kinds, player, offMenuText, showOffMenu
+    } = this.props;
     const { textTracks, activeTextTrack } = player;
     const textTrackItems = {
       items: [],
@@ -42,10 +48,12 @@ class ClosedCaptionButton extends Component {
       return textTrackItems;
     }
 
-    textTrackItems.items.push({
-      label: 'Off',
-      value: null
-    });
+    if (showOffMenu) {
+      textTrackItems.items.push({
+        label: offMenuText || 'Off',
+        value: null
+      });
+    }
 
     tracks.forEach((textTrack) => {
       // ignore invalid text track kind
@@ -99,14 +107,14 @@ class ClosedCaptionButton extends Component {
   }
 
   handleSelectItem(index) {
-    const { player, actions } = this.props;
+    const { player, actions, showOffMenu } = this.props;
     const { textTracks } = player;
 
     // For the 'subtitles-off' button, the first condition will never match
-    // so all will subtitles be turned off
+    // so all subtitles will be turned off
     Array.from(textTracks).forEach((textTrack, i) => {
-      if (index === i + 1) {
-        // the 0 index is `Off`
+      // if it shows the `Off` menu, the first item is `Off`
+      if (index === (showOffMenu ? i + 1 : i)) {
         textTrack.mode = 'showing';
         actions.activateTextTrack(textTrack);
       } else {

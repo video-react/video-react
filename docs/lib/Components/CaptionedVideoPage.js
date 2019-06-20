@@ -9,7 +9,7 @@ const PlayerWithCaptionsSource = require('!!raw-loader!../examples/PlayerWithCap
 export default function CaptionedVideoPage() {
   return (
     <div>
-      <Helmet title="PosterImage" />
+      <Helmet title="ClosedCaptionButton" />
       <h3>ClosedCaptionButton</h3>
       <p>
         There is an example on how to add a ClosedCaption button component into{' '}
