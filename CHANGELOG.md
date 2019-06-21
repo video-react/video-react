@@ -1,3 +1,13 @@
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/video-react/video-react/compare/0.13.9...0.14.0) (2019-06-21)
+
+
+### Features
+
+* New ClosedCaptionButton component ([6bea3a1](https://github.com/video-react/video-react/commit/6bea3a1))
+
+
+
 <a name="0.13.9"></a>
 ## [0.13.9](https://github.com/video-react/video-react/compare/0.13.8...0.13.9) (2019-06-18)
 
