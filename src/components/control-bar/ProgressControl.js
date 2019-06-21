@@ -56,7 +56,7 @@ export default class ProgressControl extends Component {
       >
         <SeekBar
           mouseTime={this.state.mouseTime}
-          ref={c => {
+          ref={(c) => {
             this.seekBar = c;
           }}
           {...this.props}

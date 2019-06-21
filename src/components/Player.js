@@ -114,7 +114,7 @@ export default class Player extends Component {
   getDefaultChildren(originalChildren) {
     return [
       <Video
-        ref={c => {
+        ref={(c) => {
           this.video = c;
           this.manager.video = this.video;
         }}
@@ -340,7 +340,7 @@ export default class Player extends Component {
 
   startControlsTimer() {
     let controlBarActiveTime = 3000;
-    React.Children.forEach(this.props.children, element => {
+    React.Children.forEach(this.props.children, (element) => {
       if (!React.isValidElement(element) || element.type !== ControlBar) {
         return;
       }
@@ -417,7 +417,7 @@ export default class Player extends Component {
           this.props.className
         )}
         style={this.getStyle()}
-        ref={c => {
+        ref={(c) => {
           this.manager.rootElement = c;
         }}
         role="region"

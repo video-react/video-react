@@ -22,6 +22,7 @@ import {
   STALLED,
   LOADED_META_DATA,
   LOADED_DATA,
+  ACTIVATE_TEXT_TRACK,
   RESIZE,
   ERROR
 } from '../actions/video';
@@ -52,7 +53,8 @@ const initialState = {
   hasStarted: false,
   userActivity: true,
   isActive: false,
-  isFullscreen: false
+  isFullscreen: false,
+  activeTextTrack: null
 };
 
 export default function player(state = initialState, action) {
@@ -164,6 +166,11 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         ...action.videoProps
+      };
+    case ACTIVATE_TEXT_TRACK:
+      return {
+        ...state,
+        activeTextTrack: action.textTrack
       };
     default:
       return state;

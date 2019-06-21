@@ -47,8 +47,7 @@ export default class MenuButton extends Component {
 
   commitSelection(index) {
     this.setState({
-      activateIndex: index,
-      active: false
+      activateIndex: index
     });
     this.handleIndexChange(index);
   }
@@ -191,7 +190,7 @@ export default class MenuButton extends Component {
         )}
         role="button"
         tabIndex="0"
-        ref={c => {
+        ref={(c) => {
           this.menuButton = c;
         }}
         onClick={this.handleClick}

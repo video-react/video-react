@@ -182,13 +182,14 @@ export default class Slider extends Component {
   renderChildren() {
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { progress, percentage })
-    );
+    return React.Children.map(this.props.children,
+      child => React.cloneElement(child, { progress, percentage }));
   }
 
   render() {
-    const { vertical, label, valuenow, valuetext } = this.props;
+    const {
+      vertical, label, valuenow, valuetext
+    } = this.props;
 
     return (
       <div

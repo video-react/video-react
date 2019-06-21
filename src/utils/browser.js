@@ -1,7 +1,6 @@
-const USER_AGENT =
-  typeof window !== 'undefined' && window.navigator
-    ? window.navigator.userAgent
-    : '';
+const USER_AGENT = typeof window !== 'undefined' && window.navigator
+  ? window.navigator.userAgent
+  : '';
 // const webkitVersionMap = (/AppleWebKit\/([\d.]+)/i).exec(USER_AGENT);
 // const appleWebkitVersion = webkitVersionMap ? parseFloat(webkitVersionMap.pop()) : null;
 

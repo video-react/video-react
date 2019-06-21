@@ -11,7 +11,7 @@ const defaultProps = {
   seconds: 10
 };
 
-export default mode => {
+export default (mode) => {
   class ForwardReplayControl extends Component {
     constructor(props, context) {
       super(props, context);
@@ -44,7 +44,7 @@ export default mode => {
       }
       return (
         <button
-          ref={c => {
+          ref={(c) => {
             this.button = c;
           }}
           className={classNames.join(' ')}

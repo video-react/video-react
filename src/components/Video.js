@@ -81,10 +81,15 @@ export default class Video extends Component {
     this.handleDurationChange = this.handleDurationChange.bind(this);
     this.handleProgress = throttle(this.handleProgress.bind(this), 250);
     this.handleKeypress = this.handleKeypress.bind(this);
+    this.handleTextTrackChange = this.handleTextTrackChange.bind(this);
   }
 
   componentDidMount() {
     this.forceUpdate(); // make sure the children can get the video property
+    if (this.video && this.video.textTracks) {
+      this.video.textTracks.onaddtrack = this.handleTextTrackChange;
+      this.video.textTracks.onremovetrack = this.handleTextTrackChange;
+    }
   }
 
   // get all video properties
@@ -140,6 +145,18 @@ export default class Video extends Component {
   // video height
   get videoHeight() {
     return this.video.videoHeight;
+  }
+
+  handleTextTrackChange() {
+    const { actions, player } = this.props;
+    if (this.video && this.video.textTracks) {
+      const activeTextTrack = Array.from(this.video.textTracks).find(
+        textTrack => textTrack.mode === 'showing'
+      );
+      if (activeTextTrack !== player.activeTextTrack) {
+        actions.activateTextTrack(activeTextTrack);
+      }
+    }
   }
 
   // play the video
@@ -298,7 +315,9 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const { loop, player, actions, onEnded } = this.props;
+    const {
+      loop, player, actions, onEnded
+    } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -480,7 +499,7 @@ export default class Video extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map(c => {
+      .map((c) => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -519,7 +538,7 @@ export default class Video extends Component {
         className={classNames('video-react-video', this.props.className)}
         id={videoId}
         crossOrigin={crossOrigin}
-        ref={c => {
+        ref={(c) => {
           this.video = c;
         }}
         muted={muted}

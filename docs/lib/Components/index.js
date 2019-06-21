@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+  Container, Row, Col, Nav, NavItem, NavLink
+} from 'reactstrap';
 
 const ComponentLink = props => (
   <NavItem>
@@ -59,6 +61,10 @@ class Components extends React.Component {
         {
           name: 'PlaybackRateMenuButton',
           to: '/components/playback-rate-menu-button/'
+        },
+        {
+          name: 'ClosedCaptionButton',
+          to: '/components/captioned-video'
         }
       ]
     };

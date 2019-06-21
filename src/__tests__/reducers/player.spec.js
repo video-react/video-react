@@ -27,6 +27,7 @@ import {
 describe('player', () => {
   it('should return the initail state', () => {
     const expectedInitialState = {
+      activeTextTrack: null,
       currentSrc: null,
       duration: 0,
       currentTime: 0,
