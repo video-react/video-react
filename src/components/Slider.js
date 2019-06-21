@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import * as Dom from '../utils/dom';
 
@@ -171,7 +170,7 @@ export default class Slider extends Component {
   }
 
   calculateDistance(event) {
-    const node = findDOMNode(this);
+    const node = this.slider;
     const position = Dom.getPointerPosition(node, event);
     if (this.props.vertical) {
       return position.y;
@@ -182,14 +181,13 @@ export default class Slider extends Component {
   renderChildren() {
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children,
-      child => React.cloneElement(child, { progress, percentage }));
+    return React.Children.map(this.props.children, child =>
+      React.cloneElement(child, { progress, percentage })
+    );
   }
 
   render() {
-    const {
-      vertical, label, valuenow, valuetext
-    } = this.props;
+    const { vertical, label, valuenow, valuetext } = this.props;
 
     return (
       <div
@@ -202,6 +200,9 @@ export default class Slider extends Component {
           },
           'video-react-slider'
         )}
+        ref={c => {
+          this.slider = c;
+        }}
         tabIndex="0"
         role="slider"
         onMouseDown={this.handleMouseDown}

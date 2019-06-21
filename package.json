@@ -18,7 +18,8 @@
     "create-patch": "sh ./scripts/release patch",
     "publish-release": "npm test && sh ./scripts/publish",
     "lint": "eslint src",
-    "format": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\""
+    "format-all": "prettier --config .prettierrc.js --write \"src/**/*.{js,json,md}\" \"docs/**/*.{js,json,md}\" \"*.{js,json,md}\"",
+    "format-one": "prettier --config .prettierrc.js --write"
   },
   "husky": {
     "hooks": {
@@ -27,7 +28,7 @@
   },
   "lint-staged": {
     "**/*.{js,css,md}": [
-      "npm run format",
+      "npm run format-one",
       "git add"
     ]
   },

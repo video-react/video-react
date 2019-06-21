@@ -1,12 +1,10 @@
-import { findDOMNode } from 'react-dom';
-
 /**
  * Offset Left
  * getBoundingClientRect technique from
  * John Resig http://ejohn.org/blog/getboundingclientrect-is-awesome/
  *
  * @function findElPosition
- * @param {Element} el Element from which to get offset
+ * @param {ReactNodeRef} el React Node ref from which to get offset
  * @return {Object}
  */
 export function findElPosition(el) {
@@ -41,12 +39,12 @@ export function findElPosition(el) {
 }
 
 /**
- * Get pointer position in element
+ * Get pointer position in a React Node ref
  * Returns an object with x and y coordinates.
  * The base on the coordinates are the bottom left of the element.
  *
  * @function getPointerPosition
- * @param {Element} el Element on which to get the pointer position on
+ * @param {ReactNodeRef} el React Node ref on which to get the pointer position on
  * @param {Event} event Event object
  * @return {Object} This object will have x and y coordinates corresponding to the mouse position
  */
@@ -74,17 +72,15 @@ export function getPointerPosition(el, event) {
 
 // blur an element
 export function blurNode(reactNode) {
-  const domNode = findDOMNode(reactNode);
-  if (domNode && domNode.blur) {
-    domNode.blur();
+  if (reactNode && reactNode.blur) {
+    reactNode.blur();
   }
 }
 
 // focus an element
 export function focusNode(reactNode) {
-  const domNode = findDOMNode(reactNode);
-  if (domNode && domNode.focus) {
-    domNode.focus();
+  if (reactNode && reactNode.focus) {
+    reactNode.focus();
   }
 }
 

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 
 import * as Dom from '../../utils/dom';
@@ -32,7 +31,7 @@ export default class ProgressControl extends Component {
     const {
       player: { duration }
     } = this.props;
-    const node = findDOMNode(this.seekBar);
+    const node = this.seekBar;
     const newTime = Dom.getPointerPosition(node, event).x * duration;
     const position = event.pageX - Dom.findElPosition(node).left;
 
@@ -56,7 +55,7 @@ export default class ProgressControl extends Component {
       >
         <SeekBar
           mouseTime={this.state.mouseTime}
-          ref={(c) => {
+          ref={c => {
             this.seekBar = c;
           }}
           {...this.props}
