@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import PlayToggle from '../components/control-bar/PlayToggle';
 import CastPlayToggle from '../components/control-bar/CastPlayToggle';
 
