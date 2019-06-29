@@ -21,6 +21,7 @@ import Customize from './Customize';
 import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
 import CustomizeComponentPage from './Customize/CustomizeComponentPage';
 import CustomizeSourcePage from './Customize/CustomizeSourcePage';
+import GoogleCastPage from './Customize/GoogleCastPage';
 
 const routes = (
   <Route path="/" component={UI.Layout}>
@@ -52,6 +53,7 @@ const routes = (
       />
       <Route path="customize-component/" component={CustomizeComponentPage} />
       <Route path="customize-source/" component={CustomizeSourcePage} />
+      <Route path="google-cast/" component={GoogleCastPage} />
     </Route>
     <Route path="*" component={NotFound} />
   </Route>
