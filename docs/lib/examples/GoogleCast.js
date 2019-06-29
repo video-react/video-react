@@ -2,12 +2,10 @@ import React from 'react';
 import {
   Player,
   ControlBar,
-  PlayToggle,
-  ReplayControl,
-  ForwardControl,
   CurrentTimeDisplay,
   TimeDivider,
-  PlaybackRateMenuButton,
+  DurationDisplay,
+  ProgressControl,
   VolumeMenuButton
 } from 'video-react';
 import CastPlayToggle from '../../../src/components/control-bar/CastPlayToggle';
@@ -99,20 +97,17 @@ export default class GoogleCastComponent extends React.Component {
         <Player ref="player" poster="/assets/poster.png">
           <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
 
-          <ControlBar>
-            <PlayToggle disabled />
+          <ControlBar disableDefaultControls>
             <CastPlayToggle
               order={1}
               isCasting={this.state.isCasting}
               remotePlayer={this.remotePlayer}
               remotePlayerController={this.remotePlayerController}
             />
-            <ReplayControl seconds={10} order={1.1} />
-            <ForwardControl seconds={30} order={1.2} />
-            <CurrentTimeDisplay order={4.1} />
-            <TimeDivider order={4.2} />
-            <PlaybackRateMenuButton rates={[5, 2, 1, 0.5, 0.1]} order={7.1} />
-            <VolumeMenuButton disabled />
+            <CurrentTimeDisplay disabled={this.state.isCasting} order={4.1} />
+            <TimeDivider disabled={this.state.isCasting} order={4.2} />
+            <DurationDisplay disabled={this.state.isCasting} order={4.3} />
+            <ProgressControl disabled={this.state.isCasting} order={6} />
             <google-cast-launcher
               is="google-cast-button"
               id="castbutton"
