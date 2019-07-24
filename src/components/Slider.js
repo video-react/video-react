@@ -101,6 +101,10 @@ export default class Slider extends Component {
   }
 
   handleMouseUp(event) {
+    // On iOS safari, a subsequent mouseup event will be fired after touchend.
+    // Its weird event positions make the player seek a wrong time.
+    // calling preventDefault (at touchend phase) will prevent the mouseup event
+    event.preventDefault();
     const { onMouseUp } = this.props;
 
     document.removeEventListener('mousemove', this.handleMouseMove, true);
