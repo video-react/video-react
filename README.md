@@ -49,6 +49,20 @@ export default props => {
 };
 ```
 
+## Browser support
+
+| Browser | Windows  |  Mac  | Linux | Android  |    iOS     |
+| :-----: | :------: | :---: | :---: | :------: | :--------: |
+| Chrome  |  **Y**   | **Y** | **Y** |  **Y**   | **Native** |
+| Firefox |  **Y**   | **Y** | **Y** | untested | **Native** |
+|  Edge   |  **Y**   |   -   |   -   |    -     |     -      |
+|  IE 11  | untested |   -   |   -   |    -     |     -      |
+| Safari  |    -     | **Y** |   -   |    -     |   **Y**    |
+
+Please note that only the latest stable version is tested and supported. Video-react may be usable in older releases, and we will accept pull requests for them, but they will not be frequently tested or actively supported.
+
+For the items marked as "untested", we do welcome volunteer testers.
+
 ## Development
 
 Run tests:
@@ -57,7 +71,7 @@ Run tests:
 npm test
 ```
 
-### run from local
+### Run from local
 
 ```bash
 $ npm install
