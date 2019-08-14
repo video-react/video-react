@@ -32,6 +32,7 @@ export default class BigPlayButton extends Component {
     return (
       <button
         className={classNames(
+          'video-react-button',
           'video-react-big-play-button',
           `video-react-big-play-button-${position}`,
           this.props.className,
