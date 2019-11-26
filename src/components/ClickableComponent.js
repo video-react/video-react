@@ -50,6 +50,10 @@ export default class ClickableComponent extends Component {
       this.props.onBlur(e);
     }
   }
+  
+  componentWillUnmount(e) {
+    this.handleBlur(e)
+  }
 
   render() {
     const Tag = this.props.tagName;
