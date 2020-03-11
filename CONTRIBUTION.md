@@ -1,57 +1,56 @@
 # Video-React Contributor Guide
 
-## Issues
+## Getting Started
 
-### Reporting bugs
+- Clone Newsela's [Angelou repo](https://github.com/newsela/angelou) & follow the instructions if you haven't already
+- `cd` to the root folder of the _angelou_ repo
+- Run `yarn install` to install _angelou_ dependencies
+- Run `git config push.recurseSubmodules check` to make sure you never push to _angelou_ without also pushing your submodule work
+- Run `git submodule update --init --recursive` to fetch files for the _video-react_ submodule
+- `cd video-react` to navigate into the _video-react_ folder
 
-If you encounter a bug, please take a look at [the issue list](https://github.com/video-react/video-react/issues) first. If an issue you have is already reported, please add additional information or add a 👍 reaction to indicate your agreement. Otherwise, please click the "New issue" button and choose "Bug report" option. To maximize the chances of a quick fix, please make sure you follow the template and provide as much information as possible. It's highly appreciated if you can create an online demo based on [this codesandbox demo](https://codesandbox.io/s/0xn619734p) that can help us quickly reproduce the issue.
+While inside of _video-react_'s root folder:
 
-### Suggesting features
+- `yarn install` to install _video-react_'s dependencies
+- `yarn build` to build _video-react_'s project
 
-We welcome any ideas about how to make video-react better for your use case. Unless there is overwhelming demand for a feature, it might not get implemented immediately, but please include as much information as possible that will help people have a discussion about your proposal.
+After these steps, you should be able to...
 
-## Pull requests
+- Run angelou with `yarn start` from the root of your angelou project
+- View the _video-react_ files
+- Build, run & work on the `<Video />` component
 
-### Improving the documentation
+## Contributing
 
-Improving the documentation, examples, and other open source content can be the easiest way to contribute to the library. If you see a piece of content that can be better, open a PR with an improvement, no matter how small! If you would like to suggest a big change or major rewrite, we’d love to hear your ideas but please open an issue for discussion before writing the PR.
+### Note: Any time you run `git submodule update` or use the `--recurse-submodules` flag, you will be left in a _detached HEAD_ with the submodule.
 
-### Small bug fixes
+### Pulling changes from the submodule
 
-For a small bug fix change (less than 20 lines of code changed), feel free to open a pull request. We’ll try to merge it as fast as possible and ideally publish a new release on the same day.
+If a collaborator adds changes to this submodule, running `git pull` from the angelou repo alone _isn't enough_ to receive these changes. By default, `git pull` fetches submodule changes, but does not _update_ the submodules. Because of this, you have two options for retrieving the updates:
 
-### Big PRs
+- Simply run `git pull --recurse-submodules` in _angelou_'s root folder when you want to retrieve updates for both _angelou_ & _video-react_
 
-For significant changes to a repository, it’s important to settle on a design before starting on the implementation. Since big changes can be risky and might not always get merged, it’s good to reduce the amount of possible wasted effort by agreeing on an implementation design/plan first.
+_OR_
 
-1. **Open an issue**. Open an issue about your bug or feature, as described above.
-1. **Reach consensus**. Maintainers and community members should reach an agreement that this feature or bug is important. Further discussion might be needed to reach agreement on intended behavior and implementation plan.
-1. **Submit PR**. In the case where multiple dependent patches need to be made to implement the change, only submit one at a time. Otherwise, the others might get stale while the first is reviewed and merged. Make sure to avoid “while we’re here” type changes - if something isn’t relevant to the improvement at hand, it should be in a separate PR; this especially includes code style changes of unrelated code.
-1. **Review**. At least one core contributor should sign off on the change before it’s merged.
-1. **Merge and release**.
+- Run `git pull` from _angelou_'s root folder to retrieve the _angelou_ updates
+- Run `git submodule update` to retrieve the _video-react_ updates
 
-## New contributors
+### Working (& Pushing) on the submodule
 
-If you want to contribute to video-react, but aren't quite sure where to start, take a look at the issue list and look for those labeled with "help wanted". Join the discussion if the design is not clear yet, or you can leave a comment letting people know that you are ready to take it!
+Before you start working on the submodule, make sure to checkout to a new branch. Otherwise, your work might be on a detached HEAD.
 
-## Releasing
+If you need to pull in updates from the remote while working on your branch, run `git submodule update --remote --merge`.
 
-Maintainers should follow these steps to release a new version:
+If you forget the `--merge`, Git will just update the submodule to whatever is on the server and reset your project to a detached HEAD state. If this happens, just checkout to the branch your work is on and don't forget the `--merge` flag this time. :)
 
-### Create Release Branch
+If you've made changes in...
 
-To create a release branch and changelog, run the following command, optionally with a semantic release type (major, minor, patch) (if not provided, it will default to semver (it's best to let it default)):
+#### Angelou only
 
-```
-./scripts/release <release-type>
-```
+Proceed to follow the regular process outlined in [Angelou's README.md](https://github.com/newsela/angelou#release-workflow).
 
-Verify changelog in branch. Create a PR if everything looks good. Merge when tests are green.
+#### Both video-react & angelou OR video-react alone
 
-### Tagging and Publishing
-
-Once the release branch is merged, checkout master and run:
-
-```
-./scripts/publish
-```
+- Create a branch for your work in the submodule if you haven't done so yet
+- Commit your work in the _video-react_ submodule
+- Push your work to a branch in the remote repository

@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/video-react/video-react.git"
+    "url": "git+https://github.com/newsela/video-react.git"
   },
   "files": [
     "LICENSE",
