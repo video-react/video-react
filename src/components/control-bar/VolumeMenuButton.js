@@ -12,7 +12,7 @@ const propTypes = {
   vertical: PropTypes.bool,
   className: PropTypes.string,
   alwaysShowVolume: PropTypes.bool,
-  children: PropTypes.any
+  children: PropTypes.node
 };
 
 const defaultProps = {
