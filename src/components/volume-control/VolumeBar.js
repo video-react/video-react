@@ -98,13 +98,6 @@ class VolumeBar extends Component {
 
     const volume = (player.volume * 100).toFixed(2);
 
-    // volume slider -- render slider with volume level and default props
-    // change things in .scss
-    // change level manually
-    // get rid of ::before element
-    // background color of slider
-    // height of slider
-    // background of slider (style popupbutton in volumemenubutton maybe?)
     return (
       <Slider
         ref={c => {
