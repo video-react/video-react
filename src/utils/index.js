@@ -99,7 +99,6 @@ export function mergeAndSortChildren(
       );
 
       const defaultProps = defaultComponent ? defaultComponent.props : {};
-      console.log(parentProps, defaultProps, element.props);
       const props = {
         ...parentProps, // inherit from parent component
         ...defaultProps, // inherit from default component

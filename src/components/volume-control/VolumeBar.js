@@ -93,11 +93,18 @@ class VolumeBar extends Component {
   }
 
   render() {
-    const { player, className } = this.props;
-    console.log('vol bar props', this.props);
-    console.log('player', player);
+    const { className, ...parentProps } = this.props; // remove className
+    const { player } = this.props;
 
     const volume = (player.volume * 100).toFixed(2);
+
+    // volume slider -- render slider with volume level and default props
+    // change things in .scss
+    // change level manually
+    // get rid of ::before element
+    // background color of slider
+    // height of slider
+    // background of slider (style popupbutton in volumemenubutton maybe?)
     return (
       <Slider
         ref={c => {
@@ -122,7 +129,7 @@ class VolumeBar extends Component {
           'video-react-volume-bar video-react-slider-bar'
         )}
       >
-        <VolumeLevel {...this.props} />
+        <VolumeLevel {...parentProps} />
       </Slider>
     );
   }
