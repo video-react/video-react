@@ -94,11 +94,13 @@ class VolumeBar extends Component {
 
   render() {
     const { player, className } = this.props;
+    console.log('vol bar props', this.props);
+    console.log('player', player);
 
     const volume = (player.volume * 100).toFixed(2);
     return (
       <Slider
-        ref={(c) => {
+        ref={c => {
           this.slider = c;
         }}
         label="volume level"

@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 const propTypes = {
   actions: PropTypes.object,
   className: PropTypes.string,
-  seconds: PropTypes.oneOf([5, 10, 30])
+  seconds: PropTypes.oneOf([5, 10, 15, 30])
 };
 
 const defaultProps = {
-  seconds: 10
+  seconds: 15
 };
 
-export default (mode) => {
+export default mode => {
   class ForwardReplayControl extends Component {
     constructor(props, context) {
       super(props, context);
@@ -44,7 +44,7 @@ export default (mode) => {
       }
       return (
         <button
-          ref={(c) => {
+          ref={c => {
             this.button = c;
           }}
           className={classNames.join(' ')}

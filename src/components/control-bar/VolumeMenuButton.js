@@ -4,13 +4,15 @@ import classNames from 'classnames';
 
 import PopupButton from '../popup/PopupButton';
 import VolumeBar from '../volume-control/VolumeBar';
+import { mergeAndSortChildren } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   vertical: PropTypes.bool,
   className: PropTypes.string,
-  alwaysShowVolume: PropTypes.bool
+  alwaysShowVolume: PropTypes.bool,
+  children: PropTypes.any
 };
 
 const defaultProps = {
@@ -28,6 +30,7 @@ class VolumeMenuButton extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.getDefaultChildren = this.getDefaultChildren.bind(this);
   }
 
   get volumeLevel() {
@@ -62,11 +65,11 @@ class VolumeMenuButton extends Component {
     });
   }
 
-  render() {
+  getDefaultChildren() {
     const { vertical, player, className } = this.props;
     const inline = !vertical;
     const level = this.volumeLevel;
-    return (
+    return [
       <PopupButton
         className={classNames(
           className,
@@ -87,6 +90,7 @@ class VolumeMenuButton extends Component {
         )}
         onClick={this.handleClick}
         inline={inline}
+        player={player}
       >
         <VolumeBar
           onFocus={this.handleFocus}
@@ -94,6 +98,46 @@ class VolumeMenuButton extends Component {
           {...this.props}
         />
       </PopupButton>
+    ];
+  }
+
+  getChildren() {
+    const children = React.Children.toArray(this.props.children);
+    const defaultChildren = this.getDefaultChildren();
+    const { className, ...parentProps } = this.props; // remove className
+    console.log('parentProps', parentProps);
+    return mergeAndSortChildren(defaultChildren, children, parentProps);
+  }
+
+  render() {
+    const children = this.getChildren();
+
+    return (
+      <React.Fragment>{children}</React.Fragment>
+
+      // <PopupButton
+      //   className={classNames(
+      //     className,
+      //     {
+      //       'video-react-volume-menu-button-vertical': vertical,
+      //       'video-react-volume-menu-button-horizontal': !vertical,
+      //       'video-react-vol-muted': player.muted,
+      //       'video-react-vol-0': level === 0 && !player.muted,
+      //       'video-react-vol-1': level === 1,
+      //       'video-react-vol-2': level === 2,
+      //       'video-react-vol-3': level === 3,
+      //       'video-react-slider-active':
+      //         this.props.alwaysShowVolume || this.state.active,
+      //       'video-react-lock-showing':
+      //         this.props.alwaysShowVolume || this.state.active
+      //     },
+      //     'video-react-volume-menu-button'
+      //   )}
+      //   onClick={this.handleClick}
+      //   inline={inline}
+      // >
+      //   {children}
+      // </PopupButton>
     );
   }
 }

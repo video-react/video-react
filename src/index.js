@@ -27,6 +27,11 @@ import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
 
+import VolumeBar from './components/volume-control/VolumeBar';
+import VolumeLevel from './components/volume-control/VolumeLevel';
+
+import PopupButton from './components/popup/PopupButton';
+
 import MenuButton from './components/menu/MenuButton';
 
 import * as playerActions from './actions/player';
@@ -57,6 +62,9 @@ export {
   DurationDisplay,
   TimeDivider,
   VolumeMenuButton,
+  VolumeBar,
+  VolumeLevel,
+  PopupButton,
   PlaybackRateMenuButton,
   ClosedCaptionButton,
   PlaybackRate,
