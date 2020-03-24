@@ -28,9 +28,6 @@ import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
 
 import VolumeBar from './components/volume-control/VolumeBar';
-import VolumeLevel from './components/volume-control/VolumeLevel';
-
-import PopupButton from './components/popup/PopupButton';
 
 import MenuButton from './components/menu/MenuButton';
 
@@ -63,8 +60,6 @@ export {
   TimeDivider,
   VolumeMenuButton,
   VolumeBar,
-  VolumeLevel,
-  PopupButton,
   PlaybackRateMenuButton,
   ClosedCaptionButton,
   PlaybackRate,
