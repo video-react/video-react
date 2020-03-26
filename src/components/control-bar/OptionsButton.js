@@ -10,6 +10,9 @@ const OptionsButton = props => {
   return (
     <a
       type="button"
+      role="button"
+      aria-label="options"
+      data-testid="test-options-icon"
       className={classNames('video-react-closed-caption', props.className)}
       onClick={() => props.actions.handleOptionsOverlayChange()}
     ></a>
