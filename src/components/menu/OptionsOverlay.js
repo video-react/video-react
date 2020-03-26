@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   player: PropTypes.object,
@@ -124,7 +125,7 @@ class OptionsOverlay extends Component {
     console.log('dawg: ', items, selectedIndex);
 
     return (
-      <div>
+      <div className={classNames('video-react-options-overlay')}>
         <div>
           <h3>Audio</h3>
           <ul>
