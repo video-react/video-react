@@ -29,7 +29,8 @@ import {
 import {
   FULLSCREEN_CHANGE,
   PLAYER_ACTIVATE,
-  USER_ACTIVATE
+  USER_ACTIVATE,
+  OPTIONS_OVERLAY_CHANGE
 } from '../actions/player';
 
 const initialState = {
@@ -54,7 +55,8 @@ const initialState = {
   userActivity: true,
   isActive: false,
   isFullscreen: false,
-  activeTextTrack: null
+  activeTextTrack: null,
+  isOptionsOverlayOpen: false
 };
 
 export default function player(state = initialState, action) {
@@ -73,6 +75,11 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         isFullscreen: !!action.isFullscreen
+      };
+    case OPTIONS_OVERLAY_CHANGE:
+      return {
+        ...state,
+        isOptionsOverlayOpen: !state.isOptionsOverlayOpen
       };
     case SEEKING_TIME:
       return {

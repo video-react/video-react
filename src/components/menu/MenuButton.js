@@ -159,6 +159,7 @@ export default class MenuButton extends Component {
     }
 
     const { items } = this.props;
+    console.log('da items: ', items);
     return (
       <Menu>
         {items.map((item, i) => (
@@ -190,7 +191,7 @@ export default class MenuButton extends Component {
         )}
         role="button"
         tabIndex="0"
-        ref={(c) => {
+        ref={c => {
           this.menuButton = c;
         }}
         onClick={this.handleClick}

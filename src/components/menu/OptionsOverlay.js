@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classNames from 'classnames';
-import MenuButton from '../menu/MenuButton';
 
 const propTypes = {
   player: PropTypes.object,
@@ -18,7 +16,7 @@ const defaultProps = {
   kinds: ['captions', 'subtitles'] // `kind`s of TextTrack to look for to associate it with this menu.
 };
 
-class ClosedCaptionButton extends Component {
+class OptionsOverlay extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -34,9 +32,7 @@ class ClosedCaptionButton extends Component {
   }
 
   getTextTrackItems() {
-    const {
-      kinds, player, offMenuText, showOffMenu
-    } = this.props;
+    const { kinds, player, offMenuText, showOffMenu } = this.props;
     const { textTracks, activeTextTrack } = player;
     const textTrackItems = {
       items: [],
@@ -55,7 +51,7 @@ class ClosedCaptionButton extends Component {
       });
     }
 
-    tracks.forEach((textTrack) => {
+    tracks.forEach(textTrack => {
       // ignore invalid text track kind
       if (kinds.length && !kinds.includes(textTrack.kind)) {
         return;
@@ -81,8 +77,8 @@ class ClosedCaptionButton extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.selectedIndex
-      || !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
+      textTrackItems.selectedIndex !== this.state.selectedIndex ||
+      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
     ) {
       this.setState(textTrackItems);
     }
@@ -95,9 +91,9 @@ class ClosedCaptionButton extends Component {
 
     for (let i = 0; i < items1.length; i++) {
       if (
-        !items2[i]
-        || items1[i].label !== items2[i].label
-        || items1[i].value !== items2[i].value
+        !items2[i] ||
+        items1[i].label !== items2[i].label ||
+        items1[i].value !== items2[i].value
       ) {
         return false;
       }
@@ -125,24 +121,43 @@ class ClosedCaptionButton extends Component {
 
   render() {
     const { items, selectedIndex } = this.state;
+    console.log('dawg: ', items, selectedIndex);
 
     return (
-      <MenuButton
-        className={classNames(
-          'video-react-closed-caption',
-          this.props.className
-        )}
-        onSelectItem={this.handleSelectItem}
-        items={items}
-        selectedIndex={selectedIndex}
-      >
-        <span className="video-react-control-text">Closed Caption</span>
-      </MenuButton>
+      <div>
+        <div>
+          <h3>Audio</h3>
+          <ul>
+            <li>English</li>
+            <li>English Audio Description</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Subtitles [CC]</h3>
+          <ul>
+            <li>OFF</li>
+            <li>English</li>
+            <li>Spanish</li>
+          </ul>
+        </div>
+      </div>
+      // <MenuButton
+      //   className={classNames(
+      //     'video-react-closed-caption',
+      //     this.props.className
+      //   )}
+      //   onSelectItem={this.handleSelectItem}
+      //   items={items}
+      //   selectedIndex={selectedIndex}
+      // >
+      //   <span className="video-react-control-text">Closed Caption</span>
+      // </MenuButton>
     );
   }
 }
 
-ClosedCaptionButton.propTypes = propTypes;
-ClosedCaptionButton.defaultProps = defaultProps;
-ClosedCaptionButton.displayName = 'ClosedCaptionButton';
-export default ClosedCaptionButton;
+OptionsOverlay.propTypes = propTypes;
+OptionsOverlay.defaultProps = defaultProps;
+OptionsOverlay.displayName = 'OptionsOverlay';
+export default OptionsOverlay;

@@ -1,0 +1,30 @@
+.video-react-options-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  background: rgba(#000000, 0.8);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  div {
+    width: 90%;
+    align-self: center;
+    h3 {
+      font-size: 1.8em;
+    }
+
+    ul {
+      padding-left: 0;
+      font-size: 1.3em;
+      li {
+        list-style-type: circle;
+        list-style-position: inside;
+        margin: .3em 0;
+      }
+    }
+  }
+}
