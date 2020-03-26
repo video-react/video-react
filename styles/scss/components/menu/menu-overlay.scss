@@ -1,3 +1,16 @@
+.video-react-options-close {
+  position: absolute;
+  top: .6em;
+  right: .6em;
+  color: white;
+  font-size: 2em;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
 .video-react-options-overlay {
   position: absolute;
   top: 0;
@@ -9,6 +22,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  span {
+    font-size: 1.5em;
+  }
 
   div {
     width: 90%;

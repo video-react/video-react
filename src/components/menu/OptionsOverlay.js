@@ -125,24 +125,33 @@ class OptionsOverlay extends Component {
     console.log('dawg: ', items, selectedIndex);
 
     return (
-      <div className={classNames('video-react-options-overlay')}>
-        <div>
-          <h3>Audio</h3>
-          <ul>
-            <li>English</li>
-            <li>English Audio Description</li>
-          </ul>
-        </div>
+      <div>
+        <span
+          className={classNames('video-react-options-close')}
+          onClick={() => this.props.actions.handleOptionsOverlayChange()}
+        >
+          X
+        </span>
+        <div className={classNames('video-react-options-overlay')}>
+          <div>
+            <h3>Audio</h3>
+            <ul>
+              <li>English</li>
+              <li>English Audio Description</li>
+            </ul>
+          </div>
 
-        <div>
-          <h3>Subtitles [CC]</h3>
-          <ul>
-            <li>OFF</li>
-            <li>English</li>
-            <li>Spanish</li>
-          </ul>
+          <div>
+            <h3>Subtitles [CC]</h3>
+            <ul>
+              <li>OFF</li>
+              <li>English</li>
+              <li>Spanish</li>
+            </ul>
+          </div>
         </div>
       </div>
+
       // <MenuButton
       //   className={classNames(
       //     'video-react-closed-caption',
