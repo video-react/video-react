@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Menu from '../Menu';
+import MenuItem from '../MenuItem';
 
 const propTypes = {
   player: PropTypes.object,
@@ -107,6 +109,8 @@ class OptionsOverlay extends Component {
     const { player, actions, showOffMenu } = this.props;
     const { textTracks } = player;
 
+    if (index === 0 && showOffMenu) actions.activateTextTrack(null); // update video-react's state to reflect off button being selected
+
     // For the 'subtitles-off' button, the first condition will never match
     // so all subtitles will be turned off
     Array.from(textTracks).forEach((textTrack, i) => {
@@ -122,7 +126,6 @@ class OptionsOverlay extends Component {
 
   render() {
     const { items, selectedIndex } = this.state;
-    console.log('dawg: ', items, selectedIndex);
 
     return (
       <div>
@@ -142,27 +145,23 @@ class OptionsOverlay extends Component {
           </div>
 
           <div>
-            <h3>Subtitles [CC]</h3>
-            <ul>
-              <li>OFF</li>
-              <li>English</li>
-              <li>Spanish</li>
-            </ul>
+            <h3>Subtitles</h3>
+            {items && (
+              <Menu>
+                {items.map((item, i) => (
+                  <MenuItem
+                    item={item}
+                    index={i}
+                    onSelectItem={this.handleSelectItem}
+                    activateIndex={selectedIndex}
+                    key={item.label}
+                  />
+                ))}
+              </Menu>
+            )}
           </div>
         </div>
       </div>
-
-      // <MenuButton
-      //   className={classNames(
-      //     'video-react-closed-caption',
-      //     this.props.className
-      //   )}
-      //   onSelectItem={this.handleSelectItem}
-      //   items={items}
-      //   selectedIndex={selectedIndex}
-      // >
-      //   <span className="video-react-control-text">Closed Caption</span>
-      // </MenuButton>
     );
   }
 }

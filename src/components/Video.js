@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import { isVideoChild, mediaProperties, throttle } from '../utils';
-import OptionsOverlay from './menu/OptionsOverlay';
+import OptionsOverlay from './menu/options/OptionsOverlay';
 
 const propTypes = {
   actions: PropTypes.object,
