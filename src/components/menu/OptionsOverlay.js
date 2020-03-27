@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import Menu from '../Menu';
-import MenuItem from '../MenuItem';
+import Menu from './Menu';
+import MenuItem from './MenuItem';
 
 const propTypes = {
   player: PropTypes.object,
