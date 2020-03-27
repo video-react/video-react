@@ -5,6 +5,10 @@ export default class HLSSource extends Component {
   constructor(props, context) {
     super(props, context);
     this.hls = new Hls();
+    /*
+    // #167you might need to disable worker if it doesn't work for Safari
+    this.hls = new Hls({ enableWorker: false });
+    */
   }
 
   componentDidMount() {
