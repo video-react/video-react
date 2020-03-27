@@ -159,7 +159,6 @@ export default class MenuButton extends Component {
     }
 
     const { items } = this.props;
-    console.log('da items: ', items);
     return (
       <Menu>
         {items.map((item, i) => (
