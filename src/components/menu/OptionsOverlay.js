@@ -132,8 +132,9 @@ class OptionsOverlay extends Component {
         <span
           className={classNames('video-react-options-close')}
           onClick={() => this.props.actions.handleOptionsOverlayChange()}
+          aria-label="Close Options Menu"
         >
-          X
+          &times;
         </span>
         <div className={classNames('video-react-options-overlay')}>
           <div>
@@ -144,13 +145,13 @@ class OptionsOverlay extends Component {
             </ul>
           </div>
 
-          <div>
+          <div className={classNames('video-react-options-menu-section')}>
             <h3>Subtitles</h3>
             {items && (
               <Menu>
                 {items.map((item, i) => (
                   <MenuItem
-                    item={item}
+                    label={item.label}
                     index={i}
                     onSelectItem={this.handleSelectItem}
                     activateIndex={selectedIndex}
