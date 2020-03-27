@@ -35,13 +35,7 @@ export default class MenuItem extends Component {
             'video-react-menu-item-radio': true,
             'video-react-menu-item-radio-selected': index === activateIndex
           })}
-        >
-          {index === activateIndex && (
-            <span
-              className={classNames('video-react-menu-item-radio-selected')}
-            />
-          )}
-        </div>
+        />
         <p>{label}</p>
       </div>
     );
