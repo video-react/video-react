@@ -1,9 +1,9 @@
 .video-react-options-close {
   position: absolute;
-  top: 0.6em;
-  right: 0.6em;
+  top: 0.4em;
+  right: 0.5em;
   color: white;
-  font-size: 2em;
+  font-size: 2.5em;
   z-index: 2;
 
   &:hover {
@@ -17,7 +17,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 40%;
+  width: 325px;
   background: rgba(#000000, 0.8);
   z-index: 1;
   display: flex;
@@ -30,7 +30,7 @@
   }
 
   .video-react-options-menu-section {
-    width: 90%;
+    width: 80%;
     align-self: center;
 
     h3 {
