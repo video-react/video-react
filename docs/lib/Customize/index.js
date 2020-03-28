@@ -27,6 +27,10 @@ class Customize extends React.Component {
         {
           name: 'Customize Video Source',
           to: '/customize/customize-source/'
+        },
+        {
+          name: 'Google Cast Support',
+          to: '/customize/google-cast/'
         }
       ]
     };
