@@ -13,7 +13,7 @@ const OptionsButton = props => {
       role="button"
       aria-label="options"
       data-testid="test-options-icon"
-      className={classNames('video-react-closed-caption', props.className)}
+      className={classNames('video-react-options-button', props.className)}
       onClick={() => props.actions.handleOptionsOverlayChange()}
     ></a>
   );
