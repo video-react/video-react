@@ -20,7 +20,8 @@ import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
 import VolumeMenuButton from './components/control-bar/VolumeMenuButton';
 import PlaybackRateMenuButton from './components/control-bar/PlaybackRateMenuButton';
 import PlaybackRate from './components/control-bar/PlaybackRate';
-import ClosedCaptionButton from './components/control-bar/ClosedCaptionButton';
+import OptionsButton from './components/control-bar/OptionsButton';
+import OptionsOverlay from './components/menu/OptionsOverlay';
 
 import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
@@ -61,7 +62,8 @@ export {
   VolumeMenuButton,
   VolumeBar,
   PlaybackRateMenuButton,
-  ClosedCaptionButton,
+  OptionsButton,
+  OptionsOverlay,
   PlaybackRate,
   MenuButton,
   playerActions,

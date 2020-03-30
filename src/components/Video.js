@@ -315,9 +315,7 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const {
-      loop, player, actions, onEnded
-    } = this.props;
+    const { loop, player, actions, onEnded } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -499,7 +497,7 @@ export default class Video extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map((c) => {
+      .map(c => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -534,46 +532,48 @@ export default class Video extends Component {
     } = this.props;
 
     return (
-      <video
-        className={classNames('video-react-video', this.props.className)}
-        id={videoId}
-        crossOrigin={crossOrigin}
-        ref={(c) => {
-          this.video = c;
-        }}
-        muted={muted}
-        preload={preload}
-        loop={loop}
-        playsInline={playsInline}
-        autoPlay={autoPlay}
-        poster={poster}
-        src={src}
-        onLoadStart={this.handleLoadStart}
-        onWaiting={this.handleWaiting}
-        onCanPlay={this.handleCanPlay}
-        onCanPlayThrough={this.handleCanPlayThrough}
-        onPlaying={this.handlePlaying}
-        onEnded={this.handleEnded}
-        onSeeking={this.handleSeeking}
-        onSeeked={this.handleSeeked}
-        onPlay={this.handlePlay}
-        onPause={this.handlePause}
-        onProgress={this.handleProgress}
-        onDurationChange={this.handleDurationChange}
-        onError={this.handleError}
-        onSuspend={this.handleSuspend}
-        onAbort={this.handleAbort}
-        onEmptied={this.handleEmptied}
-        onStalled={this.handleStalled}
-        onLoadedMetadata={this.handleLoadedMetaData}
-        onLoadedData={this.handleLoadedData}
-        onTimeUpdate={this.handleTimeUpdate}
-        onRateChange={this.handleRateChange}
-        onVolumeChange={this.handleVolumeChange}
-        tabIndex="-1"
-      >
-        {this.renderChildren()}
-      </video>
+      <div className={classNames('video-react-video-container')}>
+        <video
+          className={classNames('video-react-video', this.props.className)}
+          id={videoId}
+          crossOrigin={crossOrigin}
+          ref={c => {
+            this.video = c;
+          }}
+          muted={muted}
+          preload={preload}
+          loop={loop}
+          playsInline={playsInline}
+          autoPlay={autoPlay}
+          poster={poster}
+          src={src}
+          onLoadStart={this.handleLoadStart}
+          onWaiting={this.handleWaiting}
+          onCanPlay={this.handleCanPlay}
+          onCanPlayThrough={this.handleCanPlayThrough}
+          onPlaying={this.handlePlaying}
+          onEnded={this.handleEnded}
+          onSeeking={this.handleSeeking}
+          onSeeked={this.handleSeeked}
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
+          onProgress={this.handleProgress}
+          onDurationChange={this.handleDurationChange}
+          onError={this.handleError}
+          onSuspend={this.handleSuspend}
+          onAbort={this.handleAbort}
+          onEmptied={this.handleEmptied}
+          onStalled={this.handleStalled}
+          onLoadedMetadata={this.handleLoadedMetaData}
+          onLoadedData={this.handleLoadedData}
+          onTimeUpdate={this.handleTimeUpdate}
+          onRateChange={this.handleRateChange}
+          onVolumeChange={this.handleVolumeChange}
+          tabIndex="-1"
+        >
+          {this.renderChildren()}
+        </video>
+      </div>
     );
   }
 }
