@@ -140,16 +140,10 @@ class OptionsOverlay extends Component {
           &times;
         </span>
         <div className={classNames('video-react-options-overlay')}>
-          <div>
-            <h3>Audio</h3>
-            <ul>
-              <li>English</li>
-              <li>English Audio Description</li>
-            </ul>
-          </div>
-
           <div className={classNames('video-react-options-menu-section')}>
-            <h3>Subtitles</h3>
+            <h3 className={classNames('video-react-menu-section-header')}>
+              Subtitles
+            </h3>
             {items && (
               <Menu>
                 {items.map((item, i) => (
