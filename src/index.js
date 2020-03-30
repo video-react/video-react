@@ -28,6 +28,8 @@ import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
 
+import VolumeBar from './components/volume-control/VolumeBar';
+
 import MenuButton from './components/menu/MenuButton';
 
 import * as playerActions from './actions/player';
@@ -58,6 +60,7 @@ export {
   DurationDisplay,
   TimeDivider,
   VolumeMenuButton,
+  VolumeBar,
   PlaybackRateMenuButton,
   OptionsButton,
   OptionsOverlay,
