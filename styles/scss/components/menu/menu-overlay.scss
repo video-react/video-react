@@ -40,6 +40,7 @@
     .video-react-menu-item {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       .video-react-menu-item-radio {
         width: 1em;
@@ -51,7 +52,6 @@
 
         &.video-react-menu-item-radio-selected, &:hover {
           background-color: blue;
-          cursor: pointer;
         }
       }
 
