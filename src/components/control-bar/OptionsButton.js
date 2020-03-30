@@ -8,14 +8,15 @@ const propTypes = {
 
 const OptionsButton = props => {
   return (
-    <a
+    <button
       type="button"
-      role="button"
       aria-label="options"
       data-testid="test-options-icon"
       className={classNames('video-react-options-button', props.className)}
       onClick={() => props.actions.handleOptionsOverlayChange()}
-    ></a>
+    >
+      <span className="video-react-control-text">Options Button</span>
+    </button>
   );
 };
 
