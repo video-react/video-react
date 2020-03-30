@@ -126,9 +126,12 @@ class OptionsOverlay extends Component {
 
   render() {
     const { items, selectedIndex } = this.state;
+    const { className, player } = this.props;
+
+    if (!player.isOptionsOverlayOpen) return null;
 
     return (
-      <div>
+      <div className={classNames(className)}>
         <span
           className={classNames('video-react-options-close')}
           onClick={() => this.props.actions.handleOptionsOverlayChange()}

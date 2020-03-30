@@ -529,13 +529,11 @@ export default class Video extends Component {
       playsInline,
       muted,
       crossOrigin,
-      videoId,
-      player
+      videoId
     } = this.props;
 
     return (
       <div className={classNames('video-react-video-container')}>
-        {player.isOptionsOverlayOpen && <OptionsOverlay {...this.props} />}
         <video
           className={classNames('video-react-video', this.props.className)}
           id={videoId}

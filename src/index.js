@@ -21,6 +21,7 @@ import VolumeMenuButton from './components/control-bar/VolumeMenuButton';
 import PlaybackRateMenuButton from './components/control-bar/PlaybackRateMenuButton';
 import PlaybackRate from './components/control-bar/PlaybackRate';
 import OptionsButton from './components/control-bar/OptionsButton';
+import OptionsOverlay from './components/menu/OptionsOverlay';
 
 import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
@@ -59,6 +60,7 @@ export {
   VolumeMenuButton,
   PlaybackRateMenuButton,
   OptionsButton,
+  OptionsOverlay,
   PlaybackRate,
   MenuButton,
   playerActions,
