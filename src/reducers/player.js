@@ -31,7 +31,7 @@ import {
   PLAYER_ACTIVATE,
   USER_ACTIVATE,
   OPTIONS_OVERLAY_CHANGE,
-  UPDATE_AUDIO_DESCRIPTION
+  ACTIVE_AUDIO_DESCRIPTION
 } from '../actions/player';
 
 const initialState = {
@@ -160,11 +160,6 @@ export default function player(state = initialState, action) {
         error: 'UNKNOWN ERROR',
         ended: true
       };
-    case UPDATE_AUDIO_DESCRIPTION:
-      return {
-        ...state,
-        audioDescription: action.audioDescription
-      };
     case DURATION_CHANGE:
     case TIME_UPDATE:
     case VOLUME_CHANGE:
@@ -185,6 +180,11 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         activeTextTrack: action.textTrack
+      };
+    case ACTIVE_AUDIO_DESCRIPTION:
+      return {
+        ...state,
+        audioDescription: action.audioDescription
       };
     default:
       return state;
