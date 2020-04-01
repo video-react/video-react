@@ -16,15 +16,18 @@ const AudioDescription = ({
   audioDescriptions
 }) => {
   if (!player.audioDescriptions.length && audioDescriptions) {
-    actions.setAudioDescriptions(audioDescriptions);
+    const descriptions = [{ language: 'OFF' }, ...audioDescriptions];
+    actions.setAudioDescriptions(descriptions);
   }
 
-  if (!player.audioDescriptions || !player.selectedAudioDescription)
-    return null;
+  if (!player.audioDescriptions || !player.activeAudioDescription) return null;
+
+  const activeAudioDescription =
+    player.audioDescriptions[player.activeAudioDescription];
 
   return (
     <div className={classNames(className)}>
-      <audio controls src={player.audioDescription.src}>
+      <audio autoPlay controls src={activeAudioDescription.file_url}>
         Your browser does not support the <code>audio</code> element for audio
         descriptions.
       </audio>

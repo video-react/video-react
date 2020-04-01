@@ -60,7 +60,7 @@ const initialState = {
   activeTextTrack: null,
   isOptionsOverlayOpen: false,
   audioDescriptions: [],
-  activeAudioDescription: null
+  activeAudioDescription: 0
 };
 
 export default function player(state = initialState, action) {

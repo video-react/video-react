@@ -24,7 +24,9 @@ class OptionsOverlay extends Component {
     super(props, context);
 
     this.getTextTrackItems = this.getTextTrackItems.bind(this);
-    this.getAudioDescriptions = this.getAudioDescriptions.bind(this);
+    this.handleSelectAudioDescription = this.handleSelectAudioDescription.bind(
+      this
+    );
     this.updateState = this.updateState.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
 
@@ -33,17 +35,6 @@ class OptionsOverlay extends Component {
 
   componentDidUpdate() {
     this.updateState();
-  }
-
-  getAudioDescriptions() {
-    const { player } = this.props;
-    console.log('da playaaaaaa: ', player);
-    const audioDescriptions = [
-      { language: 'OFF' },
-      ...player.audioDescriptions
-    ];
-
-    return audioDescriptions;
   }
 
   getTextTrackItems() {
@@ -136,15 +127,14 @@ class OptionsOverlay extends Component {
     });
   }
 
-  handleSelectAudioDescription(description) {
-    this.props.actions.updateActiveAudioDescription(description);
+  handleSelectAudioDescription(index) {
+    const { actions } = this.props;
+    actions.updateActiveAudioDescription(index);
   }
 
   render() {
     const { items, selectedIndex } = this.state;
     const { className, player, actions } = this.props;
-
-    const descriptions = this.getAudioDescriptions();
 
     if (!player.isOptionsOverlayOpen) return null;
 
@@ -162,9 +152,9 @@ class OptionsOverlay extends Component {
             <h3 className={classNames('video-react-menu-section-header')}>
               Audio Descriptions
             </h3>
-            {descriptions && (
+            {player.audioDescriptions && (
               <Menu>
-                {descriptions.map((description, i) => (
+                {player.audioDescriptions.map((description, i) => (
                   <MenuItem
                     label={description.language}
                     index={i}
