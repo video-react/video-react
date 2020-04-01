@@ -28,10 +28,7 @@ class OptionsOverlay extends Component {
     this.updateState = this.updateState.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
 
-    this.state = {
-      subtitles: this.getTextTrackItems(),
-      descriptions: this.getAudioDescriptions()
-    };
+    this.state = this.getTextTrackItems();
   }
 
   componentDidUpdate() {
@@ -40,6 +37,7 @@ class OptionsOverlay extends Component {
 
   getAudioDescriptions() {
     const { player } = this.props;
+    console.log('da playaaaaaa: ', player);
     const audioDescriptions = [
       { language: 'OFF' },
       ...player.audioDescriptions
@@ -94,16 +92,10 @@ class OptionsOverlay extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.subtitles.selectedIndex ||
-      !this.textTrackItemsAreEqual(
-        textTrackItems.items,
-        this.state.subtitles.items
-      )
+      textTrackItems.selectedIndex !== this.state.selectedIndex ||
+      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
     ) {
-      this.setState(prevState => ({
-        ...prevState.descriptions,
-        subtitles: textTrackItems
-      }));
+      this.setState(textTrackItems);
     }
   }
 
@@ -149,8 +141,10 @@ class OptionsOverlay extends Component {
   }
 
   render() {
-    const { subtitles, descriptions } = this.state;
+    const { items, selectedIndex } = this.state;
     const { className, player, actions } = this.props;
+
+    const descriptions = this.getAudioDescriptions();
 
     if (!player.isOptionsOverlayOpen) return null;
 
@@ -187,14 +181,14 @@ class OptionsOverlay extends Component {
             <h3 className={classNames('video-react-menu-section-header')}>
               Subtitles
             </h3>
-            {subtitles.items && (
+            {items && (
               <Menu>
-                {subtitles.items.map((item, i) => (
+                {items.map((item, i) => (
                   <MenuItem
                     label={item.label}
                     index={i}
                     onSelectItem={this.handleSelectItem}
-                    activateIndex={subtitles.selectedIndex}
+                    activateIndex={selectedIndex}
                     key={item.label}
                   />
                 ))}

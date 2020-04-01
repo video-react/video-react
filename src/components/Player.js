@@ -130,8 +130,8 @@ export default class Player extends Component {
       <Bezel key="bezel" order={3.0} />,
       <BigPlayButton key="big-play-button" order={4.0} />,
       <ControlBar key="control-bar" order={5.0} />,
-      <OptionsOverlay key="options-overlay" order={6.0} />,
-      <AudioDescription key="audio-description" order={7.0} />,
+      <AudioDescription key="audio-description" order={6.0} />,
+      <OptionsOverlay key="options-overlay" order={7.0} />,
       <Shortcut key="shortcut" order={99.0} />
     ];
   }
