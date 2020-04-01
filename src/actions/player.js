@@ -5,6 +5,7 @@ export const FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
 export const PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
 export const USER_ACTIVATE = 'video-react/USER_ACTIVATE';
 export const OPTIONS_OVERLAY_CHANGE = 'video-react/OPTIONS_OVERLAY_CHANGE';
+export const UPDATE_AUDIO_DESCRIPTION = 'video-react/UPDATE_AUDIO_DESCRIPTION';
 
 export function handleFullscreenChange(isFullscreen) {
   return {
@@ -16,6 +17,13 @@ export function handleFullscreenChange(isFullscreen) {
 export function handleOptionsOverlayChange() {
   return {
     type: OPTIONS_OVERLAY_CHANGE
+  };
+}
+
+export function updateAudioDescription(audioDescription) {
+  return {
+    type: UPDATE_AUDIO_DESCRIPTION,
+    audioDescription
   };
 }
 

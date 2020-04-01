@@ -30,7 +30,8 @@ import {
   FULLSCREEN_CHANGE,
   PLAYER_ACTIVATE,
   USER_ACTIVATE,
-  OPTIONS_OVERLAY_CHANGE
+  OPTIONS_OVERLAY_CHANGE,
+  UPDATE_AUDIO_DESCRIPTION
 } from '../actions/player';
 
 const initialState = {
@@ -56,7 +57,8 @@ const initialState = {
   isActive: false,
   isFullscreen: false,
   activeTextTrack: null,
-  isOptionsOverlayOpen: false
+  isOptionsOverlayOpen: false,
+  audioDescription: null
 };
 
 export default function player(state = initialState, action) {
@@ -157,6 +159,11 @@ export default function player(state = initialState, action) {
         ...action.videoProps,
         error: 'UNKNOWN ERROR',
         ended: true
+      };
+    case UPDATE_AUDIO_DESCRIPTION:
+      return {
+        ...state,
+        audioDescription: action.audioDescription
       };
     case DURATION_CHANGE:
     case TIME_UPDATE:
