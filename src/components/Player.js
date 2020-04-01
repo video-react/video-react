@@ -17,6 +17,7 @@ import { focusNode } from '../utils/dom';
 import { mergeAndSortChildren, isVideoChild, throttle } from '../utils';
 import fullscreen from '../utils/fullscreen';
 import OptionsOverlay from './menu/OptionsOverlay';
+import AudioDescription from './menu/AudioDescription';
 
 const propTypes = {
   children: PropTypes.any,
@@ -130,6 +131,7 @@ export default class Player extends Component {
       <BigPlayButton key="big-play-button" order={4.0} />,
       <ControlBar key="control-bar" order={5.0} />,
       <OptionsOverlay key="options-overlay" order={6.0} />,
+      <AudioDescription key="audio-description" order={7.0} />,
       <Shortcut key="shortcut" order={99.0} />
     ];
   }
