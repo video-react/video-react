@@ -5,6 +5,7 @@ export const FULLSCREEN_CHANGE = 'video-react/FULLSCREEN_CHANGE';
 export const PLAYER_ACTIVATE = 'video-react/PLAYER_ACTIVATE';
 export const USER_ACTIVATE = 'video-react/USER_ACTIVATE';
 export const OPTIONS_OVERLAY_CHANGE = 'video-react/OPTIONS_OVERLAY_CHANGE';
+export const AUDIO_DESCRIPTIONS = 'video-react/AUDIO_DESCRIPTIONS';
 export const ACTIVE_AUDIO_DESCRIPTION = 'video-react/ACTIVE_AUDIO_DESCRIPTION';
 
 export function handleFullscreenChange(isFullscreen) {
@@ -20,10 +21,17 @@ export function handleOptionsOverlayChange() {
   };
 }
 
-export function updateAudioDescription(audioDescription) {
+export function setAudioDescriptions(audioDescriptions) {
+  return {
+    type: AUDIO_DESCRIPTIONS,
+    audioDescriptions
+  };
+}
+
+export function updateAudioDescription(activeAudioDescription) {
   return {
     type: ACTIVE_AUDIO_DESCRIPTION,
-    audioDescription
+    activeAudioDescription
   };
 }
 

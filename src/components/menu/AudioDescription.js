@@ -23,11 +23,11 @@ const AudioDescription = ({
     audioDescriptions
   );
 
-  if (
-    !player.audioDescription ||
-    !player.audioDescription.language ||
-    !player.audioDescription.src
-  )
+  if (!player.audioDescriptions.length && audioDescriptions) {
+    actions.setAudioDescriptions(audioDescriptions);
+  }
+
+  if (!player.audioDescriptions || !player.selectedAudioDescription)
     return null;
 
   return (

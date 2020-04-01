@@ -31,7 +31,8 @@ import {
   PLAYER_ACTIVATE,
   USER_ACTIVATE,
   OPTIONS_OVERLAY_CHANGE,
-  ACTIVE_AUDIO_DESCRIPTION
+  ACTIVE_AUDIO_DESCRIPTION,
+  AUDIO_DESCRIPTIONS
 } from '../actions/player';
 
 const initialState = {
@@ -58,7 +59,8 @@ const initialState = {
   isFullscreen: false,
   activeTextTrack: null,
   isOptionsOverlayOpen: false,
-  audioDescription: null
+  audioDescriptions: [],
+  activeAudioDescription: null
 };
 
 export default function player(state = initialState, action) {
@@ -181,10 +183,15 @@ export default function player(state = initialState, action) {
         ...state,
         activeTextTrack: action.textTrack
       };
+    case AUDIO_DESCRIPTIONS:
+      return {
+        ...state,
+        audioDescriptions: action.audioDescriptions
+      };
     case ACTIVE_AUDIO_DESCRIPTION:
       return {
         ...state,
-        audioDescription: action.audioDescription
+        activeAudioDescription: action.activeAudioDescription
       };
     default:
       return state;
