@@ -17,7 +17,31 @@ class AudioDescription extends Component {
   }
 
   componentDidUpdate() {
-    console.log('uhhhhhh da ref: ', this.audioRef);
+    // keep audio description in sync with video player
+    if (!this.audioRef || !this.audioRef.current) return;
+
+    // stop audio description if video is done
+    if (this.props.player.currentTime > this.audioRef.current.duration) {
+      this.audioRef.current.currentTime = 0;
+      this.audioRef.current.pause();
+    }
+
+    // keep audio in sync with video
+    if (
+      Math.abs(
+        this.audioRef.current.currentTime - this.props.player.currentTime
+      ) > 0.5
+    )
+      this.audioRef.current.currentTime = this.props.player.currentTime;
+
+    // update settings if necessary
+    if (this.audioRef.current.volume !== this.props.player.volume)
+      this.audioRef.current.volume = this.props.player.volume;
+    if (this.props.player.paused && !this.audioRef.current.paused)
+      this.audioRef.current.pause();
+    if (!this.props.player.paused && this.audioRef.current.paused)
+      this.audioRef.current.play();
+    if (this.props.player.muted) this.audioRef.current.muted = true;
   }
 
   render() {
@@ -37,7 +61,6 @@ class AudioDescription extends Component {
     return (
       <div className={classNames(className)}>
         <audio
-          autoPlay
           controls
           src={activeAudioDescription.file_url}
           ref={this.audioRef}
