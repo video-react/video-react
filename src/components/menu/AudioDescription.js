@@ -15,14 +15,6 @@ const AudioDescription = ({
   className,
   audioDescriptions
 }) => {
-  console.log(
-    'ayyyyy look at these props for audio description: ',
-    player,
-    actions,
-    className,
-    audioDescriptions
-  );
-
   if (!player.audioDescriptions.length && audioDescriptions) {
     actions.setAudioDescriptions(audioDescriptions);
   }
