@@ -28,7 +28,7 @@ export function setAudioDescriptions(audioDescriptions) {
   };
 }
 
-export function updateAudioDescription(activeAudioDescription) {
+export function updateActiveAudioDescription(activeAudioDescription) {
   return {
     type: ACTIVE_AUDIO_DESCRIPTION,
     activeAudioDescription

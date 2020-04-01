@@ -24,14 +24,28 @@ class OptionsOverlay extends Component {
     super(props, context);
 
     this.getTextTrackItems = this.getTextTrackItems.bind(this);
+    this.getAudioDescriptions = this.getAudioDescriptions.bind(this);
     this.updateState = this.updateState.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
 
-    this.state = this.getTextTrackItems();
+    this.state = {
+      subtitles: this.getTextTrackItems(),
+      descriptions: this.getAudioDescriptions()
+    };
   }
 
   componentDidUpdate() {
     this.updateState();
+  }
+
+  getAudioDescriptions() {
+    const { player } = this.props;
+    const audioDescriptions = [
+      { language: 'OFF' },
+      ...player.audioDescriptions
+    ];
+
+    return audioDescriptions;
   }
 
   getTextTrackItems() {
@@ -80,10 +94,16 @@ class OptionsOverlay extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.selectedIndex ||
-      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
+      textTrackItems.selectedIndex !== this.state.subtitles.selectedIndex ||
+      !this.textTrackItemsAreEqual(
+        textTrackItems.items,
+        this.state.subtitles.items
+      )
     ) {
-      this.setState(textTrackItems);
+      this.setState(prevState => ({
+        ...prevState.descriptions,
+        subtitles: textTrackItems
+      }));
     }
   }
 
@@ -124,9 +144,13 @@ class OptionsOverlay extends Component {
     });
   }
 
+  handleSelectAudioDescription(description) {
+    this.props.actions.updateActiveAudioDescription(description);
+  }
+
   render() {
-    const { items, selectedIndex } = this.state;
-    const { className, player } = this.props;
+    const { subtitles, descriptions } = this.state;
+    const { className, player, actions } = this.props;
 
     if (!player.isOptionsOverlayOpen) return null;
 
@@ -134,7 +158,7 @@ class OptionsOverlay extends Component {
       <div className={classNames(className)}>
         <span
           className={classNames('video-react-options-close')}
-          onClick={() => this.props.actions.handleOptionsOverlayChange()}
+          onClick={() => actions.handleOptionsOverlayChange()}
           aria-label="Close Options Menu"
         >
           &times;
@@ -142,16 +166,35 @@ class OptionsOverlay extends Component {
         <div className={classNames('video-react-options-overlay')}>
           <div className={classNames('video-react-options-menu-section')}>
             <h3 className={classNames('video-react-menu-section-header')}>
+              Audio Descriptions
+            </h3>
+            {descriptions && (
+              <Menu>
+                {descriptions.map((description, i) => (
+                  <MenuItem
+                    label={description.language}
+                    index={i}
+                    onSelectItem={this.handleSelectAudioDescription}
+                    activateIndex={player.activeAudioDescription}
+                    key={description.language}
+                  />
+                ))}
+              </Menu>
+            )}
+          </div>
+
+          <div className={classNames('video-react-options-menu-section')}>
+            <h3 className={classNames('video-react-menu-section-header')}>
               Subtitles
             </h3>
-            {items && (
+            {subtitles.items && (
               <Menu>
-                {items.map((item, i) => (
+                {subtitles.items.map((item, i) => (
                   <MenuItem
                     label={item.label}
                     index={i}
                     onSelectItem={this.handleSelectItem}
-                    activateIndex={selectedIndex}
+                    activateIndex={subtitles.selectedIndex}
                     key={item.label}
                   />
                 ))}
