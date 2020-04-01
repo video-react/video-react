@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
@@ -9,31 +9,46 @@ const propTypes = {
   audioDescriptions: PropTypes.any
 };
 
-const AudioDescription = ({
-  player,
-  actions,
-  className,
-  audioDescriptions
-}) => {
-  if (!player.audioDescriptions.length && audioDescriptions) {
-    const descriptions = [{ language: 'OFF' }, ...audioDescriptions];
-    actions.setAudioDescriptions(descriptions);
+class AudioDescription extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.audioRef = React.createRef();
   }
 
-  if (!player.audioDescriptions || !player.activeAudioDescription) return null;
+  componentDidUpdate() {
+    console.log('uhhhhhh da ref: ', this.audioRef);
+  }
 
-  const activeAudioDescription =
-    player.audioDescriptions[player.activeAudioDescription];
+  render() {
+    const { player, className, actions, audioDescriptions } = this.props;
 
-  return (
-    <div className={classNames(className)}>
-      <audio autoPlay controls src={activeAudioDescription.file_url}>
-        Your browser does not support the <code>audio</code> element for audio
-        descriptions.
-      </audio>
-    </div>
-  );
-};
+    if (!player.audioDescriptions.length && audioDescriptions) {
+      const descriptions = [{ language: 'OFF' }, ...audioDescriptions];
+      actions.setAudioDescriptions(descriptions);
+    }
+
+    if (!player.audioDescriptions || !player.activeAudioDescription)
+      return null;
+
+    const activeAudioDescription =
+      player.audioDescriptions[player.activeAudioDescription];
+
+    return (
+      <div className={classNames(className)}>
+        <audio
+          autoPlay
+          controls
+          src={activeAudioDescription.file_url}
+          ref={this.audioRef}
+        >
+          Your browser does not support the <code>audio</code> element for audio
+          descriptions.
+        </audio>
+      </div>
+    );
+  }
+}
 
 AudioDescription.propTypes = propTypes;
 AudioDescription.displayName = 'AudioDescription';
