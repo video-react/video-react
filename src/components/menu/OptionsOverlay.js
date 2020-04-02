@@ -156,11 +156,11 @@ class OptionsOverlay extends Component {
               <Menu>
                 {player.audioDescriptions.map((description, i) => (
                   <MenuItem
-                    label={description.language}
+                    label={description.label}
                     index={i}
                     onSelectItem={this.handleSelectAudioDescription}
                     activateIndex={player.activeAudioDescription}
-                    key={description.language}
+                    key={description.label}
                   />
                 ))}
               </Menu>
