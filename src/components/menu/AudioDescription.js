@@ -48,7 +48,7 @@ class AudioDescription extends Component {
     const { player, className, actions, audioDescriptions } = this.props;
 
     if (!player.audioDescriptions.length && audioDescriptions) {
-      const descriptions = [{ language: 'OFF' }, ...audioDescriptions];
+      const descriptions = [{ label: 'OFF' }, ...audioDescriptions];
       actions.setAudioDescriptions(descriptions);
     }
 
@@ -60,11 +60,7 @@ class AudioDescription extends Component {
 
     return (
       <div className={classNames(className)}>
-        <audio
-          controls
-          src={activeAudioDescription.file_url}
-          ref={this.audioRef}
-        >
+        <audio controls src={activeAudioDescription.src} ref={this.audioRef}>
           Your browser does not support the <code>audio</code> element for audio
           descriptions.
         </audio>
