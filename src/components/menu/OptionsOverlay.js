@@ -24,6 +24,9 @@ class OptionsOverlay extends Component {
     super(props, context);
 
     this.getTextTrackItems = this.getTextTrackItems.bind(this);
+    this.handleSelectAudioDescription = this.handleSelectAudioDescription.bind(
+      this
+    );
     this.updateState = this.updateState.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
 
@@ -124,9 +127,14 @@ class OptionsOverlay extends Component {
     });
   }
 
+  handleSelectAudioDescription(index) {
+    const { actions } = this.props;
+    actions.updateActiveAudioDescription(index);
+  }
+
   render() {
     const { items, selectedIndex } = this.state;
-    const { className, player } = this.props;
+    const { className, player, actions } = this.props;
 
     if (!player.isOptionsOverlayOpen) return null;
 
@@ -134,12 +142,31 @@ class OptionsOverlay extends Component {
       <div className={classNames(className)}>
         <span
           className={classNames('video-react-options-close')}
-          onClick={() => this.props.actions.handleOptionsOverlayChange()}
+          onClick={() => actions.handleOptionsOverlayChange()}
           aria-label="Close Options Menu"
         >
           &times;
         </span>
         <div className={classNames('video-react-options-overlay')}>
+          <div className={classNames('video-react-options-menu-section')}>
+            <h3 className={classNames('video-react-menu-section-header')}>
+              Audio Descriptions
+            </h3>
+            {player.audioDescriptions && (
+              <Menu>
+                {player.audioDescriptions.map((description, i) => (
+                  <MenuItem
+                    label={description.language}
+                    index={i}
+                    onSelectItem={this.handleSelectAudioDescription}
+                    activateIndex={player.activeAudioDescription}
+                    key={description.language}
+                  />
+                ))}
+              </Menu>
+            )}
+          </div>
+
           <div className={classNames('video-react-options-menu-section')}>
             <h3 className={classNames('video-react-menu-section-header')}>
               Subtitles
