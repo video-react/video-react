@@ -48,7 +48,7 @@ class AudioDescription extends Component {
     const { player, className, actions, audioDescriptions } = this.props;
 
     if (!player.audioDescriptions.length && audioDescriptions) {
-      const descriptions = [{ label: 'OFF' }, ...audioDescriptions];
+      const descriptions = [{ label: 'Off' }, ...audioDescriptions];
       actions.setAudioDescriptions(descriptions);
     }
 
