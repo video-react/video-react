@@ -9,6 +9,7 @@ import MouseTimeDisplay from './MouseTimeDisplay';
 import { formatTime } from '../../utils';
 
 const propTypes = {
+  children: PropTypes.node,
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
@@ -27,6 +28,7 @@ export default class SeekBar extends Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.getDefaultChildren = this.getDefaultChildren.bind(this);
   }
 
   componentDidMount() {}
@@ -83,12 +85,35 @@ export default class SeekBar extends Component {
     actions.replay(5);
   }
 
-  render() {
+  getDefaultChildren() {
     const {
       player: { currentTime, seekingTime, duration, buffered },
       mouseTime
     } = this.props;
+
     const time = seekingTime || currentTime;
+
+    return [
+      <LoadProgressBar
+        buffered={buffered}
+        currentTime={time}
+        duration={duration}
+      />,
+      <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />,
+      <PlayProgressBar currentTime={time} duration={duration} />
+    ];
+  }
+
+  render() {
+    const {
+      children,
+      player: { currentTime, seekingTime, duration, buffered },
+      mouseTime
+    } = this.props;
+    const time = seekingTime || currentTime;
+
+    const renderGrandchildren =
+      children && children.props && children.props.children;
 
     return (
       <Slider
@@ -108,14 +133,21 @@ export default class SeekBar extends Component {
         getPercent={this.getPercent}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
+        childrenToMerge={this.getDefaultChildren()}
       >
-        <LoadProgressBar
-          buffered={buffered}
-          currentTime={time}
-          duration={duration}
-        />
-        <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />
-        <PlayProgressBar currentTime={time} duration={duration} />
+        {renderGrandchildren ? (
+          children.props.children
+        ) : (
+          <>
+            <LoadProgressBar
+              buffered={buffered}
+              currentTime={time}
+              duration={duration}
+            />
+            <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />
+            <PlayProgressBar currentTime={time} duration={duration} />
+          </>
+        )}
       </Slider>
     );
   }
