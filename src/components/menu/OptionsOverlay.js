@@ -150,26 +150,7 @@ class OptionsOverlay extends Component {
         <div className={classNames('video-react-options-overlay')}>
           <div className={classNames('video-react-options-menu-section')}>
             <h3 className={classNames('video-react-menu-section-header')}>
-              Audio Descriptions
-            </h3>
-            {player.audioDescriptions && (
-              <Menu>
-                {player.audioDescriptions.map((description, i) => (
-                  <MenuItem
-                    label={description.label}
-                    index={i}
-                    onSelectItem={this.handleSelectAudioDescription}
-                    activateIndex={player.activeAudioDescription}
-                    key={description.label}
-                  />
-                ))}
-              </Menu>
-            )}
-          </div>
-
-          <div className={classNames('video-react-options-menu-section')}>
-            <h3 className={classNames('video-react-menu-section-header')}>
-              Subtitles
+              Closed Captions
             </h3>
             {items && (
               <Menu>
@@ -180,6 +161,25 @@ class OptionsOverlay extends Component {
                     onSelectItem={this.handleSelectItem}
                     activateIndex={selectedIndex}
                     key={item.label}
+                  />
+                ))}
+              </Menu>
+            )}
+          </div>
+
+          <div className={classNames('video-react-options-menu-section')}>
+            <h3 className={classNames('video-react-menu-section-header')}>
+              Audio Description
+            </h3>
+            {player.audioDescriptions && (
+              <Menu>
+                {player.audioDescriptions.map((description, i) => (
+                  <MenuItem
+                    label={description.label}
+                    index={i}
+                    onSelectItem={this.handleSelectAudioDescription}
+                    activateIndex={player.activeAudioDescription}
+                    key={description.label}
                   />
                 ))}
               </Menu>
