@@ -22,6 +22,7 @@ const propTypes = {
 
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  position: PropTypes.string,
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
@@ -165,6 +166,10 @@ export default class Player extends Component {
     });
   }
 
+  setPosition(style, name, value) {
+    Object.assign(style, (0, _defineProperty2["default"])({}, name, value));
+  }
+
   getStyle() {
     const {
       fluid,
@@ -219,6 +224,9 @@ export default class Player extends Component {
       // If Width contains "auto", set "auto" in style
       this.setWidthOrHeight(style, 'width', width);
       this.setWidthOrHeight(style, 'height', height);
+      if (height === "100%" && width === "100%") {
+        this.setPosition(style, 'position', "absolute")
+      }
     }
 
     return style;
