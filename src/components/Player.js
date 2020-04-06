@@ -167,7 +167,9 @@ export default class Player extends Component {
   }
 
   setPosition(style, name, value) {
-    Object.assign(style, (0, _defineProperty2["default"])({}, name, value));
+    Object.assign(style, {
+      [name]: value
+    });
   }
 
   getStyle() {
@@ -326,7 +328,7 @@ export default class Player extends Component {
   }
 
   // player resize
-  handleResize() {}
+  handleResize() { }
 
   handleFullScreenChange(event) {
     if (event.target === this.manager.rootElement) {
