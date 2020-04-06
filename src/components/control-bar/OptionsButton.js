@@ -10,12 +10,11 @@ const OptionsButton = props => {
   return (
     <button
       type="button"
-      aria-label="options"
       data-testid="test-options-icon"
       className={classNames('video-react-options-button', props.className)}
       onClick={() => props.actions.handleOptionsOverlayChange()}
     >
-      <span className="video-react-control-text">Options Button</span>
+      <span className="video-react-control-text">Audio and CC</span>
     </button>
   );
 };
