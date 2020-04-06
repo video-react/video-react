@@ -23,8 +23,7 @@
 // Video has started playing AND user is inactive
 .video-react-has-started.video-react-user-inactive.video-react-playing {
   .video-react-control-bar.video-react-control-bar-auto-hide {
-    // Remain visible for screen reader and keyboard users
-    visibility: visible;
+    visibility: hidden;
     opacity: 0;
 
     $trans: visibility 1.0s, opacity 1.0s;
