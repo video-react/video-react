@@ -140,13 +140,13 @@ class OptionsOverlay extends Component {
 
     return (
       <div className={classNames(className)}>
-        <span
+        <button
           className={classNames('video-react-options-close')}
           onClick={() => actions.handleOptionsOverlayChange()}
           aria-label="Close Options Menu"
         >
           &times;
-        </span>
+        </button>
         <div className={classNames('video-react-options-overlay')}>
           <div className={classNames('video-react-options-menu-section')}>
             <h3 className={classNames('video-react-menu-section-header')}>
