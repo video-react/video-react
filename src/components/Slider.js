@@ -191,8 +191,8 @@ export default class Slider extends Component {
     if (this.props.childrenToMerge) {
       const { className, childrenToMerge, ...parentProps } = this.props;
       childrenToRender = mergeAndSortChildren(
-        childrenToMerge,
         children,
+        childrenToMerge,
         parentProps
       );
     } else {

@@ -28,7 +28,6 @@ export default class SeekBar extends Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
-    this.getDefaultChildren = this.getDefaultChildren.bind(this);
   }
 
   componentDidMount() {}
@@ -85,25 +84,6 @@ export default class SeekBar extends Component {
     actions.replay(5);
   }
 
-  getDefaultChildren() {
-    const {
-      player: { currentTime, seekingTime, duration, buffered },
-      mouseTime
-    } = this.props;
-
-    const time = seekingTime || currentTime;
-
-    return [
-      <LoadProgressBar
-        buffered={buffered}
-        currentTime={time}
-        duration={duration}
-      />,
-      <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />,
-      <PlayProgressBar currentTime={time} duration={duration} />
-    ];
-  }
-
   render() {
     const {
       children,
@@ -114,6 +94,8 @@ export default class SeekBar extends Component {
 
     const renderGrandchildren =
       children && children.props && children.props.children;
+
+    const childrenToMerge = renderGrandchildren ? children.props.children : [];
 
     return (
       <Slider
@@ -133,21 +115,15 @@ export default class SeekBar extends Component {
         getPercent={this.getPercent}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
-        childrenToMerge={this.getDefaultChildren()}
+        childrenToMerge={childrenToMerge}
       >
-        {renderGrandchildren ? (
-          children.props.children
-        ) : (
-          <>
-            <LoadProgressBar
-              buffered={buffered}
-              currentTime={time}
-              duration={duration}
-            />
-            <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />
-            <PlayProgressBar currentTime={time} duration={duration} />
-          </>
-        )}
+        <LoadProgressBar
+          buffered={buffered}
+          currentTime={time}
+          duration={duration}
+        />
+        <MouseTimeDisplay duration={duration} mouseTime={mouseTime} />
+        <PlayProgressBar currentTime={time} duration={duration} />
       </Slider>
     );
   }
