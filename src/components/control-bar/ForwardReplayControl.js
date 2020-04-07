@@ -30,6 +30,9 @@ export default mode => {
 
     render() {
       const { seconds, className } = this.props;
+
+      const modeName = mode === 'replay' ? 'rewind' : mode;
+
       const classNames = [
         'video-react-control',
         'video-react-button',
@@ -51,7 +54,7 @@ export default mode => {
           type="button"
           onClick={this.handleClick}
         >
-          <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>
+          <span className="video-react-control-text">{`${modeName} ${seconds} seconds`}</span>
         </button>
       );
     }
