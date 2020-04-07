@@ -9,6 +9,7 @@ import MouseTimeDisplay from './MouseTimeDisplay';
 import { formatTime } from '../../utils';
 
 const propTypes = {
+  children: PropTypes.node,
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
@@ -85,10 +86,16 @@ export default class SeekBar extends Component {
 
   render() {
     const {
+      children,
       player: { currentTime, seekingTime, duration, buffered },
       mouseTime
     } = this.props;
     const time = seekingTime || currentTime;
+
+    const renderGrandchildren =
+      children && children.props && children.props.children;
+
+    const childrenToMerge = renderGrandchildren ? children.props.children : [];
 
     return (
       <Slider
@@ -108,6 +115,7 @@ export default class SeekBar extends Component {
         getPercent={this.getPercent}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
+        childrenToMerge={childrenToMerge}
       >
         <LoadProgressBar
           buffered={buffered}
