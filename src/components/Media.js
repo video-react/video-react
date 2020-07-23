@@ -45,7 +45,7 @@ const propTypes = {
   onResize: PropTypes.func
 };
 
-export default class Video extends Component {
+export default class Media extends Component {
   constructor(props) {
     super(props);
 
@@ -630,5 +630,5 @@ export default class Video extends Component {
   }
 }
 
-Video.propTypes = propTypes;
-Video.displayName = 'Video';
+Media.propTypes = propTypes;
+Media.displayName = 'Media';

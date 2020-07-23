@@ -7,7 +7,8 @@ import Manager from '../Manager';
 import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
-import Video from './Video';
+// import Video from './Video';
+import Media from './Media';
 import Bezel from './Bezel';
 import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
@@ -116,7 +117,7 @@ export default class Player extends Component {
 
   getDefaultChildren(originalChildren) {
     return [
-      <Video
+      <Media
         ref={c => {
           this.video = c;
           this.manager.video = this.video;
@@ -125,7 +126,7 @@ export default class Player extends Component {
         order={0.0}
       >
         {originalChildren}
-      </Video>,
+      </Media>,
       <PosterImage key="poster-image" order={1.0} />,
       <LoadingSpinner key="loading-spinner" order={2.0} />,
       <Bezel key="bezel" order={3.0} />,
