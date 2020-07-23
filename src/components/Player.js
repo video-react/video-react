@@ -35,6 +35,7 @@ const propTypes = {
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   src: PropTypes.string,
+  type: PropTypes.string,
   poster: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 

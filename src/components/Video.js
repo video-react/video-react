@@ -14,6 +14,7 @@ const propTypes = {
   autoPlay: PropTypes.bool,
   playsInline: PropTypes.bool,
   src: PropTypes.string,
+  type: PropTypes.string,
   poster: PropTypes.string,
   className: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
@@ -57,6 +58,7 @@ export default class Video extends Component {
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
     this.getProperties = this.getProperties.bind(this);
     this.renderChildren = this.renderChildren.bind(this);
+    this.renderMedia = this.renderMedia.bind(this);
     this.handleLoadStart = this.handleLoadStart.bind(this);
     this.handleCanPlay = this.handleCanPlay.bind(this);
     this.handleCanPlayThrough = this.handleCanPlayThrough.bind(this);
@@ -518,21 +520,21 @@ export default class Video extends Component {
       });
   }
 
-  render() {
+  renderMedia() {
     const {
       loop,
       poster,
       preload,
       src,
+      type,
       autoPlay,
       playsInline,
       muted,
       crossOrigin,
       videoId
     } = this.props;
-
-    return (
-      <div className={classNames('video-react-video-container')}>
+    if (type.toLowerCase() === 'video') {
+      return (
         <video
           className={classNames('video-react-video', this.props.className)}
           id={videoId}
@@ -573,6 +575,56 @@ export default class Video extends Component {
         >
           {this.renderChildren()}
         </video>
+      );
+    }
+    return (
+      <audio
+        className={classNames('video-react-video', this.props.className)}
+        id={videoId}
+        crossOrigin={crossOrigin}
+        ref={c => {
+          this.video = c;
+        }}
+        muted={muted}
+        preload={preload}
+        loop={loop}
+        playsInline={playsInline}
+        autoPlay={autoPlay}
+        poster={poster}
+        src={src}
+        onLoadStart={this.handleLoadStart}
+        onWaiting={this.handleWaiting}
+        onCanPlay={this.handleCanPlay}
+        onCanPlayThrough={this.handleCanPlayThrough}
+        onPlaying={this.handlePlaying}
+        onEnded={this.handleEnded}
+        onSeeking={this.handleSeeking}
+        onSeeked={this.handleSeeked}
+        onPlay={this.handlePlay}
+        onPause={this.handlePause}
+        onProgress={this.handleProgress}
+        onDurationChange={this.handleDurationChange}
+        onError={this.handleError}
+        onSuspend={this.handleSuspend}
+        onAbort={this.handleAbort}
+        onEmptied={this.handleEmptied}
+        onStalled={this.handleStalled}
+        onLoadedMetadata={this.handleLoadedMetaData}
+        onLoadedData={this.handleLoadedData}
+        onTimeUpdate={this.handleTimeUpdate}
+        onRateChange={this.handleRateChange}
+        onVolumeChange={this.handleVolumeChange}
+        tabIndex="-1"
+      >
+        {this.renderChildren()}
+      </audio>
+    );
+  }
+
+  render() {
+    return (
+      <div className={classNames('video-react-video-container')}>
+        {this.renderMedia()}
       </div>
     );
   }
