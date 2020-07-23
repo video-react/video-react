@@ -35,7 +35,7 @@ const propTypes = {
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   src: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['audio', 'video']),
   poster: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
