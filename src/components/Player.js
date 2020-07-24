@@ -18,6 +18,11 @@ import fullscreen from '../utils/fullscreen';
 import OptionsOverlay from './menu/OptionsOverlay';
 import AudioDescription from './menu/AudioDescription';
 
+export const MediaType = {
+  audio: 'AUDIO',
+  video: 'VIDEO'
+};
+
 const propTypes = {
   children: PropTypes.any,
 
@@ -34,7 +39,7 @@ const propTypes = {
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   src: PropTypes.string,
-  type: PropTypes.oneOf(['audio', 'video']),
+  type: PropTypes.oneOf(Object.values(MediaType)),
   poster: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
@@ -72,7 +77,7 @@ const defaultProps = {
   aspectRatio: 'auto'
 };
 
-export default class Player extends Component {
+export class Player extends Component {
   constructor(props) {
     super(props);
 
@@ -443,3 +448,4 @@ Player.contextTypes = { store: PropTypes.object };
 Player.propTypes = propTypes;
 Player.defaultProps = defaultProps;
 Player.displayName = 'Player';
+Player.mediaType = MediaType;

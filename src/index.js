@@ -1,4 +1,4 @@
-import Player from './components/Player';
+import { Player } from './components/Player';
 import Media from './components/Media';
 import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';

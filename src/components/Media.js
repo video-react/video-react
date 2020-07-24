@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import { isVideoChild, mediaProperties, throttle } from '../utils';
+import { MediaType } from './Player';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -533,7 +534,7 @@ export default class Media extends Component {
       crossOrigin,
       videoId
     } = this.props;
-    if (type.toLowerCase() === 'video') {
+    if (type === MediaType.video) {
       return (
         <video
           className={classNames('video-react-video', this.props.className)}
