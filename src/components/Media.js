@@ -624,9 +624,7 @@ export default class Media extends Component {
 
   render() {
     return (
-      <div className={classNames('video-react-video-container')}>
-        {this.renderMedia()}
-      </div>
+      <div className="video-react-video-container">{this.renderMedia()}</div>
     );
   }
 }
