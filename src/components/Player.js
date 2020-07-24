@@ -4,10 +4,8 @@ import classNames from 'classnames';
 
 import Manager from '../Manager';
 
-import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
-// import Video from './Video';
 import Media from './Media';
 import Bezel from './Bezel';
 import Shortcut from './Shortcut';
