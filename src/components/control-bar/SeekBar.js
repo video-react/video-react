@@ -88,7 +88,8 @@ export default class SeekBar extends Component {
     const {
       children,
       player: { currentTime, seekingTime, duration, buffered },
-      mouseTime
+      mouseTime,
+      type
     } = this.props;
     const time = seekingTime || currentTime;
 
@@ -96,13 +97,14 @@ export default class SeekBar extends Component {
       children && children.props && children.props.children;
 
     const childrenToMerge = renderGrandchildren ? children.props.children : [];
+    const label = `${type} progress bar`;
 
     return (
       <Slider
         ref={input => {
           this.slider = input;
         }}
-        label="video progress bar"
+        label={label}
         className={classNames(
           'video-react-progress-holder',
           this.props.className

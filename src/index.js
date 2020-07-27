@@ -1,5 +1,5 @@
-import Player from './components/Player';
-import Video from './components/Video';
+import { Player } from './components/Player';
+import Media from './components/Media';
 import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import PosterImage from './components/PosterImage';
@@ -39,7 +39,7 @@ import { playerReducer, operationReducer } from './reducers';
 
 export {
   Player,
-  Video,
+  Media,
   BigPlayButton,
   LoadingSpinner,
   PosterImage,
