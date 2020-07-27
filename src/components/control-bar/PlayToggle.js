@@ -24,8 +24,8 @@ export default class PlayToggle extends Component {
   }
 
   render() {
-    const { player, className, type } = this.props;
-    const controlText = player.paused ? `Play ${type}` : `Pause ${type}`;
+    const { player, className } = this.props;
+    const controlText = player.paused ? `Play` : `Pause`;
 
     return (
       <button

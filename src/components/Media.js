@@ -591,7 +591,6 @@ export default class Media extends Component {
         loop={loop}
         playsInline={playsInline}
         autoPlay={autoPlay}
-        poster={poster}
         src={src}
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}
