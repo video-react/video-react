@@ -1,13 +1,13 @@
 class Fullscreen {
   request(elm) {
     if (elm.requestFullscreen) {
-      elm.requestFullscreen();
+      elm.requestFullscreen({ navigationUI: 'hide' });
     } else if (elm.webkitRequestFullscreen) {
-      elm.webkitRequestFullscreen();
+      elm.webkitRequestFullscreen({ navigationUI: 'hide' });
     } else if (elm.mozRequestFullScreen) {
-      elm.mozRequestFullScreen();
+      elm.mozRequestFullScreen({ navigationUI: 'hide' });
     } else if (elm.msRequestFullscreen) {
-      elm.msRequestFullscreen();
+      elm.msRequestFullscreen({ navigationUI: 'hide' });
     }
   }
 
@@ -25,19 +25,19 @@ class Fullscreen {
 
   get isFullscreen() {
     return (
-      document.fullscreenElement
-      || document.webkitFullscreenElement
-      || document.mozFullScreenElement
-      || document.msFullscreenElement
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
     );
   }
 
   get enabled() {
     return (
-      document.fullscreenEnabled
-      || document.webkitFullscreenEnabled
-      || document.mozFullScreenEnabled
-      || document.msFullscreenEnabled
+      document.fullscreenEnabled ||
+      document.webkitFullscreenEnabled ||
+      document.mozFullScreenEnabled ||
+      document.msFullscreenEnabled
     );
   }
 
