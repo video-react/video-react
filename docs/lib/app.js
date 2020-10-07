@@ -82,6 +82,7 @@ export default (locals, callback) => {
         <body>
           <div id="app">${body}</div>
           <script src="/assets/prism.js" data-manual></script>
+          <script src="/assets/dash.all.min.js"></script>
           <script src="/bundle.js"></script>
         </body>
       </html>`;

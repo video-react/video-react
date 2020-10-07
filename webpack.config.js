@@ -11,9 +11,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const outputFilename = 'video-react';
 const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
-const outputFile = env === 'production'
-  ? `${outputFilename.toLowerCase()}.min.js`
-  : `${outputFilename.toLowerCase()}.js`;
+const outputFile =
+  env === 'production'
+    ? `${outputFilename.toLowerCase()}.min.js`
+    : `${outputFilename.toLowerCase()}.js`;
 
 const paths = [
   '/',
