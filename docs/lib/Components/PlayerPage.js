@@ -196,13 +196,13 @@ export default function PlayerPage() {
               Sets or returns the speed of the video playback. For example:
               <pre>
                 <PrismCode className="language-jsx">
-                  {`<Player ref="player">
+                  {`<Player ref={(player) => { this.player = player }}>
   <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
 </Player>
 
-// access the player object by ref
+// access the player object by ref (this.player)
 // set playbackRate to 2
-this.refs.player.playbackRate = 2; `}
+this.player.playbackRate = 2; `}
                 </PrismCode>
               </pre>
             </td>
@@ -263,7 +263,7 @@ this.refs.player.playbackRate = 2; `}
               Get the redux <a href="#state">State</a>. For example:
               <pre>
                 <PrismCode className="language-jsx">
-                  {`const { player } = this.refs.player.getState();
+                  {`const { player } = this.player.getState();
 console.log(player.currentTime); // print current time`}
                 </PrismCode>
               </pre>
@@ -333,7 +333,7 @@ console.log(player.currentTime); // print current time`}
                 <PrismCode className="language-jsx">
                   {`componentDidMount() {
   // subscribe state change
-  this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
+  this.player.subscribeToStateChange(this.handleStateChange.bind(this));
 }
 
 handleStateChange(state, prevState) {

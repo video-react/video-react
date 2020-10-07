@@ -13,6 +13,7 @@ import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
 
 import * as browser from '../utils/browser';
+import { focusNode } from '../utils/dom';
 import { mergeAndSortChildren, isVideoChild, throttle } from '../utils';
 import fullscreen from '../utils/fullscreen';
 
@@ -319,8 +320,10 @@ export default class Player extends Component {
   // player resize
   handleResize() {}
 
-  handleFullScreenChange() {
-    this.actions.handleFullscreenChange(fullscreen.isFullscreen);
+  handleFullScreenChange(event) {
+    if (event.target === this.manager.rootElement) {
+      this.actions.handleFullscreenChange(fullscreen.isFullscreen);
+    }
   }
 
   handleMouseDown() {
@@ -358,6 +361,8 @@ export default class Player extends Component {
   handleStateChange(state, prevState) {
     if (state.isFullscreen !== prevState.isFullscreen) {
       this.handleResize();
+      // focus root when switching fullscreen mode to avoid confusion #276
+      focusNode(this.manager.rootElement);
     }
     this.forceUpdate(); // re-render
   }
@@ -418,6 +423,7 @@ export default class Player extends Component {
         role="region"
         onTouchStart={this.handleMouseDown}
         onMouseDown={this.handleMouseDown}
+        onTouchMove={this.handleMouseMove}
         onMouseMove={this.handleMouseMove}
         onKeyDown={this.handleKeyDown}
         onFocus={this.handleFocus}

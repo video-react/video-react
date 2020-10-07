@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import * as Dom from '../utils/dom';
 
@@ -102,6 +101,10 @@ export default class Slider extends Component {
   }
 
   handleMouseUp(event) {
+    // On iOS safari, a subsequent mouseup event will be fired after touchend.
+    // Its weird event positions make the player seek a wrong time.
+    // calling preventDefault (at touchend phase) will prevent the mouseup event
+    event.preventDefault();
     const { onMouseUp } = this.props;
 
     document.removeEventListener('mousemove', this.handleMouseMove, true);
@@ -171,7 +174,7 @@ export default class Slider extends Component {
   }
 
   calculateDistance(event) {
-    const node = findDOMNode(this);
+    const node = this.slider;
     const position = Dom.getPointerPosition(node, event);
     if (this.props.vertical) {
       return position.y;
@@ -201,6 +204,9 @@ export default class Slider extends Component {
           },
           'video-react-slider'
         )}
+        ref={c => {
+          this.slider = c;
+        }}
         tabIndex="0"
         role="slider"
         onMouseDown={this.handleMouseDown}

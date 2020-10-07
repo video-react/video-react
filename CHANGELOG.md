@@ -1,3 +1,40 @@
+<a name="0.14.1"></a>
+## [0.14.1](https://github.com/video-react/video-react/compare/0.14.0...0.14.1) (2019-07-24)
+
+
+### Bug Fixes
+
+* bad seek time on iOS safari ([19efac4](https://github.com/video-react/video-react/commit/19efac4))
+
+
+
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/video-react/video-react/compare/0.13.9...0.14.0) (2019-06-21)
+
+
+### Features
+
+* New ClosedCaptionButton component ([6bea3a1](https://github.com/video-react/video-react/commit/6bea3a1))
+
+
+
+<a name="0.13.9"></a>
+## [0.13.9](https://github.com/video-react/video-react/compare/0.13.8...0.13.9) (2019-06-18)
+
+* fullscreen events are no longer shared across players ([#285](https://github.com/video-react/video-react/issues/285)) ([986d844](https://github.com/video-react/video-react/commit/986d844))
+
+
+
+<a name="0.13.8"></a>
+## [0.13.8](https://github.com/video-react/video-react/compare/0.13.7...0.13.8) (2019-06-12)
+
+
+### Bug Fixes
+
+* re-focus to root element when switching fullscreen ([#276](https://github.com/video-react/video-react/issues/276)) ([3e38a7f](https://github.com/video-react/video-react/commit/3e38a7f))
+
+
+
 <a name="0.13.7"></a>
 ## [0.13.7](https://github.com/video-react/video-react/compare/0.13.6...0.13.7) (2019-05-02)
 

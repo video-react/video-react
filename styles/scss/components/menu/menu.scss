@@ -24,7 +24,6 @@
     line-height: 1.4em;
     font-size: 1.2em;
     text-align: center;
-    text-transform: lowercase;
 
     &:focus,
     &:hover {
@@ -58,5 +57,3 @@
 .video-react-scrubbing .vjs-menu-button:hover .video-react-menu {
   display: none;
 }
-
-

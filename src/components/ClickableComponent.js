@@ -24,6 +24,10 @@ export default class ClickableComponent extends Component {
     this.handleKeypress = this.handleKeypress.bind(this);
   }
 
+  componentWillUnmount(e) {
+    this.handleBlur(e);
+  }
+
   handleKeypress(event) {
     // Support Space (32) or Enter (13) key operation to fire a click event
     if (event.which === 32 || event.which === 13) {

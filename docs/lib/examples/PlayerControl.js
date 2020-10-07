@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PrismCode } from 'react-prism';
 import { Player, ControlBar } from 'video-react';
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -15,7 +15,7 @@ export default class PlayerControlExample extends Component {
     super(props, context);
 
     this.state = {
-      source: sources['bunnyMovie']
+      source: sources.bunnyMovie
     };
 
     this.play = this.play.bind(this);
@@ -30,10 +30,16 @@ export default class PlayerControlExample extends Component {
 
   componentDidMount() {
     // subscribe state change
-    this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
+    this.player.subscribeToStateChange(this.handleStateChange.bind(this));
   }
 
-  handleStateChange(state, prevState) {
+  setMuted(muted) {
+    return () => {
+      this.player.muted = muted;
+    };
+  }
+
+  handleStateChange(state) {
     // copy player state to this component's state
     this.setState({
       player: state
@@ -41,50 +47,41 @@ export default class PlayerControlExample extends Component {
   }
 
   play() {
-    this.refs.player.play();
+    this.player.play();
   }
 
   pause() {
-    this.refs.player.pause();
+    this.player.pause();
   }
 
   load() {
-    this.refs.player.load();
+    this.player.load();
   }
 
   changeCurrentTime(seconds) {
     return () => {
-      const { player } = this.refs.player.getState();
-      const currentTime = player.currentTime;
-      this.refs.player.seek(currentTime + seconds);
+      const { player } = this.player.getState();
+      this.player.seek(player.currentTime + seconds);
     };
   }
 
   seek(seconds) {
     return () => {
-      this.refs.player.seek(seconds);
+      this.player.seek(seconds);
     };
   }
 
   changePlaybackRateRate(steps) {
     return () => {
-      const { player } = this.refs.player.getState();
-      const playbackRate = player.playbackRate;
-      this.refs.player.playbackRate = playbackRate + steps;
+      const { player } = this.player.getState();
+      this.player.playbackRate = player.playbackRate + steps;
     };
   }
 
   changeVolume(steps) {
     return () => {
-      const { player } = this.refs.player.getState();
-      const volume = player.volume;
-      this.refs.player.volume = volume + steps;
-    };
-  }
-
-  setMuted(muted) {
-    return () => {
-      this.refs.player.muted = muted;
+      const { player } = this.player.getState();
+      this.player.volume = player.volume + steps;
     };
   }
 
@@ -93,14 +90,19 @@ export default class PlayerControlExample extends Component {
       this.setState({
         source: sources[name]
       });
-      this.refs.player.load();
+      this.player.load();
     };
   }
 
   render() {
     return (
       <div>
-        <Player ref="player" autoPlay>
+        <Player
+          ref={player => {
+            this.player = player;
+          }}
+          autoPlay
+        >
           <source src={this.state.source} />
           <ControlBar autoHide={false} />
         </Player>

@@ -16,22 +16,23 @@ export default class ShortcutPage extends React.Component {
         <p>Using keyboard shortcut to control the player.</p>
 
         <Alert color="warning">
-          <strong>Warning!</strong>The shortcut can work only if the player is
-          in active.
+          <strong>Warning!</strong> The shortcut can work only when the player
+          is active.
         </Alert>
         <h4>Properties</h4>
         <pre>
           <PrismCode className="language-jsx">
             {`Shortcut.propTypes = {
-
-  // Add your own shortcuts
-  shortcuts: PropTypes.array,
+  // Allow click to play/pause, by default true
   clickable: PropTypes.bool,
+  // Allow double click to toggle fullscreen state, by default true
   dblclickable: PropTypes.bool,
+  // Add your own shortcuts
+  shortcuts: PropTypes.array
 }`}
           </PrismCode>
         </pre>
-        <h4>Keyboard Shortcuts</h4>
+        <h4>Default Keyboard Shortcuts</h4>
         <Table>
           <thead>
             <tr>
@@ -66,7 +67,11 @@ export default class ShortcutPage extends React.Component {
             </tr>
             <tr>
               <td>Restart video</td>
-              <td>0</td>
+              <td>Home</td>
+            </tr>
+            <tr>
+              <td>Bring video to the end</td>
+              <td>End</td>
             </tr>
             <tr>
               <td>Go to Full Screen mode</td>

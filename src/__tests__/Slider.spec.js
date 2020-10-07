@@ -1,11 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Slider from '../components/Slider';
 
 describe('Slider', () => {
   it('should render with "div" tag', () => {
     const wrapper = shallow(<Slider actions={{}} player={{}} />);
     expect(wrapper.type()).toBe('div');
+  });
+
+  it('should render with "video-react-slider" class', () => {
+    const wrapper = shallow(<Slider actions={{}} player={{}} />);
+    expect(wrapper.hasClass('video-react-slider')).toBe(true);
   });
 
   it('simulates click events', () => {
@@ -29,5 +34,10 @@ describe('Slider', () => {
       </Slider>
     );
     expect(wrapper.children().length).toBeGreaterThan(0);
+  });
+
+  it('should bind ref "slider"', () => {
+    const wrapper = mount(<Slider player={{}} />);
+    expect(wrapper.instance().slider).toBeTruthy();
   });
 });
