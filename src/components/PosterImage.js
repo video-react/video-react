@@ -17,7 +17,7 @@ function PosterImage({
   }
 
   const posters = poster.split(",")
-  const bgImages = '';
+  let bgImages = '';
 
   posters.forEach( function(ele, index) {
     bgImages += `url("${ele}")` + ' , ';
