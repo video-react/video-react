@@ -16,18 +16,15 @@ function PosterImage({
     return null;
   }
 
-  const posters = poster.split(",")
-  let bgImages = '';
-
-  posters.forEach( function(ele, index) {
-    bgImages += `url("${ele}")` + ' , ';
-  });
+  let posters = poster.split(",");
+  
+  posters = posters.map(ele => `url("${ele}")`).join(", ")
 
   return (
     <div
       className={classNames('video-react-poster', className)}
       style={{
-        backgroundImage: bgImages
+        backgroundImage: posters
       }}
       onClick={() => {
         if (player.paused) {
