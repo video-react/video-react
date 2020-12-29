@@ -41,6 +41,7 @@ export default class ClickableComponent extends Component {
     onClick(event);
   }
 
+  // TODO change document object
   handleFocus(e) {
     document.addEventListener('keydown', this.handleKeypress);
     if (this.props.onFocus) {
