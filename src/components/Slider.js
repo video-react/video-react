@@ -48,7 +48,6 @@ export default class Slider extends Component {
 
   componentWillUnmount() {
     const { document } = this.props;
-    console.log(this.props);
     document.removeEventListener('mousemove', this.handleMouseMove, true);
     document.removeEventListener('mouseup', this.handleMouseUp, true);
     document.removeEventListener('touchmove', this.handleMouseMove, true);

@@ -86,7 +86,8 @@ export default class SeekBar extends Component {
   render() {
     const {
       player: { currentTime, seekingTime, duration, buffered },
-      mouseTime
+      mouseTime,
+      document
     } = this.props;
     const time = seekingTime || currentTime;
 
@@ -108,6 +109,7 @@ export default class SeekBar extends Component {
         getPercent={this.getPercent}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
+        document={document}
       >
         <LoadProgressBar
           buffered={buffered}
