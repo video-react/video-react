@@ -12,10 +12,6 @@ class Fullscreen {
   }
 
   exit() {
-    const { document } = document.getElementById(
-      'wot-not-chat-window'
-    ).contentWindow;
-
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) {
@@ -28,9 +24,6 @@ class Fullscreen {
   }
 
   get isFullscreen() {
-    const { document } = document.getElementById(
-      'wot-not-chat-window'
-    ).contentWindow;
     return (
       document.fullscreenElement ||
       document.webkitFullscreenElement ||
@@ -40,9 +33,6 @@ class Fullscreen {
   }
 
   get enabled() {
-    const { document } = document.getElementById(
-      'wot-not-chat-window'
-    ).contentWindow;
     return (
       document.fullscreenEnabled ||
       document.webkitFullscreenEnabled ||
@@ -52,9 +42,6 @@ class Fullscreen {
   }
 
   addEventListener(handler) {
-    const { document } = document.getElementById(
-      'wot-not-chat-window'
-    ).contentWindow;
     document.addEventListener('fullscreenchange', handler);
     document.addEventListener('webkitfullscreenchange', handler);
     document.addEventListener('mozfullscreenchange', handler);
@@ -62,9 +49,6 @@ class Fullscreen {
   }
 
   removeEventListener(handler) {
-    const { document } = document.getElementById(
-      'wot-not-chat-window'
-    ).contentWindow;
     document.removeEventListener('fullscreenchange', handler);
     document.removeEventListener('webkitfullscreenchange', handler);
     document.removeEventListener('mozfullscreenchange', handler);
