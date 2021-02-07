@@ -16,11 +16,15 @@ function PosterImage({
     return null;
   }
 
+  let posters = poster.split(",");
+  
+  posters = posters.map(ele => `url("${ele}")`).join(", ")
+
   return (
     <div
       className={classNames('video-react-poster', className)}
       style={{
-        backgroundImage: `url("${poster}")`
+        backgroundImage: posters
       }}
       onClick={() => {
         if (player.paused) {
