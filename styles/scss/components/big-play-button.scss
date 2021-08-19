@@ -13,7 +13,10 @@
     opacity: 1;
     border: 0.06666em solid $video-react-primary-foreground-color;
     // Need a slightly gray bg so it can be seen on black backgrounds
-    @include background-color-with-alpha($video-react-primary-background-color, $video-react-primary-background-transparency);
+    @include background-color-with-alpha(
+      $video-react-primary-background-color,
+      $video-react-primary-background-transparency
+    );
     @include border-radius(0.3em);
     @include transition(all 0.4s);
     @extend .video-react-icon;
@@ -27,8 +30,8 @@
     &.video-react-big-play-button-center {
       top: 50%;
       left: 50%;
-      margin-top: -($video-react-big-play-button-height / 2);
-      margin-left: -($video-react-big-play-button-width / 2);
+      margin-top: math.div(-$video-react-big-play-button-height, 2);
+      margin-left: math.div(-$video-react-big-play-button-width, 2);
     }
     &.big-play-button-hide {
       display: none;
@@ -38,7 +41,10 @@
   .video-react-big-play-button:focus {
     outline: 0;
     border-color: $video-react-primary-foreground-color;
-    @include background-color-with-alpha($video-react-secondary-background-color, $video-react-secondary-background-transparency);
+    @include background-color-with-alpha(
+      $video-react-secondary-background-color,
+      $video-react-secondary-background-transparency
+    );
     @include transition(all 0s);
   }
 }
