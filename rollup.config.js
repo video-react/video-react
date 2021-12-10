@@ -1,7 +1,9 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+// import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import minify from 'rollup-plugin-babel-minify';
+import { terser } from 'rollup-plugin-terser';
+// import minify from 'rollup-plugin-babel-minify';
 import replace from 'rollup-plugin-replace';
 import sass from 'rollup-plugin-sass';
 // Require understands JSON files.
@@ -60,7 +62,8 @@ function baseUmdConfig(minified) {
   );
 
   if (minified) {
-    config.plugins.push(minify({ comments: false }));
+    config.plugins.push(terser());
+    // config.plugins.push(minify({ comments: false }));
   }
 
   return config;
