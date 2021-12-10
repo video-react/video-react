@@ -1,9 +1,10 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import BigPlayButtonExample from '../examples/BigPlayButton';
+
 const BigPlayButtonExampleSource = require('!!raw-loader!../examples/BigPlayButton');
 
 export default class BigPlayButtonPage extends React.Component {
@@ -20,9 +21,7 @@ export default class BigPlayButtonPage extends React.Component {
           <BigPlayButtonExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
-            {BigPlayButtonExampleSource}
-          </PrismCode>
+          <PrismCode language="jsx">{BigPlayButtonExampleSource}</PrismCode>
         </pre>
         <form>
           <div className="form-group">
@@ -32,7 +31,7 @@ export default class BigPlayButtonPage extends React.Component {
         </form>
         <h4>Properties</h4>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {`BigPlayButton.propTypes = {
 
   // The default position is left-top,

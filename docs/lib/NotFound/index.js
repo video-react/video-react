@@ -3,7 +3,7 @@ import { Button, Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
-export default () => {
+export default function NotFound() {
   return (
     <div>
       <Helmet title="404 Page Not Found" />
@@ -42,4 +42,4 @@ export default () => {
       </section>
     </div>
   );
-};
+}

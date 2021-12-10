@@ -43,7 +43,7 @@ export default class UINav extends React.Component {
                   tag={Link}
                   className="nav-link"
                   to="/customize/"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Customize
                 </NavLink>
@@ -53,7 +53,7 @@ export default class UINav extends React.Component {
                   tag={Link}
                   className="nav-link"
                   to="/components/"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Components
                 </NavLink>

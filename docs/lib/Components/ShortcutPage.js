@@ -1,12 +1,12 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0, react/prefer-stateless-function: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Table, Alert } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ShortcutExample from '../examples/Shortcut';
 
-const ShortcutExampleSource = require('!!raw-loader!../examples/Shortcut');
-
+// const ShortcutExampleSource = require('!!raw-loader!../examples/Shortcut');
+const ShortcutExampleSource = 'hi!';
 export default class ShortcutPage extends React.Component {
   render() {
     return (
@@ -21,7 +21,7 @@ export default class ShortcutPage extends React.Component {
         </Alert>
         <h4>Properties</h4>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {`Shortcut.propTypes = {
   // Allow click to play/pause, by default true
   clickable: PropTypes.bool,
@@ -104,9 +104,7 @@ export default class ShortcutPage extends React.Component {
           <ShortcutExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
-            {ShortcutExampleSource}
-          </PrismCode>
+          <PrismCode language="jsx">{ShortcutExampleSource}</PrismCode>
         </pre>
       </div>
     );

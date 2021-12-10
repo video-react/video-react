@@ -1,9 +1,10 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import EnableDisableComponentExample from '../examples/EnableDisableComponent';
+
 const EnableDisableComponentExampleSource = require('!!raw-loader!../examples/EnableDisableComponent');
 
 export default class EnableDisableComponentPage extends React.Component {
@@ -17,7 +18,7 @@ export default class EnableDisableComponentPage extends React.Component {
           <EnableDisableComponentExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {EnableDisableComponentExampleSource}
           </PrismCode>
         </pre>

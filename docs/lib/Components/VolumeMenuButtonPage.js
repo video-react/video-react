@@ -1,9 +1,10 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import VolumeMenuButtonExample from '../examples/VolumeMenuButton';
+
 const VolumeMenuButtonExampleSource = require('!!raw-loader!../examples/VolumeMenuButton');
 
 export default class VolumeMenuButtonPage extends React.Component {
@@ -17,13 +18,11 @@ export default class VolumeMenuButtonPage extends React.Component {
           <VolumeMenuButtonExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
-            {VolumeMenuButtonExampleSource}
-          </PrismCode>
+          <PrismCode language="jsx">{VolumeMenuButtonExampleSource}</PrismCode>
         </pre>
         <h4>Properties</h4>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {`VolumeMenuButton.propTypes = {
 
   // The direction where Volume Bar popup

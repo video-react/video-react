@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Player, ControlBar } from 'video-react';
 import { Button } from 'reactstrap';
 
@@ -172,8 +172,8 @@ export default class PlayerControlExample extends Component {
         </div>
         <div>State</div>
         <pre>
-          <PrismCode className="language-json">
-            {JSON.stringify(this.state.player, null, 2)}
+          <PrismCode language="json">
+            {JSON.stringify(this.state.player, null, 2) || 'not set'}
           </PrismCode>
         </pre>
       </div>

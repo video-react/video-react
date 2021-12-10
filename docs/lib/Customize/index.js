@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
+import { Route } from 'react-router-dom';
+import { Switch } from 'react-router';
+
+import Home from '../Home';
+import EnableDisableComponentPage from './EnableDisableComponentPage';
+import CustomizeComponentPage from './CustomizeComponentPage';
+import CustomizeSourcePage from './CustomizeSourcePage';
 
 const CustomizeLink = props => (
   <NavItem>
-    <NavLink tag={Link} to={props.item.to} activeClassName="active">
+    <NavLink tag={Link} to={props.item.to} activeclassname="active">
       {props.item.name}
     </NavLink>
   </NavItem>
@@ -46,7 +53,20 @@ class Customize extends React.Component {
               </Nav>
             </div>
           </Col>
-          <Col md={{ size: 9 }}>{this.props.children}</Col>
+          <Col md={{ size: 9 }}>
+            <Switch>
+              <Route
+                path="enable-disable-components/"
+                component={EnableDisableComponentPage}
+              />
+              <Route
+                path="customize-component/"
+                component={CustomizeComponentPage}
+              />
+              <Route path="customize-source/" component={CustomizeSourcePage} />
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </Col>
         </Row>
       </Container>
     );

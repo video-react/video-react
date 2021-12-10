@@ -1,6 +1,6 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import Helmet from 'react-helmet';
 import PlayerWithCaptions from '../examples/PlayerWithCaptions';
 
@@ -21,9 +21,7 @@ export default function CaptionedVideoPage() {
       <p />
       <h4>ClosedCaptionButton</h4>
       <pre>
-        <PrismCode className="language-jsx">
-          {PlayerWithCaptionsSource}
-        </PrismCode>
+        <PrismCode language="jsx">{PlayerWithCaptionsSource}</PrismCode>
       </pre>
     </div>
   );

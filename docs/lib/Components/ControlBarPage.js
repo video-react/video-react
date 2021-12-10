@@ -1,6 +1,6 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ControlBarExample from '../examples/ControlBar';
@@ -22,13 +22,11 @@ export default class ControlBarPage extends React.Component {
           <ControlBarExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
-            {ControlBarExampleSource}
-          </PrismCode>
+          <PrismCode language="jsx">{ControlBarExampleSource}</PrismCode>
         </pre>
         <h4>Properties</h4>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {`ControlBar.propTypes = {
 
   // Hide the control bar automatically after the player is inactive

@@ -1,6 +1,6 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Table } from 'reactstrap';
 import Helmet from 'react-helmet';
 import PlayerExample from '../examples/Player';
@@ -195,7 +195,7 @@ export default function PlayerPage() {
             <td>
               Sets or returns the speed of the video playback. For example:
               <pre>
-                <PrismCode className="language-jsx">
+                <PrismCode language="jsx">
                   {`<Player ref={(player) => { this.player = player }}>
   <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
 </Player>
@@ -262,7 +262,7 @@ this.player.playbackRate = 2; `}
             <td>
               Get the redux <a href="#state">State</a>. For example:
               <pre>
-                <PrismCode className="language-jsx">
+                <PrismCode language="jsx">
                   {`const { player } = this.player.getState();
 console.log(player.currentTime); // print current time`}
                 </PrismCode>
@@ -330,7 +330,7 @@ console.log(player.currentTime); // print current time`}
             <td>
               Subscribe to the <a href="#state">player state</a> changes.
               <pre>
-                <PrismCode className="language-jsx">
+                <PrismCode language="jsx">
                   {`componentDidMount() {
   // subscribe state change
   this.player.subscribeToStateChange(this.handleStateChange.bind(this));
@@ -552,9 +552,7 @@ handleStateChange(state, prevState) {
         <PlayerControlExample />
       </div>
       <pre>
-        <PrismCode className="language-jsx">
-          {PlayerControlExampleSource}
-        </PrismCode>
+        <PrismCode language="jsx">{PlayerControlExampleSource}</PrismCode>
       </pre>
       <h5>Change the player url</h5>
       <p>This is an example on how to change the video url.</p>
@@ -562,7 +560,7 @@ handleStateChange(state, prevState) {
         <PlayerExample />
       </div>
       <pre>
-        <PrismCode className="language-jsx">{PlayerExampleSource}</PrismCode>
+        <PrismCode language="jsx">{PlayerExampleSource}</PrismCode>
       </pre>
     </div>
   );

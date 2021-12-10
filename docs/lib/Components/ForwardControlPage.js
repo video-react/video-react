@@ -1,6 +1,6 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 import React from 'react';
-import { PrismCode } from 'react-prism';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ForwardControlExample from '../examples/ForwardControl';
@@ -18,13 +18,11 @@ export default class ForwardControlPage extends React.Component {
           <ForwardControlExample />
         </div>
         <pre>
-          <PrismCode className="language-jsx">
-            {ForwardControlExampleSource}
-          </PrismCode>
+          <PrismCode language="jsx">{ForwardControlExampleSource}</PrismCode>
         </pre>
         <h4>Properties</h4>
         <pre>
-          <PrismCode className="language-jsx">
+          <PrismCode language="jsx">
             {`ForwardControl.propTypes = {
 
   // How many seconds to go forward

@@ -1,15 +1,15 @@
 import React from 'react';
-import { PrismCode } from 'react-prism';
-import { Button, Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Prism as PrismCode } from 'react-syntax-highlighter';
+import { Button, Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router';
 import BasicExample from '../examples/import-basic';
 
 const importBasic = require('!!raw-loader!../examples/import-basic');
 
-export default () => {
+export default function Home() {
   return (
     <div>
-      <Jumbotron tag="section" className="jumbotron-header text-center mb-3">
+      <div className="rounded px-3 px-sm-4 py-3 py-sm-5">
         <Container>
           <Row>
             <Col>
@@ -36,7 +36,7 @@ export default () => {
             </Col>
           </Row>
         </Container>
-      </Jumbotron>
+      </div>
       <Container fluid>
         <Row>
           <Col sm={{ size: 8, offset: 2 }}>
@@ -45,7 +45,7 @@ export default () => {
             <h3>NPM</h3>
             <p>Install video-react and peer dependencies via NPM</p>
             <pre>
-              <PrismCode className="language-bash">
+              <PrismCode language="bash">
                 npm install --save video-react react react-dom redux
               </PrismCode>
             </pre>
@@ -56,49 +56,49 @@ export default () => {
             </div>
             <p>import css in your app or add video-react styles in your page</p>
             <pre>
-              <PrismCode className="language-jsx">
+              <PrismCode language="jsx">
                 import "node_modules/video-react/dist/video-react.css"; //
                 import css
               </PrismCode>
             </pre>
             <pre>
-              <PrismCode className="language-jsx">
+              <PrismCode language="jsx">
                 @import "~video-react/styles/scss/video-react"; // or import
                 scss
               </PrismCode>
             </pre>
             <pre>
-              <PrismCode className="language-html">
+              <PrismCode language="html">
                 &lt;link rel="stylesheet" href="/css/video-react.css" /&gt;
               </PrismCode>
             </pre>
             <pre>
-              <PrismCode className="language-jsx">{importBasic}</PrismCode>
+              <PrismCode language="jsx">{importBasic}</PrismCode>
             </pre>
 
             <h2 className="m-t-3">Development</h2>
             <hr />
             <p>Install dependencies:</p>
             <pre>
-              <PrismCode className="language-bash">npm install</PrismCode>
+              <PrismCode language="bash">npm install</PrismCode>
             </pre>
             <p>
               Run examples at{' '}
-              <a href="http://localhost:9000/" target="_blank">
+              <a href="http://localhost:9000/" target="_blank" rel="noreferrer">
                 http://localhost:9000/
               </a>{' '}
               with webpack dev server:
             </p>
             <pre>
-              <PrismCode className="language-bash">npm start</PrismCode>
+              <PrismCode language="bash">npm start</PrismCode>
             </pre>
             <p>Run tests & coverage report:</p>
             <pre>
-              <PrismCode className="language-bash">npm test</PrismCode>
+              <PrismCode language="bash">npm test</PrismCode>
             </pre>
           </Col>
         </Row>
       </Container>
     </div>
   );
-};
+}
