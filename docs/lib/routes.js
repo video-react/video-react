@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, IndexRoute, IndexRedirect } from 'react-router';
+// import { Route, IndexRoute, IndexRedirect } from 'react-router';
+import { Route } from 'react-router-dom';
 import Home from './Home';
 import NotFound from './NotFound';
 import Components from './Components';
@@ -21,13 +22,83 @@ import Customize from './Customize';
 import EnableDisableComponentPage from './Customize/EnableDisableComponentPage';
 import CustomizeComponentPage from './Customize/CustomizeComponentPage';
 import CustomizeSourcePage from './Customize/CustomizeSourcePage';
+import { Switch } from 'react-router';
 
-const routes = (
+// <IndexRoute component={Home} />
+
+const routes = [
+  { path: '/', component: Home, exact: true },
+  { path: '/index.html', component: Home },
+
+  {
+    path: '/components/player/',
+    component: <Components>PlayerPage</Components>
+  },
+  {
+    path: '/components/shortcut/',
+    component: <Components>ShortcutPage</Components>
+  },
+  {
+    path: '/components/big-play-button/',
+    component: <Components>BigPlayButtonPage</Components>
+  },
+  {
+    path: '/components/poster-image/',
+    component: <Components>PosterImagePage</Components>
+  },
+  {
+    path: '/components/loading-spinner/',
+    component: <Components>LoadingSpinnerPage</Components>
+  },
+  {
+    path: '/components/control-bar/',
+    component: <Components>ControlBarPage</Components>
+  },
+  {
+    path: '/components/play-toggle/',
+    component: <Components>PlayTogglePage</Components>
+  },
+  {
+    path: '/components/forward-control/',
+    component: <Components>ForwardControlPage</Components>
+  },
+  {
+    path: '/components/replay-control/',
+    component: <Components>ReplayControlPage</Components>
+  },
+  {
+    path: '/components/volume-menu-button/',
+    component: <Components>VolumeMenuButtonPage</Components>
+  },
+  {
+    path: '/components/playback-rate-menu-button/',
+    component: <Components>PlaybackRateMenuButtonPage</Components>
+  },
+  {
+    path: '/components/captioned-video/',
+    component: <Components>CaptionedVideoPage</Components>
+  },
+  { path: '/components', component: Components },
+
+  {
+    path: '/customize/enable-disable-components/',
+    component: <Components>EnableDisableComponentPage</Components>
+  },
+  {
+    path: '/customize/customize-component/',
+    component: <Components>CustomizeComponentPage</Components>
+  },
+  {
+    path: '/customize/customize-source/',
+    component: <Components>CustomizeSourcePage</Components>
+  },
+  { path: '/customize/', component: Customize },
+  { path: '/404.html', component: NotFound }
+];
+const routes2 = (
   <Route path="/" component={UI.Layout}>
-    <IndexRoute component={Home} />
     <Route path="index.html" component={Home} />
     <Route path="/components/" component={Components}>
-      <IndexRedirect to="player/" />
       <Route path="player/" component={PlayerPage} />
       <Route path="shortcut/" component={ShortcutPage} />
       <Route path="big-play-button/" component={BigPlayButtonPage} />
@@ -45,16 +116,47 @@ const routes = (
       <Route path="captioned-video" component={CaptionedVideoPage} />
     </Route>
     <Route path="/customize/" component={Customize}>
-      <IndexRedirect to="enable-disable-components/" />
       <Route
         path="enable-disable-components/"
         component={EnableDisableComponentPage}
       />
       <Route path="customize-component/" component={CustomizeComponentPage} />
       <Route path="customize-source/" component={CustomizeSourcePage} />
+      <Route exact path="/" component={Home} />
     </Route>
-    <Route path="*" component={NotFound} />
+
+    <Route component={NotFound} />
   </Route>
 );
 
-export default routes;
+const App = () => {
+  return (
+    <UI.Layout>
+      <Switch>
+        <Route path="/index.html" component={Home} />
+        <Route path="/" exact component={Home} />
+
+        <Route
+          path="/components"
+          render={match => <Components match={match} />}
+        />
+
+        <Route
+          path="/customize"
+          render={match => <Customize match={match} />}
+        />
+
+        <Route path="/404.html" component={NotFound} />
+      </Switch>
+    </UI.Layout>
+  );
+};
+
+export { routes, App };
+
+// export default routes;
+
+// <Route
+//   path="/components"
+//   render={match => <Components match={match} />}
+// />
