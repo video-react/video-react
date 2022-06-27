@@ -3,6 +3,9 @@ import reducer from './reducers';
 import * as playerActions from './actions/player';
 import * as videoActions from './actions/video';
 
+/**
+ * @type Class
+ */
 export default class Manager {
   constructor(store) {
     this.store = store || createStore(reducer);
