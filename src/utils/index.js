@@ -93,8 +93,10 @@ export function mergeAndSortChildren(
         c => !find(children, component => isTypeEqual(component, c))
       )
     )
-    .map((element) => {
-      const defaultComponent = find(defaultChildren, c => isTypeEqual(c, element));
+    .map(element => {
+      const defaultComponent = find(defaultChildren, c =>
+        isTypeEqual(c, element)
+      );
 
       const defaultProps = defaultComponent ? defaultComponent.props : {};
       const props = {
@@ -106,7 +108,8 @@ export function mergeAndSortChildren(
       return e;
     })
     .sort(
-      (a, b) => (a.props.order || defaultOrder) - (b.props.order || defaultOrder)
+      (a, b) =>
+        (a.props.order || defaultOrder) - (b.props.order || defaultOrder)
     );
 }
 

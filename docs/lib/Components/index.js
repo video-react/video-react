@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {
-  Container, Row, Col, Nav, NavItem, NavLink
-} from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
 
 const ComponentLink = props => (
   <NavItem>

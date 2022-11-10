@@ -34,9 +34,7 @@ class ClosedCaptionButton extends Component {
   }
 
   getTextTrackItems() {
-    const {
-      kinds, player, offMenuText, showOffMenu
-    } = this.props;
+    const { kinds, player, offMenuText, showOffMenu } = this.props;
     const { textTracks, activeTextTrack } = player;
     const textTrackItems = {
       items: [],
@@ -55,7 +53,7 @@ class ClosedCaptionButton extends Component {
       });
     }
 
-    tracks.forEach((textTrack) => {
+    tracks.forEach(textTrack => {
       // ignore invalid text track kind
       if (kinds.length && !kinds.includes(textTrack.kind)) {
         return;
@@ -81,8 +79,8 @@ class ClosedCaptionButton extends Component {
   updateState() {
     const textTrackItems = this.getTextTrackItems();
     if (
-      textTrackItems.selectedIndex !== this.state.selectedIndex
-      || !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
+      textTrackItems.selectedIndex !== this.state.selectedIndex ||
+      !this.textTrackItemsAreEqual(textTrackItems.items, this.state.items)
     ) {
       this.setState(textTrackItems);
     }
@@ -95,9 +93,9 @@ class ClosedCaptionButton extends Component {
 
     for (let i = 0; i < items1.length; i++) {
       if (
-        !items2[i]
-        || items1[i].label !== items2[i].label
-        || items1[i].value !== items2[i].value
+        !items2[i] ||
+        items1[i].label !== items2[i].label ||
+        items1[i].value !== items2[i].value
       ) {
         return false;
       }
