@@ -2,7 +2,7 @@ import 'bootstrap-scss';
 import 'video-react-scss';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import ReactDOMServer from 'react-dom/server';
 import Helmet from 'react-helmet';
 import {
@@ -27,7 +27,8 @@ if (typeof document !== 'undefined') {
     Holder = require('holderjs');
   });
 
-  ReactDOM.render(
+  const root = createRoot(el);
+  root.render(
     <Router
       onUpdate={() => {
         window.scrollTo(0, 0);
