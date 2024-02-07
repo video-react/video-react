@@ -27,8 +27,8 @@
     &.video-react-big-play-button-center {
       top: 50%;
       left: 50%;
-      margin-top: -($video-react-big-play-button-height / 2);
-      margin-left: -($video-react-big-play-button-width / 2);
+      margin-top: -calc($video-react-big-play-button-height / 2);
+      margin-left: -calc($video-react-big-play-button-width / 2);
     }
     &.big-play-button-hide {
       display: none;
