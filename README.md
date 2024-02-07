@@ -1,9 +1,16 @@
 # video-react
 
-[![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react) [![Build Status](https://travis-ci.org/video-react/video-react.svg?branch=master)](https://travis-ci.org/video-react/video-react) [![Package Quality](http://npm.packagequality.com/shield/video-react.svg)](http://packagequality.com/#?package=video-react)
+[![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react)
+[![Package Quality](http://npm.packagequality.com/shield/video-react.svg)](http://packagequality.com/#?package=video-react)
 [![codecov](https://codecov.io/gh/video-react/video-react/branch/master/graph/badge.svg)](https://codecov.io/gh/video-react/video-react)
 
 Video.React is a web video player built from the ground up for an HTML5 world using React library.
+
+### ✨ The future of Video.React
+
+Maintenance of Video.React is being taken over by [Mux](https://www.mux.com). The team at Mux have worked on many highly respected projects and are committed to improving video tooling for developers.
+
+Video.React will remain open source, but with a higher rate of fixes and releases over time. Thanks to everyone in the community for your ongoing support.
 
 ## Installation
 
