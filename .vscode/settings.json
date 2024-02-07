@@ -1,6 +1,5 @@
 {
   "prettier.eslintIntegration": true,
-  "eslint.autoFixOnSave": true,
   "editor.formatOnSave": true,
   "javascript.validate.enable": false,
   "editor.rulers": [
@@ -8,5 +7,8 @@
   ],
   "html.format.endWithNewline": true,
   "files.trimTrailingWhitespace": true,
-  "editor.trimAutoWhitespace": true
+  "editor.trimAutoWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
