@@ -24,7 +24,7 @@ export default class Menu extends Component {
         role="presentation"
         onClick={this.handleClick}
       >
-        <ul className="video-react-menu-content">{this.props.children}</ul>
+        {this.props.children}
       </div>
     );
   }

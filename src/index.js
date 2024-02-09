@@ -1,5 +1,5 @@
-import Player from './components/Player';
-import Video from './components/Video';
+import { Player } from './components/Player';
+import Media from './components/Media';
 import BigPlayButton from './components/BigPlayButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import PosterImage from './components/PosterImage';
@@ -20,12 +20,16 @@ import MouseTimeDisplay from './components/control-bar/MouseTimeDisplay';
 import VolumeMenuButton from './components/control-bar/VolumeMenuButton';
 import PlaybackRateMenuButton from './components/control-bar/PlaybackRateMenuButton';
 import PlaybackRate from './components/control-bar/PlaybackRate';
-import ClosedCaptionButton from './components/control-bar/ClosedCaptionButton';
+import OptionsButton from './components/control-bar/OptionsButton';
+import OptionsOverlay from './components/menu/OptionsOverlay';
+import AudioDescription from './components/menu/AudioDescription';
 
 import RemainingTimeDisplay from './components/time-controls/RemainingTimeDisplay';
 import CurrentTimeDisplay from './components/time-controls/CurrentTimeDisplay';
 import DurationDisplay from './components/time-controls/DurationDisplay';
 import TimeDivider from './components/time-controls/TimeDivider';
+
+import VolumeBar from './components/volume-control/VolumeBar';
 
 import MenuButton from './components/menu/MenuButton';
 
@@ -35,7 +39,7 @@ import { playerReducer, operationReducer } from './reducers';
 
 export {
   Player,
-  Video,
+  Media,
   BigPlayButton,
   LoadingSpinner,
   PosterImage,
@@ -57,8 +61,11 @@ export {
   DurationDisplay,
   TimeDivider,
   VolumeMenuButton,
+  VolumeBar,
   PlaybackRateMenuButton,
-  ClosedCaptionButton,
+  OptionsButton,
+  OptionsOverlay,
+  AudioDescription,
   PlaybackRate,
   MenuButton,
   playerActions,

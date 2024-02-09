@@ -190,7 +190,7 @@ export default class MenuButton extends Component {
         )}
         role="button"
         tabIndex="0"
-        ref={(c) => {
+        ref={c => {
           this.menuButton = c;
         }}
         onClick={this.handleClick}

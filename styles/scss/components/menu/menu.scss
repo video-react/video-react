@@ -20,15 +20,13 @@
   li {
     list-style: none;
     margin: 0;
-    padding: 0.2em 0;
     line-height: 1.4em;
     font-size: 1.2em;
-    text-align: center;
 
     &:focus,
     &:hover {
       outline: 0;
-      @include background-color-with-alpha($video-react-secondary-background-color, $video-react-secondary-background-transparency);
+
     }
 
 

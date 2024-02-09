@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import * as Dom from '../utils/dom';
+import { mergeAndSortChildren } from '../utils';
 
 const propTypes = {
   className: PropTypes.string,
@@ -20,7 +21,8 @@ const propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
   valuenow: PropTypes.string,
-  valuetext: PropTypes.string
+  valuetext: PropTypes.string,
+  childrenToMerge: PropTypes.node
 };
 
 export default class Slider extends Component {
@@ -183,9 +185,24 @@ export default class Slider extends Component {
   }
 
   renderChildren() {
+    const children = this.props.children;
+
+    let childrenToRender;
+    if (this.props.childrenToMerge) {
+      const { className, childrenToMerge, ...parentProps } = this.props;
+      childrenToRender = mergeAndSortChildren(
+        children,
+        childrenToMerge,
+        parentProps
+      );
+    } else {
+      childrenToRender = children;
+    }
+
     const progress = this.getProgress();
     const percentage = `${(progress * 100).toFixed(2)}%`;
-    return React.Children.map(this.props.children, child =>
+
+    return React.Children.map(childrenToRender, child =>
       React.cloneElement(child, { progress, percentage })
     );
   }

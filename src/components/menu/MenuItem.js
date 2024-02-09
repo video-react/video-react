@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 const propTypes = {
-  item: PropTypes.object,
+  label: PropTypes.string,
   index: PropTypes.number,
   activateIndex: PropTypes.number,
   onSelectItem: PropTypes.func
@@ -22,19 +22,22 @@ export default class MenuItem extends Component {
   }
 
   render() {
-    const { item, index, activateIndex } = this.props;
+    const { label, index, activateIndex } = this.props;
     return (
-      <li
-        className={classNames({
-          'video-react-menu-item': true,
-          'video-react-selected': index === activateIndex
-        })}
+      <div
+        className={classNames('video-react-menu-item')}
         role="menuitem"
         onClick={this.handleClick}
+        tabIndex="0"
       >
-        {item.label}
-        <span className="video-react-control-text" />
-      </li>
+        <div
+          className={classNames({
+            'video-react-menu-item-radio': true,
+            'video-react-menu-item-radio-selected': index === activateIndex
+          })}
+        />
+        <p>{label}</p>
+      </div>
     );
   }
 }

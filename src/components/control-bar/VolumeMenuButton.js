@@ -4,13 +4,15 @@ import classNames from 'classnames';
 
 import PopupButton from '../popup/PopupButton';
 import VolumeBar from '../volume-control/VolumeBar';
+import { mergeAndSortChildren } from '../../utils';
 
 const propTypes = {
   player: PropTypes.object,
   actions: PropTypes.object,
   vertical: PropTypes.bool,
   className: PropTypes.string,
-  alwaysShowVolume: PropTypes.bool
+  alwaysShowVolume: PropTypes.bool,
+  children: PropTypes.node
 };
 
 const defaultProps = {
@@ -28,6 +30,7 @@ class VolumeMenuButton extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.getDefaultChildren = this.getDefaultChildren.bind(this);
   }
 
   get volumeLevel() {
@@ -62,10 +65,30 @@ class VolumeMenuButton extends Component {
     });
   }
 
+  getDefaultChildren() {
+    return [
+      <VolumeBar
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        {...this.props}
+      />
+    ];
+  }
+
+  getChildren() {
+    const children = React.Children.toArray(this.props.children);
+    const defaultChildren = this.getDefaultChildren();
+    const { className, ...parentProps } = this.props; // remove className
+    return mergeAndSortChildren(defaultChildren, children, parentProps);
+  }
+
   render() {
     const { vertical, player, className } = this.props;
     const inline = !vertical;
     const level = this.volumeLevel;
+
+    const children = this.getChildren();
+
     return (
       <PopupButton
         className={classNames(
@@ -88,11 +111,7 @@ class VolumeMenuButton extends Component {
         onClick={this.handleClick}
         inline={inline}
       >
-        <VolumeBar
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          {...this.props}
-        />
+        {children}
       </PopupButton>
     );
   }
