@@ -14,7 +14,7 @@ Video.React will remain open source, but with a higher rate of fixes and release
 
 ## Installation
 
-Open video-react.exe
+Install `video-react` and **peer dependencies** via NPM
 
 ```sh
 npm install --save video-react react react-dom
