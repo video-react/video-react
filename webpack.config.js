@@ -11,9 +11,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const outputFilename = 'video-react';
 const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
-const outputFile = env === 'production'
-  ? `${outputFilename.toLowerCase()}.min.js`
-  : `${outputFilename.toLowerCase()}.js`;
+const outputFile =
+  env === 'production'
+    ? `${outputFilename.toLowerCase()}.min.js`
+    : `${outputFilename.toLowerCase()}.js`;
 
 const paths = [
   '/',
@@ -34,6 +35,7 @@ const paths = [
   '/customize/enable-disable-components/',
   '/customize/customize-source/',
   '/customize/customize-component/',
+  '/customize/google-cast/',
   '/404.html'
 ];
 
