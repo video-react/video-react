@@ -9,6 +9,7 @@ import MouseTimeDisplay from './MouseTimeDisplay';
 import { formatTime } from '../../utils';
 
 const propTypes = {
+  children: PropTypes.node,
   player: PropTypes.object,
   mouseTime: PropTypes.object,
   actions: PropTypes.object,
@@ -85,17 +86,25 @@ export default class SeekBar extends Component {
 
   render() {
     const {
+      children,
       player: { currentTime, seekingTime, duration, buffered },
-      mouseTime
+      mouseTime,
+      type
     } = this.props;
     const time = seekingTime || currentTime;
+
+    const renderGrandchildren =
+      children && children.props && children.props.children;
+
+    const childrenToMerge = renderGrandchildren ? children.props.children : [];
+    const label = `${type} progress bar`;
 
     return (
       <Slider
         ref={input => {
           this.slider = input;
         }}
-        label="video progress bar"
+        label={label}
         className={classNames(
           'video-react-progress-holder',
           this.props.className
@@ -108,6 +117,7 @@ export default class SeekBar extends Component {
         getPercent={this.getPercent}
         stepForward={this.stepForward}
         stepBack={this.stepBack}
+        childrenToMerge={childrenToMerge}
       >
         <LoadProgressBar
           buffered={buffered}

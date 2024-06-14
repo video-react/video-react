@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import * as Dom from '../../utils/dom';
+import { mergeAndSortChildren } from '../../utils';
 import SeekBar from './SeekBar';
 
 const propTypes = {
+  children: PropTypes.node,
   player: PropTypes.object,
   className: PropTypes.string
 };
@@ -43,8 +45,28 @@ export default class ProgressControl extends Component {
     });
   }
 
+  getDefaultChildren() {
+    return [
+      <SeekBar
+        mouseTime={this.state.mouseTime}
+        ref={c => {
+          this.seekBar = c;
+        }}
+        {...this.props}
+      />
+    ];
+  }
+
+  getChildren() {
+    const children = React.Children.toArray(this.props.children);
+    const defaultChildren = this.getDefaultChildren();
+    const { className, ...parentProps } = this.props; // remove className
+    return mergeAndSortChildren(defaultChildren, children, parentProps);
+  }
+
   render() {
     const { className } = this.props;
+    const children = this.getChildren();
     return (
       <div
         onMouseMove={this.handleMouseMoveThrottle}
@@ -53,13 +75,7 @@ export default class ProgressControl extends Component {
           className
         )}
       >
-        <SeekBar
-          mouseTime={this.state.mouseTime}
-          ref={c => {
-            this.seekBar = c;
-          }}
-          {...this.props}
-        />
+        {children}
       </div>
     );
   }

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import { isVideoChild, mediaProperties, throttle } from '../utils';
+import { MediaType } from './Player';
 
 const propTypes = {
   actions: PropTypes.object,
@@ -14,6 +15,7 @@ const propTypes = {
   autoPlay: PropTypes.bool,
   playsInline: PropTypes.bool,
   src: PropTypes.string,
+  type: PropTypes.string,
   poster: PropTypes.string,
   className: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
@@ -44,7 +46,7 @@ const propTypes = {
   onResize: PropTypes.func
 };
 
-export default class Video extends Component {
+export default class Media extends Component {
   constructor(props) {
     super(props);
 
@@ -57,6 +59,7 @@ export default class Video extends Component {
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
     this.getProperties = this.getProperties.bind(this);
     this.renderChildren = this.renderChildren.bind(this);
+    this.renderMedia = this.renderMedia.bind(this);
     this.handleLoadStart = this.handleLoadStart.bind(this);
     this.handleCanPlay = this.handleCanPlay.bind(this);
     this.handleCanPlayThrough = this.handleCanPlayThrough.bind(this);
@@ -315,9 +318,7 @@ export default class Video extends Component {
   // Fired when the end of the media resource
   // is reached (currentTime == duration)
   handleEnded(...args) {
-    const {
-      loop, player, actions, onEnded
-    } = this.props;
+    const { loop, player, actions, onEnded } = this.props;
     if (loop) {
       this.seek(0);
       this.play();
@@ -499,7 +500,7 @@ export default class Video extends Component {
     // only keep <source />, <track />, <MyComponent isVideoChild /> elements
     return React.Children.toArray(this.props.children)
       .filter(isVideoChild)
-      .map((c) => {
+      .map(c => {
         let cprops;
         if (typeof c.type === 'string') {
           // add onError to <source />
@@ -520,25 +521,69 @@ export default class Video extends Component {
       });
   }
 
-  render() {
+  renderMedia() {
     const {
       loop,
       poster,
       preload,
       src,
+      type,
       autoPlay,
       playsInline,
       muted,
       crossOrigin,
       videoId
     } = this.props;
-
+    if (type === MediaType.video) {
+      return (
+        <video
+          className={classNames('video-react-video', this.props.className)}
+          id={videoId}
+          crossOrigin={crossOrigin}
+          ref={c => {
+            this.video = c;
+          }}
+          muted={muted}
+          preload={preload}
+          loop={loop}
+          playsInline={playsInline}
+          autoPlay={autoPlay}
+          poster={poster}
+          src={src}
+          onLoadStart={this.handleLoadStart}
+          onWaiting={this.handleWaiting}
+          onCanPlay={this.handleCanPlay}
+          onCanPlayThrough={this.handleCanPlayThrough}
+          onPlaying={this.handlePlaying}
+          onEnded={this.handleEnded}
+          onSeeking={this.handleSeeking}
+          onSeeked={this.handleSeeked}
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
+          onProgress={this.handleProgress}
+          onDurationChange={this.handleDurationChange}
+          onError={this.handleError}
+          onSuspend={this.handleSuspend}
+          onAbort={this.handleAbort}
+          onEmptied={this.handleEmptied}
+          onStalled={this.handleStalled}
+          onLoadedMetadata={this.handleLoadedMetaData}
+          onLoadedData={this.handleLoadedData}
+          onTimeUpdate={this.handleTimeUpdate}
+          onRateChange={this.handleRateChange}
+          onVolumeChange={this.handleVolumeChange}
+          tabIndex="-1"
+        >
+          {this.renderChildren()}
+        </video>
+      );
+    }
     return (
-      <video
+      <audio
         className={classNames('video-react-video', this.props.className)}
         id={videoId}
         crossOrigin={crossOrigin}
-        ref={(c) => {
+        ref={c => {
           this.video = c;
         }}
         muted={muted}
@@ -546,7 +591,6 @@ export default class Video extends Component {
         loop={loop}
         playsInline={playsInline}
         autoPlay={autoPlay}
-        poster={poster}
         src={src}
         onLoadStart={this.handleLoadStart}
         onWaiting={this.handleWaiting}
@@ -573,10 +617,16 @@ export default class Video extends Component {
         tabIndex="-1"
       >
         {this.renderChildren()}
-      </video>
+      </audio>
+    );
+  }
+
+  render() {
+    return (
+      <div className="video-react-video-container">{this.renderMedia()}</div>
     );
   }
 }
 
-Video.propTypes = propTypes;
-Video.displayName = 'Video';
+Media.propTypes = propTypes;
+Media.displayName = 'Media';
