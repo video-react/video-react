@@ -12,7 +12,7 @@ import Bezel from './Bezel';
 import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
 
-import * as browser from '../utils/browser';
+// import * as browser from '../utils/browser';
 import { focusNode } from '../utils/dom';
 import { mergeAndSortChildren, isVideoChild, throttle } from '../utils';
 import fullscreen from '../utils/fullscreen';
@@ -318,7 +318,7 @@ export default class Player extends Component {
   }
 
   // player resize
-  handleResize() {}
+  handleResize() { }
 
   handleFullScreenChange(event) {
     if (event.target === this.manager.rootElement) {
@@ -410,8 +410,8 @@ export default class Player extends Component {
             'video-react-fluid': fluid,
             'video-react-fullscreen': isFullscreen,
             'video-react-user-inactive': !userActivity,
-            'video-react-user-active': userActivity,
-            'video-react-workinghover': !browser.IS_IOS
+            'video-react-user-active': userActivity
+            // 'video-react-workinghover': !browser.IS_IOS
           },
           'video-react',
           this.props.className
