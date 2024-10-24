@@ -22,6 +22,7 @@ const propTypes = {
 
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  position: PropTypes.string,
   fluid: PropTypes.bool,
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
@@ -165,6 +166,12 @@ export default class Player extends Component {
     });
   }
 
+  setPosition(style, name, value) {
+    Object.assign(style, {
+      [name]: value
+    });
+  }
+
   getStyle() {
     const {
       fluid,
@@ -219,6 +226,9 @@ export default class Player extends Component {
       // If Width contains "auto", set "auto" in style
       this.setWidthOrHeight(style, 'width', width);
       this.setWidthOrHeight(style, 'height', height);
+      if (height === "100%" && width === "100%") {
+        this.setPosition(style, 'position', "absolute")
+      }
     }
 
     return style;
@@ -318,7 +328,7 @@ export default class Player extends Component {
   }
 
   // player resize
-  handleResize() {}
+  handleResize() { }
 
   handleFullScreenChange(event) {
     if (event.target === this.manager.rootElement) {
