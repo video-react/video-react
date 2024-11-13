@@ -93,12 +93,14 @@ class VolumeBar extends Component {
   }
 
   render() {
-    const { player, className } = this.props;
+    const { className, ...parentProps } = this.props; // remove className
+    const { player } = this.props;
 
     const volume = (player.volume * 100).toFixed(2);
+
     return (
       <Slider
-        ref={(c) => {
+        ref={c => {
           this.slider = c;
         }}
         label="volume level"
@@ -120,7 +122,7 @@ class VolumeBar extends Component {
           'video-react-volume-bar video-react-slider-bar'
         )}
       >
-        <VolumeLevel {...this.props} />
+        <VolumeLevel {...parentProps} />
       </Slider>
     );
   }

@@ -45,6 +45,7 @@
 
       .video-react-volume-level {
         height: 100%;
+        width: 100%;
       }
 
     }
@@ -52,41 +53,21 @@
 
   .video-react-volume-level {
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
+    border-radius: inherit;
 
     background-color: $video-react-primary-foreground-color;
-
-    @extend .video-react-icon;
-    @extend .video-react-icon-circle;
-
-    // Volume handle
-    &:before {
-      position: absolute;
-      font-size: 0.9em; // Doing this to match the handle on play progress.
-    }
   }
 
 
 
   .video-react-slider-vertical .video-react-volume-level {
     width: 0.3em;
-
-    // Volume handle
-    &:before {
-      top: -0.5em;
-      left: -0.3em;
-    }
   }
 
   .video-react-slider-horizontal .video-react-volume-level {
     height: 0.3em;
-
-    // Volume handle
-    &:before {
-      top: -0.3em;
-      right: -0.5em;
-    }
   }
 
 
@@ -104,8 +85,11 @@
   }
 
   .video-react-menu-button-popup.video-react-volume-menu-button-vertical .video-react-menu {
-    left: 0.5em;
-    height: 8em;
+    left: 0;
+    height: auto;
+    width: inherit;
+    background-color: inherit;
+    border-radius: 4px 4px 0 0;
   }
   .video-react-menu-button-popup.video-react-volume-menu-button-horizontal .video-react-menu {
     left: -2em;
@@ -124,8 +108,9 @@
   .video-react-volume-menu-button-vertical:focus .video-react-menu-content,
   .video-react-volume-menu-button-vertical.video-react-slider-active .video-react-menu-content,
   .video-react-volume-menu-button-vertical .video-react-lock-showing .video-react-menu-content {
-    height: 8em;
-    width: 2.9em;
+    height: auto;
+    width: inherit;
+    background-color: transparent;
   }
 
   .video-react-volume-menu-button-horizontal:hover .video-react-menu-content,

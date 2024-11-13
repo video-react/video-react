@@ -22,6 +22,11 @@ export default class FullscreenToggle extends Component {
 
   render() {
     const { player, className } = this.props;
+
+    const controlText = !player.isFullscreen
+      ? 'Full Screen'
+      : 'Exit Full Screen';
+
     return (
       <button
         className={classNames(
@@ -32,14 +37,14 @@ export default class FullscreenToggle extends Component {
           },
           'video-react-fullscreen-control video-react-control video-react-button video-react-icon'
         )}
-        ref={(c) => {
+        ref={c => {
           this.button = c;
         }}
         type="button"
         tabIndex="0"
         onClick={this.handleClick}
       >
-        <span className="video-react-control-text">Non-Fullscreen</span>
+        <span className="video-react-control-text">{controlText}</span>
       </button>
     );
   }

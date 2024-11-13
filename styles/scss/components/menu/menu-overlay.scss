@@ -1,0 +1,64 @@
+.video-react-options-close {
+  position: absolute;
+  top: 0.4em;
+  right: 0.5em;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.video-react-options-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 325px;
+  background: rgba(#000000, 0.8);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .video-react-options-menu-section {
+    width: 80%;
+    align-self: center;
+    color: #ffffff;
+
+    .video-react-menu-section-header {
+      font-weight: normal;
+      margin: 0.25em 0;
+    }
+
+    .video-react-menu-item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .video-react-menu-item-radio {
+        width: 1em;
+        height: 1em;
+        border-radius: 0.5em;
+        border: 1px solid white;
+        display: block;
+        margin-right: 0.5em;
+
+        &.video-react-menu-item-radio-selected, &:hover {
+          background-color: blue;
+        }
+      }
+
+      p {
+        font-size: 1.3em;
+        margin: 0.25em 0;
+        font-weight: bold;
+      }
+    }
+  }
+}

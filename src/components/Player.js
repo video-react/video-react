@@ -4,10 +4,9 @@ import classNames from 'classnames';
 
 import Manager from '../Manager';
 
-import BigPlayButton from './BigPlayButton';
 import LoadingSpinner from './LoadingSpinner';
 import PosterImage from './PosterImage';
-import Video from './Video';
+import Media from './Media';
 import Bezel from './Bezel';
 import Shortcut from './Shortcut';
 import ControlBar from './control-bar/ControlBar';
@@ -16,6 +15,13 @@ import * as browser from '../utils/browser';
 import { focusNode } from '../utils/dom';
 import { mergeAndSortChildren, isVideoChild, throttle } from '../utils';
 import fullscreen from '../utils/fullscreen';
+import OptionsOverlay from './menu/OptionsOverlay';
+import AudioDescription from './menu/AudioDescription';
+
+export const MediaType = {
+  audio: 'AUDIO',
+  video: 'VIDEO'
+};
 
 const propTypes = {
   children: PropTypes.any,
@@ -33,6 +39,7 @@ const propTypes = {
   loop: PropTypes.bool,
   autoPlay: PropTypes.bool,
   src: PropTypes.string,
+  type: PropTypes.oneOf(Object.values(MediaType)),
   poster: PropTypes.string,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
 
@@ -70,7 +77,7 @@ const defaultProps = {
   aspectRatio: 'auto'
 };
 
-export default class Player extends Component {
+export class Player extends Component {
   constructor(props) {
     super(props);
 
@@ -113,7 +120,7 @@ export default class Player extends Component {
 
   getDefaultChildren(originalChildren) {
     return [
-      <Video
+      <Media
         ref={c => {
           this.video = c;
           this.manager.video = this.video;
@@ -122,12 +129,13 @@ export default class Player extends Component {
         order={0.0}
       >
         {originalChildren}
-      </Video>,
+      </Media>,
       <PosterImage key="poster-image" order={1.0} />,
       <LoadingSpinner key="loading-spinner" order={2.0} />,
       <Bezel key="bezel" order={3.0} />,
-      <BigPlayButton key="big-play-button" order={4.0} />,
       <ControlBar key="control-bar" order={5.0} />,
+      <AudioDescription key="audio-description" order={6.0} />,
+      <OptionsOverlay key="options-overlay" order={7.0} />,
       <Shortcut key="shortcut" order={99.0} />
     ];
   }
@@ -440,3 +448,4 @@ Player.contextTypes = { store: PropTypes.object };
 Player.propTypes = propTypes;
 Player.defaultProps = defaultProps;
 Player.displayName = 'Player';
+Player.mediaType = MediaType;

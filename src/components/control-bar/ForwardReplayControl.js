@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 const propTypes = {
   actions: PropTypes.object,
   className: PropTypes.string,
-  seconds: PropTypes.oneOf([5, 10, 30])
+  seconds: PropTypes.oneOf([5, 10, 15, 30])
 };
 
 const defaultProps = {
-  seconds: 10
+  seconds: 15
 };
 
-export default (mode) => {
+export default mode => {
   class ForwardReplayControl extends Component {
     constructor(props, context) {
       super(props, context);
@@ -30,6 +30,9 @@ export default (mode) => {
 
     render() {
       const { seconds, className } = this.props;
+
+      const modeName = mode === 'replay' ? 'rewind' : mode;
+
       const classNames = [
         'video-react-control',
         'video-react-button',
@@ -44,14 +47,14 @@ export default (mode) => {
       }
       return (
         <button
-          ref={(c) => {
+          ref={c => {
             this.button = c;
           }}
           className={classNames.join(' ')}
           type="button"
           onClick={this.handleClick}
         >
-          <span className="video-react-control-text">{`${mode} ${seconds} seconds`}</span>
+          <span className="video-react-control-text">{`${modeName} ${seconds} seconds`}</span>
         </button>
       );
     }

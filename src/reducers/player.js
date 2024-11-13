@@ -29,7 +29,10 @@ import {
 import {
   FULLSCREEN_CHANGE,
   PLAYER_ACTIVATE,
-  USER_ACTIVATE
+  USER_ACTIVATE,
+  OPTIONS_OVERLAY_CHANGE,
+  ACTIVE_AUDIO_DESCRIPTION,
+  AUDIO_DESCRIPTIONS
 } from '../actions/player';
 
 const initialState = {
@@ -54,7 +57,10 @@ const initialState = {
   userActivity: true,
   isActive: false,
   isFullscreen: false,
-  activeTextTrack: null
+  activeTextTrack: null,
+  isOptionsOverlayOpen: false,
+  audioDescriptions: [],
+  activeAudioDescription: 0
 };
 
 export default function player(state = initialState, action) {
@@ -73,6 +79,11 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         isFullscreen: !!action.isFullscreen
+      };
+    case OPTIONS_OVERLAY_CHANGE:
+      return {
+        ...state,
+        isOptionsOverlayOpen: !state.isOptionsOverlayOpen
       };
     case SEEKING_TIME:
       return {
@@ -171,6 +182,16 @@ export default function player(state = initialState, action) {
       return {
         ...state,
         activeTextTrack: action.textTrack
+      };
+    case AUDIO_DESCRIPTIONS:
+      return {
+        ...state,
+        audioDescriptions: action.audioDescriptions
+      };
+    case ACTIVE_AUDIO_DESCRIPTION:
+      return {
+        ...state,
+        activeAudioDescription: action.activeAudioDescription
       };
     default:
       return state;

@@ -36,25 +36,17 @@ const playerState = {
 
 describe('ClosedCaptionButton', () => {
   it('should render with "MenuButton" tag', () => {
-    const wrapper = shallow(
-      <ClosedCaptionButton
-        player={playerState}
-      />
-    );
+    const wrapper = shallow(<ClosedCaptionButton player={playerState} />);
 
     expect(wrapper.type()).toBe(MenuButton);
   });
 
   it('should show menu items after click', () => {
-    const wrapper = mount(
-      <ClosedCaptionButton
-        player={playerState}
-      />
-    );
+    const wrapper = mount(<ClosedCaptionButton player={playerState} />);
 
     expect(wrapper.find('.video-react-menu-item').length).toEqual(0);
-    expect(wrapper.find('div.video-react-closed-caption').length).toEqual(1);
-    wrapper.find('div.video-react-closed-caption').simulate('click');
+    expect(wrapper.find('div.video-react-options-button').length).toEqual(1);
+    wrapper.find('div.video-react-options-button').simulate('click');
     expect(wrapper.find('.video-react-menu-item').length).toEqual(4);
   });
 });
