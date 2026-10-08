@@ -16,10 +16,6 @@
 
 Video.React is a web video player built from the ground up for an HTML5 world using React library.
 
-### ✨ The future of Video.React
-
-Video.React is maintained by [Mux](https://www.mux.com), a [video api](https://www.mux.com/video-api) for developers. Mux now focuses its player work on [Video.js 10](https://videojs.org?utm_source=video-react), and Video.React only receives security fixes until January 2028. Video.React remains open source. Thanks to everyone in the community for your support.
-
 ## Installation
 
 Install `video-react` and **peer dependencies** via NPM
