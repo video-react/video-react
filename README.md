@@ -1,5 +1,15 @@
 # video-react
 
+> [!IMPORTANT]
+>
+> **Video-React is in security-only maintenance.** We'll merge priority security patches until January 2028, and nothing else. Mux, which maintains Video-React, now works on [Video.js 10](https://videojs.org?utm_source=video-react) together with the teams behind Video.js, Vidstack, Plyr, and Media Chrome.
+>
+> - **Get started with Video.js 10:** use `@videojs/react` and follow the [React installation guide](https://videojs.org/docs/guides/installation/react?utm_source=video-react).
+> - **With a coding agent:** paste the prompt from the guide's [AI Quickstart](https://videojs.org/docs/guides/installation/react?utm_source=video-react#ai-quickstart) section into your agent.
+> - **Map Video-React concepts:** there's no Video-React-specific guide. Video-React was modelled on Video.js, so the [Video.js 8 migration guide](https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8?utm_source=video-react) covers the closest concepts.
+> - **Questions:** [videojs/v10 discussions](https://github.com/videojs/v10/discussions)
+> - **Security reports:** [SECURITY.md](./SECURITY.md)
+
 [![npm version](https://badge.fury.io/js/video-react.svg)](https://badge.fury.io/js/video-react)
 [![Package Quality](http://npm.packagequality.com/shield/video-react.svg)](http://packagequality.com/#?package=video-react)
 [![codecov](https://codecov.io/gh/video-react/video-react/branch/master/graph/badge.svg)](https://codecov.io/gh/video-react/video-react)
@@ -8,9 +18,7 @@ Video.React is a web video player built from the ground up for an HTML5 world us
 
 ### ✨ The future of Video.React
 
-Maintenance of Video.React is being taken over by [Mux](https://www.mux.com). Mux is a [video api](https://www.mux.com/video-api) for developers. The team at Mux have worked on many highly respected projects and are committed to improving video tooling for developers.
-
-Video.React will remain open source, but with a higher rate of fixes and releases over time. Thanks to everyone in the community for your ongoing support.
+Video.React is maintained by [Mux](https://www.mux.com), a [video api](https://www.mux.com/video-api) for developers. Mux now focuses its player work on [Video.js 10](https://videojs.org?utm_source=video-react), and Video.React only receives security fixes until January 2028. Video.React remains open source. Thanks to everyone in the community for your support.
 
 ## Installation
 
@@ -87,7 +95,7 @@ $ npm start
 
 ## Contribution
 
-Interested in making contribution to this project? Want to report a bug? Please read the [contribution guide](./CONTRIBUTION.md).
+Video-React only accepts security fixes. Please read the [contribution guide](./CONTRIBUTION.md), and report vulnerabilities as described in [SECURITY.md](./SECURITY.md).
 
 ## Inspiration & Credits
 
