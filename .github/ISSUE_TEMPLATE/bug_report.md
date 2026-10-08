@@ -7,6 +7,10 @@ assignees: ''
 
 ---
 
+> [!IMPORTANT]
+>
+> Video-React is in security-only maintenance until January 2028, so bug reports that aren't about security are closed. Don't post vulnerability details here; report them privately as described in [SECURITY.md](https://github.com/video-react/video-react/blob/master/SECURITY.md). For everything else, see [Video.js 10](https://videojs.org?utm_source=video-react).
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

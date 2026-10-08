@@ -1,7 +1,7 @@
 {
   "name": "video-react",
   "version": "0.16.0",
-  "description": "Video-React is a web video player built from the ground up for an HTML5 world using React library.",
+  "description": "Deprecated in favour of Video.js 10 (https://videojs.org); security fixes only until January 2028. Video-React is a web video player built from the ground up for an HTML5 world using React library.",
   "main": "lib/index.js",
   "style": "dist/video-react.css",
   "scripts": {
@@ -37,6 +37,7 @@
     "url": "git+https://github.com/video-react/video-react.git"
   },
   "files": [
+    "AGENTS.md",
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
@@ -57,7 +58,9 @@
     "react-components",
     "react component",
     "react components",
-    "ui"
+    "ui",
+    "video.js",
+    "videojs"
   ],
   "contributors": [
     "Junmin Liu",
