@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ControlBarExample from '../examples/ControlBar';
 
-const ControlBarExampleSource = require('!!raw-loader!../examples/ControlBar');
+const ControlBarExampleSource = require('../examples/ControlBar?raw');
 
 export default class ControlBarPage extends React.Component {
   render() {

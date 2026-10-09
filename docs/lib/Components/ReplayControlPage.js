@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ReplayControlExample from '../examples/ReplayControl';
 
-const ReplayControlExampleSource = require('!!raw-loader!../examples/ReplayControl');
+const ReplayControlExampleSource = require('../examples/ReplayControl?raw');
 
 export default class ReplayControlPage extends React.Component {
   render() {

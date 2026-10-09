@@ -1,8 +1,8 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
-import minify from 'rollup-plugin-babel-minify';
-import replace from 'rollup-plugin-replace';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import terser from '@rollup/plugin-terser';
+import replace from '@rollup/plugin-replace';
 import sass from 'rollup-plugin-sass';
 // Require understands JSON files.
 const packageJson = require('./package.json');
@@ -29,6 +29,7 @@ function baseConfig() {
         include: 'node_modules/**'
       }),
       babel({
+        babelHelpers: 'bundled',
         babelrc: false,
         presets: [
           [
@@ -55,12 +56,13 @@ function baseUmdConfig(minified) {
   });
   config.plugins.push(
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify('production')
     })
   );
 
   if (minified) {
-    config.plugins.push(minify({ comments: false }));
+    config.plugins.push(terser({ format: { comments: false } }));
   }
 
   return config;

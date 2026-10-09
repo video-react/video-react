@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import PosterImageExample from '../examples/PosterImage';
-const PosterImageExampleSource = require('!!raw-loader!../examples/PosterImage');
+const PosterImageExampleSource = require('../examples/PosterImage?raw');
 
 export default class PosterImagePage extends React.Component {
   render() {

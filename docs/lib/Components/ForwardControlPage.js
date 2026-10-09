@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ForwardControlExample from '../examples/ForwardControl';
 
-const ForwardControlExampleSource = require('!!raw-loader!../examples/ForwardControl');
+const ForwardControlExampleSource = require('../examples/ForwardControl?raw');
 
 export default class ForwardControlPage extends React.Component {
   render() {

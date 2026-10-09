@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import BigPlayButtonExample from '../examples/BigPlayButton';
-const BigPlayButtonExampleSource = require('!!raw-loader!../examples/BigPlayButton');
+const BigPlayButtonExampleSource = require('../examples/BigPlayButton?raw');
 
 export default class BigPlayButtonPage extends React.Component {
   render() {

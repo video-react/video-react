@@ -6,8 +6,8 @@ import Helmet from 'react-helmet';
 import PlayerExample from '../examples/Player';
 import PlayerControlExample from '../examples/PlayerControl';
 
-const PlayerExampleSource = require('!!raw-loader!../examples/Player');
-const PlayerControlExampleSource = require('!!raw-loader!../examples/PlayerControl');
+const PlayerExampleSource = require('../examples/Player?raw');
+const PlayerControlExampleSource = require('../examples/PlayerControl?raw');
 
 export default function PlayerPage() {
   return (
