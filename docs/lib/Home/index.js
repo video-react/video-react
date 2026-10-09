@@ -25,9 +25,8 @@ export default () => {
             </p>
             <p>
               Video.js 10 is built by the teams behind Video.js, Vidstack, Plyr,
-              and Media Chrome. Video-React is now deprecated, with security
-              fixes only until January 2028. Start new projects with
-              Video.js&nbsp;10.
+              and Media Chrome. Video-React is now deprecated and receives
+              security fixes only. Start new projects with Video.js&nbsp;10.
             </p>
             <p>
               <Button color="danger" href={videoJsUrl}>

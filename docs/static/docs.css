@@ -128,11 +128,10 @@
 }
 
 /* Reserves the player's space and shows its poster until the Video.js bundle mounts.
-   --media-border-radius is read by the Video.js skin, so both share one corner radius. */
+   --media-border-radius is read by the Video.js skin; square corners match this site. */
 .videojs-demo {
-  --media-border-radius: 1rem;
+  --media-border-radius: 0;
   aspect-ratio: 16 / 9;
-  border-radius: var(--media-border-radius);
 }
 
 .videojs-demo:empty {
