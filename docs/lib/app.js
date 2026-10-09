@@ -30,7 +30,13 @@ if (typeof document !== 'undefined') {
   ReactDOM.render(
     <Router
       onUpdate={() => {
-        window.scrollTo(0, 0);
+        const { hash } = window.location;
+        const target = hash && document.getElementById(hash.slice(1));
+        if (target) {
+          target.scrollIntoView();
+        } else {
+          window.scrollTo(0, 0);
+        }
 
         if (Holder) {
           Holder.run();
@@ -78,6 +84,7 @@ export default (locals, callback) => {
           <link rel=icon href=/assets/favicon.ico>
           <link rel="stylesheet" href="/assets/main.css"/>
           <link rel="stylesheet" href="/assets/docs.css"/>
+          <link rel="stylesheet" href="/assets/videojs/videojs-demo.css"/>
         </head>
         <body>
           <div id="app">${body}</div>

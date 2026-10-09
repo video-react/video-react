@@ -1,0 +1,58 @@
+name: Docs
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.repository == 'video-react/video-react'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # No lifecycle scripts: this job later holds a deploy key with write access to the site.
+      - run: npm ci --ignore-scripts
+
+      # The docs copy the library's dist/ CSS into the site, so build the library first.
+      - run: npm run build
+      - run: npm run build-docs
+
+      # The site is served by GitHub Pages from video-react/video-react.github.io, which has the
+      # CNAME for video-react.js.org. DOCS_DEPLOY_KEY is the private half of a write-enabled
+      # deploy key on that repository.
+      - uses: actions/checkout@v4
+        with:
+          repository: video-react/video-react.github.io
+          ref: master
+          ssh-key: ${{ secrets.DOCS_DEPLOY_KEY }}
+          path: site
+
+      - name: Publish
+        working-directory: site
+        env:
+          SHA: ${{ github.sha }}
+        run: |
+          rsync -rt --del --exclude=CNAME --exclude=.git ../build/ ./
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No documentation changes to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "docs: publish documentation for $SHA"
+          git push origin master

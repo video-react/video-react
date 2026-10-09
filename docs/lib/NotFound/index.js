@@ -28,7 +28,7 @@ export default () => {
                   color="danger"
                   className="m-r-1"
                   tag={Link}
-                  to="/"
+                  to="/getting-started/"
                 >
                   Get Started
                 </Button>

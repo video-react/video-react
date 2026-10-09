@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute, IndexRedirect } from 'react-router';
 import Home from './Home';
+import GettingStarted from './GettingStarted';
 import NotFound from './NotFound';
 import Components from './Components';
 import UI from './UI';
@@ -26,6 +27,7 @@ const routes = (
   <Route path="/" component={UI.Layout}>
     <IndexRoute component={Home} />
     <Route path="index.html" component={Home} />
+    <Route path="/getting-started/" component={GettingStarted} />
     <Route path="/components/" component={Components}>
       <IndexRedirect to="player/" />
       <Route path="player/" component={PlayerPage} />

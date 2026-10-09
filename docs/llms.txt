@@ -1,0 +1,23 @@
+# Video-React
+
+> Video-React is deprecated and receives security fixes only until January 2028. Mux maintains Video-React and builds Video.js 10 together with the teams behind Video.js, Vidstack, Plyr, and Media Chrome. New projects should use Video.js 10, and existing Video-React integrations should migrate.
+
+> The `video.js` package on npm is still Video.js 8. Video.js 10 ships as `@videojs/react` and `@videojs/html`.
+
+## Migrate from Video-React
+
+There is no dedicated Video-React migration guide. Video-React was modelled on Video.js, and its `Player` props (`fluid`, `aspectRatio`, `poster`, `preload`, `playsInline`) and controls (`ControlBar`, `BigPlayButton`, `PlayToggle`) mirror Video.js 8's options and components. Compare the guide's "Known gaps" section with the features the project uses before changing code.
+
+- [Migrate from Video.js 8 (React)](https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8.md): The closest mapping for Video-React concepts
+- [React installation guide](https://videojs.org/docs/guides/installation/react.md): Install `@videojs/react`; follow the prompt in its "AI Quickstart" section
+
+## Video.js
+
+- [Video.js](https://videojs.org?utm_source=video-react): The open-source video player for React and HTML
+- [Video.js React llms.txt](https://videojs.org/docs/framework/react/llms.txt): Index of every Video.js 10 React guide and reference page in Markdown
+- [Video.js skill for AI coding agents](https://github.com/videojs/skills): Install with `npx @videojs/cli agents skills` for version-matched documentation
+
+## Video-React (maintenance mode)
+
+- [Video-React source](https://github.com/video-react/video-react): Readme and source, kept for existing users
+- [Video-React on npm](https://www.npmjs.com/package/video-react): Deprecated; security fixes only until January 2028

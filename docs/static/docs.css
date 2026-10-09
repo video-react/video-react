@@ -1,5 +1,29 @@
 .container-fluid {
-  max-width: 1200px;
+  max-width: 1280px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Full-height column so the footer sits at the bottom of short pages. */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+/* The home page is only the hero, centred in the space between the banner and footer. */
+.main-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 575px) {
@@ -86,6 +110,36 @@
 }
 .jumbotron-heading {
   font-weight: 300
+}
+
+.jumbotron-hero .jumbotron-heading {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .jumbotron-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .jumbotron-hero .jumbotron-heading {
+    font-size: 3rem;
+  }
+}
+
+/* Reserves the player's space and shows its poster until the Video.js bundle mounts.
+   --media-border-radius is read by the Video.js skin; square corners match this site. */
+.videojs-demo {
+  --media-border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.videojs-demo:empty {
+  background: #000 url(https://image.mux.com/lyrKpPcGfqyzeI00jZAfW6MvP6GNPrkML/thumbnail.webp?time=133) center / cover no-repeat;
+}
+
+.header .nav-link.videojs-link {
+  color: #d9534f;
 }
 
 footer {

@@ -4,7 +4,12 @@ import { Alert } from 'reactstrap';
 import Footer from './Footer';
 import Nav from './Nav';
 
+// The home page is just the hero; its "Video-React docs" link leads into the rest of the site.
+const HOME_PATHS = ['/', '/index.html'];
+
 export default props => {
+  const isHome = HOME_PATHS.includes(props.location.pathname);
+
   return (
     <div className="wrapper">
       <Helmet
@@ -23,7 +28,7 @@ export default props => {
           }
         ]}
       />
-      <Nav />
+      {!isHome && <Nav />}
       <Alert color="warning" className="mb-0 text-center rounded-0">
         Video-React is in security-only maintenance until January 2028. Its
         successor is{' '}
@@ -32,7 +37,9 @@ export default props => {
           Get started
         </a>
       </Alert>
-      {props.children}
+      <main className={isHome ? 'main main-home' : 'main'}>
+        {props.children}
+      </main>
       <Footer />
     </div>
   );
