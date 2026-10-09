@@ -24,7 +24,8 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm ci
+      # No lifecycle scripts: this job later holds a deploy key with write access to the site.
+      - run: npm ci --ignore-scripts
 
       # The docs copy the library's dist/ CSS into the site, so build the library first.
       - run: npm run build
