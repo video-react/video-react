@@ -81,7 +81,9 @@ export default (locals, callback) => {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           ${head.title.toString()}
           ${head.meta.toString()}
-          <link rel=icon href=/assets/favicon.ico>
+          <link rel="icon" href="/assets/favicon.ico" sizes="32x32">
+          <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+          <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
           <link rel="stylesheet" href="/assets/main.css"/>
           <link rel="stylesheet" href="/assets/docs.css"/>
           <link rel="stylesheet" href="/assets/videojs/videojs-demo.css"/>
