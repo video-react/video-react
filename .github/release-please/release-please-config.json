@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "include-v-in-tag": false,
+  "include-component-in-tag": false,
+  "bump-minor-pre-major": true,
+  "bootstrap-sha": "3835d5bdfdbccb5d96d7589358dde403effec7f3",
+  "changelog-path": "CHANGELOG.md",
+  "pull-request-title-pattern": "chore(release): ${version}",
+  "pull-request-header": "Merging this PR publishes a new Video-React release to npm and deprecates every version, including this one.",
+  "changelog-sections": [
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "feat", "section": "Features" },
+    { "type": "revert", "section": "Reverts" },
+    { "type": "docs", "section": "Documentation" },
+    { "type": "chore", "section": "Miscellaneous", "hidden": true },
+    { "type": "ci", "section": "Miscellaneous", "hidden": true },
+    { "type": "test", "section": "Miscellaneous", "hidden": true }
+  ],
+  "packages": {
+    ".": {
+      "package-name": "video-react"
+    }
+  }
+}
