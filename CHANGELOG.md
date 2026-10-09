@@ -4,6 +4,22 @@
 
 
 <a name="0.14.1"></a>
+## [0.16.1](https://github.com/video-react/video-react/compare/0.16.0...0.16.1) (2026-10-09)
+
+
+### Bug Fixes
+
+* test, build, dep issues ([#459](https://github.com/video-react/video-react/issues/459)) ([eea57bb](https://github.com/video-react/video-react/commit/eea57bbce305d670a84450bff3ac3454144525e1))
+
+
+### Documentation
+
+* feature Video.js 10 on the homepage and deploy docs with GitHub Actions ([#469](https://github.com/video-react/video-react/issues/469)) ([03d5472](https://github.com/video-react/video-react/commit/03d547266aff16f2a733ebc26996c0a294cf3300))
+* point migration copy at the Migrate from Video-React guide ([ece8f0c](https://github.com/video-react/video-react/commit/ece8f0c751b4bd07592c2f2ae5cdc3e4b0ce2f76))
+* put Bootstrap in a cascade layer so the Video.js skin keeps its styles ([9c50011](https://github.com/video-react/video-react/commit/9c500113cda5d5a7b37457b76da8e63c2fb56d12))
+* serve favicons from the site root ([50368f8](https://github.com/video-react/video-react/commit/50368f86f02857dbc7164fbe13000d02c2f74612))
+* use the Video.js favicon ([963a47e](https://github.com/video-react/video-react/commit/963a47e29f2a4709af5c42bda4c7aff2625d4d78))
+
 ## [0.14.1](https://github.com/video-react/video-react/compare/0.14.0...0.14.1) (2019-07-24)
 
 
