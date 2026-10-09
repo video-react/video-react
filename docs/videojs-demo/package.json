@@ -1,0 +1,18 @@
+{
+  "name": "video-react-docs-videojs-demo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Video.js 10 demo shown on the video-react docs site. It's bundled separately because the docs site uses React 16 and webpack 4, and Video.js 10 needs React 18+ and a bundler that supports package exports.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@videojs/mux-video": "10.0.1",
+    "@videojs/react": "10.0.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

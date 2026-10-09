@@ -42,6 +42,16 @@ export default class UINav extends React.Component {
                 <NavLink
                   tag={Link}
                   className="nav-link"
+                  to="/getting-started/"
+                  activeClassName="active"
+                >
+                  Getting Started
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  tag={Link}
+                  className="nav-link"
                   to="/customize/"
                   activeClassName="active"
                 >
@@ -56,6 +66,14 @@ export default class UINav extends React.Component {
                   activeClassName="active"
                 >
                   Components
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  className="videojs-link"
+                  href="https://videojs.org/?utm_source=video-react"
+                >
+                  Video.js 10
                 </NavLink>
               </NavItem>
               <NavItem>

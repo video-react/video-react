@@ -11,12 +11,14 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const outputFilename = 'video-react';
 const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
-const outputFile = env === 'production'
-  ? `${outputFilename.toLowerCase()}.min.js`
-  : `${outputFilename.toLowerCase()}.js`;
+const outputFile =
+  env === 'production'
+    ? `${outputFilename.toLowerCase()}.min.js`
+    : `${outputFilename.toLowerCase()}.js`;
 
 const paths = [
   '/',
+  '/getting-started/',
   '/components/',
   '/components/player/',
   '/components/shortcut/',
@@ -65,7 +67,9 @@ const config = {
     new CleanWebpackPlugin(['build']),
     new CopyWebpackPlugin([
       { from: './docs/static', to: 'assets' },
-      { from: './dist', to: 'assets' }
+      { from: './dist', to: 'assets' },
+      { from: './docs/videojs-demo/dist', to: 'assets/videojs' },
+      { from: './docs/llms.txt', to: 'llms.txt' }
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
