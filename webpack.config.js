@@ -69,7 +69,11 @@ const config = {
       { from: './docs/static', to: 'assets' },
       { from: './dist', to: 'assets' },
       { from: './docs/videojs-demo/dist', to: 'assets/videojs' },
-      { from: './docs/llms.txt', to: 'llms.txt' }
+      { from: './docs/llms.txt', to: 'llms.txt' },
+      // Browsers request /favicon.ico at the site root regardless of <link> tags.
+      { from: './docs/static/favicon.ico', to: 'favicon.ico' },
+      { from: './docs/static/favicon.svg', to: 'favicon.svg' },
+      { from: './docs/static/apple-touch-icon.png', to: 'apple-touch-icon.png' }
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
