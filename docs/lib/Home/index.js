@@ -5,7 +5,7 @@ import VideoJsDemo from '../UI/VideoJsDemo';
 
 const videoJsUrl = 'https://videojs.org/?utm_source=video-react';
 const migrateUrl =
-  'https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8?utm_source=video-react';
+  'https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react';
 
 export default () => {
   return (

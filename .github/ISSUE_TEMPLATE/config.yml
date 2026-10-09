@@ -4,8 +4,8 @@ contact_links:
     about: Video-React is in security-only maintenance. Report vulnerabilities privately, not in a public issue.
     url: https://github.com/video-react/video-react/security/advisories/new
   - name: 🚚 Move to Video.js 10
-    about: New features and fixes happen in Video.js 10. The React installation guide gets you started.
-    url: https://videojs.org/docs/guides/installation/react?utm_source=video-react
+    about: New features and fixes happen in Video.js 10. The migration guide maps your Video-React code to it.
+    url: https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react
   - name: ✨ Feature Requests and Questions
     about: Ask in the Video.js 10 discussions, where Mux and the teams behind Video.js, Vidstack, Plyr, and Media Chrome now work.
     url: https://github.com/videojs/v10/discussions

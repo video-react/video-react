@@ -78,13 +78,13 @@ function logDeprecationNotice() {
   hasLoggedDeprecationNotice = true;
   // eslint-disable-next-line no-console
   console.info(
-    '[video-react] Video-React is deprecated in favour of Video.js 10, from Mux and the teams behind Video.js, Vidstack, Plyr, and Media Chrome. Security fixes only until January 2028. Get started: https://videojs.org/docs/guides/installation/react'
+    '[video-react] Video-React is deprecated in favour of Video.js 10, from Mux and the teams behind Video.js, Vidstack, Plyr, and Media Chrome. Security fixes only until January 2028. Migrate: https://videojs.org/docs/framework/react/guides/migrate-from-video-react'
   );
 }
 
 /**
  * @deprecated Video-React is deprecated in favour of Video.js 10 (https://videojs.org) and receives
- * security fixes only until January 2028. Get started: https://videojs.org/docs/guides/installation/react
+ * security fixes only until January 2028. Migrate: https://videojs.org/docs/framework/react/guides/migrate-from-video-react
  */
 export default class Player extends Component {
   constructor(props) {
@@ -395,14 +395,8 @@ export default class Player extends Component {
   render() {
     const { fluid } = this.props;
     const { player } = this.manager.getState();
-    const {
-      paused,
-      hasStarted,
-      waiting,
-      seeking,
-      isFullscreen,
-      userActivity
-    } = player;
+    const { paused, hasStarted, waiting, seeking, isFullscreen, userActivity } =
+      player;
 
     const props = {
       ...this.props,

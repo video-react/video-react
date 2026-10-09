@@ -12,6 +12,9 @@ describe('Deprecation notice', () => {
 
       expect(info).toHaveBeenCalledTimes(1);
       expect(info.mock.calls[0][0]).toContain('Video.js 10');
+      expect(info.mock.calls[0][0]).toContain(
+        'https://videojs.org/docs/framework/react/guides/migrate-from-video-react'
+      );
 
       first.unmount();
       second.unmount();

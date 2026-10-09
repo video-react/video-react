@@ -5,8 +5,7 @@
 ## Migrating to Video.js 10
 
 - **Skill:** install the Video.js skill with `npx @videojs/cli agents skills`, or follow https://github.com/videojs/skills.
-- **Installation:** read https://videojs.org/docs/guides/installation/react.md and follow the prompt in its "AI Quickstart" section.
-- **Concept mapping:** there's no Video-React migration guide. Video-React was modelled on Video.js, and its `Player` props (`fluid`, `aspectRatio`, `poster`, `preload`, `playsInline`) and controls (`ControlBar`, `BigPlayButton`, `PlayToggle`) mirror Video.js 8's options and components. The Video.js 8 guide covers the closest concepts: https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8.md. Before you change code, compare its "Known gaps" section with the features the project uses.
+- **Migration guide:** read https://videojs.org/docs/framework/react/guides/migrate-from-video-react.md and follow the prompt in its "AI Quickstart" section. It maps `Player` props, control bar children, the player ref, and Redux state to Video.js 10. Before you change code, compare its "Known gaps" section with the features the project uses.
 - **Docs:** https://videojs.org/docs/framework/react/llms.txt indexes every page as Markdown. Once Video.js is installed, use `node_modules/@videojs/react/docs/llms.txt` instead, because it matches the installed version.
 
 ## Working in the video-react/video-react repository

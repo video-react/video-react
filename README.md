@@ -4,9 +4,8 @@
 >
 > **Video-React is in security-only maintenance.** We'll merge priority security patches until January 2028, and nothing else. Mux, which maintains Video-React, now works on [Video.js 10](https://videojs.org?utm_source=video-react) together with the teams behind Video.js, Vidstack, Plyr, and Media Chrome.
 >
-> - **Get started with Video.js 10:** use `@videojs/react` and follow the [React installation guide](https://videojs.org/docs/guides/installation/react?utm_source=video-react).
-> - **With a coding agent:** paste the prompt from the guide's [AI Quickstart](https://videojs.org/docs/guides/installation/react?utm_source=video-react#ai-quickstart) section into your agent.
-> - **Map Video-React concepts:** there's no Video-React-specific guide. Video-React was modelled on Video.js, so the [Video.js 8 migration guide](https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8?utm_source=video-react) covers the closest concepts.
+> - **Migrate to Video.js 10:** follow the [Migrate from Video-React guide](https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react). It maps `Player` props, control bar children, the player ref, and Redux state to `@videojs/react`.
+> - **With a coding agent:** paste the prompt from the guide's [AI Quickstart](https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react#ai-quickstart) section into your agent.
 > - **Questions:** [videojs/v10 discussions](https://github.com/videojs/v10/discussions)
 > - **Security reports:** [SECURITY.md](./SECURITY.md)
 

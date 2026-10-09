@@ -9,7 +9,7 @@ const importBasic = require('../examples/import-basic?raw');
 const videoJsExample = require('../../videojs-demo/src/Player.jsx?raw');
 
 const migrateUrl =
-  'https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8?utm_source=video-react';
+  'https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react';
 const installUrl =
   'https://videojs.org/docs/guides/installation/react?utm_source=video-react';
 
@@ -49,22 +49,16 @@ export default () => {
 
             <h3>Migrating from Video-React</h3>
             <p>
-              There isn’t a dedicated Video-React guide. Video-React was
-              modelled on Video.js, so its <code>Player</code> props and
-              controls map most closely to Video.js 8, and the{' '}
-              <a href={migrateUrl}>Video.js 8 migration guide</a> covers the
-              same concepts. Check its &quot;Known gaps&quot; section against
-              the features you use before you switch.
+              The <a href={migrateUrl}>Migrate from Video-React guide</a> maps{' '}
+              <code>Player</code> props, control bar children, the player ref,
+              and Redux state to Video.js 10. Check its &quot;Known gaps&quot;
+              section against the features you use before you switch.
             </p>
             <p>
-              Using a coding agent? Install the Video.js skill so it uses
-              version-matched docs:
+              Using a coding agent? Paste the prompt from the guide&apos;s{' '}
+              <a href={`${migrateUrl}#ai-quickstart`}>AI Quickstart</a> section
+              into your agent.
             </p>
-            <pre>
-              <PrismCode className="language-bash">
-                npx @videojs/cli agents skills
-              </PrismCode>
-            </pre>
 
             <h2 id="video-react-docs" className="mt-5">
               Video-React

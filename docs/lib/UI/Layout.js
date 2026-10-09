@@ -33,8 +33,8 @@ export default props => {
         Video-React is in security-only maintenance until January 2028. Its
         successor is{' '}
         <a href="https://videojs.org?utm_source=video-react">Video.js 10</a>.{' '}
-        <a href="https://videojs.org/docs/guides/installation/react?utm_source=video-react">
-          Get started
+        <a href="https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react">
+          Migrate from Video-React
         </a>
       </Alert>
       <main className={isHome ? 'main main-home' : 'main'}>

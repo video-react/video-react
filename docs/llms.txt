@@ -6,10 +6,9 @@
 
 ## Migrate from Video-React
 
-There is no dedicated Video-React migration guide. Video-React was modelled on Video.js, and its `Player` props (`fluid`, `aspectRatio`, `poster`, `preload`, `playsInline`) and controls (`ControlBar`, `BigPlayButton`, `PlayToggle`) mirror Video.js 8's options and components. Compare the guide's "Known gaps" section with the features the project uses before changing code.
+Follow the prompt in the migration guide's "AI Quickstart" section. Compare the guide's "Known gaps" section with the features the project uses before changing code.
 
-- [Migrate from Video.js 8 (React)](https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8.md): The closest mapping for Video-React concepts
-- [React installation guide](https://videojs.org/docs/guides/installation/react.md): Install `@videojs/react`; follow the prompt in its "AI Quickstart" section
+- [Migrate from Video-React](https://videojs.org/docs/framework/react/guides/migrate-from-video-react.md): Maps `Player` props, control bar children, the player ref, and Redux state to Video.js 10
 
 ## Video.js
 

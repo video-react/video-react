@@ -50,7 +50,7 @@ declare module 'video-react' {
 
   /**
    * @deprecated Video-React is deprecated in favour of Video.js 10 (https://videojs.org) and receives
-   * security fixes only until January 2028. Get started: https://videojs.org/docs/guides/installation/react
+   * security fixes only until January 2028. Migrate: https://videojs.org/docs/framework/react/guides/migrate-from-video-react
    */
   class Player extends React.Component<PlayerPropsType> {
     readonly video: Video;

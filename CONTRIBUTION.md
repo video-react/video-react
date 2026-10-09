@@ -2,7 +2,7 @@
 
 > [!NOTE]
 >
-> Video-React is in security-only maintenance until January 2028. We only accept priority security fixes. New work happens on [Video.js 10](https://videojs.org?utm_source=video-react). To move an existing Video-React integration, start with the [React installation guide](https://videojs.org/docs/guides/installation/react?utm_source=video-react). To report a vulnerability, see [SECURITY.md](./SECURITY.md).
+> Video-React is in security-only maintenance until January 2028. We only accept priority security fixes. New work happens on [Video.js 10](https://videojs.org?utm_source=video-react). To move an existing Video-React integration, follow the [Migrate from Video-React guide](https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react). To report a vulnerability, see [SECURITY.md](./SECURITY.md).
 
 ## Issues
 
