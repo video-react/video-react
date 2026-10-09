@@ -5,7 +5,7 @@ import { Table, Alert } from 'reactstrap';
 import Helmet from 'react-helmet';
 import ShortcutExample from '../examples/Shortcut';
 
-const ShortcutExampleSource = require('!!raw-loader!../examples/Shortcut');
+const ShortcutExampleSource = require('../examples/Shortcut?raw');
 
 export default class ShortcutPage extends React.Component {
   render() {

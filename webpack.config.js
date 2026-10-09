@@ -1,20 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-
-const env = process.env.WEBPACK_BUILD || process.env.NODE_ENV || 'development';
-
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const StaticSitePlugin = require('./docs/static-site-plugin');
 
-const outputFilename = 'video-react';
-const minimizer = env === 'production' ? [new UglifyJsPlugin()] : [];
-const outputFile =
-  env === 'production'
-    ? `${outputFilename.toLowerCase()}.min.js`
-    : `${outputFilename.toLowerCase()}.js`;
+const env = process.env.WEBPACK_BUILD || process.env.NODE_ENV || 'development';
 
 const paths = [
   '/',
@@ -43,42 +33,51 @@ const config = {
   mode: env,
   devtool: 'source-map',
   devServer: {
-    inline: false,
-    disableHostCheck: true,
-    contentBase: './build',
+    static: './build',
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 9000,
-    stats: {
-      chunks: false
-    }
+    // The bundle is also evaluated in Node to pre-render pages, so it can't include the
+    // dev server's browser client.
+    client: false,
+    hot: false,
+    liveReload: false,
+    webSocketServer: false
   },
-  entry: ['@babel/polyfill', './docs/lib/app'],
-  node: {
-    fs: 'empty'
-  },
+  entry: './docs/lib/app',
   output: {
     filename: 'bundle.js',
     path: path.resolve('./build'),
-    libraryTarget: 'umd',
-    library: 'VideoReact'
+    publicPath: '/',
+    library: {
+      name: 'VideoReact',
+      type: 'umd'
+    },
+    globalObject: 'this',
+    clean: true
   },
   plugins: [
-    new CleanWebpackPlugin(['build']),
-    new CopyWebpackPlugin([
-      { from: './docs/static', to: 'assets' },
-      { from: './dist', to: 'assets' },
-      { from: './docs/videojs-demo/dist', to: 'assets/videojs' },
-      { from: './docs/llms.txt', to: 'llms.txt' },
-      // Browsers request /favicon.ico at the site root regardless of <link> tags.
-      { from: './docs/static/favicon.ico', to: 'favicon.ico' },
-      { from: './docs/static/favicon.svg', to: 'favicon.svg' },
-      { from: './docs/static/apple-touch-icon.png', to: 'apple-touch-icon.png' }
-    ]),
+    // Files are copied as-is (`minimized` stops webpack re-minifying them), so e.g. the
+    // unminified dist/video-react.js stays unminified.
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './docs/static', to: 'assets' },
+        { from: './dist', to: 'assets' },
+        { from: './docs/videojs-demo/dist', to: 'assets/videojs' },
+        { from: './docs/llms.txt', to: 'llms.txt' },
+        // Browsers request /favicon.ico at the site root regardless of <link> tags.
+        { from: './docs/static/favicon.ico', to: 'favicon.ico' },
+        { from: './docs/static/favicon.svg', to: 'favicon.svg' },
+        {
+          from: './docs/static/apple-touch-icon.png',
+          to: 'apple-touch-icon.png'
+        }
+      ].map(pattern => ({ ...pattern, info: { minimized: true } }))
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
     }),
-    new StaticSiteGeneratorPlugin({
+    new StaticSitePlugin({
       paths,
       globals: {
         window: {}
@@ -92,17 +91,23 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(json)$/,
-        use: ['json-loader?cacheDirectory']
+        // Example source shown in the docs: `require('../examples/Foo?raw')`.
+        // Not `asset/source`: webpack minifies that when the file is JavaScript.
+        resourceQuery: /raw/,
+        use: {
+          loader: 'raw-loader',
+          options: { esModule: false }
+        }
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        resourceQuery: { not: [/raw/] },
         use: {
-          loader: 'babel-loader?cacheDirectory',
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
+            cacheDirectory: true,
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -128,29 +133,20 @@ const config = {
             }
           },
           'css-loader',
-          'sass-loader'
-        ]
-      },
-      {
-        test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-        use: [
           {
-            loader: 'url-loader',
+            loader: 'sass-loader',
             options: {
-              limit: 10000,
-              mimetype: 'application/font-woff'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?[a-z0-9=&.]+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 30000,
-              mimetype: '[name]-[hash].[ext]'
+              sassOptions: {
+                // Bootstrap 4's Sass predates these deprecations (all for Dart Sass 2/3).
+                silenceDeprecations: [
+                  'abs-percent',
+                  'color-functions',
+                  'global-builtin',
+                  'if-function',
+                  'import',
+                  'slash-div'
+                ]
+              }
             }
           }
         ]
@@ -167,21 +163,13 @@ const config = {
       'video-react-scss': path.resolve('./styles/scss/video-react.scss'),
       'video-react': path.resolve('./src')
     },
+    fallback: {
+      fs: false
+    },
     modules: [path.resolve('./src'), 'node_modules']
   },
   optimization: {
-    noEmitOnErrors: true,
-    minimizer,
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
+    emitOnErrors: false
   }
 };
 

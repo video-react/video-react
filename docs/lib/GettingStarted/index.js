@@ -5,8 +5,8 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import BasicExample from '../examples/import-basic';
 
-const importBasic = require('!!raw-loader!../examples/import-basic');
-const videoJsExample = require('!!raw-loader!../../videojs-demo/src/Player.jsx');
+const importBasic = require('../examples/import-basic?raw');
+const videoJsExample = require('../../videojs-demo/src/Player.jsx?raw');
 
 const migrateUrl =
   'https://videojs.org/docs/framework/react/guides/migrate-from-video-js-8?utm_source=video-react';

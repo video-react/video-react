@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>src/setupTests.js'],
   coverageReporters: ['html', 'text-summary', 'cobertura', 'lcov'],
   collectCoverageFrom: ['src/**/*.js'],

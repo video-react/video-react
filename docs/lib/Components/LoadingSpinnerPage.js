@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import { Button } from 'reactstrap';
 import Helmet from 'react-helmet';
 import LoadingSpinnerExample from '../examples/LoadingSpinner';
-const LoadingSpinnerExampleSource = require('!!raw-loader!../examples/LoadingSpinner');
+const LoadingSpinnerExampleSource = require('../examples/LoadingSpinner?raw');
 
 export default class LoadingSpinnerPage extends React.Component {
   render() {

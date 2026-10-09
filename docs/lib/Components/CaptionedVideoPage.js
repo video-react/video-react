@@ -4,7 +4,7 @@ import { PrismCode } from 'react-prism';
 import Helmet from 'react-helmet';
 import PlayerWithCaptions from '../examples/PlayerWithCaptions';
 
-const PlayerWithCaptionsSource = require('!!raw-loader!../examples/PlayerWithCaptions');
+const PlayerWithCaptionsSource = require('../examples/PlayerWithCaptions?raw');
 
 export default function CaptionedVideoPage() {
   return (
