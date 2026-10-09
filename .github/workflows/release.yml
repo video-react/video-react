@@ -34,7 +34,7 @@ jobs:
       sha: ${{ steps.release.outputs.sha }}
       version: ${{ steps.release.outputs.version }}
     steps:
-      - uses: googleapis/release-please-action@v5
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         id: release
         with:
           config-file: .github/release-please/release-please-config.json
@@ -79,9 +79,10 @@ jobs:
       - run: npm run build
 
       # Trusted publishing exchanges the job's OIDC token (id-token: write) for a short-lived npm
-      # credential, so publishing needs no NPM_TOKEN. It needs npm 11.5.1 or later.
+      # credential, so publishing needs no NPM_TOKEN. It needs npm 11.5.1 or later; pin an exact
+      # version and skip install scripts because this job can publish.
       - name: Update npm for trusted publishing
-        run: npm install -g npm@^11.5.1
+        run: npm install -g --ignore-scripts npm@11.21.0
 
       - name: Publish to npm
         run: npm publish --access public --provenance --ignore-scripts
