@@ -1,0 +1,114 @@
+name: Release
+
+# release-please keeps a "chore(release): X.Y.Z" pull request open against master that collects
+# every conventional commit since the last release. Nothing is published until a maintainer
+# merges that PR: merging it creates the tag and GitHub release, and the publish job below then
+# publishes to npm and marks every version deprecated, pointing people at Video.js 10.
+
+on:
+  push:
+    branches: [master]
+  # Re-run the release calculation without a new commit on master.
+  workflow_dispatch:
+
+concurrency: release
+
+permissions: {}
+
+env:
+  DEPRECATION_MESSAGE: >-
+    Video-React is deprecated and receives security fixes only until January 2028.
+    Use Video.js 10 for new projects.
+    Migration guide: https://videojs.org/docs/framework/react/guides/migrate-from-video-react
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    if: github.repository == 'video-react/video-react'
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      released: ${{ steps.release.outputs.release_created }}
+      tag: ${{ steps.release.outputs.tag_name }}
+      sha: ${{ steps.release.outputs.sha }}
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - uses: googleapis/release-please-action@v5
+        id: release
+        with:
+          config-file: .github/release-please/release-please-config.json
+          manifest-file: .github/release-please/.release-please-manifest.json
+
+  publish:
+    needs: release-please
+    if: needs.release-please.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # The npm trusted publisher is bound to this workflow file and environment. Add required
+    # reviewers to the environment in the repository settings for a second approval.
+    environment: Production
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      # Only whether the secret exists; the token itself is scoped to the deprecate step so it
+      # can't take the place of trusted publishing.
+      HAS_NPM_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Build the tagged release commit.
+          ref: ${{ needs.release-please.outputs.sha }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # No lifecycle scripts while installing dependencies.
+      - run: npm ci --ignore-scripts
+
+      - name: Verify release checkout
+        run: test "$(node -p "require('./package.json').version")" = "$VERSION"
+        env:
+          VERSION: ${{ needs.release-please.outputs.version }}
+
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+      # Trusted publishing exchanges the job's OIDC token (id-token: write) for a short-lived npm
+      # credential, so publishing needs no NPM_TOKEN. It needs npm 11.5.1 or later.
+      - name: Update npm for trusted publishing
+        run: npm install -g npm@^11.5.1
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance --ignore-scripts
+
+      # Trusted publishing can't run `npm deprecate`, so this step needs a granular npm token with
+      # write access to video-react, stored as the NPM_TOKEN secret. It runs after every release
+      # because a new version isn't covered by an earlier deprecation.
+      - name: Deprecate every version
+        if: env.HAS_NPM_TOKEN == 'true'
+        run: npm deprecate "video-react@*" "$DEPRECATION_MESSAGE"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        run: |
+          {
+            echo "Published video-react@${VERSION} to npm."
+            echo
+            if [ "$HAS_NPM_TOKEN" = "true" ]; then
+              echo "Marked every version deprecated."
+            else
+              echo "No NPM_TOKEN secret, so versions were not deprecated. Run this as an npm owner:"
+              echo
+              echo '```sh'
+              echo "npm deprecate \"video-react@*\" \"${DEPRECATION_MESSAGE}\""
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          VERSION: ${{ needs.release-please.outputs.version }}

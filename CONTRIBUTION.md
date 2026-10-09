@@ -40,22 +40,13 @@ If you want to contribute to video-react, but aren't quite sure where to start, 
 
 ## Releasing
 
-Maintainers should follow these steps to release a new version:
+Releases are automated by the [Release workflow](./.github/workflows/release.yml) with [release-please](https://github.com/googleapis/release-please). Use [Conventional Commits](https://www.conventionalcommits.org/) (`fix:`, `feat:`, `docs:`, `chore:`) so it can pick the next version and write the changelog.
 
-### Create Release Branch
+1. **Review the release PR.** After each push to `master`, release-please updates a `chore(release): X.Y.Z` pull request with the version bump and `CHANGELOG.md` entries.
+1. **Merge it.** Merging creates the tag and GitHub release. The workflow then tests, builds and publishes to npm with [trusted publishing](https://docs.npmjs.com/trusted-publishers) and provenance, and marks every version of `video-react` deprecated with a pointer to the [migration guide](https://videojs.org/docs/framework/react/guides/migrate-from-video-react?utm_source=video-react).
 
-To create a release branch and changelog, run the following command, optionally with a semantic release type (major, minor, patch) (if not provided, it will default to semver (it's best to let it default)):
+### One-time setup
 
-```
-./scripts/release <release-type>
-```
-
-Verify changelog in branch. Create a PR if everything looks good. Merge when tests are green.
-
-### Tagging and Publishing
-
-Once the release branch is merged, checkout master and run:
-
-```
-./scripts/publish
-```
+- **npm trusted publisher:** on npmjs.com, under the `video-react` package settings, add a GitHub Actions trusted publisher for `video-react/video-react` with workflow `release.yml` and environment `Production`. A new trusted publisher must publish successfully within 2 days, so add it shortly before merging a release PR.
+- **Deprecation token:** trusted publishing can't run `npm deprecate`, so the deprecate step needs an `NPM_TOKEN` repository secret: a granular npm token with read and write access to `video-react` that can bypass 2FA. Without it, the release still publishes, and the job summary prints the `npm deprecate` command to run by hand.
+- **Approval (optional):** add required reviewers to the `Production` environment in the repository settings to approve each publish.
