@@ -17,7 +17,7 @@ permissions: {}
 
 env:
   DEPRECATION_MESSAGE: >-
-    Video-React is deprecated and receives security fixes only until January 2028.
+    Video-React is deprecated and receives security fixes only.
     Use Video.js 10 for new projects.
     Migration guide: https://videojs.org/docs/framework/react/guides/migrate-from-video-react
 
