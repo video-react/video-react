@@ -127,14 +127,14 @@
   }
 }
 
-/* Reserves the player's space and shows its poster until the Video.js bundle mounts.
-   --media-border-radius is read by the Video.js skin; square corners match this site. */
+/* Reserves the player's space and shows its poster until the Video.js bundle mounts. */
 .videojs-demo {
-  --media-border-radius: 0;
   aspect-ratio: 16 / 9;
 }
 
+/* The radius matches the Video.js skin's default corners. */
 .videojs-demo:empty {
+  border-radius: 28px;
   background: #000 url(https://image.mux.com/lyrKpPcGfqyzeI00jZAfW6MvP6GNPrkML/thumbnail.webp?time=133) center / cover no-repeat;
 }
 

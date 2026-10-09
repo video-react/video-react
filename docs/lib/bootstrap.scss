@@ -1,0 +1,8 @@
+// Bootstrap goes in a cascade layer so styles in other layers, like the Video.js skin's, take
+// precedence over its element resets (e.g. reboot's `button { border-radius: 0 }`). Unlayered
+// styles beat every layer regardless of specificity.
+@use 'sass:meta';
+
+@layer bootstrap {
+  @include meta.load-css('bootstrap/scss/bootstrap');
+}
